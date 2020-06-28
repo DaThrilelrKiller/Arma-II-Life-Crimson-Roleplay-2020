@@ -1,0 +1,1 @@
+[]spawn S_drug_Grow;

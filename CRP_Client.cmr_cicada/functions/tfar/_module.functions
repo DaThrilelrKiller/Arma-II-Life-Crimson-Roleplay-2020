@@ -1,0 +1,8 @@
+[
+"AddItemRadio",
+"addRadios",
+"RemoveRadios",
+"UnitHasRadio",
+"channelCheck",
+"init"
+];

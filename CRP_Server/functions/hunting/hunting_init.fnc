@@ -1,0 +1,1 @@
+[120,s_hunting_loop]call core_AddLoop;

@@ -1,0 +1,23 @@
+module_stats= true;
+
+DTK_Save = [
+	["Main", "Bank"], 
+	["Main", "NAME"],
+	["Main", "Hunger"], 	
+	["Side", "Inventory"], 
+	["Side", "Licenses"], 	
+	["Side", "Pistol"], 	
+	["Side", "Rifle"], 
+	["Side", "DDOPP_X3"], 
+	["Side", "Weapons"], 
+	["Side", "Magazines"],
+	["Side", "Warrants"],
+	["Side", "Notes"],
+	["Side", "Storage"],
+	["Side", "House_Gear"],
+	["Side", "Apps"],
+	["Main", "lifestate"],
+	["Side", "seasion"],
+	["Main", "Side"],
+	["Side", "Clothing"]
+];

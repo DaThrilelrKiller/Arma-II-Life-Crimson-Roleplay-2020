@@ -1,0 +1,11 @@
+﻿[
+"attack",
+"board",
+"buy",
+"dismount",
+"follow",
+"move",
+"search",
+"wait",
+"init"
+];

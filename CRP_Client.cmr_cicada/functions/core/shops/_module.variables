@@ -1,0 +1,5 @@
+﻿module_shops = true;
+
+shop_object = ObjNull;
+dtk_shopactive = false;
+ar_kme_trucks = ["firetruck","engine","rescue","Laddertruck","Laddertrucksmall","il_kw_tanker"];

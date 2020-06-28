@@ -1,0 +1,4 @@
+huntingarray  = [
+["hunt", 300,"wildboar",30],
+["cow",150,"Rabbit",25]
+];

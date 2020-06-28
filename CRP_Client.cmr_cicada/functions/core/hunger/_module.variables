@@ -1,0 +1,17 @@
+﻿module_hunger = true;
+
+dtk_hunger = 25;
+
+dtk_hunger_config = [
+[50,{["A snack sounds good",'\CRP_Data\images\items\apple']call tag_notify;}],
+[60,{systemchat "Your stomach starting to growl"}],
+[70,{systemchat "You need to eat soon"}],
+[80,{systemchat "You are very hungry"}],
+[90,{systemchat "You need to eat now"}],
+[95,{systemchat "You are starving"}],
+[96,{systemchat "You are feeling faint"}],
+[97,{systemchat "You are starting to get dizzy"}],
+[98,{systemchat "EAT NOW!!"; titleText ["EAT NOW!!", "plain", 1];}],
+[100,{systemchat "Your going to pass out!"; titleText ["Your going to pass out!", "plain", 1];}],
+[101,{player setDamage 1; systemchat "Your are now unconscious from starvation"; dtk_hunger = 0;}]
+];

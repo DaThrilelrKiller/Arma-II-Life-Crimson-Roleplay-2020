@@ -1,0 +1,33 @@
+﻿module_admin = true;
+admin_move_obj = objNull;
+admin_handler_running = false;
+admin_selected = 2;
+dtk_sound_preview = true;
+dtk_source = objNull;
+dtk_adminTags = false;
+
+admin_actions = [
+["Delete",{SwagDevs or adminlevel2 or adminlevel3 or adminlevel4}],
+["Teleport",{SwagDevs or adminlevel3 or adminlevel4}],
+["Console",{SwagDevs}],
+["Move",{SwagDevs or adminlevel4}],
+["Inventory",{SwagDevs}],
+["Licenses",{SwagDevs or adminlevel4}],
+["Vehicles",{SwagDevs or adminlevel4}],
+["Logs",{SwagDevs or adminlevel4}],
+["Spectate",{SwagDevs or adminlevel2 or adminlevel3 or adminlevel4}],
+["Camera",{SwagDevs or adminlevel4}],
+["Revive",{SwagDevs}],
+["Clothing",{SwagDevs}],
+["Sounds",{SwagDevs}],
+["Tags",{SwagDevs or adminlevel3 or adminlevel4}],
+["TP2ME",{SwagDevs or adminlevel3 or adminlevel4}],
+["TPME2THEM",{SwagDevs or adminlevel3 or adminlevel4}],
+["Comp 100k",{SwagDevs or adminlevel3 or adminlevel4}],
+["Comp 1M",{SwagDevs or adminlevel4}],
+["Start Brush Fire",{SwagDevs or adminlevel4}],
+["Delete Brush Fires",{SwagDevs or adminlevel4}]
+];
+
+
+v_admin_recents = profileNameSpace getVariable ["v_admin_recents",[]];

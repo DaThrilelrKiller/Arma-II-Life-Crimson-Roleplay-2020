@@ -1,0 +1,13 @@
+﻿[
+"play",
+"say",
+"getsleep",
+"mode",
+"changemode",
+"playAuto",
+"playManual",
+"switch",
+"init",
+"add",
+"remove"
+];

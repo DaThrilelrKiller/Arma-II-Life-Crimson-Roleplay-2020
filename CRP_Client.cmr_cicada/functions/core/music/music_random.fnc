@@ -1,0 +1,1 @@
+[(music_array  call BIS_selectRandom)]call music_play;

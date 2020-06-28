@@ -1,0 +1,14 @@
+﻿module_chat = true;
+
+chat_emojis_list = [
+	[["love","<3"],["love.paa"]],
+	[[";)",";‑)","*-)",";]",";D"],["wink.paa"]],
+	[[":O"],["vomit.paa"]],
+	[[":‑)",":)",":-]",":]",":-3",":3",":->",":>"],["happy-1.paa","happy-2.paa","happy-3.paa","happy-4.paa","happy-5.paa","happy-6.paa","happy-7.paa"]],
+	[[":‑P",":P",":‑p",":p",":‑Þ",":Þ","=p"],["tongue.paa","tongue-1.paa","tongue-2.paa","tongue-3.paa"]],
+	[[":‑O",":O",":‑o",":o",":-0","8‑0"],["shocked.paa","shocked-1.paa","shocked-2.paa","shocked-3.paa","shocked-4.paa","shocked-5.paa","shocked-6.paa","surprised.paa","surprised-1.paa"]],
+	[["cash"],["rich.paa"]]
+];
+
+chat_messages = [];
+dtk_active_chat = 0;

@@ -1,0 +1,36 @@
+﻿module_core = true;
+add_civmoney		 = 1000;
+add_copmoney		 = 5000;
+MayorSteuern             = 0;
+dtk_jointime = time;
+core_loop_array = [];
+dtk_action_time = 0;
+dtk_center = [5125,5125,0];
+
+ar_paychecks = 
+[
+[{dtk_cop},5000],
+[{dtk_cop and Cpl_id},2000],
+[{dtk_cop and Sgt_id},3000],
+[{dtk_cop and Lt_id},10000],
+[{dtk_cop and Cpt_id},15000],
+[{dtk_cop and Chief_id},50000],
+[{dtk_ems},(5000 + random 2000 - random 2000)],
+[{dtk_civ},add_civmoney]
+];
+
+v_core_prones = [
+"amovppnemrunsnonwnondf",
+"amovppnemstpsnonwnondnon",
+"amovppnemstpsraswrfldnon",
+"amovppnemsprslowwrfldf"
+];
+
+v_events = [
+"killed",
+"Fired",
+"FiredNear",
+"HandleDamage",
+"Respawn",
+"MPHit"
+];

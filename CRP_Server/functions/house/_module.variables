@@ -1,0 +1,9 @@
+dtk_houses = [];
+
+DTK_NotHouses = [
+"Land_Hangar_2",
+"Land_Ind_Garage01_EP1",
+"Land_Hlidac_Budka_EP1",
+"Land_Hlidac_budka",
+"Land_Shed_wooden"
+];
