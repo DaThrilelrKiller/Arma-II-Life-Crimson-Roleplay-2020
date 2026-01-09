@@ -7,6 +7,8 @@
 title Crimson Roleplay - Auto Update
 SETLOCAL ENABLEEXTENSIONS
 
+git clone https://github.com/DaThrilelrKiller/Arma-II-Life-Crimson-Roleplay-2020
+
 :: Capture Hour
 set hour=%time:~0,2%
 :: Remove leading space if single digit
