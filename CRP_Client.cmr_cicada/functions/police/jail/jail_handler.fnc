@@ -9,7 +9,7 @@ _endTime = _unit getVariable["end_time",time + _time];
 
 _unit setpos [7117.99,3589.76,0];
 _unit setDamage 0;
-[] call police_disarm;
+_unit call police_disarm;
 if !(dtk_server) {
 	["olrpg_jailinmate"]call clothing_switch;
 }
