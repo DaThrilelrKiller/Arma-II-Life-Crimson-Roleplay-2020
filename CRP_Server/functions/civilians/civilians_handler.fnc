@@ -10,8 +10,8 @@ while {true} do {
 		_unit = _x select 1;
 	
         if (alive _vehicle && {speed _vehicle < 3}) then {
-			_town = _towns call BIS_selectRandom;
-            (group _unit) move (getPos _town);
+			_town = dtk_houses call BIS_selectRandom;
+            (group _unit) move (getMarketPos _town);
         };
 		
 		if (!alive _vehicle || {!alive _unit}) then {
