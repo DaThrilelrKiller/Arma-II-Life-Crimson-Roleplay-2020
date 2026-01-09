@@ -2,5 +2,6 @@
 "getGroups",
 "delete",
 "getVehicles",
-"getUnits"
+"getUnits",
+"addVeh"
 ];

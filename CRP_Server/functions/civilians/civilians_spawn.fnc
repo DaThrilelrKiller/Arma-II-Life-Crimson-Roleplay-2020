@@ -25,7 +25,7 @@ if (count _roads > 0) then {
 	_vehicleType = if (_preferredVehicle != "") then {_preferredVehicle} else {_vehTypes call BIS_selectRandom};
 	
 	_veh = createVehicle [_vehicleType, position _road, [], 0, "NONE"];
-	_grp addVehicle _veh;
+	[_grp,_veh]call groups_addVeh;
 	
 	_veh setVehicleInit format [
 		"
