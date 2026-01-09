@@ -9,7 +9,7 @@ if (!isNil "_escorting") exitWith {
 };
 
 _unit = cursorTarget;
-if !(_unit isKindOf "Man" && {!(simulationEnabled _unit)})exitWith {};
+if ( !(_unit isKindOf "Man") && {!(simulationEnabled _unit)})exitWith {};
 
 _escort = _unit getVariable "escorting";
 
