@@ -4,7 +4,7 @@ dtk_unit = _this select 2;
 
 if (dtk_server)exitWith {
     _this call ticket_ai;
-}
+};
 
 createDialog "ticket_pay";
 

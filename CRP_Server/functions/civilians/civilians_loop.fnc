@@ -31,7 +31,7 @@ for "_i" from 0 to 1 step 0 do {
 		
 		}count _vehicles;
 
-	}count call groups_getGroups;
+	}count (call groups_getGroups);
 	sleep 0.5;
 	false
 };

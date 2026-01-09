@@ -3,7 +3,6 @@
 ["init",false],
 ["killed",false],
 ["handler",false],
-["respawn",false],
 ["loop",false],
 ["despawn",false],
 ["setLoadout",false]
