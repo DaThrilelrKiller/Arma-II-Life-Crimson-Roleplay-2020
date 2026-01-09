@@ -8,8 +8,8 @@ if (_object isKindOf "Man" && {!(_object call ISSE_IsVictim)})exitWith {
 _storage = _object getVariable ["dtk_storage",[[],[]]]select 0;
 _license = _object getvariable ["cdb_license",[]];
 
-_weapons = [weapons _object,getweaponCargo _object select 0]select !(isPlayer _object);
-_magazines = [magazines _object,getmagazineCargo _object select 0]select !(isPlayer _object);
+_weapons = [weapons _object,getweaponCargo _object select 0]select !(_object isKindOf "Man");
+_magazines = [magazines _object,getmagazineCargo _object select 0]select !(_object isKindOf "Man");
 
 createDialog "liste_1_button";
 
@@ -22,7 +22,7 @@ lbAdd [1,"----------------------------------------------------------------------
 }count _storage;
 
 
-if (isPlayer _object)then {
+if (_object isKindOf "Man")then {
 	lbAdd [1, localize "STRS_statdialog_licenselist"];
 	lbAdd [1,"------------------------------------------------------------------------------------------"];
 	{

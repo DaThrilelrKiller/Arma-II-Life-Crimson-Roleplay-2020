@@ -45,22 +45,21 @@ if (_art == "lawswag") then
 	}
 	count INV_ItemTypenArray;
 };
-if (_art == "playerlist") then
-{
+if (_art == "playerlist") then {
 if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
-    lbAdd [1, _trennlinie];
-	lbAdd [1, localize "STRS_statdialog_playerlist"];
+    
 	lbAdd [1, _trennlinie];
-	private "_i";
-	
-	_playuers = playableUnits;
+	lbAdd [1, localize "STRS_statdialog_playerlist"];
+	lbAdd [1, _trennlinie];	
 
-	for [{_i=0}, {_i < (count _playuers)}, {_i=_i+1}] do 
 	{
-		_spieler = _playuers select _i;
-		if (!isnull _spieler and isPlayer _spieler) then {lbAdd [1, (format ["%1: %2", _spieler, name _spieler])];};
-	};
+		if (simulationEnabled _x) then {
+			lbAdd [1, (format ["%1: %2", _x, name _x])];
+		};
+	}count allMissionObjects "Man";
 };	
+
+
 if (_art == "oilswag") then 
 {
 if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
@@ -107,7 +106,7 @@ if (_art == "coplog") then
 	{
 		_civ	  = _players select _k;
 	
-		if(!isnull _civ and isPlayer _civ)then
+		if(!isnull _civ)then
 		{
 			private ["_reason"];
 			_reason = (_civ getvariable ["cdb_warrants",[]]);

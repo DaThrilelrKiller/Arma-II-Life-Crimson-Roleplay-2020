@@ -54,7 +54,7 @@
 			y = safeZoneY+safeZoneH*0.32777778;
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
-			text = "Drug Search ";			
+			text = "Drug Search";			
 		};
 		class button_Licence : RscButton 
 		{
@@ -108,7 +108,7 @@
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
 			text = "Put in Vehicle";		
-			action = "[]spawn other_putplayerincar;"
+			action = "[dtk_unit]spawn other_putplayerincar;"
 		};
 		class button_extra3 : RscButton 
 		{

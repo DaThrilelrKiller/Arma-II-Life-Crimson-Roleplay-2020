@@ -18,6 +18,8 @@ if (count _roads > 0) then {
 	_grp = createGroup _side;
 
 	_veh = createVehicle [_vehTypes call BIS_selectRandom, position _road, [], 0, "NONE"];
+	_unit = _grp createUnit [_unitType call BIS_selectRandom, [random 10,random 10,0], [], 0, "NONE"];
+	
 	_veh setVehicleInit format [
 		"
 			this setVehicleVarName ""vehicle_%2_%1"";
@@ -30,7 +32,7 @@ if (count _roads > 0) then {
 		, round(random 100), round(time)];
 		processInitCommands;
 
-	_veh setVariable ["DTK_OwnerUID","Server", true];
+	_veh setVariable ["DTK_OwnerUID",[["Server"],"","CIV",name _unit], true];
 	_veh setVariable ["dtk_keys",[getPlayerUID player], true];
 	_veh setVariable ["dtk_storage",[[],[]], true];
 	_veh addeventhandler ["HandleDamage",'_this call vehicle_handleDamage' ];	
@@ -53,7 +55,6 @@ if (count _roads > 0) then {
 	_name = format["civ_%1_%2",round(random 500), round(time)];
 
 
-	_unit = _grp createUnit [_unitType call BIS_selectRandom, [random 10,random 10,0], [], 0, "NONE"];
 	_unit setVehicleInit format [
 		"
 			this setVehicleVarName ""%1"";
