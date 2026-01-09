@@ -84,7 +84,7 @@ if (_clothing != "") then {
 
 /* Store bank balance */
 if (typeName _bankBalance == "ARRAY" && count _bankBalance == 2) then {
-	_balance = round random [(_bankBalance select 0), ((_bankBalance select 0) + (_bankBalance select 1)) / 2, (_bankBalance select 1)];
+	_balance = round ((_bankBalance select 0) + random ((_bankBalance select 1) - (_bankBalance select 0)));
 	_unit setVariable ["dtk_bank", _balance, true];
 };
 
