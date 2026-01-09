@@ -10,7 +10,9 @@ _endTime = _unit getVariable["end_time",time + _time];
 _unit setpos [7117.99,3589.76,0];
 _unit setDamage 0;
 [] call police_disarm;
-["olrpg_jailinmate"]call clothing_switch;
+if !(dtk_server) {
+	["olrpg_jailinmate"]call clothing_switch;
+}
 dtk_disabledkeys = [44,47];
 dtk_hunger      = 0;
 
