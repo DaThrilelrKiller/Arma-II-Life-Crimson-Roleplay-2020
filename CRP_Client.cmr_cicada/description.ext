@@ -29,6 +29,9 @@ class MissionSQM
 	#include "mission.sqm"
 };
 
+#include "data\sounds\cfgSounds.hpp"
+
+
 #include "data\dialogs\rscdefines.h"
 #include "data\dialogs\rscmap.hpp"
 #include "data\dialogs\dance_dialog.hpp"
