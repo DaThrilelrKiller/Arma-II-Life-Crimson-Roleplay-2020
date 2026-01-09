@@ -15,7 +15,7 @@ _type = (_x call config_type);
 		lbSetPicture [1501, _index, _image];
 	};
 	if (_type == "item")then {
-		lbSetPicture [1501, _index,format ["\crp_data\images\items\%1.paa",[_x select 0]call config_image]];
+		lbSetPicture [1501, _index,format ["data\images\items\%1.paa",[_x select 0]call config_image]];
 	};
  true
 }forEach  dtk_master;

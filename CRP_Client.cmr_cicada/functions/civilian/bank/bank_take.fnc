@@ -2,11 +2,11 @@ _object = _this select 0;
 _cracked = _object getVariable "cracked";
 
 if (_cracked == 10)exitWith {
-	["There is no more money left in this safe",'\crp_data\images\items\money',true]call tag_notify;
+	["There is no more money left in this safe",'data\images\items\money',true]call tag_notify;
 };
 
 for "_i" from 1 to 100 step 1 do {
-		[format['%3/10 Taking Money... %1%2',_i,"%",_cracked],'\crp_data\images\items\money',true]call tag_notify;
+		[format['%3/10 Taking Money... %1%2',_i,"%",_cracked],'data\images\items\money',true]call tag_notify;
 		uiSleep 0.3;
 		if(!alive player)exitWith {
 			systemchat "Mission failed due to you dying";

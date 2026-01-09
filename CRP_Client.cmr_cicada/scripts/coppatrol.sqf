@@ -72,13 +72,12 @@ deleteMarkerLocal "patrolmarker";
 
 if (_selection == "end") then
 {
-pmissionactive = false;	
-deleteMarkerLocal "patrolmarker";
-player sidechat "Patrol mission ended you must wait 60s to get a new one";
-patrolwaittime = true;
-sleep 60;
-patrolwaittime = false;
-
+	pmissionactive = false;	
+	deleteMarkerLocal "patrolmarker";
+	player sidechat "Patrol mission ended you must wait 60s to get a new one";
+	patrolwaittime = true;
+	sleep 60;
+	patrolwaittime = false;
 };
 
 

@@ -12,8 +12,8 @@ DTK_Factorys = [
 	_object = _x select 0;
 	_name = _x select 1;
 	_price = _x select 4;
-	_object addaction ["","noscript.sqf",format["[%1,%2]call factory_buy;",_object,_price], -1, false, true, "LeanRight",format["!(_target call factory_owns) && {!([_target,'Buy %1 (%2$) (E)','\crp_data\images\tags\factory']call tag_show)}",_name,[_price] call Main_FormatMoney]];
-	_object addaction ["","noscript.sqf",format["%1 call factory_Open;",_forEachIndex], -1, false, true, "LeanRight",format["(_target call factory_owns) && {!([_target,'Open %1 (E)','\crp_data\images\tags\factory']call tag_show)}",_name]];
+	_object addaction ["","noscript.sqf",format["[%1,%2]call factory_buy;",_object,_price], -1, false, true, "LeanRight",format["!(_target call factory_owns) && {!([_target,'Buy %1 (%2$) (E)','data\images\tags\factory']call tag_show)}",_name,[_price] call Main_FormatMoney]];
+	_object addaction ["","noscript.sqf",format["%1 call factory_Open;",_forEachIndex], -1, false, true, "LeanRight",format["(_target call factory_owns) && {!([_target,'Open %1 (E)','data\images\tags\factory']call tag_show)}",_name]];
 	_object addaction ["Hire Factory Worker","noscript.sqf",format["%1 call factory_addWorkers;",_object], 25, false, true, "","_target call factory_owns"];
 	_object addaction ["Factory Storage","noscript.sqf",format["[%1]call storage_trunk;",_object], 25, false, true, "","_target call factory_owns"];
 }forEach DTK_Factorys;

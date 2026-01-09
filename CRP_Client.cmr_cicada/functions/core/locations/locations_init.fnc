@@ -6,7 +6,7 @@
 	{
 		_loc = []call locations_nearest;
 		if (_loc != "")then {
-		[format ["Welcome to %1",_loc],'\crp_data\images\tags\pin']call tag_notify;
+		[format ["Welcome to %1",_loc],'data\images\tags\pin']call tag_notify;
 		location_name = _loc;
 		};
 		waitUntil {_loc != call locations_nearest};

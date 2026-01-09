@@ -1,0 +1,1 @@
+[]call s_civilians_spawn;

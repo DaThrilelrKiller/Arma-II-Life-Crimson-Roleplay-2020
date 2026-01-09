@@ -36,7 +36,7 @@ _hunger = switch toLower _item do
 	};
 
 [player,_item,-_amount] call storage_add;
-[format['Eating %1',_name],format ["\crp_data\images\items\%1",[_item]call config_image],true]call tag_notify;
+[format['Eating %1',_name],format ["data\images\items\%1",[_item]call config_image],true]call tag_notify;
 
 dtk_hunger = dtk_hunger - (_hunger*_amount);
 if (dtk_hunger < 0) then {dtk_hunger = 0};

@@ -24,7 +24,7 @@ if ([paint_unit,["Man"]]call core_isKindOf)then {
 		paint_temp_vehicle say "Spray";
 		for "_i" from 0 to 100 step 1 do 
 		{
-			[format['%1%2 Spraying Painting Vehcile',_i,"%"],'\crp_data\images\tags\paint',true]call tag_notify;
+			[format['%1%2 Spraying Painting Vehcile',_i,"%"],'data\images\tags\paint',true]call tag_notify;
 			sleep 0.008;
 		};
 		DTK_Painting = false;

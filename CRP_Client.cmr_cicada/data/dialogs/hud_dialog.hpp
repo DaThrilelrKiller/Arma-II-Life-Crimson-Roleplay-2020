@@ -122,7 +122,7 @@ class ar_hud
 			y = safeZoneY + safeZoneH * 0.22569445;
 			w = safeZoneW * 0.41210938;
 			h = safeZoneH * 0.54861112;
-			text = "\crp_data\images\logo.paa";
+			text = "data\images\logo.paa";
 		};
 		
 	};

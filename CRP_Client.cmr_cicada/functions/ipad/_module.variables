@@ -15,5 +15,5 @@ ipad_backgrounds = [
 'ca\ui\data\loadscreen_test_a_co.paa',
 'ca\ui\data\loadscreen_test_f_co.paa',
 'ca\ui\data\loadscreen_test_c_co.paa',
-'\CRP_data\images\loading.jpg'
+'data\images\loading.jpg'
 ];

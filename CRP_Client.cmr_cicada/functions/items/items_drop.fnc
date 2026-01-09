@@ -2,7 +2,7 @@ private ["_item","_amount","_image","_class","_pos","_object","_name13"];
 
 _item   = _this select 0; 
 _amount = _this select 1;
-_image = format ["\crp_data\images\items\%1",[_item]call config_image];
+_image = format ["data\images\items\%1",[_item]call config_image];
 
 if (_amount <= 0) exitwith {};
 

@@ -15,7 +15,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.42;
 			w = safeZoneW * 0.21625;
 			h = safeZoneH * 0.13888889;
-			text = "\crp_data\images\radar\radar.paa";
+			text = "data\images\radar\radar.paa";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 		};
 		
@@ -29,7 +29,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44111112;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -40,7 +40,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44222223;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -51,7 +51,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44222223;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -62,7 +62,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44111112;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -73,7 +73,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44111112;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -84,7 +84,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44222223;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -95,7 +95,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44333334;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -106,7 +106,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44222223;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
@@ -117,7 +117,7 @@ class radar_dialog
 			y = safeZoneY + safeZoneH * 0.44222223;
 			w = safeZoneW * 0.0225;
 			h = safeZoneH * 0.03777778;
-			text = "\crp_data\images\radar\0.pac";
+			text = "data\images\radar\0.pac";
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};

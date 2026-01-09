@@ -1,9 +1,10 @@
+private["_unit","_cop","_time","_endTime","_unit","_unit","_unit"];
 
 _unit = _this select 0;
 _cop = _this select 1;
 _time = _this select 2;
 _time = _time * 60;
-dtk_endTime = time + _time;
+_endTime = _unit getVariable["end_time",time + _time];
 
 
 _unit setpos [7117.99,3589.76,0];
@@ -17,10 +18,10 @@ dtk_hunger      = 0;
 
 while {true} do {
 
-	if (time > dtk_endTime)exitWith jail_free;
-	if (player distance [7117.99,3589.76,0] >= 50 && {time < dtk_endTime}) exitWith jail_escape;
+	if (time > _endTime)exitWith jail_free;
+	if (player distance [7117.99,3589.76,0] >= 50 && {time < _endTime}) exitWith jail_escape;
 	
-	_bail = (dtk_endTime - time) * 150;
-	hintsilent format["Time until release: %1\nBail left to pay: %2", [(dtk_endTime - time) / 60 / 60, "HH:MM:SS"] call BIS_fnc_timeToString, [_bail]call main_formatMoney];
+	_bail = (_endTime - time) * 150;
+	hintsilent format["Time until release: %1\nBail left to pay: %2", [(_endTime - time) / 60 / 60, "HH:MM:SS"] call BIS_fnc_timeToString, [_bail]call main_formatMoney];
 	sleep 0.5;
 };

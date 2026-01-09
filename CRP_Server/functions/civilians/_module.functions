@@ -1,0 +1,8 @@
+[
+["spawn",false],
+["init",false],
+["killed",false],
+["handler",false],
+["respawn",false],
+["setLoadout",false]
+];

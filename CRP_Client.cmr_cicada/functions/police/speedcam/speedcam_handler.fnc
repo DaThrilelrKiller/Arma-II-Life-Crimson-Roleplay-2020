@@ -21,7 +21,7 @@ if ((_car  animationPhase "ani_lights") != 0.1)then
 		if(_speed >= 150 && {_speed < 170}) then {_penalty = 6};
 		if(_speed >= 170 		 ) then {_penalty = 7};
 
-		[format ["Speedcam: Your Speed: %1 Limit: 90",round _speed],'\crp_data\images\tags\speedCam']call tag_notify;
+		[format ["Speedcam: Your Speed: %1 Limit: 90",round _speed],'data\images\tags\speedCam']call tag_notify;
 		[_car,format ['Speeding: %1',round _speed],format ["Speedcam %1",(_forEachIndex + 1)]]call cdb_addNote;
 		sleep 2;
 		}; 

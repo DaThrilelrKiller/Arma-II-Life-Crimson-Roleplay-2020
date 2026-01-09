@@ -13,7 +13,7 @@ _object setPos _location;
 _object setVehicleInit "this enableSimulation false";
 processInitCommands;
 
-["ALL",[_object,['','noscript.sqf',format["[%1,%2]spawn gas_fix",_object,_markers],25,false,true,'LeanRight',format ['dtk_ems && {player distance _target < 5} && {!([_target,"Clean up accident(E)","\crp_data\images\items\gasmask"]call tag_show)}',_name13,_image]]],"network_addAction",false,true]call network_MPExec;
+["ALL",[_object,['','noscript.sqf',format["[%1,%2]spawn gas_fix",_object,_markers],25,false,true,'LeanRight',format ['dtk_ems && {player distance _target < 5} && {!([_target,"Clean up accident(E)","data\images\items\gasmask"]call tag_show)}',_name13,_image]]],"network_addAction",false,true]call network_MPExec;
 
 
 _city = [_location]call locations_nearest;

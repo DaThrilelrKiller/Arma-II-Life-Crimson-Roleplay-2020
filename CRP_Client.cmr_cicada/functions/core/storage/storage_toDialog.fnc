@@ -21,6 +21,6 @@ if (count _arrayitems < 1)exitWith {};
 	{
 		_index = lbAdd [_idc, format ["%1 - %2 (%3kg)",(_arrayamount select _ForEachIndex),(_x call config_displayname),(_x call config_weight)]];
 		lbSetData [_idc, _index, str [_x,(_arrayamount select _ForEachIndex)]];
-		lbSetPicture [_idc, _index, format ["\crp_data\images\items\%1.paa",[_x]call config_image]];
+		lbSetPicture [_idc, _index, format ["data\images\items\%1.paa",[_x]call config_image]];
 	};
 }forEach _arrayitems;

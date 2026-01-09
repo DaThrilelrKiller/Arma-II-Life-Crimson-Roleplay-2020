@@ -25,4 +25,4 @@ _pos = getPos player;
 _object = _class createvehicle _pos;
 _object call core_setVarName;	
 	
-["ALL",[_object,['','noscript.sqf',format["[%1,%2] spawn keys_pickup",_keys,_object],25,false,true,'LeanRight',format ['player distance _target < 5 && {!([_target,"%1","\crp_data\images\items\keychain"]call tag_show)}',_text]]],"network_addAction",false,true]call network_MPExec;
+["ALL",[_object,['','noscript.sqf',format["[%1,%2] spawn keys_pickup",_keys,_object],25,false,true,'LeanRight',format ['player distance _target < 5 && {!([_target,"%1","data\images\items\keychain"]call tag_show)}',_text]]],"network_addAction",false,true]call network_MPExec;

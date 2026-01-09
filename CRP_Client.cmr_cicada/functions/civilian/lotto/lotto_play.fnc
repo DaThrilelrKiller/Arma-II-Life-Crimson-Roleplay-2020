@@ -18,7 +18,7 @@ playsound "scratch";
 playing_lotto = 1; 
 
 for "_i" from 1 to 100 step 1 do {
-	[format['Scratching Card... %1%2',_i,"%"],'\crp_data\images\tags\lotto',true]call tag_notify;
+	[format['Scratching Card... %1%2',_i,"%"],'data\images\tags\lotto',true]call tag_notify;
 	sleep 0.08;
 };
 

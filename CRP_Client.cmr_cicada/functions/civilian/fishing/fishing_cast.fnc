@@ -26,7 +26,7 @@ _type = _type call BIS_selectRandom;
 _time = time + (round (random 15) + 5);
 
 while {time < _time} do {
-["Nibble...",'\crp_data\images\items\fishing-pole']call tag_notify;
+["Nibble...",'data\images\items\fishing-pole']call tag_notify;
 sleep round (random 4);
 };
 
@@ -34,7 +34,7 @@ _chance = _type call fishing_chance;
 _amount = round ([0,_chance]call core_random);
 
 if (_amount == 0)then {
-	["Nothing Caught...",'\crp_data\images\items\fishing-pole']call tag_notify;
+	["Nothing Caught...",'data\images\items\fishing-pole']call tag_notify;
 }else
 {	
 	_name = _type call config_displayname;

@@ -102,7 +102,7 @@ class cdb_search
 			y = 0.049*safezoneH+safezoneY;
 			w = 1.14984*safezoneW;
 			h = 0.913*safezoneH;
-			text = "\crp_data\images\ipad\PoliceComputer.paa";
+			text = "data\images\ipad\PoliceComputer.paa";
 			
 		};
 		

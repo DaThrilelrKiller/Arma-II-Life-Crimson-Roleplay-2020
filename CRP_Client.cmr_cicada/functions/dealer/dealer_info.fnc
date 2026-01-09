@@ -41,11 +41,11 @@ if( _maxDist > _dist &&  {alive _target} && {count _pos > 0})then{
 	<img size='2' image='%1'/>Buy (E)<br/>
 	%2<br/>
 	Seller: %7<br/>
-	<img size='2' image='\crp_data\images\items\money.paa'/>%5<br/>
-	<img size='2' image='\crp_data\images\items\exhaust.paa'/>%3<br/>
-	<img size='2' image='\crp_data\images\tags\storage.paa'/>%4<br/>
-	<img size='2' image='\crp_data\images\tags\pin.paa'/>%6<br/>
-	<img size='2' image='\crp_data\images\tags\paint.paa'/>%8<br/>
+	<img size='2' image='data\images\items\money.paa'/>%5<br/>
+	<img size='2' image='data\images\items\exhaust.paa'/>%3<br/>
+	<img size='2' image='data\images\tags\storage.paa'/>%4<br/>
+	<img size='2' image='data\images\tags\pin.paa'/>%6<br/>
+	<img size='2' image='data\images\tags\paint.paa'/>%8<br/>
 	</t>",_image,_name,_speed,_trunk,[_price]call main_formatMoney,_gps,_seller,_painted];
 		
 			

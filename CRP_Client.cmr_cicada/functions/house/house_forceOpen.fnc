@@ -8,7 +8,7 @@ if (typename _this == "ARRAY")exitWith {
 	
 		if (player distance (getMarkerPos _marker) < 10)exitWith{
 			for "_i" from 1 to 100 step 1 do {
-				[format['Using %3... %1%2',_i,"%",_item],'\crp_data\images\items\lockpick',true]call tag_notify;
+				[format['Using %3... %1%2',_i,"%",_item],'data\images\items\lockpick',true]call tag_notify;
 				uiSleep 0.1;
 				if(!alive player)exitWith {};
 				

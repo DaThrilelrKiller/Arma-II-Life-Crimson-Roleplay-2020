@@ -65,7 +65,7 @@ _place setVariable ["robbery_avalible",true,true];
 _object = createVehicle ["Suitcase", position player, [], 10, "NONE"];
 
 _object call core_setVarName;
-["ALL",[_object,['','noscript.sqf',format['%1 spawn items_pickup',[_object, "evidence", 1]],25,false,true,'LeanRight',format ['dtk_cop && {player distance _target < 5} && {!([_target,"Pick up %1 (E)","%2"]call tag_show)}',_name,"\crp_data\images\tags\oil"]]],"network_addAction",false,true]call network_MPExec;
+["ALL",[_object,['','noscript.sqf',format['%1 spawn items_pickup',[_object, "evidence", 1]],25,false,true,'LeanRight',format ['dtk_cop && {player distance _target < 5} && {!([_target,"Pick up %1 (E)","%2"]call tag_show)}',_name,"data\images\tags\oil"]]],"network_addAction",false,true]call network_MPExec;
 
 
 local_useBankPossible = false;

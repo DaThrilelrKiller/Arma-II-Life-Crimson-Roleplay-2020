@@ -9,9 +9,11 @@ call ipad_load;
 [15009,player,true]call storage_toDialog;
 
 {
-	_index = lbAdd [21009, format ["%1 - (%2)", (str _x), (name _x)]];
-	lbSetData [21009, _index, format["%1", _x]];
-}count playableUnits;
+	if (simulationEnabled _x) then {
+		_index = lbAdd [21009, format ["%1 - (%2)", (str _x), (name _x)]];
+		lbSetData [21009, _index, format["%1", _x]];
+	}
+}count nearestobjects [getposatl player, ["Man"], 8];
 
 lbSetCurSel [21009, 0];
 lbSetCurSel [15009, 0];

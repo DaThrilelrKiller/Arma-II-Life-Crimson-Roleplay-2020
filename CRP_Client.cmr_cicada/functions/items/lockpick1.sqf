@@ -28,7 +28,7 @@ if (isNil '_closeVcl')exitWith {systemChat localize "STRS_inventar_lockpick_zuwe
 			["ALL",[player," "],"network_SwitchMove",false,true]call network_MPExec;
 			
 			for "_i" from 1 to 100 step 1 do {
-				[format['Lock Picking... %1%2',_i,"%"],'\crp_data\images\items\lockpick',true]call tag_notify;
+				[format['Lock Picking... %1%2',_i,"%"],'data\images\items\lockpick',true]call tag_notify;
 				uiSleep 0.1;
 				if(!alive player)exitWith {};
 				if (speed _car > 1)exitWith {};

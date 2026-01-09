@@ -76,7 +76,7 @@ goto start
 
 timeout /t 5
 
-start "" "%_ARMA2OAPATH%\arma2oaserver.exe" "-mod=%_ARMA2%;EXPANSION;ca;@CRP;%_ARMA2OAPATH%\@inidbi;"  -port=2302 "-config=%_ARMA2OAPATH%\TADST\default\TADST_config.cfg" "-cfg=%_ARMA2OAPATH%\TADST\default\TADST_basic.cfg" "-profiles=%_ARMA2OAPATH%\TADST\default" -name=default
+start "" "%_ARMA2OAPATH%\arma2oaserver.exe" "-mod=%_ARMA2%;EXPANSION;ca;%_ARMA2OAPATH%\@inidbi;;%_ARMA2OAPATH%\@OurLifeRPG;"  -port=2302 "-config=%_ARMA2OAPATH%\TADST\default\TADST_config.cfg" "-cfg=%_ARMA2OAPATH%\TADST\default\TADST_basic.cfg" "-profiles=%_ARMA2OAPATH%\TADST\default" -name=default
 
 timeout /t 20
 

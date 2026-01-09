@@ -21,7 +21,7 @@ for "_i" from 0 to 1 step 0 do
 				private ["_config","_image","_name"];
 				_config = _x call s_drug_config;
 				_item = _config select 1;
-				_image = format ["\crp_data\images\items\%1",[_item]call config_image];
+				_image = format ["data\images\items\%1",[_item]call config_image];
 				_name = _item call config_displayName;
 			
 				["ALL",[_x,['','noscript.sqf',format['%1 call drug_harvest',[_x,_config]],-1,false,true,'LeanRight',format ['player distance _target < 5 && {!([_target,"Harvest %1 (E)","%2"]call tag_show)}',_name,_image]]],"network_addAction",false,true]call network_MPExec;

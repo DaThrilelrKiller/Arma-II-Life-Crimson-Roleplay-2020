@@ -1,7 +1,7 @@
 if (dtk_server)exitWith {};
 
 {
-	_x addaction ["Pull lever","noscript.sqf", format ["%1 spawn slots_start",_x], 1, false, true,"LeanRight",format ["player distance _target < 5 && {!([_target,'Pull Lever (E)','\crp_data\images\items\money']call tag_show)}",_img,_text]];
+	_x addaction ["Pull lever","noscript.sqf", format ["%1 spawn slots_start",_x], 1, false, true,"LeanRight",format ["player distance _target < 5 && {!([_target,'Pull Lever (E)','data\images\items\money']call tag_show)}",_img,_text]];
 	true
 }forEach dtk_machines;
 

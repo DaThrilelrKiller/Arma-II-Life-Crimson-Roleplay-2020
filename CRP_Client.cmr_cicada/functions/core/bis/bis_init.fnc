@@ -1,5 +1,5 @@
 ﻿if (dtk_client)then {
-	["\crp_data\images\misc\Gps.paa",-0.06,-0.36] call bis_customGPS;
+	["data\images\misc\Gps.paa",-0.06,-0.36] call bis_customGPS;
 };
 
 

@@ -3,7 +3,7 @@ _camera = call garage_cam;
 
 playsound "Drill";
 for "_i" from 1 to 100 step 1 do {
-		[format['Installing Upgrade... %1%2',_i,"%"],'\crp_data\images\items\exhaust',true]call tag_notify;
+		[format['Installing Upgrade... %1%2',_i,"%"],'data\images\items\exhaust',true]call tag_notify;
 		uiSleep 0.02;
 		if(!alive player)exitWith {};
 };

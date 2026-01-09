@@ -6,7 +6,7 @@ _text = _this;
 	_images = _x select 1;
 	{
 		if (_x in _emojis)then {
-		_text set [_forEachIndex,format ["<img image='\crp_data\images\emoji\%1'/>",_images call bis_selectRandom]];
+		_text set [_forEachIndex,format ["<img image='data\images\emoji\%1'/>",_images call bis_selectRandom]];
 		};
 	}forEach _text;
 }forEach chat_emojis_list;

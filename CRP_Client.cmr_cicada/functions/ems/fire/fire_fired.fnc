@@ -22,7 +22,7 @@ if (_weapon == "FirefighterWeap2") then
 	if (typeOf _object in ["#particlesource"])exitWith {
 		_object setDamage (damage _object + random 0.015);
 		_damage = 100 - (round ((damage _object)*100));
-		[format['%1%2 of the fire contained',_damage,"%"],'\crp_data\images\tags\fire',true]call tag_notify;
+		[format['%1%2 of the fire contained',_damage,"%"],'data\images\tags\fire',true]call tag_notify;
 		if !(damage _object < 1)then
 		{
 			deleteVehicle _object;

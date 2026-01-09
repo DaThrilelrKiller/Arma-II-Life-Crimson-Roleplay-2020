@@ -21,11 +21,11 @@ while {((fuel _vehicle) < 0.99)} do
 	
 	[_vehicle,[_vehicle,((fuel _vehicle)+0.05)],{(_this select 0) setFuel (_this select 1)},false,false]call network_MPExec;
 	
-	[format['Fuel Status: %1 of 100. You refuelled 10 litres into your car. If you have enough',round(fuel _Vehicle * 100)],'\crp_data\images\tags\Gas pump']call tag_notify;
+	[format['Fuel Status: %1 of 100. You refuelled 10 litres into your car. If you have enough',round(fuel _Vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;
 	
 	sleep 1.5;
 };
 
-[format ["you have refueled the vehicle %1%",round(fuel _Vehicle * 100)],'\crp_data\images\tags\Gas pump']call tag_notify;
+[format ["you have refueled the vehicle %1%",round(fuel _Vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;
 
 publicvariable "v_fuel_cost";

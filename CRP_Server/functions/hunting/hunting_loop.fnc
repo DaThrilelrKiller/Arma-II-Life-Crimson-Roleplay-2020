@@ -16,7 +16,7 @@ private ["_pos","_size","_animal","_max","_inArea","_outArea","_unit"];
 	if(count _inArea < _max)then{
 		_unit = createAgent [_animal, _pos, [], _size, "NONE"];
 		_unit call core_setVarName;
-		["ALL",[_unit,['','noscript.sqf',format["[%1]call hunting_harvest",_unit],25,false,true,'LeanRight','!alive _target && {!([_target,"Harvest Boar Meat(E)","\crp_data\images\items\raw-meat"]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
+		["ALL",[_unit,['','noscript.sqf',format["[%1]call hunting_harvest",_unit],25,false,true,'LeanRight','!alive _target && {!([_target,"Harvest Boar Meat(E)","data\images\items\raw-meat"]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	};
 	
 }forEach huntingarray;

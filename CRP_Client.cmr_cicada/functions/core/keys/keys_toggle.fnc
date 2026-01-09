@@ -10,4 +10,4 @@ _lock = !(locked _vehicle);
 _text = ["locked","un-locked"]select (locked _vehicle);
 
 [_vehicle,[_vehicle,_lock],'network_lock',false,true]call network_MPExec;
-[format ["(%1) %2",_name,_text],'\crp_data\images\misc\lock']call tag_notify;
+[format ["(%1) %2",_name,_text],'data\images\misc\lock']call tag_notify;

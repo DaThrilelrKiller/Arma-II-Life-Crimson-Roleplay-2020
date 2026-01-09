@@ -40,7 +40,7 @@ else
 	_rank = _ui displayCtrl 1403;
 	_dob = _ui displayCtrl 1401;
 
-	_FaceUI ctrlSetText format["\crp_data\images\faces\%1.pac",_Face];
+	_FaceUI ctrlSetText format["data\images\faces\%1.pac",_Face];
 	_Name ctrlSetText format["%1",name _art];
 	_Idnum ctrlSetText format["%1",getPlayerUID _art];
 	_rank ctrlSetText format["%1","n/a"];

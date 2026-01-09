@@ -29,7 +29,7 @@ if(capturing) exitWith {
 			["ALL",[player,"AinvPknlMstpSlayWrflDnon_medic"],"network_SwitchMove",false,true]call network_MPExec;	
 		};
 		
-		[format['%3... %1%2',_i,"%",_text],'\crp_data\images\tags\flag',true]call tag_notify;
+		[format['%3... %1%2',_i,"%",_text],'data\images\tags\flag',true]call tag_notify;
 		uiSleep 0.3;
 		if(!alive player)exitWith {};
 	};

@@ -31,9 +31,9 @@ playsound _Sound;
 };
 hintSilent parseText""
 		<t align='center' color='#e5b348' size='1.7'><t shadow='1'shadowColor='#000000'>%2</t></t>
-		<img color='#ffffff' image='\crp_data\images\DaThrillerKiller\img_line_ca.paa' align='left' size='0.20' /><br />
+		<img color='#ffffff' image='data\images\DaThrillerKiller\img_line_ca.paa' align='left' size='0.20' /><br />
 		<t align='left' color='#eaeaea' size='1.0'>%3</t><br />
-		<img color='#ffffff' image='\crp_data\images\DaThrillerKiller\img_line_ca.paa' align='left' size='0.20' />
+		<img color='#ffffff' image='data\images\DaThrillerKiller\img_line_ca.paa' align='left' size='0.20' />
 	"";
 };
 "

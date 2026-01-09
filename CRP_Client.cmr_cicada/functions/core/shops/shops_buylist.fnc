@@ -21,7 +21,7 @@ _sort = lbText [2101, (lbCurSel 2101)];
 			case "item":
 			{
 				_index = lbAdd [301, format ["%1 ($%2, %3kg)", _name, (_preis), (_infos call config_weight)] ]; 
-				lbSetPicture [301, _index,format ["\crp_data\images\items\%1.paa",[_item]call config_image]];				
+				lbSetPicture [301, _index,format ["data\images\items\%1.paa",[_item]call config_image]];				
 			};
 			case "label":
 			{

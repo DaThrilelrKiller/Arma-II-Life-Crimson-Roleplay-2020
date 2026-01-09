@@ -27,7 +27,7 @@ _infos    = _resource call config_array;
 _name     = (_infos call config_displayname);
 _itemweight = (_infos call config_weight)*_amount;
 _class = "Suitcase";
-_icon = format ["\CRP_data\images\items\%1",[_resource]call config_image];
+_icon = format ["\data\images\items\%1",[_resource]call config_image];
 
 
 if (_isInArea) exitwith {

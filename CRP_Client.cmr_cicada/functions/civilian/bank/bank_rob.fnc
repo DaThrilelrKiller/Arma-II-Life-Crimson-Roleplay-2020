@@ -24,7 +24,7 @@ _object setVariable ["cracking",name player,true];
 [player,"Bank Robbery",100000]call cdb_addWarrant;
 
 for "_i" from 1 to 100 step 1 do {
-		[format['Cracking into bank safe... %1%2',_i,"%"],'\crp_data\images\items\lockpick',true]call tag_notify;
+		[format['Cracking into bank safe... %1%2',_i,"%"],'data\images\items\lockpick',true]call tag_notify;
 		uiSleep 0.7;
 		if(!alive player)exitWith {
 			systemchat "Mission failed due to you dying";
@@ -42,10 +42,10 @@ for "_i" from 1 to 100 step 1 do {
 };
 
 if (bank_progress == 100)then {
-		["You have sucefully opened the safe, take all the damn money..",'\crp_data\images\items\lockpick',true]call tag_notify;
+		["You have sucefully opened the safe, take all the damn money..",'data\images\items\lockpick',true]call tag_notify;
 		_object setVariable ["cracking",nil,true];
 		_object setVariable ["cracked",0,true];
 		bank_progress = -1;
 }else{
-		["Mission failed",'\crp_data\images\items\lockpick',true]call tag_notify;
+		["Mission failed",'data\images\items\lockpick',true]call tag_notify;
 };

@@ -23,6 +23,7 @@ dtk_server_modules =
 "Gallery",
 "Lab",
 "Vehicle",
+"Civilians",
 "OwlEye"
 ];
 

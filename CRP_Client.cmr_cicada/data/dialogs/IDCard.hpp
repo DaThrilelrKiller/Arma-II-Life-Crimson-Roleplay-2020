@@ -19,7 +19,7 @@ class IDCard
 			y = safeZoneY + safeZoneH * 0.06;
 			w = safeZoneW * 0.3125;
 			h = safeZoneH * 0.40888889;
-			text = "\crp_data\images\id\id.paa";
+			text = "data\images\id\id.paa";
 			
 		};
 		class Text_Name : RscText 

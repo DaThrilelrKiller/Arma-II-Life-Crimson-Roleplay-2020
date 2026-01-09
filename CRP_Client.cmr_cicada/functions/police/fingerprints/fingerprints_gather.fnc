@@ -18,7 +18,7 @@ dtk_finger_action = player addaction [format["Stop investigating",_name],"noscri
 
 for "_y" from 1 to round(random 5)+ 1 step 1 do 
 { 
-	[format["Brushing %1 for finger prints...",_name],'\crp_data\images\tags\fingerprint']call tag_notify;
+	[format["Brushing %1 for finger prints...",_name],'data\images\tags\fingerprint']call tag_notify;
 	["ALL",[player,"ainvpknlmstpslaywrfldnon_medic"],"network_SwitchMove",false,true]call network_MPExec;
 	waitUntil {animationState player != "ainvpknlmstpslaywrfldnon_medic" or !dtk_fingers};
 	if !(dtk_fingers)exitWith {};

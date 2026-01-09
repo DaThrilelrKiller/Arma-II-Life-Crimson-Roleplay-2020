@@ -3,7 +3,7 @@
 dtk_hunger = 25;
 
 dtk_hunger_config = [
-[50,{["A snack sounds good",'\CRP_Data\images\items\apple']call tag_notify;}],
+[50,{["A snack sounds good",'\data\images\items\apple']call tag_notify;}],
 [60,{systemchat "Your stomach starting to growl"}],
 [70,{systemchat "You need to eat soon"}],
 [80,{systemchat "You are very hungry"}],

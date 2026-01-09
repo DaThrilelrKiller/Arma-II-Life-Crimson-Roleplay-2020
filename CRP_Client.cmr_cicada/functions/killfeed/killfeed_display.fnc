@@ -4,7 +4,6 @@ _killer = _this select 1;
 
 if (_unit == _killer)exitWith {};
 if (dtk_server)exitWith {};
-if !(isPlayer _unit)exitWith {};
 
 _this call killfeed_add;
 

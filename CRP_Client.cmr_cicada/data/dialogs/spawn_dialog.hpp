@@ -818,7 +818,7 @@ class dtk_credit
 			y = safeZoneY + safeZoneH * 0.28;
 			w = safeZoneW * 0.1825;
 			h = safeZoneH * 0.31444445;
-			text = "\crp_data\images\logo.paa";
+			text = "data\images\logo.paa";
 			
 		};
 		class lable_website : Rsc_lable

@@ -27,7 +27,7 @@ class dtk_loading
 			y = SafeZoneY;
 			h = SafeZoneH;
 			w = SafeZoneW;
-			text = "\crp_data\images\loading.jpg";
+			text = "data\images\loading.jpg";
 		};
 	};
 	class controls

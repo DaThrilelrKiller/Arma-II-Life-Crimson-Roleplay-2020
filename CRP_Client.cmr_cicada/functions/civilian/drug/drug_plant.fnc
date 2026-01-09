@@ -38,7 +38,7 @@ for "_y" from 1 to _amount step 1 do
 	_plant = _classname createvehicle (getpos player);
 	_plant setPos [getPos _plant select 0, getPos _plant select 1, -1];
 	_plant call core_setVarName;		
-	["ALL",[_plant,['','noscript.sqf',format['[%1] call fingerprints_gather',_plant],-1,false,true,'LeanRight',format ['player distance _target < 5 && {dtk_cop} && {[player,"brush"] call storage_amount > 0} && {!([_target,"Gather Prints %1 (E)","\crp_data\images\tags\fingerprint"]call tag_show)}',_name]]],"network_addAction",false,true]call network_MPExec;
+	["ALL",[_plant,['','noscript.sqf',format['[%1] call fingerprints_gather',_plant],-1,false,true,'LeanRight',format ['player distance _target < 5 && {dtk_cop} && {[player,"brush"] call storage_amount > 0} && {!([_target,"Gather Prints %1 (E)","data\images\tags\fingerprint"]call tag_show)}',_name]]],"network_addAction",false,true]call network_MPExec;
 	_amounplanted = _y;
 };
 

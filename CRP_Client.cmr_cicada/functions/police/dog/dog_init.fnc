@@ -12,7 +12,7 @@ if (dtk_cop)then {
 	[player,["Board Car","noscript.sqf", '[cursorTarget]spawn dog_board', 1, false, true, "", "ar_doggy"]]call action_add;
 	[player,["Dismount","noscript.sqf", '[]spawn dog_dismount', 1, false, true, "", "ar_doggy"]]call action_add;
 
-	dogspawn addaction ["","noscript.sqf","[]call dog_buy", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Buy K9 (E)','\crp_data\images\tags\K9']call tag_show)}"];
-	dogspawn2 addaction ["","noscript.sqf","[]call dog_buy", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Buy K9 (E)','\crp_data\images\tags\K9']call tag_show)}"];
+	dogspawn addaction ["","noscript.sqf","[]call dog_buy", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Buy K9 (E)','data\images\tags\K9']call tag_show)}"];
+	dogspawn2 addaction ["","noscript.sqf","[]call dog_buy", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Buy K9 (E)','data\images\tags\K9']call tag_show)}"];
 
 };

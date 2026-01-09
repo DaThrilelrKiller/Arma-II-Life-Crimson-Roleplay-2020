@@ -29,7 +29,7 @@ _speed = _speed call {
 if (_speed != 0)then {
 	playsound "Drill";
 	for "_i" from 1 to 100 step 1 do {
-			[format['Removing Turbo Bro... %1%2',_i,"%"],'\crp_data\images\items\turbo',true,_vehicle]call tag_notify;
+			[format['Removing Turbo Bro... %1%2',_i,"%"],'data\images\items\turbo',true,_vehicle]call tag_notify;
 			uiSleep 0.01;
 	};
 	_cost = _cost + _speed;
@@ -38,7 +38,7 @@ if (_speed != 0)then {
 if (_storage != 0)then {
 	playsound "Drill";
 	for "_i" from 1 to 100 step 1 do {
-			[format['Removing Badass tunes dude... %1%2',_i,"%"],'\crp_data\images\items\exhaust',true,_vehicle]call tag_notify;
+			[format['Removing Badass tunes dude... %1%2',_i,"%"],'data\images\items\exhaust',true,_vehicle]call tag_notify;
 			uiSleep 0.01;
 	};
 	_cost = _cost + 10000;
@@ -46,7 +46,7 @@ if (_storage != 0)then {
 
 
 for "_i" from 1 to 100 step 1 do {
-		[format['Inspecting Vehicle Condition... %1%2',_i,"%"],'\crp_data\images\tags\tools',true,_vehicle]call tag_notify;
+		[format['Inspecting Vehicle Condition... %1%2',_i,"%"],'data\images\tags\tools',true,_vehicle]call tag_notify;
 		uiSleep 0.01;
 };
 

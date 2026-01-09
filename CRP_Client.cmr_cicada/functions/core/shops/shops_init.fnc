@@ -17,7 +17,7 @@ private ["_data","_img","_text","_color","_shop"];
 
 		_data = _x select 1;
 		_img = _data select 0;
-		_img = if (_img != "")then {format ["\crp_data\images\tags\%1",_img]}else{""};
+		_img = if (_img != "")then {format ["data\images\tags\%1",_img]}else{""};
 		_text = _data select 1;
 		
 		if (typeOf _shop == "Infostand_2_EP1")then {

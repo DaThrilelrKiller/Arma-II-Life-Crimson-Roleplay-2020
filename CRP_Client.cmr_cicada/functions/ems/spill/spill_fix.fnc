@@ -9,7 +9,7 @@ _markers = _this select 1;
 
 for "_i" from 0 to 100 step 1 do 
 {
-	[format['%1%2 of the leak contained',_i,"%"],'\crp_data\images\tags\spill',true]call tag_notify;
+	[format['%1%2 of the leak contained',_i,"%"],'data\images\tags\spill',true]call tag_notify;
 
 	if (animationstate player != "AinvPknlMstpSlayWrflDnon_medic")then {
 		["ALL",[player,"AinvPknlMstpSlayWrflDnon_medic"],"network_SwitchMove",false,true]call network_MPExec;	

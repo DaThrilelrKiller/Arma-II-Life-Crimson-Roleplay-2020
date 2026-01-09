@@ -19,7 +19,7 @@
 			y = safeZoneY + safeZoneH * 0.15666667;
 			w = safeZoneW * 0.130625;
 			h = safeZoneH * 0.13777778;
-			text = "\crp_data\images\plates\_plate.paa";
+			text = "data\images\plates\_plate.paa";
 			
 		};
 		class Control1587434356

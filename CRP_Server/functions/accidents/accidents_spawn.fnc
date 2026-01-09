@@ -58,11 +58,11 @@ _wreck5 call core_setVarName;
 
 _vehicles = [_wreck1,_wreck2,_wreck3,_wreck4,_wreck5,_object];
 
-["ALL",[_wreck1,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","\crp_data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
-["ALL",[_wreck2,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","\crp_data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
-["ALL",[_wreck3,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","\crp_data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
-["ALL",[_wreck4,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","\crp_data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
-["ALL",[_wreck5,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","\crp_data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
+["ALL",[_wreck1,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
+["ALL",[_wreck2,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
+["ALL",[_wreck3,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
+["ALL",[_wreck4,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
+["ALL",[_wreck5,['','noscript.sqf',format["[%1,%2] spawn accidents_clear",_vehicles,_markers],25,false,true,'LeanRight','player distance _target < 5 && {!([_target,"Clean up accident(E)","data\images\tags\jaws"]call tag_show)}']],"network_addAction",false,false]call network_MPExec;
 
 
 while {!isNull _object} do

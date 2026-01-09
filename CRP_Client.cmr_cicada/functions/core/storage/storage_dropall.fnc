@@ -40,7 +40,7 @@ _amounts = _array select 1;
 		_name13 = _x call config_displayname;
 
 		_object call core_setVarName;	
-		["ALL",[_object,['','noscript.sqf',format['%1 spawn items_pickup',[_object, _x, _amount]],25,false,true,'LeanRight',format ['player distance _target < 5 && {!([_target,"Pick up (%3) %1 (E)","\crp_data\images\items\%2"]call tag_show)}',_name13,[_x]call config_image,_amount]]],"network_addAction",false,true]call network_MPExec;
+		["ALL",[_object,['','noscript.sqf',format['%1 spawn items_pickup',[_object, _x, _amount]],25,false,true,'LeanRight',format ['player distance _target < 5 && {!([_target,"Pick up (%3) %1 (E)","data\images\items\%2"]call tag_show)}',_name13,[_x]call config_image,_amount]]],"network_addAction",false,true]call network_MPExec;
 	};
 }Foreach _items;
 

@@ -1,23 +1,28 @@
 ﻿
 [_this,[player,dtk_dob],"id_show",false,false]call network_MPExec;
 
-while {player getVariable "ar_cuffed" and alive player} do
+while {_this getVariable "ar_cuffed" and alive _this} do
 {
-	if (vehicle player == player)then
+	if (vehicle _this == _this)then
 	{
-		if (animationstate player != "actspercmstpsnonwrfldnon_interrogate02_forgoten")then
+		if (animationstate _this != "actspercmstpsnonwrfldnon_interrogate02_forgoten")then
 		{
-			["ALL",[player,"actspercmstpsnonwrfldnon_interrogate02_forgoten"],"network_SwitchMove",false,true]call network_MPExec;
+			["ALL",[_this,"actspercmstpsnonwrfldnon_interrogate02_forgoten"],"network_SwitchMove",false,true]call network_MPExec;
 		};
 	}
 	else
 	{
-		if ((driver vehicle player) == player)then
+		if ((driver vehicle _this) == _this)then
 		{
-			(driver vehicle player) action ["getout", vehicle player];
+			(driver vehicle _this) action ["getout", vehicle _this];
 		};
 	};
 	sleep 0.1;
 };
+
+["ALL",[_this," "],"network_SwitchMove",false,true]call network_MPExec;
+
+
+
 
 ["ALL",[player," "],"network_SwitchMove",false,true]call network_MPExec;

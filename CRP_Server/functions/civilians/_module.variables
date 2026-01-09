@@ -1,0 +1,127 @@
+t_enemies_handler = []spawn {};
+relistic_names = [
+	"James Walker",
+	"Michael Harris",
+	"Daniel Cooper",
+	"Andrew Mitchell",
+	"Ryan Thompson",
+	"Matthew Collins",
+	"Christopher Bennett",
+	"Joshua Reynolds",
+	"David Carter",
+	"Brandon Wilson",
+	"Eric Morgan",
+	"Steven Parker",
+	"Kevin Anderson",
+	"Jonathan Brooks",
+	"Mark Sullivan",
+	"Paul Richardson",
+	"Nathaniel Foster",
+	"Brian Edwards",
+	"Luke Patterson",
+	"Adam Hughes",
+	"Jason Miller",
+	"Scott Turner",
+	"Thomas Lawson",
+	"Alex Grant",
+	"Patrick O'Connor",
+	"Sean Murphy",
+	"Benjamin Hayes",
+	"Robert King",
+	"William Dawson",
+	"Zachary Coleman",
+	"Trevor Barnes",
+	"Anthony Wallace",
+	"Nick Porter",
+	"Justin Howard",
+	"Derek Simmons",
+	"Caleb Fisher",
+	"Jordan Price",
+	"Tyler Matthews",
+	"Ethan Rogers",
+	"Samuel Knox"
+];
+
+DTK_CIV_Loadouts = [
+{
+	[
+		[
+			["geld",round random 20000],
+			["Pickaxe",1],
+			["Diamond rock",round random 10],
+			["Gold",round random 10],
+			["Silver",round random 10],
+			["Apple",round random 8]
+		],
+		[
+		
+		],
+		[
+			"car"
+		]
+	]
+},
+{
+	[
+		[
+			["geld",round random 60000],
+			["marijuana",round random 10],
+			["cocaine",round random 10],
+			["Fuelline",round random 1],
+			["beer",round random 5],
+			["Apple",round random 5]
+		],
+		[
+			["glock17_EP1",1],
+			["Rnd_9x19_glock17",round random 10]
+		],
+		[
+			"car",
+			"pistollicense"
+		]
+	]
+},
+{
+	[
+		[
+			["geld",round random 15000],
+			["rabbit",round random 10],
+			["cow",round random 10],
+			["boar",round random 5],
+			["Apple",round random 5],
+			["smirnoff",round random 5]
+		],
+		[
+			["M16A2",1],
+			["Rnd_20_Stanag",round random 10]
+		],
+		[
+			"car",
+			"riflelicense"
+		]
+	]
+},
+{
+	[
+		[
+			["geld",round random 20000],
+			["rabbit",round random 10],
+			["medikit",round random 3],
+			["kanister",round random 3],
+			["Apple",round random 5]
+		],
+		[
+			["Binocular",1],
+			["GPS",1]
+		],
+		[
+			"car",
+			"newslicense"
+		]
+	]
+}
+]
+
+
+
+

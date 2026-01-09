@@ -18,7 +18,7 @@ if !(call INV_isArmed) exitWith {
 
 for "_i" from 1 to 100 step 1 do {
 		
-	[format['Stealing Historic Item... %1%2',_i,"%"],'\crp_data\images\items\exhaust',true]call tag_notify;
+	[format['Stealing Historic Item... %1%2',_i,"%"],'data\images\items\exhaust',true]call tag_notify;
 			
 	if (animationstate player != "AinvPknlMstpSlayWrflDnon_medic")then {
 		["ALL",[player,"AinvPknlMstpSlayWrflDnon_medic"],"network_SwitchMove",false,true]call network_MPExec;	

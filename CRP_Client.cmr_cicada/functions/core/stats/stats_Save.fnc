@@ -29,5 +29,5 @@ _save =
 ["SERVER",_save,"S_stats_save",false,false]call network_MPExec;
 
 if (isnull (findDisplay 49)) then {
-	['Saving data to database...','\crp_data\images\tags\save']call tag_notify
+	['Saving data to database...','data\images\tags\save']call tag_notify
 };

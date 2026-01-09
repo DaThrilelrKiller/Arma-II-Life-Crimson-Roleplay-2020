@@ -12,7 +12,7 @@ for "_i" from 20 to 1 step -1 do {
 			if !(alive player)exitWith {};
 			
 			["ALL",[player,"AinvPknlMstpSlayWrflDnon_medic"],"network_SwitchMove",false,true]call network_MPExec;	
-			['Taking Money...','\crp_data\images\items\money',true,_object]call tag_notify;
+			['Taking Money...','data\images\items\money',true,_object]call tag_notify;
 			
 			waitUntil{animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};
 			[player,'geld',60000]call storage_add;
