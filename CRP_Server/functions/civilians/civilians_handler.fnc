@@ -11,7 +11,7 @@ while {true} do {
 	
         if (alive _vehicle && {speed _vehicle < 3}) then {
 			_town = dtk_houses call BIS_selectRandom;
-            (group _unit) move (getMarketPos _town);
+            (group _unit) move (getMarkerPos _town);
         };
 		
 		if (!alive _vehicle || {!alive _unit}) then {
