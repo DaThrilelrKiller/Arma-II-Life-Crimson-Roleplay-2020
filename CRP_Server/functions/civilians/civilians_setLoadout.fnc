@@ -82,12 +82,6 @@ if (_clothing != "") then {
 	_unit setVariable ["dtk_loadout_clothing", _clothing, true];
 };
 
-/* Store bank balance */
-if (typeName _bankBalance == "ARRAY" && count _bankBalance == 2) then {
-	_balance = round ((_bankBalance select 0) + random ((_bankBalance select 1) - (_bankBalance select 0)));
-	_unit setVariable ["dtk_bank", _balance, true];
-};
-
 /* Store gang affiliation */
 if (_gangAffiliation != "") then {
 	_unit setVariable ["dtk_gang", _gangAffiliation, true];
