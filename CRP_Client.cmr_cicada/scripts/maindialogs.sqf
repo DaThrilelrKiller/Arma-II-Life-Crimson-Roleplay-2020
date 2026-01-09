@@ -55,6 +55,7 @@ if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
 	{
 		if (simulationEnabled _x) then {
 			lbAdd [1, (format ["%1: %2", _x, name _x])];
+			true
 		};
 	}count allMissionObjects "Man";
 };	
