@@ -60,8 +60,16 @@ for "_i" from 1 to _max do {
 
 		_grp = createGroup _side;
 
-		_veh = createVehicle [_vehTypes call BIS_selectRandom, position _road, [], 0, "NONE"];
 		_unit = _grp createUnit [_unitType call BIS_selectRandom, position _road, [], 0, "NONE"];
+		
+		/* Set loadout first to get vehicle preference */
+		[_unit]call s_civilians_setLoadout;
+		
+		/* Get vehicle preference from loadout */
+		_preferredVehicle = _unit getVariable ["dtk_loadout_vehicle", ""];
+		_vehicleType = if (_preferredVehicle != "") then {_preferredVehicle} else {_vehTypes call BIS_selectRandom};
+
+		_veh = createVehicle [_vehicleType, position _road, [], 0, "NONE"];
 
 
 		_veh setVehicleInit format [
@@ -104,7 +112,6 @@ for "_i" from 1 to _max do {
 			this addaction ['','noscript.sqf',format['%1 call core_interact;',this],25,false,true,'LeanRight',format['player distance _target < 5 && {!([_target,''Interact (E)'',tag_default]call tag_show)}',this getVariable ['dtk_tag',tag_default]]];
 		"
 		,_name];
-		[_unit]call s_civilians_setLoadout;
 
 		_unit addMPEventHandler ["MPKilled",{_this call killfeed_display;}];
 		_unit addEventHandler ["Killed", { [(_this select 0),(_this select 0)] call storage_dropall;}];

@@ -17,8 +17,16 @@ if (count _roads > 0) then {
 
 	_grp = createGroup _side;
 
-	_veh = createVehicle [_vehTypes call BIS_selectRandom, position _road, [], 0, "NONE"];
 	_unit = _grp createUnit [_unitType call BIS_selectRandom, [random 10,random 10,0], [], 0, "NONE"];
+	
+	/* Set loadout first to get vehicle preference */
+	[_unit]call s_civilians_setLoadout;
+	
+	/* Get vehicle preference from loadout */
+	_preferredVehicle = _unit getVariable ["dtk_loadout_vehicle", ""];
+	_vehicleType = if (_preferredVehicle != "") then {_preferredVehicle} else {_vehTypes call BIS_selectRandom};
+	
+	_veh = createVehicle [_vehicleType, position _road, [], 0, "NONE"];
 	
 	_veh setVehicleInit format [
 		"
@@ -44,7 +52,7 @@ if (count _roads > 0) then {
 
 
 
-		
+
 		
 	if (random 1 < 0.5) then {
 		_veh setDir getDir _road;
@@ -63,7 +71,6 @@ if (count _roads > 0) then {
 		"
 		, _name];
 	processInitCommands;
-	[_unit]call s_civilians_setLoadout;
 	
 	_unit addMPEventHandler ["MPKilled",{_this call killfeed_display;}];
 	_unit addEventHandler ["Killed", { [(_this select 0),(_this select 0)] call storage_dropall;}];

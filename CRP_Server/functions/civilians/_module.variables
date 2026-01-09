@@ -43,6 +43,18 @@ relistic_names = [
 ];
 
 DTK_CIV_Loadouts = [
+/* Structure: [items, weapons, licenses, bounties, warrants, vehicle, likelihood, clothing, bankBalance, gangAffiliation, aggressionLevel, skillLevel] */
+/* likelihood: 0-10 (spawn weight, higher = more common) */
+/* bounties: [["Warrant Description", amount], ...] */
+/* warrants: ["Warrant Description", ...] */
+/* vehicle: "" for random, or specific vehicle classname */
+/* clothing: "" for random, or specific clothing classname */
+/* bankBalance: [min, max] or 0 for default */
+/* gangAffiliation: "" for none, or gang name */
+/* aggressionLevel: 0-10 (how likely to fight back) */
+/* skillLevel: 0-10 (combat effectiveness) */
+
+/* Miner Loadout */
 {
 	[
 		[
@@ -57,16 +69,25 @@ DTK_CIV_Loadouts = [
 		
 		],
 		[
-			"car"
-		]
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"", /* vehicle (random) */
+		7, /* likelihood (common job) */
+		"", /* clothing (random) */
+		0, /* bankBalance (default) */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		3 /* skillLevel (low) */
 	]
 },
+/* Drug Smuggler Loadout */
 {
 	[
 		[
 			["geld",round random 60000],
-			["marijuana",round random 10],
-			["cocaine",round random 10],
+			[["marijuana","cocaine"],round random 10],
 			["Fuelline",round random 1],
 			["beer",round random 5],
 			["Apple",round random 5]
@@ -76,18 +97,25 @@ DTK_CIV_Loadouts = [
 			["Rnd_9x19_glock17",round random 10]
 		],
 		[
-			"car",
-			"pistollicense"
-		]
+			"DTK_License_civ_drivers"
+		],
+		[["Drug Trafficking", round random [5000, 15000, 25000]], ["Possession with Intent", round random [2000, 8000, 15000]]], /* bounties */
+		["Drug Trafficking", "Possession with Intent", "Evading Law Enforcement"], /* warrants */
+		"", /* vehicle (random) */
+		5, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[50000, 100000], /* bankBalance */
+		"", /* gangAffiliation */
+		7, /* aggressionLevel (high - will fight) */
+		6 /* skillLevel (moderate) */
 	]
 },
+/* Hunter Loadout */
 {
 	[
 		[
 			["geld",round random 15000],
-			["rabbit",round random 10],
-			["cow",round random 10],
-			["boar",round random 5],
+			[["rabbit","cow","boar"],round random 10],
 			["Apple",round random 5],
 			["smirnoff",round random 5]
 		],
@@ -96,11 +124,21 @@ DTK_CIV_Loadouts = [
 			["Rnd_20_Stanag",round random 10]
 		],
 		[
-			"car",
-			"riflelicense"
-		]
+			"DTK_License_civ_drivers",
+			"DTK_License_civ_hunting"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"", /* vehicle (random) */
+		6, /* likelihood (common) */
+		"", /* clothing (random) */
+		0, /* bankBalance (default) */
+		"", /* gangAffiliation */
+		4, /* aggressionLevel (moderate - has weapon) */
+		5 /* skillLevel (moderate) */
 	]
 },
+/* General Civilian Loadout */
 {
 	[
 		[
@@ -115,9 +153,287 @@ DTK_CIV_Loadouts = [
 			["GPS",1]
 		],
 		[
-			"car",
-			"newslicense"
-		]
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"", /* vehicle (random) */
+		8, /* likelihood (very common) */
+		"", /* clothing (random) */
+		0, /* bankBalance (default) */
+		"", /* gangAffiliation */
+		1, /* aggressionLevel (very low) */
+		2 /* skillLevel (low) */
+	]
+},
+/* Tow Truck Driver Loadout */
+{
+	[
+		[
+			["geld",round random [15000, 30000, 50000]],
+			["kanister",round random [2, 5, 8]],
+			["reparaturkit",round random [1, 2, 3]],
+			["Apple",round random 5],
+			["beer",round random 3]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers",
+			"DTK_License_civ_Towing"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"il_towtruck", /* vehicle (tow truck) */
+		4, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[20000, 50000], /* bankBalance */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		3 /* skillLevel (low) */
+	]
+},
+/* Repair Man Loadout */
+{
+	[
+		[
+			["geld",round random [10000, 25000, 40000]],
+			["reparaturkit",round random [2, 4, 6]],
+			["kanister",round random [1, 3, 5]],
+			["Fuelline",round random [1, 2, 3]],
+			["Apple",round random 5]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"V3S_Repair_TK_GUE_EP1", /* vehicle (repair truck) */
+		4, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[15000, 40000], /* bankBalance */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		3 /* skillLevel (low) */
+	]
+},
+/* Delivery Driver Loadout */
+{
+	[
+		[
+			["geld",round random [12000, 25000, 35000]],
+			["Apple",round random [5, 10, 15]],
+			["kanister",round random [1, 2, 3]],
+			["beer",round random 2]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"ibr_van_CIV", /* vehicle (delivery van) */
+		5, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[10000, 30000], /* bankBalance */
+		"", /* gangAffiliation */
+		1, /* aggressionLevel (very low) */
+		2 /* skillLevel (low) */
+	]
+},
+/* Taxi Driver Loadout */
+{
+	[
+		[
+			["geld",round random [8000, 20000, 35000]],
+			["Apple",round random 5],
+			["beer",round random 2],
+			["GPS",1]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers",
+			"DTK_License_civ_taxi"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"taxi", /* vehicle (taxi) */
+		5, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[5000, 25000], /* bankBalance */
+		"", /* gangAffiliation */
+		1, /* aggressionLevel (very low) */
+		2 /* skillLevel (low) */
+	]
+},
+/* Fisherman Loadout */
+{
+	[
+		[
+			["geld",round random [10000, 20000, 30000]],
+			["fishing_rod",1],
+			[["fishing_trout","fishing_bass","fishing_walleye"],round random [3, 8, 15]],
+			["Apple",round random 5]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers",
+			"DTK_License_civ_fishing"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"", /* vehicle (random, but could spawn near water) */
+		5, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[8000, 25000], /* bankBalance */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		2 /* skillLevel (low) */
+	]
+},
+/* Farmer Loadout */
+{
+	[
+		[
+			["geld",round random [15000, 30000, 45000]],
+			["getreide",round random [10, 20, 30]],
+			["Apple",round random [8, 15, 25]],
+			["straw",round random [5, 10, 15]],
+			["kanister",round random [1, 2, 3]]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"Tractor", /* vehicle (tractor) */
+		4, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[20000, 40000], /* bankBalance */
+		"", /* gangAffiliation */
+		1, /* aggressionLevel (very low) */
+		2 /* skillLevel (low) */
+	]
+},
+/* Bank Truck Driver Loadout (Security) */
+{
+	[
+		[
+			["geld",round random [20000, 40000, 60000]],
+			["kanister",round random [1, 2, 3]],
+			["Apple",round random 5]
+		],
+		[
+			["glock17_EP1",1],
+			["Rnd_9x19_glock17",round random [5, 10, 15]]
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"ibr_van_BNK", /* vehicle (bank truck) */
+		1, /* likelihood (rare) */
+		"", /* clothing (random) */
+		[30000, 60000], /* bankBalance */
+		"", /* gangAffiliation */
+		6, /* aggressionLevel (moderate-high - security) */
+		7 /* skillLevel (moderate-high) */
+	]
+},
+/* Criminal Loadout (High Bounty) */
+{
+	[
+		[
+			["geld",round random [30000, 60000, 100000]],
+			["Fuelline",round random [2, 4, 6]],
+			["beer",round random [3, 6, 10]],
+			["Apple",round random 5]
+		],
+		[
+			["M16A2",1],
+			["Rnd_20_Stanag",round random [10, 20, 30]],
+			["glock17_EP1",1],
+			["Rnd_9x19_glock17",round random [5, 10, 15]]
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[["Armed Robbery", round random [20000, 40000, 60000]], ["Assault", round random [10000, 20000, 30000]], ["Grand Theft Auto", round random [15000, 25000, 35000]]], /* bounties */
+		["Armed Robbery", "Assault", "Grand Theft Auto", "Evading Law Enforcement", "Possession of Illegal Weapons"], /* warrants */
+		"", /* vehicle (random) */
+		2, /* likelihood (rare) */
+		"", /* clothing (random) */
+		[50000, 120000], /* bankBalance */
+		"", /* gangAffiliation (could be random gang) */
+		9, /* aggressionLevel (very high - will fight) */
+		8 /* skillLevel (high) */
+	]
+},
+/* Oil Worker Loadout */
+{
+	[
+		[
+			["geld",round random [18000, 35000, 50000]],
+			["kanister",round random [2, 4, 6]],
+			["Fuelline",round random [1, 2, 3]],
+			["Apple",round random 5],
+			["beer",round random 3]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"", /* vehicle (random) */
+		3, /* likelihood (uncommon) */
+		"", /* clothing (random) */
+		[15000, 40000], /* bankBalance */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		3 /* skillLevel (low) */
+	]
+},
+/* Construction Worker Loadout */
+{
+	[
+		[
+			["geld",round random [12000, 25000, 40000]],
+			["kanister",round random [1, 2, 3]],
+			["Apple",round random [5, 10, 15]],
+			["beer",round random 2]
+		],
+		[
+		
+		],
+		[
+			"DTK_License_civ_drivers"
+		],
+		[], /* bounties */
+		[], /* warrants */
+		"oldtruck", /* vehicle (construction truck) */
+		4, /* likelihood (moderate) */
+		"", /* clothing (random) */
+		[10000, 30000], /* bankBalance */
+		"", /* gangAffiliation */
+		2, /* aggressionLevel (low) */
+		3 /* skillLevel (low) */
 	]
 }
 ]
