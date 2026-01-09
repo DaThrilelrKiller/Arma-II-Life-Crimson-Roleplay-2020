@@ -1,0 +1,1 @@
+[]spawn s_civilians_loop;
