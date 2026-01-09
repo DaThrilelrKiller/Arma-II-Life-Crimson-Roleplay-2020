@@ -7,7 +7,8 @@
 title Crimson Roleplay - Auto Update
 SETLOCAL ENABLEEXTENSIONS
 
-git clone https://github.com/DaThrilelrKiller/Arma-II-Life-Crimson-Roleplay-2020
+cd Arma-II-Life-Crimson-Roleplay-2020
+git pull
 
 :: Capture Hour
 set hour=%time:~0,2%
