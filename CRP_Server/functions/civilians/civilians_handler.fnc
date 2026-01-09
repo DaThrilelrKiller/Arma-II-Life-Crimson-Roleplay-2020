@@ -1,7 +1,6 @@
 private ["_towns","_civs","_vehicle","_unit","_town"];
 
-_towns = _this select 0;
-_civs = _this select 1;
+hello_civs = _this select 0;
 
 while {true} do {
 
@@ -18,7 +17,7 @@ while {true} do {
 			deleteVehicle _vehicle;
 			deleteVehicle _unit;
 			_return = []call s_civilians_respawn;
-			_civs set[_forEachIndex,_return];
+			hello_civs set[_forEachIndex,_return];
 		};
 		
 		if (fuel _vehicle < 0.5)then {
@@ -27,6 +26,6 @@ while {true} do {
 		
 		
 		sleep 0.5;
-    } forEach _civs;
+    } forEach hello_civs;
 	sleep 10;
 };

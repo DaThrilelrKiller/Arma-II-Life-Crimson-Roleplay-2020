@@ -129,4 +129,4 @@ for "_i" from 1 to _max do {
 
 processInitCommands;
 
-t_civilians_handler = [_towns,_civs]spawn s_civilians_handler;
+t_civilians_handler = [_civs]spawn s_civilians_handler;
