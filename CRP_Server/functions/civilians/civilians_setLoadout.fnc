@@ -33,13 +33,14 @@ _skillLevel = if (count _loadout > 11) then {_loadout select 11} else {2};
 /* Apply items */
 {
 	_amount = _x select 1;
+	_itemName = _x select 0;
 
-	if (typename (_x select 0) == "ARRAY" ) then {
+	if (typename _itemName == "ARRAY" ) then {
 		{
-			[_unit,_x select 0,_amount]call storage_add;
-		}count (_x select 0);
+			[_unit,_x,_amount]call storage_add;
+		}count _itemName;
 	}else {
-		[_unit,_x select 0,_amount]call storage_add;
+		[_unit,_itemName,_amount]call storage_add;
 	};
 }count _items;
 
