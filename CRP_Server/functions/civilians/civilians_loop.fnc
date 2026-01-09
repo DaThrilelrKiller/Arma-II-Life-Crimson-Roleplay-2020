@@ -4,7 +4,7 @@ private ["_vehicles","_mrk","_vehicle"];
 for "_i" from 0 to 1 step 0 do {
 
 	if (count allUnits < 120)then {
-	 	[]call s_civilians_respawn;
+	 	[]call s_civilians_spawn;
 	}else{
 		if (count allUnits > 130) then {
 			[]call s_civilians_despawn;

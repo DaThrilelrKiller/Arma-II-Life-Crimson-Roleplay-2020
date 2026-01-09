@@ -2,7 +2,6 @@
 ["spawn",false],
 ["init",false],
 ["killed",false],
-["handler",false],
 ["loop",false],
 ["despawn",false],
 ["setLoadout",false]
