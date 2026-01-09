@@ -1,7 +1,7 @@
 
 private ["_vehicles","_mrk","_vehicle"];
 
-waitUntil {
+for "_i" from 0 to 1 step 0 do {
 
 	if (count allUnits < 120)then {
 	 	[]call s_civilians_respawn;
