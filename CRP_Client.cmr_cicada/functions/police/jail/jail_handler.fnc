@@ -12,7 +12,7 @@ _unit setDamage 0;
 _unit call police_disarm;
 if !(dtk_server) {
 	["olrpg_jailinmate"]call clothing_switch;
-}
+};
 dtk_disabledkeys = [44,47];
 dtk_hunger      = 0;
 

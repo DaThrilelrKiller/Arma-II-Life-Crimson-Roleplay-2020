@@ -21,7 +21,7 @@ for "_i" from 0 to 1 step 0 do {
 				(group _vehicle) move (getMarkerPos _mrk);
         	};
 
-			if (!alive _vehicle) then {
+			if (!alive _vehicle) exitWith {
 				[_group]call groups_delete;
 			};
 		
@@ -29,9 +29,8 @@ for "_i" from 0 to 1 step 0 do {
 				_vehicle setFuel 1;
 			};
 		
-		}count _vehicles;
+		}forEach _vehicles;
 
-	}count (call groups_getGroups);
+	}forEach (call groups_getGroups);
 	sleep 0.5;
-	false
 };
