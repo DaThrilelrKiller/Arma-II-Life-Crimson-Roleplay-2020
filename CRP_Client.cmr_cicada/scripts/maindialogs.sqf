@@ -53,11 +53,9 @@ if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
 	lbAdd [1, _trennlinie];	
 
 	{
-		if (simulationEnabled _x) then {
-			lbAdd [1, (format ["%1: %2", _x, name _x])];
-			true
-		};
-	}count allMissionObjects "Man";
+		lbAdd [1, (format ["%1: %2", _x, name _x])];
+		true
+	}count allUnits;
 };	
 
 
@@ -102,7 +100,7 @@ if (_art == "coplog") then
 	private ["_k","_civ"]; 
 	lbAdd [1, "C U R R E N T  W A R R A N T S:"];
 	lbAdd [1, _trennlinie];
-	_players = playableUnits;
+	_players = allUnits;
 	for [{_k=0}, {_k < (count _players)}, {_k=_k+1}] do 
 	{
 		_civ	  = _players select _k;

@@ -96,6 +96,7 @@ dtk_active_modules =
 ["EMS","Gas"],
 
 "Items",
+"Groups",
 "Paint",
 "Goverment",
 "Dealer",

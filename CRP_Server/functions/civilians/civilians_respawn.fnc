@@ -27,6 +27,7 @@ if (count _roads > 0) then {
 	_vehicleType = if (_preferredVehicle != "") then {_preferredVehicle} else {_vehTypes call BIS_selectRandom};
 	
 	_veh = createVehicle [_vehicleType, position _road, [], 0, "NONE"];
+	_grp addVehicle _veh;
 	
 	_veh setVehicleInit format [
 		"
@@ -49,7 +50,6 @@ if (count _roads > 0) then {
 	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_menu;",_veh],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) != dtk_side} && {vehicle player == player} && {dtk_side == "PD"} && {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_veh,"ems_SwitchGear",_veh],"network_syncJip",false,true]call network_MPExec;
 	_veh lock true;
-
 
 
 

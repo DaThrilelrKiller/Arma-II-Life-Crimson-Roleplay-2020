@@ -20,18 +20,16 @@ _Shownames = (_this select 1);
 _select = objNull;
 
 {
-	if (simulationEnabled _x) then {
-		if (_Shownames) then 
-		{
+	if (_Shownames) then 
+	{
 		_index = lbAdd [_idc, format ["%1 - (%2)", (str _x), (name _x)]];
-		} else 
-		{
+	} else 
+	{
 		_index = lbAdd [_idc, (str _x)];
-		};
-		lbSetData [_idc, _index, format["%1", [_forEachIndex,_x]]];
+	};
+	lbSetData [_idc, _index, format["%1", [_forEachIndex,_x]]];
 		
-		_select = [_select,_index]select (_x == player);
-	}
-}forEach allMissionObjects "Man";
+	_select = [_select,_index]select (_x == player);
+}forEach allUnits;
 
 lbSetCurSel [_idc,_select];
