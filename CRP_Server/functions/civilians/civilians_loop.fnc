@@ -18,7 +18,7 @@ for "_i" from 0 to 1 step 0 do {
 			_vehicle = _x;
 			if (alive _vehicle && {speed _vehicle < 3}) then {
 				_mrk = dtk_houses call BIS_selectRandom;
-				(group _vehicle) move (getMarkerPos _mrk);
+				_group move (getMarkerPos _mrk);
         	};
 
 			if (!alive _vehicle) exitWith {
