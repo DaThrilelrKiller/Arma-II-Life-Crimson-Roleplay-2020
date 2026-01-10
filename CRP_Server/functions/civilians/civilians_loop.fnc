@@ -21,7 +21,6 @@ for "_i" from 0 to 1 step 0 do {
 			if (alive _vehicle && {speed _vehicle < 3}) then {
 				_mrk = dtk_houses call BIS_selectRandom;
 				_group move (getMarkerPos _mrk);
-				["ALL",[_group,_mrk],{systemchat str _this},false,true]call network_MPExec;
         	};
 
 			if (!alive _vehicle) exitWith {
@@ -31,9 +30,8 @@ for "_i" from 0 to 1 step 0 do {
 			if (fuel _vehicle < 0.5)then {
 				_vehicle setFuel 1;
 			};
-			sleep 0.5;
 		}forEach _vehicles;
-
+		sleep 0.5;
 	}forEach (call groups_getGroups);
-	sleep 0.5;
+	sleep 10;
 };
