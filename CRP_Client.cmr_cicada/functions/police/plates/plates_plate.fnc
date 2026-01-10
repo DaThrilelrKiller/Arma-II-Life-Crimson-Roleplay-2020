@@ -31,4 +31,5 @@ while {ar_plates} do
 		};
 		sleep 1;
 	};
+	sleep 0.5;
 };

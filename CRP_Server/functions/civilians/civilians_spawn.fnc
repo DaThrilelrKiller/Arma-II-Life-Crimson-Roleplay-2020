@@ -42,6 +42,7 @@ if (count _roads > 0) then {
 	_veh setVariable ["DTK_OwnerUID",[["Server"],"","CIV",name _unit], true];
 	_veh setVariable ["dtk_keys",[getPlayerUID player], true];
 	_veh setVariable ["dtk_storage",[[],[]], true];
+	[_veh] call plates_setplate;
 	_veh addeventhandler ["HandleDamage",'_this call vehicle_handleDamage' ];	
 	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_getIn;",_veh],-1,false,true,'LeanRight','vehicle player == _target']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_getIn;",_veh],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) == dtk_side or dtk_side == "CIV"} && {vehicle player == player} && {!(locked _target)} && {!([_target,"Get In (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
