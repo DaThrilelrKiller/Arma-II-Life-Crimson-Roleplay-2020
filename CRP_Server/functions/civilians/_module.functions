@@ -4,5 +4,6 @@
 ["killed",false],
 ["loop",false],
 ["despawn",false],
-["setLoadout",false]
+["setLoadout",false],
+["pullOver",true]
 ];

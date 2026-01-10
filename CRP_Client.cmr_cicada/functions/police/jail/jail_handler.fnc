@@ -5,9 +5,10 @@ _cop = _this select 1;
 _time = _this select 2;
 _time = _time * 60;
 _endTime = _unit getVariable["end_time",time + _time];
+_unit setVariable ["ar_cuffed",false,true];
 
 
-_unit setpos [7117.99,3589.76,0];
+_unit setPosAtl [7117.99,3589.76,1.5];
 _unit setDamage 0;
 _unit call police_disarm;
 if !(dtk_server) {
@@ -20,7 +21,9 @@ dtk_hunger      = 0;
 
 while {true} do {
 
-	if (time > _endTime)exitWith jail_free;
+	if (time > _endTime)exitWith {
+		[]call jail_free;
+	};
 	if (_unit distance [7117.99,3589.76,0] >= 50 && {time < _endTime}) exitWith jail_escape;
 	
 	_bail = (_endTime - time) * 150;
