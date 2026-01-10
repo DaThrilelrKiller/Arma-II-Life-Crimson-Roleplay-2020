@@ -45,7 +45,7 @@ if (count _roads > 0) then {
 	_veh addeventhandler ["HandleDamage",'_this call vehicle_handleDamage' ];	
 	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_getIn;",_veh],-1,false,true,'LeanRight','vehicle player == _target']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_getIn;",_veh],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) == dtk_side or dtk_side == "CIV"} && {vehicle player == player} && {!(locked _target)} && {!([_target,"Get In (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
-	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_menu;",_veh],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) != dtk_side} && {vehicle player == player} && {dtk_side == "PD"} && {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[_veh,['','noscript.sqf',format["[%1]call vehicle_menu;",_veh],-1,false,true,'LeanRight','player distance _target < 5 && {!(locked _target)} && {vehicle player == player} && {dtk_side == "PD"} && {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_veh,"ems_SwitchGear",_veh],"network_syncJip",false,true]call network_MPExec;
 	_veh lock true;
 

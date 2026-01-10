@@ -47,7 +47,7 @@ _classname =  _name call config_class;
 	_vehicle addeventhandler ["HandleDamage",'_this call vehicle_handleDamage' ];	
 	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",_vehicle],-1,false,true,'LeanRight','vehicle player == _target']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",_vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) == dtk_side or dtk_side == "CIV"} && {vehicle player == player} && {!(locked _target)} && {!([_target,"Get In (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
-	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_menu;",_vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {vehicle player == player} && {dtk_side == "PD"} && {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_menu;",_vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {vehicle player == player} && {dtk_side == "PD"}  && {!(locked _target)} &&  {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_vehicle,"ems_SwitchGear",_vehicle],"network_syncJip",false,true]call network_MPExec;
 
 	

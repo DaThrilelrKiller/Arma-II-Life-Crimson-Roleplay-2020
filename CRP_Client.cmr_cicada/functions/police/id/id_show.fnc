@@ -17,10 +17,14 @@ _art = _this select 0;
 
 if ((typeName _art) == "STRING")then
 {
-	format['if (player distance %1 < 5 or player == %1)then {[%1,%2] call id_show;};',player,dtk_dob]call network_broadcast;
+	["ALL",[player,dtk_dob],{
+		if (player distance (_this select 0) < 5)then {_this call id_show;};
+	},false,false]call network_MPExec;
+
 }
 else
 {
+	dtk_current_plate = name _art;
 	_data = _this select 1;
 	
 	_Month = _data select 0;
