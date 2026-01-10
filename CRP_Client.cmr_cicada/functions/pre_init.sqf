@@ -119,7 +119,8 @@ dtk_active_modules =
 "Tower",
 "Drugs",
 "Donuts",
-"Spawn"
+"Spawn",
+"TFAR"
 ];
 
 /*loads module functions*/
