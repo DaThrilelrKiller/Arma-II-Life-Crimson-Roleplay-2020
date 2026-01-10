@@ -76,7 +76,7 @@ if (count _roads > 0) then {
 
 	_unit moveInDriver _veh;
 
-	_grp setBehaviour "SAFE";
+	_grp setBehaviour "CARELESS";
 	_grp setSpeedMode "FULL";
 	_grp setCombatMode "BLUE";
 

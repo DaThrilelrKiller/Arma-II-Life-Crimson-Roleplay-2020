@@ -3,12 +3,12 @@ private ["_vehicles","_mrk","_vehicle"];
 
 for "_i" from 0 to 1 step 0 do {
 
-	if (count allUnits < 90)then {
-		while {count allUnits < 90} do {
+	if (count allUnits < 50)then {
+		while {count allUnits < 50} do {
 			[]call s_civilians_spawn;
 		};
 	}else{
-		if (count allUnits > 100) then {
+		if (count allUnits > 60) then {
 			[]call s_civilians_despawn;
 		};
 	};
