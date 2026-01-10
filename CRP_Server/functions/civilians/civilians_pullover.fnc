@@ -1,6 +1,8 @@
+civilians_pullover = {
 private ["_siren","_pullPos"];
 _siren = _this select 0;
 
+["ALL",[],{systemchat "test";},false,false]call network_MPExec;
 
 {
 	if (!isPlayer _x && {_x distance _siren < 25} && {isOnRoad _x} && {vehicle _x != _x} && {[_siren,_x,0]call bis_isInFrontOf})then {
@@ -10,3 +12,4 @@ _siren = _this select 0;
 	};
 
 }forEach allUnits;
+};

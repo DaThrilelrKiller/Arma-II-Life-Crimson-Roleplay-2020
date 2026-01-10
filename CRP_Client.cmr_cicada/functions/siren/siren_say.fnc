@@ -11,8 +11,9 @@ _sleep = _sound call siren_getSleep;
 while {!isNull _sirnobj} do
 {
 	_sirnobj say _sound;
-	if(dtk_server)then {
-		[_sirnobj]call civilians_pullover;
+	if(local _sirnobj && {!isNull cursorTarget})then {
+		systemchat "Pull Over!";
+		[_sirnobj,cursorTarget]call civilians_pullover;
 	};
 	sleep _sleep;
 	
