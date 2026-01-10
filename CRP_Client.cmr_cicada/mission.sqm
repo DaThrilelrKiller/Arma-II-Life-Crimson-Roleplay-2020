@@ -3,9 +3,28 @@ class Mission
 {
 	addOns[]=
 	{
+		"cacharacters2",
+		"cacharacters_e",
+		"ca_animals2_wildboar",
+		"camisc3",
+		"castructures_e_ind_ind_coltan_mine",
+		"ca_animals2_cow",
+		"camisc_e",
+		"castructures_e_ind_ind_garage01",
+		"as_eu_oa_signs",
+		"cmr_cicada",
+		"olvehtgc",
+		"ibr_police"
 	};
 	addOnsAuto[]=
 	{
+		"olvehtgc",
+		"cacharacters2",
+		"cacharacters_e",
+		"ibr_police",
+		"camisc3",
+		"castructures_e_ind_ind_coltan_mine",
+		"as_eu_oa_signs",
 		"cmr_cicada"
 	};
 	randomSeed=4744745;
