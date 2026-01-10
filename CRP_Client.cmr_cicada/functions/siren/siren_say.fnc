@@ -13,7 +13,7 @@ while {!isNull _sirnobj} do
 	_sirnobj say _sound;
 	if(local _sirnobj && {!isNull cursorTarget})then {
 		systemchat "Pull Over!";
-		[_sirnobj,cursorTarget]call civilians_pullover;
+		[cursorTarget,[_sirnobj,cursorTarget],"civilians_pullover",false,false]call network_MPExec;
 	};
 	sleep _sleep;
 	

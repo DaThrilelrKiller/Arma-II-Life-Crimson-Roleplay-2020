@@ -16,7 +16,11 @@ for "_i" from 0 to 1 step 0 do {
 	{
 		_vehicles = [_x] call groups_getVehicles;
 		_group = _x;
+		_stoped = _group getVariable ["pulled_over",time];
+
 		{
+			if (_stoped > time)exitWith{};
+
 			_vehicle = _x;
 			if (alive _vehicle && {speed _vehicle < 3}) then {
 				_mrk = dtk_houses call BIS_selectRandom;
