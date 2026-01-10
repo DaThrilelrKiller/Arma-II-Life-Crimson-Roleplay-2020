@@ -1,4 +1,4 @@
-﻿OL_FNC_GETSERVERINFO = [0,0,0,0];
+OL_FNC_GETSERVERINFO = [0,0,0,0];
 
 diag_log text "[LOG]Pre Initialization started!";
 dtk_client = hasInterface;
@@ -119,7 +119,8 @@ dtk_active_modules =
 "Tower",
 "Drugs",
 "Donuts",
-"Spawn"
+"Spawn",
+"TFAR"
 ];
 
 /*loads module functions*/
