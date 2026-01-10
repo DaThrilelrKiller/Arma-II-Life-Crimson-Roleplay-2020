@@ -14,7 +14,6 @@ _msg = "";
 	}else{
 		call (_x select 0);
 	};
-	diag_log formatText ["Initialized Module - %1 ",(_x select 1)];
 }forEach DTK_INIT;
 
 DTK_INIT = nil;
