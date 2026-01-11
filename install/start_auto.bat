@@ -70,19 +70,6 @@ xcopy /y "%userprofile%\Documents\CrimsonRP\CRP_Client.cmr_cicada.pbo" "%_ARMA2O
 ::Copy server files to MP missions
 xcopy /s/e /y /I "%userprofile%\Documents\CrimsonRP\CRP_Server" "%_ARMA2OAPATH%\MPmissions"
 
-:: Extract date components
-set year=%date:~-4%
-set month=%date:~3,2%
-if "%month:~0,1%" == " " set month=0%month:~1,1%
-set day=%date:~0,2%
-if "%day:~0,1%" == " " set day=0%day:~1,1%
-
-:: Format date as [year, month, day]
-set formatted_date=[%year%, %month%, %day%]
-
-FART -r --c-style "%_ARMA2OAPATH%\MPmissions\*.variables" "Insert-Date-Here" "%formatted_date%"
-
-
 goto start
 
 :start
