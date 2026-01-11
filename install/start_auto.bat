@@ -79,8 +79,7 @@ set day=%datetime:~6,2%
 :: Format date as [year, month, day]
 set formatted_date=[%year%, %month%, %day%]
 
-:: Write date to date.txt file
-echo %formatted_date% > "%_ARMA2OAPATH%\MPmissions\date.txt"
+FART -r --c-style "%_ARMA2OAPATH%\MPmissions\*.variables" "Insert-Date-Here" "%formatted_date%"
 
 
 goto start
