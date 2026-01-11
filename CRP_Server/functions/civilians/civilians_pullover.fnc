@@ -1,13 +1,11 @@
-private ["_siren","_pullPos"];
+private ["_siren","_pullPos","_unit"];
 _siren = _this select 0;
+_unit = _this select 1;
 
-[_siren,[],{systemchat "test";},false,false]call network_MPExec;
+if (!isPlayer _unit && {_unit distance _siren < 150} && {[_siren,_unit,0]call bis_isInFrontOf})then {
+	[_siren,[],{systemchat "Pullihng Over";},false,false]call network_MPExec;
 
-{
-	if (!isPlayer _x && {_x distance _siren < 150} && {isOnRoad _x} && {vehicle _x != _x} && {[_siren,_x,0]call bis_isInFrontOf})then {
-		_pullPos = (vehicle _x) modelToWorld [3, 15, 0];
-     	(group _x) doMove _pullPos;
-		(group _x) setVariable ["pulled_over",(time + 120),true];
-	};
-
-}forEach allUnits;
+	_pullPos = (vehicle _unit) modelToWorld [3, 15, 0];
+    (group _unit) Move _pullPos;
+	(group _unit) setVariable ["pulled_over",(time + 120),true];
+};
