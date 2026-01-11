@@ -3,6 +3,7 @@ PG_SSF = [];
 
 dtk_server_modules = 
 [
+"Time",
 "Map",
 "Stats",
 "Robbery",
@@ -24,6 +25,7 @@ dtk_server_modules =
 "Lab",
 "Vehicle",
 "Civilians",
+"Experience",
 "OwlEye"
 ];
 

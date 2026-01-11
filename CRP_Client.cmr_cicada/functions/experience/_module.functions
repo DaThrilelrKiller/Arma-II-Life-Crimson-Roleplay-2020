@@ -1,6 +1,4 @@
 ﻿[
-"activeMission",
-"createMarker",
-"getMarker",
-"SwitchGear"
+"load",
+"save"
 ];

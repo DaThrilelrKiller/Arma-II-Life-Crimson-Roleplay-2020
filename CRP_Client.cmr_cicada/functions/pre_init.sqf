@@ -119,6 +119,7 @@ dtk_active_modules =
 "Tower",
 "Drugs",
 "Donuts",
+"Experience",
 "Spawn",
 "TFAR"
 ];
