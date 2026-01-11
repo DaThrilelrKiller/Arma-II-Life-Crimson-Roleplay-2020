@@ -1,3 +1,5 @@
+private ["_side","_uid","_player","_year","_month","_day","_lastMonth","_civTime","_unTime","_pdTime","_todayTime"];
+
 _side = _this select 1;
 _uid = getPlayerUID(_this select 0);
 _player = (_this select 0);
@@ -16,7 +18,7 @@ for "_i" from 1 to _day do {
     _unTime = _unTime +  ([format["Timelog - %1",_uid],"Time",format["time_UN_%1_%2",_year, _month,_i],0]call s_stats_read);
     _pdTime = _unTime + ([format["Timelog - %1",_uid],"Time",format["time_PD_%1_%2",_year, _month,_i],0]call s_stats_read);
     if (_i == _day)then {
-        _todayTime = [_civTime,_unTime,_unTime];
+        _todayTime = [_civTime,_unTime,_pdTime];
     };
  };
 
