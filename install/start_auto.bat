@@ -5,7 +5,7 @@
 
 @echo off
 title Crimson RP - Auto Restart
-SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 set EXE=arma2oaserver.exe
 set /a Timeout = 14400
 set /a i = 0
@@ -72,15 +72,15 @@ xcopy /s/e /y /I "%userprofile%\Documents\CrimsonRP\CRP_Server" "%_ARMA2OAPATH%\
 
 :: Extract date components using wmic (locale-independent)
 for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
-set year=%datetime:~0,4%
-set month=%datetime:~4,2%
-set day=%datetime:~6,2%
+set year=!datetime:~0,4!
+set month=!datetime:~4,2!
+set day=!datetime:~6,2!
 
 :: Format date as [year, month, day]
-set formatted_date=[%year%, %month%, %day%]
+set formatted_date=[!year!, !month!, !day!]
 
 :: Write date to date.txt file
-echo %formatted_date% > "%_ARMA2OAPATH%\MPmissions\date.txt"
+echo !formatted_date! > "%_ARMA2OAPATH%\MPmissions\date.txt"
 
 
 goto start
