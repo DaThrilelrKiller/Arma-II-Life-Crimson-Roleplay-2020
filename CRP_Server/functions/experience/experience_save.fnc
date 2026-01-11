@@ -7,7 +7,7 @@ _year = date select 0;
 _month = date select 1;
 _day = date select 2;
 
-_key = format["time_%1_%2_%3_%4",_side,_year,_month,_day];
+_key = format["time_%1_%2_%3",_side,_year,_day];
 
 
-[format["Timelog - %1",_uid], "Time", _key, _value] call s_stats_write;
+[format["Timelog - %1",_uid],_month, _key, _value] call s_stats_write;
