@@ -14,6 +14,8 @@ if (isNil "server_auth" && {dtk_client})then {
 
 waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
 
+startLoadingScreen ["","dtk_loading"]; 
+
 /* Go ahead and figure out what side the player is on */
 if (dtk_client)then {
 	dtk_side = call {
@@ -38,5 +40,7 @@ if (dtk_client) then {
 	call events_events;
 	diag_log text "[LOG]Post Initialization finished!";
 };
+
+endLoadingScreen;
 
 diag_log formatText ["Server: %1 Client: %2 Local: %3 World: %4 Name: %5 Type: %6 Time: %7 Alive: %8 Null: %9 Stats: %10 ",dtk_server,dtk_client,local player,WorldName,name player,typeOf player,Time,alive player,isNull player];
