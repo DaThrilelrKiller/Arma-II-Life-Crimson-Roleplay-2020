@@ -1,21 +1,10 @@
-﻿private ["_total","_msg","_start","_stop","_moduleTime","_moduleName","_totalStart","_totalStop"];
+﻿private ["_total","_start","_stop","_moduleTime","_moduleName","_totalStart","_totalStop"];
 
 _total = count DTK_INIT;
-_msg = "";
 _totalStart = diag_tickTime;
 
 {
 	_start = diag_tickTime;
-	
-	if (dtk_client)then {
-		if (typeName _x == "CODE")then {
-			_moduleName = format["Module_%1",_forEachIndex];
-		}else{
-			_moduleName = _x select 1;
-		};
-		titleText [format["Loading %1 Module (%2 of %3) %4",_moduleName,_forEachIndex + 1,_total,_msg], "PLAIN",0];
-		_msg = format ["%2 Module Complete\n %1",_msg,_moduleName];
-	};
 	
 	if (typeName _x == "CODE")then {
 		call _x;
