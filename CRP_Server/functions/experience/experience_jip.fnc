@@ -18,11 +18,11 @@ _month = date select 1;
 _day   = date select 2;
 
 /* Totals */
-_civTime = 0;   // 31 days
+_civTime = 0;
 _unTime  = 0;
 _pdTime  = 0;
 
-_civ7 = 0;      // 7 days
+_civ7 = 0;
 _un7  = 0;
 _pd7  = 0;
 
