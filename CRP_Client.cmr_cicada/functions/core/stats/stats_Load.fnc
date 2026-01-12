@@ -54,6 +54,12 @@ if ((_stats select 14) == "UNCONSCIOUS")then {
 };
 setViewDistance (_stats select 15);
 dtk_grass = (_stats select 16);
+if (isNil "dtk_detail") then {
+	dtk_detail = [50, 25, 12.5, 6.25, 3.125];
+};
+if (dtk_grass < 0 || dtk_grass >= count dtk_detail) then {
+	dtk_grass = 0;
+};
 setTerrainGrid (dtk_detail select dtk_grass);
 
 dtk_seasion = (_stats select 17);
