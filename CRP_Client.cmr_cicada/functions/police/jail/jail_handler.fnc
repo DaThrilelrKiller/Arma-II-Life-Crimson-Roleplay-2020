@@ -11,9 +11,12 @@ _unit setVariable ["ar_cuffed",false,true];
 _unit setPosAtl [7117.99,3589.76,1.5];
 _unit setDamage 0;
 _unit call police_disarm;
-if !(dtk_server) {
+if !(dtk_server) then {
 	["olrpg_jailinmate"]call clothing_switch;
+}else {
+	_unit disableAI "MOVE";
 };
+
 dtk_disabledkeys = [44,47];
 dtk_hunger      = 0;
 

@@ -1,7 +1,7 @@
 ﻿
 private ["_vcl"];
 _unit = _this select 0;
-_vcl = (nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 3] select 0);
+_vcl = (nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 6] select 0);
 
 
 if (isNil '_vcl')exitWith { systemChat "No Vehicles In Range!";};
