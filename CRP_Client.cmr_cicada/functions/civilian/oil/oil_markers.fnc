@@ -29,4 +29,4 @@ _locations = [];
 		_marker = [("drill_" + str _ForEachIndex),getPos _x,nil,nil,"colorBlack","mil_dot",nil,"Oil Field"]call core_createMarkerLocal;
 		v_oil_loc set [count v_oil_loc,_marker];
 	};
-}ForEach (nearestobjects [dtk_center, ["Land_Ind_Oil_Pump_EP1","Land_Ind_Oil_Tower_EP1"], (dtk_center select 0)]);
+}ForEach _this;
