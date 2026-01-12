@@ -1,32 +1,86 @@
-private ["_side","_uid","_player","_year","_month","_day","_lastMonth","_civTime","_unTime","_pdTime","_todayTime"];
+private [
+    "_side","_uid","_player",
+    "_year","_month","_day",
+    "_civTime","_unTime","_pdTime",
+    "_todayTime",
+    "_count","_d","_m","_y",
+    "_todayCiv","_todayUn","_todayPd",
+    "_daysInMonth"
+];
 
-_side = _this select 1;
-_uid = getPlayerUID(_this select 0);
-_player = (_this select 0);
+_side   = _this select 1;
+_player = _this select 0;
+_uid    = getPlayerUID _player;
 
-_year = date select 0;
+_year  = date select 0;
 _month = date select 1;
-_day = date select 2;
-_lastMonth = _month - 1;
+_day   = date select 2;
 
 _civTime = 0;
-_unTime = 0;
-_pdTime = 0;
+_unTime  = 0;
+_pdTime  = 0;
+_todayTime = [0,0,0];
 
-for "_i" from 1 to _day do { 
-    _civTime = _civTime + ([format["Timelog - %1",_uid],_month,format["time_CIV_%1_%2",_year,_i],0]call s_stats_read);
-    _unTime = _unTime +  ([format["Timelog - %1",_uid],_month,format["time_UN_%1_%2",_year,_i],0]call s_stats_read);
-    _pdTime = _unTime + ([format["Timelog - %1",_uid],_month,format["time_PD_%1_%2",_year,_i],0]call s_stats_read);
-    if (_i == _day)then {
-        _todayTime = [_civTime,_unTime,_pdTime];
+_count = 0;
+_d = _day;
+_m = _month;
+_y = _year;
+
+while {_count < 31} do {
+
+    /* Read DAILY values (NOT totals) */
+    _todayCiv = ([format["Timelog - %1",_uid],_m,format["time_CIV_%1_%2",_y,_d],0] call s_stats_read) max 0;
+    _todayUn  = ([format["Timelog - %1",_uid],_m,format["time_UN_%1_%2", _y,_d],0] call s_stats_read) max 0;
+    _todayPd  = ([format["Timelog - %1",_uid],_m,format["time_PD_%1_%2", _y,_d],0] call s_stats_read) max 0;
+
+    /* Save TODAY only */
+    if (_count == 0) then {
+        _todayTime = [_todayCiv,_todayUn,_todayPd];
     };
- };
 
+    /* Add to 31-day totals */
+    _civTime = _civTime + _todayCiv;
+    _unTime  = _unTime  + _todayUn;
+    _pdTime  = _pdTime  + _todayPd;
 
- for "_i" from 15 to 31 do { 
-    _civTime = _civTime + ([format["Timelog - %1",_uid],_lastMonth,format["time_CIV_%1_%2_%3",_year,_i],0]call s_stats_read);
-    _unTime = _unTime +  ([format["Timelog - %1",_uid],_lastMonth,format["time_UN_%1_%2_%3",_year,_i],0]call s_stats_read);
-    _pdTime = _pdTime + ([format["Timelog - %1",_uid],_lastMonth,format["time_PD_%1_%2_%3",_year,_i],0]call s_stats_read);
- };
+    _count = _count + 1;
+    _d = _d - 1;
 
- [_player,[_civTime,_unTime,_pdTime,_todayTime],"experience_load",false,false]call network_MPExec;
+    /* Handle month rollover */
+    if (_d < 1) then {
+
+        _m = _m - 1;
+        if (_m < 1) then {
+            _m = 12;
+            _y = _y - 1;
+        };
+
+        _daysInMonth = switch (_m) do {
+            case 1;
+            case 3;
+            case 5;
+            case 7;
+            case 8;
+            case 10;
+            case 12: {31};
+            case 4;
+            case 6;
+            case 9;
+            case 11: {30};
+            case 2: {
+                if ((_y mod 4 == 0 && _y mod 100 != 0) || (_y mod 400 == 0)) then {29} else {28};
+            };
+        };
+
+        _d = _daysInMonth;
+    };
+};
+
+/* Send result */
+[
+    _player,
+    [_civTime,_unTime,_pdTime,_todayTime],
+    "experience_load",
+    false,
+    false
+] call network_MPExec;
