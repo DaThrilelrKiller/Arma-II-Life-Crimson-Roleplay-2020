@@ -30,7 +30,6 @@ DTK_Events = [
 dtk_active_modules = 
 [
 ["Core","Network"],
-["Core","Music"],
 ["Core","Core"],
 ["Core","Whitelist"],
 ["Core","Stats"],
