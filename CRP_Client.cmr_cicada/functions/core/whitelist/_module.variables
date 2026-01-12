@@ -1,5 +1,19 @@
 ﻿
 whitelist_data = [
+/* Format: ["Display Name", "Variable Name", {Condition Code}, [Playtime Hours Required, Period Type (7 or 30), Time Type ("CIV", "UN", or "PD")]] */
+/* Period Type: 7 = 7-day total, 30 = 30-day total */
+/* Time Type: "CIV" = Civilian, "UN" = EMS/Fire, "PD" = Police */
+/* Playtime parameters are optional - entries without them work as before */
+/*
+Example with playtime requirement:
+["Patrol Officer","PO2_id",{SwagDevs or Cpt_id or Lt_id or Sgt_id or Cpl_id}, [20, 30, "PD"]]
+This would require 20 hours of PD time in the last 30 days to auto-whitelist
+
+Example with 7-day requirement:
+["Rookie Patrol Officer","PO1_id",{SwagDevs or Cpt_id or Lt_id or Sgt_id or Cpl_id}, [10, 7, "PD"]]
+This would require 10 hours of PD time in the last 7 days to auto-whitelist
+*/
+
 ["Developer","SwagDevs",{SwagDevs}],
 ["Senior Administrator","adminlevel4",{SwagDevs or adminlevel4}],
 ["Administrator","adminlevel3",{SwagDevs or adminlevel4}],
@@ -23,13 +37,13 @@ whitelist_data = [
 ["Highway Patrol","HWP_id",{SwagDevs  or Cpt_id or Lt_id}],
 
 ["EMS Chief","EMSChiefs_id",{SwagDevs}],
-["EMS Command","EMSCommand_id",{SwagDevs or EMSChiefs_id}],
-["EMS Supervisor","EMSSupervisor_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
-["EMS Avation","EMSAirUnit_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
-["Firefighter I","FF2_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
-["Firefighter II","FF1_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
-["Paramedic","EMTAdavnced_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
-["Advanced EMT","EMTBasic_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}],
+["EMS Command","EMSCommand_id",{SwagDevs or EMSChiefs_id}, [40, 7, "UN"]],
+["EMS Supervisor","EMSSupervisor_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [35, 7, "UN"]],
+["EMS Avation","EMSAirUnit_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [30, 7, "UN"]],
+["Firefighter I","FF2_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [25, 7, "UN"]],
+["Firefighter II","FF1_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [20, 7, "UN"]],
+["Paramedic","EMTAdavnced_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [15, 7, "UN"]],
+["Advanced EMT","EMTBasic_id",{SwagDevs or EMSChiefs_id or EMSCommand_id}, [10, 7, "UN"]],
 
 ["PMC General","PMC_General",{SwagDevs}],
 ["PMC Commander","PMC_Commander",{SwagDevs or PMC_General}],
