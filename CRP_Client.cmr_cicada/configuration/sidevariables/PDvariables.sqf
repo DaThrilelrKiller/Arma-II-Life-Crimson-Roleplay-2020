@@ -5,6 +5,7 @@ dtk_ems       	= false;
 dtk_sidename = "Police Officer";
 
 INV_apps = [
+["app_warrants","data\images\ipad\WARRANTS.PAA","[0,1,2,[""coplog""]] execVM 'scripts\maindialogs.sqf';"],
 ["app_civilian","data\images\ipad\players.PAA","[0,0,0,[""playerlist""]] execVM 'scripts\maindialogs.sqf';"],
 ["app_oil","data\images\ipad\OIL.PAA","[0,0,0,[""oilswag""]] execVM 'scripts\maindialogs.sqf'"],
 ["app_dmv","data\images\ipad\licences.PAA","[player]call licenses_check"],
