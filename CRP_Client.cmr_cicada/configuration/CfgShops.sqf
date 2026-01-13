@@ -505,14 +505,7 @@ _qbss = [
 	"tcg_aprilia_yellow_2"								
 ];
 
-	["Scania_420",["vehicle","car"],["Scania_420","Scania 420"],[120000,120000],[1,"DTK_License_civ_truck","",150],[]],
-	["mackr",["vehicle","car"],["mackr","Mack R Model"],[100000,100000],[1,"DTK_License_civ_truck","",150],[]],
-	["cl_flat_mackr",["vehicle","car"],["cl_flat_mackr","Mack R Cargo"],[100000,100000],[1,"DTK_License_civ_truck","",150],[]],
-	["VIL_asistvan",["vehicle","car"],["VIL_asistvan","Road Asistance"],[100000,100000],[1,"DTK_License_civ_Towing","",150],[]],
-	["VIL_transit_truck",["vehicle","car"],["VIL_transit_truck","Transit truck"],[100000,100000],[1,"DTK_License_civ_truck","",150],[]],
-	["VIL_Star_S2000",["vehicle","car"],["VIL_Star_S2000","Star truck (blue white)"],[100000,100000],[1,"DTK_License_civ_truck","",150],[]],
-	["VIL_Star_S2000o",["vehicle","car"],["VIL_Star_S2000o","Star truck (orange)"],[100000,100000],[1,"DTK_License_civ_truck","",150],[]],
-	
+
 _ts = [
 	"mackr",	
 	"cl_flat_mackr",	
