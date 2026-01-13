@@ -1387,6 +1387,31 @@ _dp4 = [
 ];
 
 
+_dp5 = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_sfh = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_spo = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_spovehicles = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_dnrvehicles = [											
+	"tcg_taurus_civ2"																							
+];
+
+
 _terrorshop = [
 	"NVGoggles",													
 	"safehack",														
