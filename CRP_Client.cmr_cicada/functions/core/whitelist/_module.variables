@@ -19,6 +19,7 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Administrator","adminlevel3",{SwagDevs or adminlevel4}],
 ["Moderator","adminlevel2",{SwagDevs or adminlevel4}],
 
+*/ Police Department
 ["Chief of Police","Chief_ID",{SwagDevs}],
 ["Police Captain","Cpt_id",{SwagDevs}],
 ["Police Lieutenant","Lt_id",{SwagDevs}],
@@ -28,20 +29,27 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Patrol Officer","PO2_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 ["Rookie Patrol Officer","PO1_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 
-
-["Deputy Sheriff","DP_id",{SwagDevs  or  SHF_id}],
-["Sheriff Corporal","DP2_id",{SwagDevs  or  SHF_id}],
-["Sheriff Sergeant","DP3_id",{SwagDevs  or  SHF_id}],
-["Sheriff Lieutenant","DP4_id",{SwagDevs  or  SHF_id}],
-["Sheriff Captain","DP5_id",{SwagDevs  or  SHF_id}],
-["Sheriff","SHF_id",{SwagDevs}],
+*/ Police Divisions
 ["K-9 Officer","K9_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Police Avation","PDAviation_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["S.W.A.T","SWAT_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Coast Guard","CoastGuard_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Undercover","Undercover_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["D.O.C","DOC_id",{SwagDevs  or Cpt_id or Lt_id}],
-["Highway Patrol","HWP_id",{SwagDevs  or Cpt_id or Lt_id}],
+
+*/Sheriffs Office
+["Deputy Sheriff","DP_id",{SwagDevs  or  SHF_id}],
+["Sheriff Corporal","DP2_id",{SwagDevs  or  SHF_id}],
+["Sheriff Sergeant","DP3_id",{SwagDevs  or  SHF_id}],
+["Sheriff Lieutenant","DP4_id",{SwagDevs  or  SHF_id}],
+["Sheriff Captain","DP5_id",{SwagDevs  or  SHF_id}],
+["Sheriff","SHF_id",{SwagDevs}],
+
+*/Sheriffs Divisions
+["Special Ops","spo_id",{SwagDevs  or DP5_id or DP4_id or SHF_id}],
+["DNR","dnr_id",{SwagDevs  or DP5_id or DP4_id or SHF_id}],
+
+
 
 ["EMS Chief","EMSChiefs_id",{SwagDevs}],
 ["EMS Command","EMSCommand_id",{SwagDevs or EMSChiefs_id}, [40, 7, "UN"]],
