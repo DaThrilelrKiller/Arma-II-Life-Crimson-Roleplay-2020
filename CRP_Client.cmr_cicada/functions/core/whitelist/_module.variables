@@ -28,6 +28,13 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Patrol Officer","PO2_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 ["Rookie Patrol Officer","PO1_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 
+
+["Deputy Sheriff","DP_id",{SwagDevs  or  SHF_id}],
+["Sheriff Corporal","DP2_id",{SwagDevs  or  SHF_id}],
+["Sheriff Sergeant","DP3_id",{SwagDevs  or  SHF_id}],
+["Sheriff Lieutenant","DP4_id",{SwagDevs  or  SHF_id}],
+["Sheriff Captain","DP5_id",{SwagDevs  or  SHF_id}],
+["Sheriff","SHF_id",{SwagDevs}],
 ["K-9 Officer","K9_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Police Avation","PDAviation_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["S.W.A.T","SWAT_id",{SwagDevs  or Cpt_id or Lt_id}],
