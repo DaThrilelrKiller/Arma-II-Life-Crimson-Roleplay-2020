@@ -30,7 +30,7 @@ class Mission
 	randomSeed=4744745;
 	class Intel
 	{
-		briefingName="Crimson RP Project";
+		briefingName="RealLifeRPG 2.0";
 		briefingDescription="By: DaThrillerKiller";
 		resistanceEast=1;
 		startWeather=0;
