@@ -89,6 +89,10 @@ switch (_command) do
 	{
 		[]call core_performance;
 	};
+	case "!timelog": 
+	{
+		["SERVER",[dtk_side,player],"s_experience_jip",false,false]call network_MPExec;
+	};
 	case "!uptime": 
 	{
 		[]call core_performance;
