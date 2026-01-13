@@ -10,11 +10,11 @@ dtk_center = [5125,5125,0];
 ar_paychecks = 
 [
 [{dtk_cop},5000],
-[{dtk_cop and Cpl_id},2000],
-[{dtk_cop and Sgt_id},3000],
-[{dtk_cop and Lt_id},10000],
-[{dtk_cop and Cpt_id},15000],
-[{dtk_cop and Chief_id},50000],
+[{dtk_cop and Cpl_id and DP2_id},2000],
+[{dtk_cop and Sgt_id and DP3_id},3000],
+[{dtk_cop and Lt_id and DP4_id},10000],
+[{dtk_cop and Cpt_id and DP5_id},15000],
+[{dtk_cop and Chief_id and SHF_id},50000],
 [{dtk_ems},(5000 + random 2000 - random 2000)],
 [{dtk_civ},add_civmoney]
 ];
