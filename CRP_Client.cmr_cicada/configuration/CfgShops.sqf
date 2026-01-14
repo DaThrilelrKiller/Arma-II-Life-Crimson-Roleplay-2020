@@ -2311,15 +2311,15 @@ INV_ItemShops = [
 	[["Sheriff","Captain Deputy"], _copcptdeputy, _copcptdeputy, {dtk_cop}, nil, true]
 ]],
 [OL_Shop_PMC, ["Sheriff","PMC Equipment"], [
-	[["Sheriff","General"], _PMC_General, _PMC_General, {PMC_General}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Commander"], _PMC_Commander, _PMC_Commander, {PMC_Commander}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Lieutenant"], _PMC_Lieutenant, _PMC_Lieutenant, {PMC_Lieutenant}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Sergeant"], _PMC_Sergeant, _PMC_Sergeant, {PMC_Sergeant}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Corporal"], _PMC_Corporal, _PMC_Corporal, {PMC_Corporal}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Private"], _PMC_Private, _PMC_Private, {PMC_Private}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Recruit"], _PMC_Recruit, _PMC_Recruit, {PMC_Recruit}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Marksman"], _PMC_Marksman, _PMC_Marksman, {PMC_Marksman}, "OL_Shop_PMCVehSpawn", true],
-	[["Sheriff","Aviation"], _PMC_Aviation, _PMC_Aviation, {PMC_Aviation}, "OL_Shop_PMCVehSpawn", true]
+	[["Sheriff","General"], _PMC_General, _PMC_General, {PMC_General}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Commander"], _PMC_Commander, _PMC_Commander, {PMC_Commander}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Lieutenant"], _PMC_Lieutenant, _PMC_Lieutenant, {PMC_Lieutenant}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Sergeant"], _PMC_Sergeant, _PMC_Sergeant, {PMC_Sergeant}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Corporal"], _PMC_Corporal, _PMC_Corporal, {PMC_Corporal}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Private"], _PMC_Private, _PMC_Private, {PMC_Private}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Recruit"], _PMC_Recruit, _PMC_Recruit, {PMC_Recruit}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Marksman"], _PMC_Marksman, _PMC_Marksman, {PMC_Marksman}, "DTK_PMC_SPAWN", true],
+	[["Sheriff","Aviation"], _PMC_Aviation, _PMC_Aviation, {PMC_Aviation}, "DTK_PMC_SPAWN", true]
 ]],
 
 [DTK_Shop_Cop_SheriffEquipment, ["Sheriff","Sheriff Equipment"], [
