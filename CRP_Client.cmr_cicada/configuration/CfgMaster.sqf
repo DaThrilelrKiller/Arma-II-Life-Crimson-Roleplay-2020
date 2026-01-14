@@ -1825,7 +1825,15 @@ dtk_vehicles =
 	["VIL_smart_civil2",["vehicle","car"],["VIL_smart_civil2","Smart (red)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
 	["VIL_smart_civil3",["vehicle","car"],["VIL_smart_civil3","Smart (yellow)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
 	["VIL_smart_civil4",["vehicle","car"],["VIL_smart_civil4","Smart (white)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
-	["VIL_smart_civil5",["vehicle","car"],["VIL_smart_civil5","Smart (black)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]]
+	["VIL_smart_civil5",["vehicle","car"],["VIL_smart_civil5","Smart (black)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
+
+    ["DD_FOR16Explorer_U_S",["vehicle","car"],["DD_FOR16Explorer_U_S","Slicktop 2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_P_S",["vehicle","car"],["DD_FOR16Explorer_P_S","2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_S",["vehicle","car"],["DD_FOR06CV_P_S","2006 Ford CVPI (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]]
+
+
+
+
 ];
 
 dtk_items = [

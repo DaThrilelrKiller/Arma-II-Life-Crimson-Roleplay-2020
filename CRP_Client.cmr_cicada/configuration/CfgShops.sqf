@@ -1366,6 +1366,52 @@ _undercover = [
 ];
 
 
+_dp = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+
+_dp2 = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_dp3 = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_dp4 = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_dp5 = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_sfh = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_spo = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_spovehicles = [											
+	"tcg_taurus_civ2"																							
+];
+
+
+_dnrvehicles = [											
+	"tcg_taurus_civ2"																							
+];
+
+
 _terrorshop = [
 	"NVGoggles",													
 	"safehack",														
