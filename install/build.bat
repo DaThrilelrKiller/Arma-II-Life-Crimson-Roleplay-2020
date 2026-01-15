@@ -84,8 +84,8 @@ echo.
 echo     # Add function definition
 echo     Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
 echo.
-echo     # Check event types
-echo     if ^($funcName -match '_init$'^) { $dtkInit += $funcName }
+echo     # Check event types ^(exclude setup_init from DTK_INIT^)
+echo     if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
 echo     elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
 echo     elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
 echo     elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
