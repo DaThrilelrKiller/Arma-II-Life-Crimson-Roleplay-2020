@@ -2197,7 +2197,7 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			text="lumbermill";
-			init="this allowdamage false;this setVectorUp [0,0,1]; call compile preprocessFile 'pre_init.sqf'; ";
+			init="this allowdamage false;this setVectorUp [0,0,1]; call compile preprocessFile '/pre_init.sqf'; ";
 		};
 	};
 	class Markers
