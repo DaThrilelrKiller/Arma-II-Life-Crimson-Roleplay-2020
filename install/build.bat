@@ -74,8 +74,8 @@ echo $dtkRespawn = @^(^)
 echo.
 echo # Process .fnc files
 echo Write-Host '[BUILD] Processing .fnc files...'
-echo $fncFiles = Get-ChildItem -Path $functionsDir -Filter '*.fnc' -Recurse
-echo Write-Host '[BUILD] Found ' $fncFiles.Count ' .fnc files'
+echo $fncFiles = Get-ChildItem -Path $functionsDir -Filter '*.fnc' -Recurse ^| Where-Object { $_.FullName -notmatch '\\disabled\\' }
+echo Write-Host '[BUILD] Found ' $fncFiles.Count ' .fnc files ^(excluding disabled folder^)'
 echo $fncFiles ^| ForEach-Object {
 echo     $fncFile = $_.FullName
 echo     $funcName = $_.BaseName
@@ -94,8 +94,8 @@ echo Write-Host '[BUILD] Processed ' $fncFiles.Count ' .fnc files'
 echo.
 echo # Process .variables files
 echo Write-Host '[BUILD] Processing .variables files...'
-echo $varFiles = Get-ChildItem -Path $functionsDir -Filter '_module.variables' -Recurse
-echo Write-Host '[BUILD] Found ' $varFiles.Count ' .variables files'
+echo $varFiles = Get-ChildItem -Path $functionsDir -Filter '_module.variables' -Recurse ^| Where-Object { $_.FullName -notmatch '\\disabled\\' }
+echo Write-Host '[BUILD] Found ' $varFiles.Count ' .variables files ^(excluding disabled folder^)'
 echo $varFiles ^| ForEach-Object {
 echo     $varFile = $_.FullName
 echo     $content = Get-Content -Path $varFile -Raw
