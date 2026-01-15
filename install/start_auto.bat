@@ -58,17 +58,17 @@ IF NOT DEFINED _ARMA2OAPATH (GOTO ENDfailA2OA) ELSE (GOTO update)
 
 
 ::Copy server configuation file to Arma 2 OA Directory
-xcopy /s/e /y /I "%userprofile%\Documents\CrimsonRP\tadst" "%_ARMA2OAPATH%\tadst"
+xcopy /s/e /y /I "%userprofile%\Documents\RLRPG\tadst" "%_ARMA2OAPATH%\tadst"
 
 ::Copyies Server side mods over
-xcopy /s/e /y /I "%userprofile%\Documents\CrimsonRP\@inidbi" "%_ARMA2OAPATH%\@inidbi"
+xcopy /s/e /y /I "%userprofile%\Documents\RLRPG\@inidbi" "%_ARMA2OAPATH%\@inidbi"
 
 
 ::Copy mission file to MPmissions
-xcopy /y "%userprofile%\Documents\CrimsonRP\CRP_Client.cmr_cicada.pbo" "%_ARMA2OAPATH%\MPmissions"
+xcopy /y "%userprofile%\Documents\RLRPG\CRP_Client.cmr_cicada.pbo" "%_ARMA2OAPATH%\MPmissions"
 
 ::Copy server files to MP missions
-xcopy /s/e /y /I "%userprofile%\Documents\CrimsonRP\CRP_Server" "%_ARMA2OAPATH%\MPmissions"
+xcopy /s/e /y /I "%userprofile%\Documents\RLRPG\CRP_Server" "%_ARMA2OAPATH%\MPmissions"
 
 goto start
 
