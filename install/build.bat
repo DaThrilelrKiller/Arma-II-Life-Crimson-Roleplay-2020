@@ -3,8 +3,13 @@
 :: Consolidates .fnc and .variables files into functions.sqf and variables.sqf
 :: Builds mission in %userprofile%\Documents\RLRPG\
 
+
 title Crimson Roleplay - Build Script
 SETLOCAL ENABLEEXTENSIONS
+
+cd Arma-II-Life-Crimson-Roleplay-2020
+git pull
+
 
 :: Get the script directory and navigate to project root
 cd /d "%~dp0\.."
