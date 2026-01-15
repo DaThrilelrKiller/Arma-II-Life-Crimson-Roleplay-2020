@@ -94,7 +94,7 @@ echo Write-Host '[BUILD] Found ' $varFiles.Count ' .variables files'
 echo $varFiles ^| ForEach-Object {
 echo     $varFile = $_.FullName
 echo     $content = Get-Content -Path $varFile -Raw
-echo     Add-Content -Path $variablesSqf -Value ":: Variables from $varFile`r`n$content`r`n"
+echo     Add-Content -Path $variablesSqf -Value "$content`r`n"
 echo }
 echo Write-Host '[BUILD] Processed ' $varFiles.Count ' .variables files'
 echo.
@@ -105,7 +105,6 @@ echo $jipList = if ^($dtkJip.Count -gt 0^) { $dtkJip -join ', ' } else { '' }
 echo $firedList = if ^($dtkFired.Count -gt 0^) { $dtkFired -join ', ' } else { '' }
 echo $respawnList = if ^($dtkRespawn.Count -gt 0^) { $dtkRespawn -join ', ' } else { '' }
 echo.
-echo Add-Content -Path $functionsSqf -Value "`r`n:: DTK_Events Arrays`r`n"
 echo Add-Content -Path $functionsSqf -Value "DTK_INIT = [$initList];`r`n"
 echo Add-Content -Path $functionsSqf -Value "DTK_jip = [$jipList];`r`n"
 echo Add-Content -Path $functionsSqf -Value "DTK_fired = [$firedList];`r`n"

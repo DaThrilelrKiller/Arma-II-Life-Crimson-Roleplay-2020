@@ -30,7 +30,7 @@ call compile preprocessFile format ['configuration\sidevariables\%1variables.sqf
 };
 
 call compile preprocessFile  "configuration\CfgVariables.sqf";	
-call compile preprocessFile "functions\post_init.sqf";											
+call compile preprocessFile "post_init.sqf";											
 
 
 if (dtk_client) then {

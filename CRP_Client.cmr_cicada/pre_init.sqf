@@ -10,7 +10,7 @@ if (dtk_server)then {
 	[]execVM "skipBriefing.sqf";
 };
 
-call compile preprocessFile "functions\spawn_points.sqf";
+call compile preprocessFile "spawn_points.sqf";
 call compile preprocessFile "configuration\CfgFunctions.fnc";
 call compile preprocessFile "scripts\admin.sqf";
 call compile preprocessFile  "scripts\miscfunctions.sqf";
