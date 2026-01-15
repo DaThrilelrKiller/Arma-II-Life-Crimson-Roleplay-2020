@@ -123,41 +123,8 @@ dtk_active_modules =
 "TFAR"
 ];
 
-/*loads module functions*/
-{
-	_module = _x;
-	
-	if (typeName _module == "ARRAY")then{
-		_path = format["%1\%2",_module select 0,_module select 1];
-		_module = _module select 1;
-	}else{
-		_path = _module;
-	};
-	
-	call compile preprocessFile format["functions\%1\_module.variables",_path];
-	_functions = call compile preprocessFile format ["functions\%1\_module.functions",_path];
-	
-	
-	{
-		if (_x in DTK_Events && {_module != "Setup"})then {
-			_array = missionNamespace getVariable [format["DTK_%1",_x],[]];
-			
-			if (_x == "init")then {
-				_array = _array + [[compile preprocessFile format["functions\%3\%1_%2.fnc",_module,_x,_path],_module]];
-			}else{
-				_array = _array + [compile preprocessFile format["functions\%3\%1_%2.fnc",_module,_x,_path]];
-			};
-			missionNamespace setVariable [format["DTK_%1",_x],_array];
-
-		}else{
-			_fn = format ["%1_%2",_module,_x];
-			missionNamespace setVariable [_fn,compile preprocessFile format["functions\%1\%2.fnc",_path,_fn]];
-		};
-		dtk_fnc_num = _forEachIndex + 1;
-	}forEach _functions;
-	diag_log formatText ["Loaded Module - %1 With %2 Functions",_module,dtk_fnc_num];
-	dtk_fnc_total = dtk_fnc_total + dtk_fnc_num;
-}count dtk_active_modules;
+call compile preprocessFile "variables.sqf";
+call compile preprocessFile "functions.sqf";
 
 if (dtk_server)then {
 	call compile preprocessFile "\MPMissions\functions\pre_init.sqf";
