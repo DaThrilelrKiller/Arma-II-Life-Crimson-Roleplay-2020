@@ -2,6 +2,8 @@ diag_log text "[LOG]Post Initialization Started";
 
 enableSaving [false, false];
 
+waitUntil {!isNil "DTK_respawn"};
+
 if (isNil "server_auth" && {dtk_client})then {
 	waitUntil {time > 0};
 	titleText ["Waiting for server to authenticate \n Please wait while we get everything setup", "PLAIN"];
