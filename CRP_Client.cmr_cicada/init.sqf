@@ -16,8 +16,6 @@ if (isNil "server_auth" && {dtk_client})then {
 
 waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
 
-startLoadingScreen ["","RscDisplayLoadMission"]; 
-
 /* Go ahead and figure out what side the player is on */
 if (dtk_client)then {
 	dtk_side = call {
