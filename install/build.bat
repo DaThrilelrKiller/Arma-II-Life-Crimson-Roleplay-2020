@@ -137,10 +137,10 @@ echo [BUILD] PowerShell script completed successfully
 :: Clean up temp script
 if exist "%PS_SCRIPT%" del /q "%PS_SCRIPT%"
 
-echo [BUILD] Copying mission to build directory...
+echo [BUILD] Copying project to build directory...
 
-:: Copy entire CRP_Client.cmr_cicada folder to build directory
-xcopy /s /e /y /I "%PROJECT_ROOT%\CRP_Client.cmr_cicada" "%BUILD_DIR%\CRP_Client.cmr_cicada"
+:: Copy everything from PROJECT_ROOT to BUILD_DIR
+xcopy /s /e /y /I "%PROJECT_ROOT%\*" "%BUILD_DIR%"
 
 echo [BUILD] Removing functions folder from build...
 
@@ -150,8 +150,27 @@ if exist "%BUILD_DIR%\CRP_Client.cmr_cicada\functions" (
     echo [BUILD] Functions folder removed from build
 )
 
+echo [BUILD] Building PBO file...
+
+:: Change to install directory to use cpbo.exe
+cd /d "%~dp0"
+
+:: Build PBO file
+cpbo -p "%BUILD_DIR%\CRP_Client.cmr_cicada" "%BUILD_DIR%\CRP_Client.cmr_cicada.pbo"
+
+if errorlevel 1 (
+    echo [ERROR] PBO build failed with error code %errorlevel%
+) else (
+    echo [BUILD] PBO file created successfully: %BUILD_DIR%\CRP_Client.cmr_cicada.pbo
+)
+
+:: Return to project root
+cd /d "%PROJECT_ROOT%"
+
 echo [BUILD] Build complete!
+echo [BUILD] Project copied to: %BUILD_DIR%
 echo [BUILD] Mission built at: %BUILD_DIR%\CRP_Client.cmr_cicada
+echo [BUILD] PBO file: %BUILD_DIR%\CRP_Client.cmr_cicada.pbo
 echo [BUILD] Functions consolidated: %FUNCTIONS_SQF%
 echo [BUILD] Variables consolidated: %VARIABLES_SQF%
 
@@ -166,6 +185,12 @@ if exist "%VARIABLES_SQF%" (
     echo [BUILD] VERIFIED: variables.sqf exists
 ) else (
     echo [ERROR] variables.sqf was NOT created!
+)
+
+if exist "%BUILD_DIR%\CRP_Client.cmr_cicada.pbo" (
+    echo [BUILD] VERIFIED: CRP_Client.cmr_cicada.pbo exists
+) else (
+    echo [ERROR] CRP_Client.cmr_cicada.pbo was NOT created!
 )
 
 ENDLOCAL
