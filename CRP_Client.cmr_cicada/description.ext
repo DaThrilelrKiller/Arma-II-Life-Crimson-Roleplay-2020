@@ -51,7 +51,6 @@ class MissionSQM
 #include "data\dialogs\shopping.hpp"
 #include "data\dialogs\impound.hpp"
 #include "data\dialogs\keypress_dialog.hpp"
-#include "data\dialogs\loading_dialog.hpp"
 #include "data\dialogs\hooker_diaglog.hpp"
 #include "data\dialogs\interaction_menu.hpp"
 #include "data\dialogs\Whitelist.hpp"

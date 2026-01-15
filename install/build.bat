@@ -150,6 +150,28 @@ if exist "%BUILD_DIR%\CRP_Client.cmr_cicada\functions" (
     echo [BUILD] Functions folder removed from build
 )
 
+echo [BUILD] Processing files with FART...
+
+:: Change to install directory to use fart.exe
+cd /d "%~dp0"
+
+:: Remove tabs from files
+FART -r --c-style "%BUILD_DIR%\*.sqf" "\t" " "
+FART -r --c-style "%BUILD_DIR%\*.sqm" "\t" " "
+FART -r --c-style "%BUILD_DIR%\*.hpp" "\t" " "
+
+:: Remove \r\n from files
+FART -r --c-style "%BUILD_DIR%\*.sqf" "\r\n" " "
+FART -r --c-style "%BUILD_DIR%\*.sqm" "\r\n" " "
+FART -r --c-style "%BUILD_DIR%\*.hpp" "\r\n" " "
+
+:: Remove \n from files
+FART -r --c-style "%BUILD_DIR%\*.sqf" "\n" " "
+FART -r --c-style "%BUILD_DIR%\*.sqm" "\n" " "
+FART -r --c-style "%BUILD_DIR%\*.hpp" "\n" " "
+
+echo [BUILD] Files processed with FART
+
 echo [BUILD] Building PBO file...
 
 :: Change to install directory to use cpbo.exe
