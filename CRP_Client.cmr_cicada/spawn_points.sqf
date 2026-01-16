@@ -1,6 +1,6 @@
 ﻿DTK_Shop_BoatSVehSpawn = 'Logic'  createVehicleLocal [0,0,0];
-DTK_Shop_BoatSVehSpawn setDir 1.09585;
-DTK_Shop_BoatSVehSpawn setPos [4804.59,3075.38,-0.142749];
+DTK_Shop_BoatSVehSpawn setDir 8;
+DTK_Shop_BoatSVehSpawn setPos [6805.73,3667.44,0.000616357];
 DTK_COP_SPD2 = 'Logic'  createVehicleLocal [0,0,0];
 DTK_COP_SPD2 setDir 0.0164344;
 DTK_COP_SPD2 setPos [3550.75,3124.73,0.183712];
@@ -17,9 +17,15 @@ VIPspawn3 setPos [4544.05,3831.14,0];
 VIPspawn2 = 'Logic'  createVehicleLocal [0,0,0];
 VIPspawn2 setDir 182.555;
 VIPspawn2 setPos [2648.73,3901.29,0];
+DTK_Shop_TowShopSpawn = 'Logic'  createVehicleLocal [0,0,0];
+DTK_Shop_TowShopSpawn setDir 270;
+DTK_Shop_TowShopSpawn setPos [6224,4118.73,0];
 DTK_Shop_EMTSubVehSpawn = 'Logic'  createVehicleLocal [0,0,0];
-DTK_Shop_EMTSubVehSpawn setDir 270;
-DTK_Shop_EMTSubVehSpawn setPos [6224,4118.73,0];
+DTK_Shop_EMTSubVehSpawn setDir 180;
+DTK_Shop_EMTSubVehSpawn setPos [3602.12,3126.21,0.00143814];
+
+
+
 tdocspawnsubair = 'Logic'  createVehicleLocal [0,0,0];
 tdocspawnsubair setDir 1.00179e-005;
 tdocspawnsubair setPos [6186.5,4135.22,0.0649986];

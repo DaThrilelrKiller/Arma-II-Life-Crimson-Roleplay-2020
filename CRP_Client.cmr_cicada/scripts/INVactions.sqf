@@ -18,7 +18,7 @@ if (_action == "use") then
 
 	if (isNil "dtk_use" || {scriptDone dtk_use})then {
 		if (isNil format ["%1",_filename])then {
-			dtk_use = ["use", _item, _textamount] execVM format["functions\items\%1.sqf",_filename];
+			dtk_use = ["use", _item, _textamount] execVM format["scripts\items\%1.sqf",_filename];
 		}else{
 			dtk_use = ["use", _item, _textamount]spawn call compile _filename;
 		};
