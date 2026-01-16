@@ -1379,22 +1379,116 @@ _dp = [
 
 
 _dp2 = [											
-	"tcg_taurus_civ2"																							
+    "tcg_mossberg_SD", 
+	"tcg_remington_SD",
+	"RH_M16A4eotech_SD",
+	"RH_M16A4acog_SD",
+	"RH_M4a1eotech_SD", 
+	"RH_M4a1aim_SD", 
+	"RH_p226_SD", 
+	"RH_g17_SD", 
+	"revolver_SD", 
+	"DDOPP_X3",		
+	"8Rnd_B_Beneli_Pellets_fix",								
+	"30Rnd_556x45_Stanag_SD", 
+	"RH_15Rnd_9x19_usp_SD",	
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"Rnd_45ACP_SD",	
+	"DD_FOR16Explorer_P_S",
+	"DD_DOD12Charger_P_S"
 ];
 
 
 _dp3 = [											
-	"tcg_taurus_civ2"																							
+	"RH_M4a1acog_SD", 
+	"RH_Mk18eot_SD", 
+	"RH_Mk18aim_SD", 
+	"RH_pythonma_SD",
+	"tcg_mossberg_SD", 
+	"tcg_remington_SD",
+	"RH_M16A4eotech_SD",
+	"RH_M16A4acog_SD",
+	"RH_M4a1eotech_SD", 
+	"RH_M4a1aim_SD", 
+	"RH_p226_SD", 
+	"RH_g17_SD", 
+	"revolver_SD", 
+	"DDOPP_X3",		
+	"8Rnd_B_Beneli_Pellets_fix",								
+	"30Rnd_556x45_Stanag_SD", 
+	"RH_15Rnd_9x19_usp_SD",	
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"Rnd_45ACP_SD",
+	"RH_6Rnd_357_Mag_SD",
+	"DD_DOD15Charger_P_S",
+	"DD_FOR16Explorer_U_S"
 ];
 
 
 _dp4 = [											
-	"tcg_taurus_civ2"																							
+	"RH_Mk18acog_SD", 
+	"RH_M4meotech_SD", 
+	"RH_M4maim_SD", 
+	"RH_M4macog_SD", 
+	"RH_M4a1acog_SD", 
+	"RH_Mk18eot_SD", 
+	"RH_Mk18aim_SD", 
+	"RH_pythonma_SD",
+	"tcg_mossberg_SD", 
+	"tcg_remington_SD",
+	"RH_M16A4eotech_SD",
+	"RH_M16A4acog_SD",
+	"RH_M4a1eotech_SD", 
+	"RH_M4a1aim_SD", 
+	"RH_p226_SD", 
+	"RH_g17_SD", 
+	"revolver_SD", 
+	"DDOPP_X3",		
+	"8Rnd_B_Beneli_Pellets_fix",								
+	"30Rnd_556x45_Stanag_SD", 
+	"RH_15Rnd_9x19_usp_SD",	
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"Rnd_45ACP_SD",
+	"RH_6Rnd_357_Mag_SD",		
+	"DD_DOD12Charger_U_S",
+	"DD_CHE15Suburban_U_S"
 ];
 
 
 _dp5 = [											
-	"tcg_taurus_civ2"																							
+	"RH_acracog_SD", 
+	"RH_acraim_SD",
+	"RH_acreotech_SD",
+	"RH_Mk18acog_SD", 
+	"RH_M4meotech_SD", 
+	"RH_M4maim_SD", 
+	"RH_M4macog_SD", 
+	"RH_M4a1acog_SD", 
+	"RH_Mk18eot_SD", 
+	"RH_Mk18aim_SD", 
+	"RH_pythonma_SD",
+	"tcg_mossberg_SD", 
+	"tcg_remington_SD",
+	"RH_M16A4eotech_SD",
+	"RH_M16A4acog_SD",
+	"RH_M4a1eotech_SD", 
+	"RH_M4a1aim_SD", 
+	"RH_p226_SD", 
+	"RH_g17_SD", 
+	"revolver_SD", 
+	"DDOPP_X3",		
+	"8Rnd_B_Beneli_Pellets_fix",								
+	"30Rnd_556x45_Stanag_SD", 
+	"RH_15Rnd_9x19_usp_SD",	
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"Rnd_45ACP_SD",
+	"RH_6Rnd_357_Mag_SD",																		
+	"Bait_Kit",
+    "DD_DOD15Charger_U_S"
 ];
 
 
@@ -1420,11 +1514,9 @@ _dnrvehicles = [
 
 
 _copk9sheriff = [
-	"olrpg_sdk9cv_pb",											
-	"olrpg_sdk9_charger", 								
-	"olrpg_sdtaurusk9", 									
-	"olrpg_sdk9t",
-	"olrpg_sdk9sub6"
+	"DD_DOD12Charger_P_SK9",											
+	"DD_DOD15Charger_P_S_K9", 								
+	"DD_FOR06CV_P_SK9"
 ];
 
 _copavsh = [
