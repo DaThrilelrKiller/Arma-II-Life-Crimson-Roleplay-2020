@@ -10,12 +10,11 @@ private ["_pos","_building"];
 		
 		_building attachTo [MapCleanObjects, [0, 0, 0]];
 		_building allowDamage false;
-		sleep 0.1;
+		sleep 0.01;
 		detach _building;
-		_building setVehicleInit "hideObject this";
 		
 	}forEach removeBuilgings;
-	processInitCommands;
 	
 	DTK_MapSetup = true;
+	deleteVehicle MapCleanObjects;
 };

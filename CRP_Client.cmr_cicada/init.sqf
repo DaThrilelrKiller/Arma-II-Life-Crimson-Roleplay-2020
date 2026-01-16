@@ -1,3 +1,5 @@
+startLoadingScreen ["","dtk_loading"];
+
 diag_log text "[LOG]Post Initialization Started";
 
 enableSaving [false, false];
@@ -15,8 +17,6 @@ if (isNil "server_auth" && {dtk_client})then {
 };
 
 waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
-
-startLoadingScreen ["","dtk_loading"];
 
 /* Go ahead and figure out what side the player is on */
 if (dtk_client)then {
