@@ -1853,7 +1853,7 @@ dtk_vehicles =
     ["DD_DOD15Charger_P_S",["vehicle","car"],["DD_DOD15Charger_P_S","2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_DOD15Charger_P_S_K9",["vehicle","car"],["DD_DOD15Charger_P_S_K9","2015 Dodge Charger (Sheriff K9 Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_DOD15Charger_U_P",["vehicle","car"],["DD_DOD15Charger_U_P","Slicktop 2015 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
-    ["DD_DOD15Charger_U_S",["vehicle","car"],["DD_DOD15Charger_U_S","Slicktop 2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_U_S",["vehicle","car"],["DD_DOD15Charger_U_S","Slicktop 2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]]
 
 ];
 
