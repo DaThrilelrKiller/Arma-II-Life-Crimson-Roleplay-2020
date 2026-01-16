@@ -1830,7 +1830,6 @@ dtk_vehicles =
     ["DD_FOR16Explorer_U_S",["vehicle","car"],["DD_FOR16Explorer_U_S","Slicktop 2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR16Explorer_P_S",["vehicle","car"],["DD_FOR16Explorer_P_S","2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR06CV_P_S",["vehicle","car"],["DD_FOR06CV_P_S","2006 Ford CVPI (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]]
-    ["DD_FOR16Explorer_U_P_K9",["vehicle","car"],["DD_FOR16Explorer_U_P_K9","Slicktop 2016 Ford Explorer PPV (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
     ["tcg_policev",["vehicle","car"],["tcg_policev","Security Truck"],[10000,10000],[1,"DTK_License_civ_drivers","",150],[]],
     ["VIL_passat_civil",["vehicle","car"],["VIL_passat_civil","VW Passat (Flyer's Courtesy Car)"],[10000,10000],[1,"DTK_License_civ_drivers","",150],[]],
     ["DD_CHE15Suburban_P_P",["vehicle","car"],["DD_CHE15Suburban_P_P","2015 Chevrolet Suburban PPV (Police Patrol)"],[10000,10000],[1,"","",150],[]],
