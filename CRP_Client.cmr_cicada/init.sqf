@@ -41,6 +41,4 @@ if (dtk_client) then {
 	diag_log text "[LOG]Post Initialization finished!";
 };
 
-endLoadingScreen;
-
 diag_log formatText ["Server: %1 Client: %2 Local: %3 World: %4 Name: %5 Type: %6 Time: %7 Alive: %8 Null: %9 Stats: %10 ",dtk_server,dtk_client,local player,WorldName,name player,typeOf player,Time,alive player,isNull player];

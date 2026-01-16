@@ -2,7 +2,7 @@
 
 _units = call core_units;
 _units set [count _units,"server"];
-_find = if (isServer)then {"server"}else{str player};
+_find = if (dtk_server)then {"server"}else{str player};
 
 MPID = format ["MP%1",(_units find _find)];
 {
