@@ -10,7 +10,9 @@ private ["_pos","_building"];
 		
 		_building attachTo [MapCleanObjects, [0, 0, 0]];
 		_building allowDamage false;
-		sleep 0.01;
+		waitUntil {
+			_building distance MapCleanObjects < 50
+		};
 		detach _building;
 		
 	}forEach removeBuilgings;
