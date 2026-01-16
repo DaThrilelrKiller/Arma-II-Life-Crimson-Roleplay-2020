@@ -106,11 +106,11 @@ echo         # Add function definition
 echo         Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
 echo         $processedFiles += $fncFile
 echo.
-echo         # Check event types ^(exclude setup_init from DTK_INIT^)
+echo         # Check event types ^(exclude setup_* functions from all DTK_Events arrays^)
 echo         if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
-echo         elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
-echo         elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
-echo         elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
+echo         elseif ^($funcName -match '_jip$' -and $funcName -ne 'setup_jip'^) { $dtkJip += $funcName }
+echo         elseif ^($funcName -match '_fired$' -and $funcName -ne 'setup_fired'^) { $dtkFired += $funcName }
+echo         elseif ^($funcName -match '_respawn$' -and $funcName -ne 'setup_respawn'^) { $dtkRespawn += $funcName }
 echo     }
 echo }
 echo.
@@ -126,11 +126,11 @@ echo.
 echo         # Add function definition
 echo         Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
 echo.
-echo         # Check event types ^(exclude setup_init from DTK_INIT^)
+echo         # Check event types ^(exclude setup_* functions from all DTK_Events arrays^)
 echo         if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
-echo         elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
-echo         elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
-echo         elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
+echo         elseif ^($funcName -match '_jip$' -and $funcName -ne 'setup_jip'^) { $dtkJip += $funcName }
+echo         elseif ^($funcName -match '_fired$' -and $funcName -ne 'setup_fired'^) { $dtkFired += $funcName }
+echo         elseif ^($funcName -match '_respawn$' -and $funcName -ne 'setup_respawn'^) { $dtkRespawn += $funcName }
 echo     }
 echo }
 echo.
