@@ -7,11 +7,8 @@ startLoadingScreen ["","dtk_loading"];
 
 if (isNil "server_auth" && {dtk_client})then {
 	waitUntil {time > 0};
-	titleText ["Waiting for server to authenticate \n Please wait while we get everything setup", "PLAIN"];
-	systemchat "Waiting for server to authenticate";
 	diag_log text "Waiting for server to authenticate";	
 	waitUntil {!isNil "server_auth"};	
-	systemchat "Server authentication finished";
 	diag_log text "Server authentication finished";
 };
 
