@@ -26,6 +26,7 @@ AppStoreArray = {
 "app_civilian",
 "app_oil",
 "app_dmv",
+"app_warrants",
 "app_laws",
 "app_gangs",
 "app_stockmarket",
