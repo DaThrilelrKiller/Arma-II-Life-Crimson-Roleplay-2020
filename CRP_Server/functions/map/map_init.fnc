@@ -12,11 +12,13 @@
 			_building attachTo [MapCleanObjects, [0, 0, 0]];
 			_building allowDamage false;
 			waitUntil {
-				_building distance MapCleanObjects < 50
+				(_building distance MapCleanObjects == 0)
 			};
 			sleep 0.01;
 			detach _building;
-		};
+		}else {
+			diag_log format["Remove Buildings: %1 is Null at %2",[_x, ""] call Main_format_integer,_forEachIndex];
+		}
 	}forEach removeBuilgings;
 	
 	DTK_MapSetup = true;
