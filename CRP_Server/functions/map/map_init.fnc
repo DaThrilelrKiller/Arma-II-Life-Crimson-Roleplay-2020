@@ -9,12 +9,13 @@
 		profileNamespace setVariable [format["%1",_x],getPos _building];
 
 		if (!isNull _building)then {
+			hideObject _building;
 			_building attachTo [MapCleanObjects, [0, 0, 0]];
 			_building allowDamage false;
 			waitUntil {
 				(_building distance MapCleanObjects == 0)
 			};
-			sleep 0.01;
+			sleep 0.05;
 			detach _building;
 		}else {
 			diag_log format["Remove Buildings: %1 is Null at %2",[_x, ""] call Main_format_integer,_forEachIndex];
