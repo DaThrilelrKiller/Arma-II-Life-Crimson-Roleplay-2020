@@ -1341,13 +1341,6 @@ _copia = [
 ];
 
 
-_copfto = [								
-	"olrpg_pd_charger_slk",								
-	"olrpg_pdtaurus_slick",								
-	"olrpg_pdptcv_slick_pb"								
-];
-
-
 _undercover = [											
 	"tcg_taurus_civ2",										
 	"tahoe_black_cb",											
@@ -2275,10 +2268,6 @@ INV_ItemShops = [
     [["PDChief","Assistant Chief Equipment"], _copastchief, _copastchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true],
     [["PDChief","Chief Equipment"], _copchief, _copchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true]
 ]],
-[DTK_Shop_Cop_FTO,["PDInstuctor","Police FTO Equipment"], [
-    [["PDInstuctor","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && PO1_id},'DTK_Shop_Cop_FTOVehSpawn', true],
-    [["PDInstuctor","F.T.O. Equipment"], _copfto, _copfto, {dtk_cop && Lt_id},'DTK_Shop_Cop_FTOVehSpawn', true]
-]],
 [DTK_Shop_Cop_K9,["K9","Police K9 Equipment"], [
     [["PD","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && K9_id},'DTK_Shop_Cop_K9VehSpawn', true],
     [["K9","K-9 Officer"], _copk9p, _copk9p, {dtk_cop && K9_id},'DTK_Shop_Cop_K9VehSpawn', true]
@@ -2300,16 +2289,6 @@ INV_ItemShops = [
     [["picture","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && Lt_id},'DTK_COP_SPD2', true],
     [["picture","Internal Affairs"], _copia, _copia, {dtk_cop && Lt_id},'DTK_COP_SPD2', true]
 ]],
-[DTK_Shop_Cop_K9_1,["Sheriff","Sheriff Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop}, nil, true],
-	[["Sheriff","Junior Deputy"], _copjrdeputy, _copjrdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Deputy"], _copdeputy, _copdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Senior Deputy"], _copsrdeputy, _copsrdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Corporal Deputy"], _copcpldeputy, _copcpldeputy, {dtk_cop},nil, true],
-	[["Sheriff","Sergeant Deputy"], _copsgtdeputy, _copsgtdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Lieutenant Deputy"], _copltdeputy, _copltdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Captain Deputy"], _copcptdeputy, _copcptdeputy, {dtk_cop}, nil, true]
-]],
 [OL_Shop_PMC, ["Sheriff","PMC Equipment"], [
 	[["Sheriff","General"], _PMC_General, _PMC_General, {PMC_General}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Commander"], _PMC_Commander, _PMC_Commander, {PMC_Commander}, "DTK_PMC_SPAWN", true],
@@ -2320,17 +2299,6 @@ INV_ItemShops = [
 	[["Sheriff","Recruit"], _PMC_Recruit, _PMC_Recruit, {PMC_Recruit}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Marksman"], _PMC_Marksman, _PMC_Marksman, {PMC_Marksman}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Aviation"], _PMC_Aviation, _PMC_Aviation, {PMC_Aviation}, "DTK_PMC_SPAWN", true]
-]],
-
-[DTK_Shop_Cop_SheriffEquipment, ["Sheriff","Sheriff Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Junior Deputy"], _copjrdeputy, _copjrdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Deputy"], _copdeputy, _copdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Senior Deputy"], _copsrdeputy, _copsrdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Corporal Deputy"], _copcpldeputy, _copcpldeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Sergeant Deputy"], _copsgtdeputy, _copsgtdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Lieutenant Deputy"], _copltdeputy, _copltdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Captain Deputy"], _copcptdeputy, _copcptdeputy, {true}, "DTK_COP_LANDSPAWN2", true]
 ]],
 [DTK_Shop_Cop_SheriffDivision, ["Sheriff","Sheriff Division Equipment"], [
 	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {true}, "DTK_COP_LANDSPAWN2", true],
