@@ -2,7 +2,7 @@
 iscop = true;
 dtk_civ	      	= false;		
 dtk_ems       	= false;
-dtk_sidename = "Police Officer";
+dtk_sidename = "Law Enforcement";
 
 INV_apps = [
 ["app_warrants","data\images\ipad\WARRANTS.PAA","[0,1,2,[""coplog""]] execVM 'scripts\maindialogs.sqf';"],
