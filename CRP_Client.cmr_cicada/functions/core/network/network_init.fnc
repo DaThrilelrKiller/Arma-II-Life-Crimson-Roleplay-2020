@@ -13,8 +13,13 @@ systemChat str MPID;
 
 "PGRE" addPublicVariableEventHandler {call compile (_this select 1);};	
 
+systemChat "Events added";
 if (dtk_client)then {
+	systemChat "Jip Sent";
 	["ALL",[player,dtk_side,getPlayerUID player],"setup_jip",false,true]call network_MPExec;
+	systemChat "Jip Complete";
 };
+
+systemChat "network done";
 
 diag_log text "[LOG]Network System Complete!";
