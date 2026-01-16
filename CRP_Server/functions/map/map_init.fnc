@@ -10,6 +10,7 @@ private ["_pos","_building"];
 		
 		_building attachTo [MapCleanObjects, [0, 0, 0]];
 		_building allowDamage false;
+		diag_log format["%1 %2 %3 %4 %5",_building,isNull _building, MapCleanObjects,(_building distance MapCleanObjects),_x];
 		waitUntil {
 			_building distance MapCleanObjects < 50
 		};
