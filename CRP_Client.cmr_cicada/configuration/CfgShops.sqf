@@ -2107,8 +2107,7 @@ INV_ItemShops = [
 [DTK_Shop_Cop_PO,["Patrol Officer","Police Equipment"], [
     [["Patrol Officer","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop},'DTK_Shop_Cop_POVehSpawn', true],
     [["Patrol Officer","Rookie Patrol Officer Equipment"], _coppo1, _coppo1, {dtk_cop && PO1_id},'DTK_Shop_Cop_POVehSpawn', true],
-    [["Patrol Officer","Patrol Officer Equipment"], _coppo2, _coppo2, {dtk_cop && PO2_id},'DTK_Shop_Cop_POVehSpawn', true],
-    [["Patrol Officer","Senior Patrol Officer Equipment"], _coppo3, _coppo3, {dtk_cop && PO3_id},'DTK_Shop_Cop_POVehSpawn', true]
+    [["Patrol Officer","Patrol Officer Equipment"], _coppo2, _coppo2, {dtk_cop && PO2_id},'DTK_Shop_Cop_POVehSpawn', true]
 ]],
 [DTK_Shop_Cop_SPV,["PD","Police Supervisor Equipment"], [
     [["PD","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && PO1_id},'DTK_Shop_Cop_SPVVehSpawn', true],
@@ -2120,7 +2119,6 @@ INV_ItemShops = [
     [["PD","Medal Equipment"], _copmedal, _copmedal, {dtk_cop},'DTK_Shop_Cop_CMDVehSpawn', true],
     [["PDLt","Lieutenant Equipment"], _coplt, _coplt, {dtk_cop && Lt_id},'DTK_Shop_Cop_CMDVehSpawn', true],
     [["PDCapt","Captain Equipment"], _copcpt, _copcpt, {dtk_cop && Cpt_id},'DTK_Shop_Cop_CMDVehSpawn', true],
-    [["PDChief","Assistant Chief Equipment"], _copastchief, _copastchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true],
     [["PDChief","Chief Equipment"], _copchief, _copchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true]
 ]],
 [DTK_Shop_Cop_K9,["K9","Police K9 Equipment"], [
@@ -2156,11 +2154,20 @@ INV_ItemShops = [
 	[["Sheriff","Aviation"], _PMC_Aviation, _PMC_Aviation, {PMC_Aviation}, "DTK_PMC_SPAWN", true]
 ]],
 [DTK_Shop_Cop_SheriffDivision, ["Sheriff","Sheriff Division Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Sheriff K-9"], _copk9sheriff, _copk9sheriff, {true}, "DTK_COP_LANDSPAWN2", false],
-	[["Sheriff","Sheriff Marksman"], _copsheriffmks, _copsheriffmks, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Sheriff D.N.R. Equipment"], _copsheriffdnr, _copsheriffdnr, {true}, "DTK_COP_LANDSPAWN2", false]
+    [["Sheriff","Basic Police Gear"], _copbasic,  _copbasic,  {dtk_cop},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Traffic Equipment"], _coptraffic,  _coptraffic,  {dtk_cop},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Deputy"], _dp,  _dp,  {dtk_cop && DP_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Corporal"], _dp2,  _dp2,  {dtk_cop && DP_id2},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Sergeant"], _dp3,  _dp3,  {dtk_cop && DP_id3},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Lieutenant"], _dp4,  _dp4,  {dtk_cop && DP_id4},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Captain"], _dp5,  _dp5,  {dtk_cop && DP_id5},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff"], _shf,  _shf,  {dtk_cop && SHF_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff K-9"], _copk9sheriff,  _copk9sheriff,  {dtk_cop && sk9_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Special Ops"], _spo,  _spo,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Special Ops Vehicles"], _spovehicles,  _spovehicles,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "DTK_COP_LANDSPAWN2", false]
 ]],
+
 [DTK_Shop_Cop_SheriffAvitaion, ["Sheriff","Sheriff Aviation Equipment"], [
 	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "OL_Shop_Cop_SheriffAviationVehSpawn", true],
 	[["Sheriff","Sheriff Aviation"], _copavsh, _copavsh,{true}, "OL_Shop_Cop_SheriffAviationVehSpawn", true]
