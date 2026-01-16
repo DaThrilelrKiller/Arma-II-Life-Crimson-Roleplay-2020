@@ -1405,6 +1405,25 @@ _dnrvehicles = [
 ];
 
 
+
+_copk9sheriff = [
+	"olrpg_sdk9cv_pb",											
+	"olrpg_sdk9_charger", 								
+	"olrpg_sdtaurusk9", 									
+	"olrpg_sdk9t",
+	"olrpg_sdk9sub6"
+];
+
+_copavsh = [
+	"RH_m9",															
+	"Rnd_9x19_M9",												
+	"RH_mp5a5aim_av",											
+	"30rnd_9x19_MP5",											
+	"Donut",															
+	"olrpg_sdbell206"											
+];
+
+
 _terrorshop = [
 	"NVGoggles",													
 	"safehack",														
@@ -1744,170 +1763,6 @@ _bm = [
 	"RH_Deagles_bm",											
 	"RH_7Rnd_50_AE"
 	];
-
-_copsheriffdnr = [
-	"olrpg_sddnr", 												
-	"olrpg_sdf350_dnr"										
-];
-
-
-_copsheriffmks = [
-	"M24_sheriff",												
-	"M40A3_sheriff",											
-	"5Rnd_762x51_M24"											
-];
-
-
-_copjrdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrb_sheriff",										
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb"
-];
-
-
-_copdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb",
-	"olrpg_sd_charger"
-];
-
-
-_copsrdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb",
-	"olrpg_sd_charger",
-	"olrpg_sdtaurus"
-];
-
-
-_copcpldeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacmaf_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_slick_pb",
-	"olrpg_sd_charger_slk",
-	"olrpg_sdtaurus_slick",
-	"olrpg_sd_slk"
-];
-
-
-_copsgtdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacmaf_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_slick_pb",
-	"olrpg_sd_charger_slk",
-	"olrpg_sdtaurus_slick",
-	"olrpg_sd_slk",
-	"olrpg_sdf350",
-	"olrpg_sdsub6"
-];
-
-
-_copltdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacg_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdlt",													
-	"olrpg_sdlt_slk",											
-	"olrpg_sdltsub6"											
-];
-
-
-_copcptdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacg_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"M24_sheriff",												
-	"5Rnd_762x51_M24",																					
-	"olrpg_cpt_cvold",										
-	"olrpg_sdcapt",												
-	"olrpg_sdcapt_slk",										
-	"olrpg_sdcpt6",												
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon", 
-	"olrpg_umcv_grey",
-	"olrpg_uctahoe_grey", 
-	"olrpg_uctahoe_dblue",	
-	"olrpg_pdtaurus_um", 
-	"Bait_Kit"														
-];
-
-_copk9sheriff = [
-	"olrpg_sdk9cv_pb",											
-	"olrpg_sdk9_charger", 								
-	"olrpg_sdtaurusk9", 									
-	"olrpg_sdk9t",
-	"olrpg_sdk9sub6"
-];
-
-_copavsh = [
-	"RH_m9",															
-	"Rnd_9x19_M9",												
-	"RH_mp5a5aim_av",											
-	"30rnd_9x19_MP5",											
-	"Donut",															
-	"olrpg_sdbell206"											
-];
 
 _PMC_General = [
 "RH_M4a1acog_PMC",
