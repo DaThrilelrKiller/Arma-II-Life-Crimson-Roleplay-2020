@@ -1492,7 +1492,7 @@ _dp5 = [
 ];
 
 
-_sfh = [											
+_shf = [											
 	"tcg_taurus_civ2"																							
 ];
 
