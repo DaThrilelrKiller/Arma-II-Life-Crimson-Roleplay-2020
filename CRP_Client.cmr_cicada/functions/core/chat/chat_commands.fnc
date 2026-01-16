@@ -91,7 +91,7 @@ switch (_command) do
 	};
 	case "!timelog":
 	{
-		["SERVER",[player,dtk_side],"s_experience_jip",false,false]call network_MPExec;
+		["SERVER",[player,dtk_side],"s_experience_load",false,false]call network_MPExec;
 	};
 	case "!uptime": 
 	{
