@@ -1360,7 +1360,20 @@ _undercover = [
 
 
 _dp = [											
-	"tcg_taurus_civ2"																							
+	"tcg_mossberg_SD", 
+	"tcg_remington_SD", 
+	"RH_M16A4eotech_SD", 
+	"RH_M16A4acog_SD",
+	"RH_g17_SD", 
+	"RH_p226_SD", 
+	"DDOPP_X3",										
+	"30Rnd_556x45_Stanag_SD",
+	"8Rnd_B_Beneli_Pellets_fix", 
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"RH_15Rnd_9x19_usp_SD",
+	"DD_FOR06CV_P_S",
+	"DD_FOR13Taurus_P_S"
 ];
 
 
