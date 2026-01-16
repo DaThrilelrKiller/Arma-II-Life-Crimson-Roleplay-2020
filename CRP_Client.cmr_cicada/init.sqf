@@ -1,10 +1,9 @@
+diag_log text "[LOG]Post Initialization Started";
+enableSaving [false, false];
+waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
 startLoadingScreen ["","dtk_loading"];
 
-diag_log text "[LOG]Post Initialization Started";
 
-enableSaving [false, false];
-
-waitUntil {!isNil "DTK_respawn"};
 
 if (isNil "server_auth" && {dtk_client})then {
 	waitUntil {time > 0};
@@ -15,8 +14,6 @@ if (isNil "server_auth" && {dtk_client})then {
 	systemchat "Server authentication finished";
 	diag_log text "Server authentication finished";
 };
-
-waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
 
 /* Go ahead and figure out what side the player is on */
 if (dtk_client)then {
