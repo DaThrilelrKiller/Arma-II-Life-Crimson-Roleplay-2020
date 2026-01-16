@@ -1341,13 +1341,6 @@ _copia = [
 ];
 
 
-_copfto = [								
-	"olrpg_pd_charger_slk",								
-	"olrpg_pdtaurus_slick",								
-	"olrpg_pdptcv_slick_pb"								
-];
-
-
 _undercover = [											
 	"tcg_taurus_civ2",										
 	"tahoe_black_cb",											
@@ -1409,6 +1402,25 @@ _spovehicles = [
 
 _dnrvehicles = [											
 	"tcg_taurus_civ2"																							
+];
+
+
+
+_copk9sheriff = [
+	"olrpg_sdk9cv_pb",											
+	"olrpg_sdk9_charger", 								
+	"olrpg_sdtaurusk9", 									
+	"olrpg_sdk9t",
+	"olrpg_sdk9sub6"
+];
+
+_copavsh = [
+	"RH_m9",															
+	"Rnd_9x19_M9",												
+	"RH_mp5a5aim_av",											
+	"30rnd_9x19_MP5",											
+	"Donut",															
+	"olrpg_sdbell206"											
 ];
 
 
@@ -1751,170 +1763,6 @@ _bm = [
 	"RH_Deagles_bm",											
 	"RH_7Rnd_50_AE"
 	];
-
-_copsheriffdnr = [
-	"olrpg_sddnr", 												
-	"olrpg_sdf350_dnr"										
-];
-
-
-_copsheriffmks = [
-	"M24_sheriff",												
-	"M40A3_sheriff",											
-	"5Rnd_762x51_M24"											
-];
-
-
-_copjrdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrb_sheriff",										
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb"
-];
-
-
-_copdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb",
-	"olrpg_sd_charger"
-];
-
-
-_copsrdeputy = [
-	"DDOPP_X3",												    
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_pb",
-	"olrpg_sd_charger",
-	"olrpg_sdtaurus"
-];
-
-
-_copcpldeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacmaf_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_slick_pb",
-	"olrpg_sd_charger_slk",
-	"olrpg_sdtaurus_slick",
-	"olrpg_sd_slk"
-];
-
-
-_copsgtdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacmaf_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdcv_slick_pb",
-	"olrpg_sd_charger_slk",
-	"olrpg_sdtaurus_slick",
-	"olrpg_sd_slk",
-	"olrpg_sdf350",
-	"olrpg_sdsub6"
-];
-
-
-_copltdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacg_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"olrpg_sdlt",													
-	"olrpg_sdlt_slk",											
-	"olrpg_sdltsub6"											
-];
-
-
-_copcptdeputy = [
-	"DDOPP_X3_b",												  
-	"DDOPP_3Rnd_X3",										  
-	"RH_python_sheriff",									
-	"RH_6Rnd_357_Mag",										
-	"RH_anacg_sheriff",
-	"RH_6Rnd_44_Mag",
-	"M1014_sheriff",											
-	"8Rnd_B_Beneli_Pellets_fix",							
-	"RH_acrbacog_sheriff",								
-	"RH_acrbaim_sheriff",									
-	"RH_acrbeotech_sheriff",							
-	"30Rnd_556x45_Stanag",								
-	"M24_sheriff",												
-	"5Rnd_762x51_M24",																					
-	"olrpg_cpt_cvold",										
-	"olrpg_sdcapt",												
-	"olrpg_sdcapt_slk",										
-	"olrpg_sdcpt6",												
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon", 
-	"olrpg_umcv_grey",
-	"olrpg_uctahoe_grey", 
-	"olrpg_uctahoe_dblue",	
-	"olrpg_pdtaurus_um", 
-	"Bait_Kit"														
-];
-
-_copk9sheriff = [
-	"olrpg_sdk9cv_pb",											
-	"olrpg_sdk9_charger", 								
-	"olrpg_sdtaurusk9", 									
-	"olrpg_sdk9t",
-	"olrpg_sdk9sub6"
-];
-
-_copavsh = [
-	"RH_m9",															
-	"Rnd_9x19_M9",												
-	"RH_mp5a5aim_av",											
-	"30rnd_9x19_MP5",											
-	"Donut",															
-	"olrpg_sdbell206"											
-];
 
 _PMC_General = [
 "RH_M4a1acog_PMC",
@@ -2275,10 +2123,6 @@ INV_ItemShops = [
     [["PDChief","Assistant Chief Equipment"], _copastchief, _copastchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true],
     [["PDChief","Chief Equipment"], _copchief, _copchief, {dtk_cop && Chief_ID},'DTK_Shop_Cop_CMDVehSpawn', true]
 ]],
-[DTK_Shop_Cop_FTO,["PDInstuctor","Police FTO Equipment"], [
-    [["PDInstuctor","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && PO1_id},'DTK_Shop_Cop_FTOVehSpawn', true],
-    [["PDInstuctor","F.T.O. Equipment"], _copfto, _copfto, {dtk_cop && Lt_id},'DTK_Shop_Cop_FTOVehSpawn', true]
-]],
 [DTK_Shop_Cop_K9,["K9","Police K9 Equipment"], [
     [["PD","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && K9_id},'DTK_Shop_Cop_K9VehSpawn', true],
     [["K9","K-9 Officer"], _copk9p, _copk9p, {dtk_cop && K9_id},'DTK_Shop_Cop_K9VehSpawn', true]
@@ -2300,16 +2144,6 @@ INV_ItemShops = [
     [["picture","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && Lt_id},'DTK_COP_SPD2', true],
     [["picture","Internal Affairs"], _copia, _copia, {dtk_cop && Lt_id},'DTK_COP_SPD2', true]
 ]],
-[DTK_Shop_Cop_K9_1,["Sheriff","Sheriff Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop}, nil, true],
-	[["Sheriff","Junior Deputy"], _copjrdeputy, _copjrdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Deputy"], _copdeputy, _copdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Senior Deputy"], _copsrdeputy, _copsrdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Corporal Deputy"], _copcpldeputy, _copcpldeputy, {dtk_cop},nil, true],
-	[["Sheriff","Sergeant Deputy"], _copsgtdeputy, _copsgtdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Lieutenant Deputy"], _copltdeputy, _copltdeputy, {dtk_cop}, nil, true],
-	[["Sheriff","Captain Deputy"], _copcptdeputy, _copcptdeputy, {dtk_cop}, nil, true]
-]],
 [OL_Shop_PMC, ["Sheriff","PMC Equipment"], [
 	[["Sheriff","General"], _PMC_General, _PMC_General, {PMC_General}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Commander"], _PMC_Commander, _PMC_Commander, {PMC_Commander}, "DTK_PMC_SPAWN", true],
@@ -2320,17 +2154,6 @@ INV_ItemShops = [
 	[["Sheriff","Recruit"], _PMC_Recruit, _PMC_Recruit, {PMC_Recruit}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Marksman"], _PMC_Marksman, _PMC_Marksman, {PMC_Marksman}, "DTK_PMC_SPAWN", true],
 	[["Sheriff","Aviation"], _PMC_Aviation, _PMC_Aviation, {PMC_Aviation}, "DTK_PMC_SPAWN", true]
-]],
-
-[DTK_Shop_Cop_SheriffEquipment, ["Sheriff","Sheriff Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Junior Deputy"], _copjrdeputy, _copjrdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Deputy"], _copdeputy, _copdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Senior Deputy"], _copsrdeputy, _copsrdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Corporal Deputy"], _copcpldeputy, _copcpldeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Sergeant Deputy"], _copsgtdeputy, _copsgtdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Lieutenant Deputy"], _copltdeputy, _copltdeputy, {true}, "DTK_COP_LANDSPAWN2", true],
-	[["Sheriff","Captain Deputy"], _copcptdeputy, _copcptdeputy, {true}, "DTK_COP_LANDSPAWN2", true]
 ]],
 [DTK_Shop_Cop_SheriffDivision, ["Sheriff","Sheriff Division Equipment"], [
 	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic, {true}, "DTK_COP_LANDSPAWN2", true],

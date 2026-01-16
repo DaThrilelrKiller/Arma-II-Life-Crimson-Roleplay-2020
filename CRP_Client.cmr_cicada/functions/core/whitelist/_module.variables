@@ -24,7 +24,6 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Police Lieutenant","Lt_id",{SwagDevs}],
 ["Sergeant","Sgt_id",{SwagDevs}],
 ["Corporal","Cpl_id",{SwagDevs  or Cpt_id or Lt_id}],
-["Senior Patrol Officer","PO3_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Patrol Officer","PO2_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 ["Rookie Patrol Officer","PO1_id",{SwagDevs  or Cpt_id or Lt_id or Sgt_id or Cpl_id}],
 
@@ -32,7 +31,6 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Police Avation","PDAviation_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["S.W.A.T","SWAT_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["Coast Guard","CoastGuard_id",{SwagDevs  or Cpt_id or Lt_id}],
-["Undercover","Undercover_id",{SwagDevs  or Cpt_id or Lt_id}],
 ["D.O.C","DOC_id",{SwagDevs  or Cpt_id or Lt_id}],
 
 ["Deputy Sheriff","DP_id",{SwagDevs  or  SHF_id}],
@@ -43,6 +41,7 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Sheriff","SHF_id",{SwagDevs}],
 
 ["Special Ops","spo_id",{SwagDevs  or DP5_id or DP4_id or SHF_id}],
+["Sheriff K-9","sk9_id",{SwagDevs  or DP5_id or DP4_id or SHF_id}],
 ["DNR","dnr_id",{SwagDevs  or DP5_id or DP4_id or SHF_id}],
 
 
