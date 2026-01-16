@@ -5,6 +5,8 @@ _units set [count _units,"server"];
 _find = if (dtk_server)then {"server"}else{str player};
 
 MPID = format ["MP%1",(_units find _find)];
+systemChat str MPID;
+
 {
 	format ["MP%1",_ForEachIndex] addPublicVariableEventHandler {(_this select 1) call network_Run;};
 }ForEach _units;
