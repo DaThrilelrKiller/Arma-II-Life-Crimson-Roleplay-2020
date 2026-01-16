@@ -200,19 +200,19 @@ echo [BUILD] Processing files with FART...
 cd /d "%~dp0"
 
 :: Remove tabs from files
-FART -r --c-style "%BUILD_DIR%\*.sqf" "\t" " "
-FART -r --c-style "%BUILD_DIR%\*.sqm" "\t" " "
-FART -r --c-style "%BUILD_DIR%\*.hpp" "\t" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqf" "\t" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqm" "\t" " "
+::FART -r --c-style "%BUILD_DIR%\*.hpp" "\t" " "
 
 :: Remove \r\n from files
-FART -r --c-style "%BUILD_DIR%\*.sqf" "\r\n" " "
-FART -r --c-style "%BUILD_DIR%\*.sqm" "\r\n" " "
-FART -r --c-style "%BUILD_DIR%\*.hpp" "\r\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqf" "\r\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqm" "\r\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.hpp" "\r\n" " "
 
 :: Remove \n from files
-FART -r --c-style "%BUILD_DIR%\*.sqf" "\n" " "
-FART -r --c-style "%BUILD_DIR%\*.sqm" "\n" " "
-FART -r --c-style "%BUILD_DIR%\*.hpp" "\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqf" "\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.sqm" "\n" " "
+::FART -r --c-style "%BUILD_DIR%\*.hpp" "\n" " "
 
 echo [BUILD] Files processed with FART
 
