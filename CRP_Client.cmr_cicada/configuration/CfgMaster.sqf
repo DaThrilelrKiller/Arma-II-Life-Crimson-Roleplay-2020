@@ -1853,7 +1853,24 @@ dtk_vehicles =
     ["DD_DOD15Charger_P_S",["vehicle","car"],["DD_DOD15Charger_P_S","2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_DOD15Charger_P_S_K9",["vehicle","car"],["DD_DOD15Charger_P_S_K9","2015 Dodge Charger (Sheriff K9 Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_DOD15Charger_U_P",["vehicle","car"],["DD_DOD15Charger_U_P","Slicktop 2015 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
-    ["DD_DOD15Charger_U_S",["vehicle","car"],["DD_DOD15Charger_U_S","Slicktop 2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]]
+    ["DD_DOD15Charger_U_S",["vehicle","car"],["DD_DOD15Charger_U_S","Slicktop 2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_U_F",["vehicle","car"],["DD_DOD15Charger_U_F","Slicktop 2015 Dodge Charger (Fire Marshall)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD06charger_P_P",["vehicle","car"],["DD_DOD06charger_P_P","2006 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_P",["vehicle","car"],["DD_FOR06CV_P_P","2006 Ford CVPI (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_S",["vehicle","car"],["DD_FOR06CV_P_S","2006 Ford CVPI (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_K9",["vehicle","car"],["DD_FOR06CV_P_K9","2006 Ford CVPI (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_SK9",["vehicle","car"],["DD_FOR06CV_P_SK9","2006 Ford CVPI (Sheriff K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR06CV_P_Corrections",["vehicle","car"],["DD_FOR06CV_P_Corrections","2006 Ford CVPI (Corrections)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR13Taurus_P_P",["vehicle","car"],["DD_FOR13Taurus_P_P","2013 Ford Police Interceptor Sedan (Police Patrol)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR13Taurus_P_K9",["vehicle","car"],["DD_FOR13Taurus_P_K9","2013 Ford Police Interceptor Sedan (K9)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR13Taurus_P_Corrections",["vehicle","car"],["DD_FOR13Taurus_P_Corrections","2013 Ford Police Interceptor Sedan (Corrections)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR13Taurus_P_APO",["vehicle","car"],["DD_FOR13Taurus_P_APO","2013 Ford Police Interceptor Sedan (APO)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR13Taurus_P_S",["vehicle","car"],["DD_FOR13Taurus_P_S","2013 Ford Police Interceptor Sedan (Sheriff)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_P_P",["vehicle","car"],["DD_FOR16Explorer_P_P","2016 Ford Explorer PPV (Police Patrol)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
+    ["DD_FOR16Explorer_P_P_K9",["vehicle","car"],["DD_FOR16Explorer_P_P_K9","2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_U_P",["vehicle","car"],["DD_FOR16Explorer_U_P","Slicktop 2016 Ford Explorer PPV (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_U_P_K9",["vehicle","car"],["DD_FOR16Explorer_U_P_K9","Slicktop 2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_U_P_SWAT",["vehicle","car"],["DD_FOR16Explorer_U_P_SWAT","Slicktop 2016 Ford Explorer PPV (S.W.A.T)"],[10000,10000],[1,"","",150],[]]
 
 ];
 
