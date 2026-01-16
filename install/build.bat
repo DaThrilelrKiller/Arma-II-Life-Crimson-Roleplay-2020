@@ -71,26 +71,70 @@ echo $dtkInit = @^(^)
 echo $dtkJip = @^(^)
 echo $dtkFired = @^(^)
 echo $dtkRespawn = @^(^)
+echo $processedFiles = @^(^)
 echo.
-echo # Process .fnc files
-echo Write-Host '[BUILD] Processing .fnc files...'
-echo $fncFiles = Get-ChildItem -Path $functionsDir -Filter '*.fnc' -Recurse ^| Where-Object { $_.FullName -notmatch '\\disabled\\' }
-echo Write-Host '[BUILD] Found ' $fncFiles.Count ' .fnc files ^(excluding disabled folder^)'
-echo $fncFiles ^| ForEach-Object {
-echo     $fncFile = $_.FullName
-echo     $funcName = $_.BaseName
-echo     $content = Get-Content -Path $fncFile -Raw
+echo # Read module order from config
+echo $modulesCfg = '%PROJECT_ROOT%\CRP_Server\modules.cfg'
+echo $moduleOrder = Get-Content -Path $modulesCfg ^| Where-Object { $_.Trim^(^) -ne '' }
+echo Write-Host '[BUILD] Loaded ' $moduleOrder.Count ' modules from config'
 echo.
-echo     # Add function definition
-echo     Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
+echo # Get all .fnc files excluding disabled folder
+echo $allFncFiles = Get-ChildItem -Path $functionsDir -Filter '*.fnc' -Recurse ^| Where-Object { $_.FullName -notmatch '\\disabled\\' }
+echo Write-Host '[BUILD] Found ' $allFncFiles.Count ' .fnc files ^(excluding disabled folder^)'
 echo.
-echo     # Check event types ^(exclude setup_init from DTK_INIT^)
-echo     if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
-echo     elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
-echo     elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
-echo     elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
+echo # Process files in module order ^(especially for init functions^)
+echo foreach ^($module in $moduleOrder^) {
+echo     $moduleName = $module.Trim^(^)
+echo     Write-Host "[BUILD] Processing module: $moduleName"
+echo.
+echo     # Find files for this module - match by folder name
+echo     $moduleFiles = $allFncFiles ^| Where-Object {
+echo         $filePath = $_.FullName -replace [regex]::Escape^($functionsDir^), ''
+echo         $dirPath = Split-Path $filePath
+echo         $lastFolder = Split-Path $dirPath -Leaf
+echo         # Match if last folder name equals module name ^(e.g., Core\Network = Network, Police\ID = ID^)
+echo         ^($lastFolder -eq $moduleName^) -and $processedFiles -notcontains $_.FullName
+echo     }
+echo.
+echo     # Process each file in this module
+echo     $moduleFiles ^| ForEach-Object {
+echo         $fncFile = $_.FullName
+echo         $funcName = $_.BaseName
+echo         $content = Get-Content -Path $fncFile -Raw
+echo.
+echo         # Add function definition
+echo         Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
+echo         $processedFiles += $fncFile
+echo.
+echo         # Check event types ^(exclude setup_init from DTK_INIT^)
+echo         if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
+echo         elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
+echo         elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
+echo         elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
+echo     }
 echo }
-echo Write-Host '[BUILD] Processed ' $fncFiles.Count ' .fnc files'
+echo.
+echo # Process any remaining files not matched to modules
+echo $remainingFiles = $allFncFiles ^| Where-Object { $processedFiles -notcontains $_.FullName }
+echo if ^($remainingFiles.Count -gt 0^) {
+echo     Write-Host '[BUILD] Processing ' $remainingFiles.Count ' remaining files not in module config'
+echo     $remainingFiles ^| ForEach-Object {
+echo         $fncFile = $_.FullName
+echo         $funcName = $_.BaseName
+echo         $content = Get-Content -Path $fncFile -Raw
+echo.
+echo         # Add function definition
+echo         Add-Content -Path $functionsSqf -Value "$funcName = {`r`n$content`r`n};`r`n"
+echo.
+echo         # Check event types ^(exclude setup_init from DTK_INIT^)
+echo         if ^($funcName -match '_init$' -and $funcName -ne 'setup_init'^) { $dtkInit += $funcName }
+echo         elseif ^($funcName -match '_jip$'^) { $dtkJip += $funcName }
+echo         elseif ^($funcName -match '_fired$'^) { $dtkFired += $funcName }
+echo         elseif ^($funcName -match '_respawn$'^) { $dtkRespawn += $funcName }
+echo     }
+echo }
+echo.
+echo Write-Host '[BUILD] Processed ' $processedFiles.Count ' .fnc files in module order'
 echo.
 echo # Process .variables files
 echo Write-Host '[BUILD] Processing .variables files...'
