@@ -1830,9 +1830,30 @@ dtk_vehicles =
     ["DD_FOR16Explorer_U_S",["vehicle","car"],["DD_FOR16Explorer_U_S","Slicktop 2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR16Explorer_P_S",["vehicle","car"],["DD_FOR16Explorer_P_S","2016 Ford Explorer PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR06CV_P_S",["vehicle","car"],["DD_FOR06CV_P_S","2006 Ford CVPI (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]]
-
-
-
+    ["DD_FOR16Explorer_U_P_K9",["vehicle","car"],["DD_FOR16Explorer_U_P_K9","Slicktop 2016 Ford Explorer PPV (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["tcg_policev",["vehicle","car"],["tcg_policev","Security Truck"],[10000,10000],[1,"DTK_License_civ_drivers","",150],[]],
+    ["VIL_passat_civil",["vehicle","car"],["VIL_passat_civil","VW Passat (Flyer's Courtesy Car)"],[10000,10000],[1,"DTK_License_civ_drivers","",150],[]],
+    ["DD_CHE15Suburban_P_P",["vehicle","car"],["DD_CHE15Suburban_P_P","2015 Chevrolet Suburban PPV (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_CHE15Suburban_P_P_K9",["vehicle","car"],["DD_CHE15Suburban_P_P_K9","2015 Chevrolet Suburban PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_CHE15Suburban_U_P",["vehicle","car"],["DD_CHE15Suburban_U_P","Slicktop 2015 Chevrolet Suburban PPV (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_CHE15Suburban_U_S",["vehicle","car"],["DD_CHE15Suburban_U_S","Slicktop 2015 Chevrolet Suburban PPV (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_CHE15Suburban_U_P_SWAT",["vehicle","car"],["DD_CHE15Suburban_U_P_SWAT","Slicktop 2015 Chevrolet Suburban PPV (S.W.A.T)"],[10000,10000],[1,"","",150],[]],
+    ["DD_CHE15Suburban_U_F",["vehicle","car"],["DD_CHE15Suburban_U_F","2015 Chevrolet Suburban (Fire Marshal)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_P_P",["vehicle","car"],["DD_DOD12Charger_P_P","2012 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_P_P_K9",["vehicle","car"],["DD_DOD12Charger_P_P_K9","2012 Dodge Charger (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_P_S",["vehicle","car"],["DD_DOD12Charger_P_S","2012 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_P_SK9",["vehicle","car"],["DD_DOD12Charger_P_SK9","2012 Dodge Charger (Sheriff K9)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_P_P_Corrections",["vehicle","car"],["DD_DOD12Charger_P_P_Corrections","2012 Dodge Charger (Corrections Transport)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_U_P",["vehicle","car"],["DD_DOD12Charger_U_P","Slicktop 2012 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_U_P_K9",["vehicle","car"],["DD_DOD12Charger_U_P_K9","Slicktop 2012 Dodge Charger (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_U_S",["vehicle","car"],["DD_DOD12Charger_U_S","Slicktop 2012 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD12Charger_U_Corrections",["vehicle","car"],["DD_DOD12Charger_U_Corrections","Slicktop 2012 Dodge Charger (Corrections Transport)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_P_P",["vehicle","car"],["DD_DOD15Charger_P_P","2015 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_P_P_K9",["vehicle","car"],["DD_DOD15Charger_P_P_K9","2015 Dodge Charger (K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_P_S",["vehicle","car"],["DD_DOD15Charger_P_S","2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_P_S_K9",["vehicle","car"],["DD_DOD15Charger_P_S_K9","2015 Dodge Charger (Sheriff K9 Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_U_P",["vehicle","car"],["DD_DOD15Charger_U_P","Slicktop 2015 Dodge Charger (Police Patrol)"],[10000,10000],[1,"","",150],[]],
+    ["DD_DOD15Charger_U_S",["vehicle","car"],["DD_DOD15Charger_U_S","Slicktop 2015 Dodge Charger (Sheriff Patrol)"],[10000,10000],[1,"","",150],[]],
 
 ];
 
