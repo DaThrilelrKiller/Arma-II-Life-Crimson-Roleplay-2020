@@ -1479,22 +1479,81 @@ _dp5 = [
 
 
 _shf = [											
-	"tcg_taurus_civ2"																							
+	"RH_acracog_SD", 
+	"RH_acraim_SD",
+	"RH_acreotech_SD",
+	"RH_Mk18acog_SD", 
+	"RH_M4meotech_SD", 
+	"RH_M4maim_SD", 
+	"RH_M4macog_SD", 
+	"RH_M4a1acog_SD", 
+	"RH_Mk18eot_SD", 
+	"RH_Mk18aim_SD", 
+	"RH_pythonma_SD",
+	"tcg_mossberg_SD", 
+	"tcg_remington_SD",
+	"RH_M16A4eotech_SD",
+	"RH_M16A4acog_SD",
+	"RH_M4a1eotech_SD", 
+	"RH_M4a1aim_SD", 
+	"RH_p226_SD", 
+	"RH_g17_SD", 
+	"revolver_SD", 
+	"DDOPP_X3",		
+	"8Rnd_B_Beneli_Pellets_fix",								
+	"30Rnd_556x45_Stanag_SD", 
+	"RH_15Rnd_9x19_usp_SD",	
+	"DDOPP_3Rnd_X3", 
+	"Rnd_9x19_glock17_SD",
+	"Rnd_45ACP_SD",
+	"RH_6Rnd_357_Mag_SD",																		
+	"Bait_Kit",
+    "DD_DOD15Charger_U_S",
+    "DD_DOD12Charger_U_P_DarkBlue",
+    "DD_CHE15Suburban_U_P_DarkBlue",
+    "DD_DOD15Charger_U_P_DarkRed"
 ];
 
 
 _spo = [											
-	"tcg_taurus_civ2"																							
+	"DDOPP_X3",														
+	"DDOPP_3Rnd_X3",											
+	"SmokeShell",													
+	"RAB_L111A1_swat",																				
+	"SWAT",			
+	"30Rnd_556x45_Stanag",
+	"Rnd_9x19_M9",												
+	"RH_usp_swat",												
+	"RH_15Rnd_9x19_usp_swat",							
+	"RH_M4sdacog_swat",										
+	"RH_M4sdglacog_swat",									
+	"LEXX_M32_EP1_BLACK_swat",						
+	"6Rnd_Smoke_M203",										
+	"RH_mk14ebrsp_swat",									
+	"20Rnd_762x51_DMR",										
+	"Stinger_swat",												
+	"Stinger_mag",
+	"bram"																					
 ];
 
 
 _spovehicles = [											
-	"tcg_taurus_civ2"																							
+	"olrpg_swat", 												
+	"olrpg_swatf350",											
+	"olrpg_swat06",	
+	"DD_CHE08Tahoe_P_SWAT",
+	"DD_DOD15Charger_U_P_Black",
+	"DD_DOD12Charger_U_P_Black",
+	"DD_CHE15Suburban_U_P_SWAT",
+    "DD_CHE15Suburban_U_P_Black",
+	"olrpg_swat_bearcat"																							
 ];
 
 
 _dnrvehicles = [											
-	"tcg_taurus_civ2"																							
+"olrpg_sdf350_dnr",
+"olrpg_sddnr",
+"tahoe_sheriff_DNR"																						
 ];
 
 _dnrequip = [
