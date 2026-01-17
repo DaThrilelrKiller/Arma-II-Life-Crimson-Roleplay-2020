@@ -2299,7 +2299,7 @@ INV_ItemShops = [
 ]],
 [DTK_Shop_Cop_CID,["picture","Police CID Equipment"], [
     [["picture","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && Undercover_id},'DTK_Shop_Cop_CIDVehSpawn', true],
-    [["picture","Police CID"], _cid, _cid, {dtk_cop && Undercover_id},'DTK_Shop_Cop_CIDVehSpawn', true]
+    [["picture","Police CID"], _cid, _cid, {dtk_cop && CID_id},'DTK_Shop_Cop_CIDVehSpawn', true]
 ]],
 [DTK_Shop_Cop_IA,["picture","Internal Affairs Equipment"], [
     [["picture","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop && Lt_id},'DTK_COP_SPD2', true],
