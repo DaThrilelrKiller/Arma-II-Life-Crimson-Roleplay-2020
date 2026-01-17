@@ -116,7 +116,9 @@
 			y = safeZoneY + safeZoneH * 0.67;
 			w = safeZoneW * 0.143125;
 			h = safeZoneH * 0.03666667;
-			text = "";			
+			text = "Move";
+			action = "[dtk_unit]spawn cuffs_escort;"
+		
 		};
 		class lable_top : Rsc_lable 
 		{
@@ -209,8 +211,8 @@ class menu_civ
 			y = safeZoneY+safeZoneH*0.37666667;
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
-			text = "";	
-			action="";
+			text = "Put in Vehicle";		
+			action = "[dtk_unit]spawn other_putplayerincar;"
 		};
 		class button_arrest : RscButton 
 		{

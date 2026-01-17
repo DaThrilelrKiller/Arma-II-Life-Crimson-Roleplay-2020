@@ -34,7 +34,7 @@ if (_unit == player) then {
 	"dynamicBlur" ppEffectCommit _stunActiveTime;
 };
 
-["ALL", ["dtk_client", format ["%1 was tased by %2", name _unit, name _shooter], 1], "network_chat", false, true] call network_MPExec;
+["ALL", ["dtk_client", format ["%1 was tased/stuned by %2", name _unit, name _shooter], 1], "network_chat", false, true] call network_MPExec;
 
 if (!(_unit call core_prone)) then {
 	["ALL", [_unit, "adthpercmstpslowwrfldnon_4"], "network_SwitchMove", false, true] call network_MPExec;
