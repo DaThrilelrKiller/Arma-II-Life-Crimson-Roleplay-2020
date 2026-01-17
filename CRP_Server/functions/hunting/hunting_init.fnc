@@ -1,6 +1,6 @@
 private ["_locations","_location","_pos","_size","_xPos","_yPos","_areaType","_areaName","_animalVariants"];
 
-_locations = nearestLocations [dtk_center, ["hill"], 5000];
+_locations = nearestLocations [dtk_center, ["VegetationFir"], 5000];
 
 {
 	if (random 1 < 0.5) then {
