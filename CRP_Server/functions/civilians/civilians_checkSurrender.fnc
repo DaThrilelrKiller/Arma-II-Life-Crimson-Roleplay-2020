@@ -1,4 +1,8 @@
+s_civilians_checkSurrender = {
 private ["_unit","_distance","_nearbyUnits","_armedEnemy","_hasWeapon","_lastShotTime","_result"];
+
+diag_log "[checkSurrender] FUNCTION ENTERED - Script is executing!";
+[civ47,["true","[checkSurrender] FUNCTION ENTERED - Script is executing!",3],"network_chat",false,false] call network_MPExec;
 
 _unit = _this select 0;
 _distance = DTK_CIV_SURRENDER_DISTANCE;
@@ -47,3 +51,4 @@ if (isNil "_result" || {typeName _result != "BOOL"}) then {
 	_result = false;
 };
 _result
+};

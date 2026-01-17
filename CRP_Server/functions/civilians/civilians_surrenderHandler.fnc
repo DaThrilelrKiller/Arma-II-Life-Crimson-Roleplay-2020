@@ -44,9 +44,15 @@ while {true} do {
 			switch (_state) do {
 				case "normal": {
 					/* Check if should surrender */
-					if ([_unit] call s_civilians_checkSurrender) then {
-						[civ47,["true",format ["Civilian %1: checkSurrender returned TRUE - transitioning to surrendering", name _unit],3],"network_chat",false,false] call network_MPExec;
-						_unit setVariable ["dtk_surrender_state", "surrendering", true];
+					if (isNil "s_civilians_checkSurrender") then {
+						diag_log "[SURRENDER HANDLER] ERROR: s_civilians_checkSurrender function is nil!";
+						[civ47,["true","[SURRENDER HANDLER] ERROR: s_civilians_checkSurrender function is nil!",3],"network_chat",false,false] call network_MPExec;
+					} else {
+						diag_log format ["[SURRENDER HANDLER] About to call checkSurrender for unit: %1", name _unit];
+						if ([_unit] call s_civilians_checkSurrender) then {
+							[civ47,["true",format ["Civilian %1: checkSurrender returned TRUE - transitioning to surrendering", name _unit],3],"network_chat",false,false] call network_MPExec;
+							_unit setVariable ["dtk_surrender_state", "surrendering", true];
+						};
 					};
 				};
 				
