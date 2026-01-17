@@ -1303,7 +1303,7 @@ _cid = [
 	"30Rnd_556x45_Stanag_SD",
 	"DDOPP_3Rnd_X3",
 	"RH_15Rnd_9x19_usp_SD",							
-	"DD_FOR13Mustang_P_Blue"
+	"DD_FOR13Mustang_P_Blue",
     "DD_FOR13Mustang_P_Red",
     "DD_CHE15Suburban_U_P_Black",
     "DD_CHE15Suburban_U_P_DarkRed",
@@ -2334,7 +2334,7 @@ INV_ItemShops = [
 
 [DTK_SHOP_COP_SHERIFFDNR, ["Sheriff","Sheriff DNR"], [
 	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "", true],
-    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},  "", false]
+    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},  "", false],
     [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "", false]
 ]],
 
