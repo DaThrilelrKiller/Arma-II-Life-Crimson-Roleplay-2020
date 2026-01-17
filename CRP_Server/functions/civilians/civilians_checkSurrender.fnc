@@ -15,7 +15,7 @@ _nearbyUnits = nearestObjects [_unit, ["Man"], _distance];
 _armedEnemy = false;
 
 {
-	if (_x != _unit && {alive _x} && {side _x != civilian}) then {
+	if (_x != _unit && {alive _x}) then {
 		/* Check if unit has any weapon */
 		_hasWeapon = (primaryWeapon _x != "" || handgunWeapon _x != "" || secondaryWeapon _x != "");
 		

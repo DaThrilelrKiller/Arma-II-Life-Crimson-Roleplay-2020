@@ -3,7 +3,22 @@ enableSaving [false, false];
 waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
 startLoadingScreen ["","dtk_loading"];
 
+west setFriend [east, 0];
+east setFriend [west, 0];
 
+west setFriend [resistance, 0];
+resistance setFriend [west, 0];
+
+west setFriend [civilian, 0];
+civilian setFriend [west, 0];
+
+east setFriend [resistance, 0];
+resistance setFriend [east, 0];
+
+east setFriend [civilian, 0];
+civilian setFriend [east, 0];
+
+resistance setFriend [civilian, 0];
 
 if (isNil "server_auth" && {dtk_client})then {
 	waitUntil {time > 0};
