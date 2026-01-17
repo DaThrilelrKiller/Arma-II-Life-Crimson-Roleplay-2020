@@ -1,9 +1,8 @@
-s_civilians_checkSurrender = {
 private ["_unit","_distance","_nearbyUnits","_armedEnemy","_hasWeapon","_lastShotTime","_result"];
 
 _unit = _this select 0;
 _distance = DTK_CIV_SURRENDER_DISTANCE;
-_armedEnemy = false; // Initialize to false to ensure we always return a boolean
+_armedEnemy = false;
 _result = false;
 
 if (!alive _unit) exitWith { 
@@ -48,4 +47,3 @@ if (isNil "_result" || {typeName _result != "BOOL"}) then {
 	_result = false;
 };
 _result
-};
