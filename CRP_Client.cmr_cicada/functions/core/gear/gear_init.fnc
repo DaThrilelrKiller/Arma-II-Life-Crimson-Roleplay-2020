@@ -13,7 +13,6 @@ none
 */
 if (dtk_server)exitWith {};
 
-[]call gear_actions;
 []spawn gear_handler;
 
 gear_box = "UNBasicAmmunitionBox_EP1" createVehicleLocal [0,0,0];

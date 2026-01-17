@@ -21,8 +21,4 @@ while {_this getVariable "ar_cuffed" and alive _this} do
 };
 
 ["ALL",[_this," "],"network_SwitchMove",false,true]call network_MPExec;
-
-
-
-
 ["ALL",[player," "],"network_SwitchMove",false,true]call network_MPExec;

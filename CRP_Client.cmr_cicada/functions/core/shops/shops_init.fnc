@@ -27,9 +27,9 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 		
 		if (_shopType == "Infostand_2_EP1")then {
 			_shop setObjectTexture [1, "\ol_textures\images\stands\shop.paa"];
-		}else{
-			_shop addaction ["Open Gear","noscript.sqf", format ["[%1]call gear_open",_x], 1, false, true,"Gear"];
-		};	
+		};
+
+		_shop addaction ["Open Gear","noscript.sqf", format ["[%1]call gear_open",_x], 1, false, true,"Gear"];
 		
 		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
 	};
