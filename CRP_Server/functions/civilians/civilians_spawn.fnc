@@ -85,7 +85,7 @@ if (count _roads > 0) then {
 		_shooter = _this select 1;
 		_distance = _this select 2;
 		
-		if (alive _unit && {side _shooter != civilian} && {_distance <= DTK_CIV_SURRENDER_SHOT_RADIUS}) then {
+		if (alive _unit  && {_distance <= DTK_CIV_SURRENDER_SHOT_RADIUS}) then {
 			_unit setVariable ["dtk_lastShotNear", time, true];
 		};
 	}];
