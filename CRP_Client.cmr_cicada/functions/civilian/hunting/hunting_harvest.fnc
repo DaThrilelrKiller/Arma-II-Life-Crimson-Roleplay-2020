@@ -4,8 +4,12 @@ _amount = ceil(random 7);
 
 _item = call {
 	if (typeOf _animal == "WildBoar")exitWith {"boar"};
-	if (typeOf _animal == "cow01")exitWith {"rawcow"};
-	if (typeOf _animal == "Rabbit")exitWith {"rawcow"};
+	if (typeOf _animal == "Cow01")exitWith {"rawcow"};
+	if (typeOf _animal == "Goat")exitWith {"rawcow"};
+	if (typeOf _animal == "Sheep")exitWith {"rawcow"};
+	if (typeOf _animal == "seagulls")exitWith {"rabbit"};
+	if (typeOf _animal == "Rabbit")exitWith {"rabbit"};
+	"rawcow"
 };
 
 
