@@ -1,9 +1,18 @@
 hunting_array = [
+"Cow",
 "Cow01",
+"Cow02",
+"Cow03",
+"Cow04",
 "Goat",
+"Rabbit",
 "Sheep",
 "WildBoar",
-"seagulls"
+"Cow01_EP1",
+"Goat01_EP1",
+"Goat02_EP1",
+"Sheep01_EP1",
+"Sheep02_EP1"
 ];
 
 hunting_spots_array = [];

@@ -12,7 +12,7 @@ if (count _locations == 0) exitWith {
 _location = _locations call BIS_selectRandom;
 _pos = locationPosition _location;
 
-_x = (_pos select 0) + (random 500 - 250);
-_y = (_pos select 1) + (random 500 - 250);
+_x = (_pos select 0);
+_y = (_pos select 1);
 
 [_x, _y, 0];
