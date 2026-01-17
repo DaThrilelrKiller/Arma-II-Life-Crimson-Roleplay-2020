@@ -53,7 +53,6 @@ _return = _item call {
 	if (_this == "steel")exitwith {"steel"};
 	if (_this == "plastic")exitwith {"plastic"};
 	if (_this == "ziptie")exitwith {"ziptie"};
-	if (_this == "ziptie_bh")exitwith {"ziptie"};
 	if (_this == "ziptie2")exitwith {"ziptie"};
 	if (_this == "apple")exitwith {"apple"};
 	if (_this == "bread")exitwith {"burger"};

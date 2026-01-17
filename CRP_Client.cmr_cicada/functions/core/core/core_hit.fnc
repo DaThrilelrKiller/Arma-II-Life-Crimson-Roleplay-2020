@@ -15,7 +15,7 @@ if((vehicle player == player) && INV_isArmed) then
 			_unit = _this select 0;
 			if(_unit distance player > 2)exitwith{};
 			dtk_stunning = true;
-			[_unit,[player],{["hit", (_this select 0), "Melee", 1] execVM "scripts\stun.sqf"},false,false]call network_MPExec;
+			[_unit,[player,_unit],{[(_this select 0),(_this select 1), ""] execVM "scripts\stun.sqf"},false,false]call network_MPExec;
 			systemchat"you stunned this player!";		 
 		};
 		sleep 5;
