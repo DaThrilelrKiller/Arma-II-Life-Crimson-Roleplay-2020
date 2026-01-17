@@ -32,11 +32,6 @@ _config = call compile preprocessFile "\MPMissions\mission.template";
 		_object setVehicleInit _init;
 	};
 	
-	if ((_x select 1)isKindOf "ReammoBox" && {_x select 1 != "fire_box"})then {
-		clearWeaponCargoGlobal _object;
-		clearMagazineCargoGlobal _object;
-	};
-	
 	_object lock true;
 	_object allowDamage false;
 	
