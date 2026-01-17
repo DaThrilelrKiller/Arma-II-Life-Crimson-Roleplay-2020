@@ -1866,9 +1866,9 @@ dtk_vehicles =
     ["DD_FOR13Taurus_P_APO",["vehicle","car"],["DD_FOR13Taurus_P_APO","2013 Ford Police Interceptor Sedan (APO)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR13Taurus_P_S",["vehicle","car"],["DD_FOR13Taurus_P_S","2013 Ford Police Interceptor Sedan (Sheriff)"],[10000,10000],[1,"","",150],[]],
     ["DD_FOR16Explorer_P_P",["vehicle","car"],["DD_FOR16Explorer_P_P","2016 Ford Explorer PPV (Police Patrol)"],[100000,100000],[1,"DTK_License_civ_drivers","",150],[]],
-    ["DD_FOR16Explorer_P_P_K9",["vehicle","car"],["DD_FOR16Explorer_P_P_K9","2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_P_P_K9",["vehicle","car"],["DD_FOR16Explorer_P_P_K9","2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[1,"","",150],[]],
     ["DD_FOR16Explorer_U_P",["vehicle","car"],["DD_FOR16Explorer_U_P","Slicktop 2016 Ford Explorer PPV (Police Patrol)"],[10000,10000],[1,"","",150],[]],
-    ["DD_FOR16Explorer_U_P_K9",["vehicle","car"],["DD_FOR16Explorer_U_P_K9","Slicktop 2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[10000,10000],[1,"","",150],[]],
+    ["DD_FOR16Explorer_U_P_K9",["vehicle","car"],["DD_FOR16Explorer_U_P_K9","Slicktop 2016 Ford Explorer PPV (K9 Patrol)"],[100000,100000],[1,"","",150],[]],
     ["DD_FOR16Explorer_U_P_SWAT",["vehicle","car"],["DD_FOR16Explorer_U_P_SWAT","Slicktop 2016 Ford Explorer PPV (S.W.A.T)"],[10000,10000],[1,"","",150],[]]
 
 ];
