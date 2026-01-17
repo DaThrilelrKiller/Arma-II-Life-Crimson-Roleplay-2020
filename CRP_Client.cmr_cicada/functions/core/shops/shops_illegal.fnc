@@ -6,11 +6,18 @@ if (typeName _index == "STRING")exitWith {};
 
 _data = (INV_ItemShops select _index)select 2;
 
-_return = {
-	private ["_buy","_sell"];
+_return = false;
+{
+	private ["_buy","_sell","_hasIllegal"];
+	if (isNil "_x" || {typeName _x != "ARRAY"})exitWith {};
+	if (count _x < 3)exitWith {};
+	
 	_buy = (_x select 1);
 	_sell = (_x select 2);
-	if (typeName _buy == "STRING")exitWith {};
+	
+	if (isNil "_buy" || {typeName _buy == "STRING"})exitWith {};
+	if (isNil "_sell")exitWith {};
+	
 	_buy = +_buy; 
 	_sell = +_sell; 
 	
@@ -21,13 +28,12 @@ _return = {
 	}count _sell;
 	
 	
-	_return = {
-		 if (_x call config_illegal)exitWith {true};
-		 false
+	_hasIllegal = false;
+	{
+		 if (_x call config_illegal)exitWith {_hasIllegal = true;};
 	}foreach _buy;
 	
-	if (_return)exitWith {_return};
-	
+	if (_hasIllegal)exitWith {_return = true;};
 }foreach _data;
 
 
