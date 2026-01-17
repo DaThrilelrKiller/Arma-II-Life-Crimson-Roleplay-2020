@@ -1140,7 +1140,6 @@ _copk9p = [
 	"RH_Mk18acog_SD",											
 	"30Rnd_556x45_Stanag",								
 	"DD_FOR16Explorer_U_P_K9",
-    "DD_CHE15Suburban_P_P_K9",
     "DD_DOD12Charger_P_P_K9",
     "DD_DOD12Charger_U_P_K9",
     "DD_DOD15Charger_P_P_K9",
