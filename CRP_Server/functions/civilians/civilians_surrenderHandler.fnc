@@ -1,10 +1,14 @@
 private ["_units","_unit","_state","_threatGoneTime"];
 
+diag_log format ["[SURRENDER HANDLER] Script starting - DTK_CIV_SURRENDER_ENABLED = %1", DTK_CIV_SURRENDER_ENABLED];
+
 if (!DTK_CIV_SURRENDER_ENABLED) exitWith {
+	diag_log format ["[SURRENDER HANDLER] Handler disabled - DTK_CIV_SURRENDER_ENABLED = %1", DTK_CIV_SURRENDER_ENABLED];
 	[civ47,["true",format ["Surrender handler disabled - DTK_CIV_SURRENDER_ENABLED = %1", DTK_CIV_SURRENDER_ENABLED],3],"network_chat",false,false] call network_MPExec;
 };
 
-[civ47,["true",format ["Surrender handler starting loop"],3],"network_chat",false,false] call network_MPExec;
+diag_log "[SURRENDER HANDLER] Starting main loop";
+[civ47,["true",format ["Surrender handler starting loop - DTK_CIV_SURRENDER_ENABLED = %1, CHECK_INTERVAL = %2", DTK_CIV_SURRENDER_ENABLED, DTK_CIV_SURRENDER_CHECK_INTERVAL],3],"network_chat",false,false] call network_MPExec;
 
 while {true} do {
 	/* Get all civilian units */
@@ -15,12 +19,17 @@ while {true} do {
 				_units set [count _units, _x];
 				_x setVariable ["dtk_surrender_handler", true, true];
 				_x setVariable ["dtk_surrender_state", "normal", true];
+				diag_log format ["[SURRENDER HANDLER] New civilian unit initialized: %1 (side: %2)", name _x, side _x];
 				[civ47,["true",format ["New civilian unit initialized: %1 (side: %2)", name _x, side _x],3],"network_chat",false,false] call network_MPExec;
 			} else {
 				_units set [count _units, _x];
 			};
 		};
 	} forEach allUnits;
+	
+	if (count _units > 0) then {
+		diag_log format ["[SURRENDER HANDLER] Processing %1 civilian units", count _units];
+	};
 	
 	/* Process each civilian */
 	{
