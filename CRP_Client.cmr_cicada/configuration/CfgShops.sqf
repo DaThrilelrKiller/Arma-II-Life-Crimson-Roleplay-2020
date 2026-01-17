@@ -806,7 +806,7 @@ _copuntrained = [
 	"Rnd_9x19_glock17_SD",									
 	"tcg_remington_SD",										
 	"8Rnd_B_Beneli_Pellets_fix",							
-	"olrpg_pdcv_pb" 											
+	"DD_FOR06CV_P_P" 											
 ];
 
 
@@ -823,8 +823,8 @@ _coppo1 = [
 	"DDOPP_3Rnd_X3", 
 	"Rnd_9x19_glock17_SD",
 	"RH_15Rnd_9x19_usp_SD",						
-	"olrpg_pdcv_pb", 											
-	"olrpg_m5pd"										
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P"										
 ];
 
 
@@ -841,9 +841,9 @@ _coppo2 = [
 	"DDOPP_3Rnd_X3", 
 	"Rnd_9x19_glock17_SD",
 	"RH_15Rnd_9x19_usp_SD",			
-	"olrpg_pdcv_pb", 											
-	"olrpg_m5pd", 												
-	"olrpg_pdtaurus"									
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P"
 ];
 
 
@@ -864,10 +864,10 @@ _coppo3 = [
 	"DDOPP_3Rnd_X3", 
 	"Rnd_9x19_glock17_SD",
 	"Rnd_45ACP_SD",									
-	"olrpg_pdcv_pb", 											
-	"olrpg_m5pd", 												
-	"olrpg_pd_charger", 									
-	"olrpg_pdtaurus"
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P"
 ];
 
 
@@ -893,11 +893,11 @@ _copcpl = [
 	"Rnd_9x19_glock17_SD",
 	"Rnd_45ACP_SD",
 	"RH_6Rnd_357_Mag_SD",									
-	"olrpg_pdcv_pb", 											
-	"olrpg_m5pd", 												
-	"olrpg_pd_charger", 									
-	"olrpg_pdtaurus",											
-	"olrpg_pdsup_slk"										
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P"
 ];
 
 
@@ -927,11 +927,13 @@ _copsgt = [
 	"Rnd_9x19_glock17_SD",
 	"Rnd_45ACP_SD",
 	"RH_6Rnd_357_Mag_SD",									
-	"olrpg_pdupcv_slick_pb", 							
-	"olrpg_pd_charger_slk", 							
-	"olrpg_pdtaurus_slick", 							
-	"olrpg_pdsup_slk", 										
-	"olrpg_pdsupsub6"
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P",
+    "DD_FOR16Explorer_U_P",
+    "DD_DOD15Charger_P_P"
 ];
 
 
@@ -964,14 +966,14 @@ _coplt = [
 	"Rnd_9x19_glock17_SD",
 	"Rnd_45ACP_SD",
 	"RH_6Rnd_357_Mag_SD",																		
-	"olrpg_pdlt", 												
-	"olrpg_pdlt_slk",											
-	"olrpg_pdltsub6",											
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon",									
-	"olrpg_umcv_grey", 										
-	"olrpg_uctahoe_grey", 								
-	"olrpg_uctahoe_dblue",
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P",
+    "DD_FOR16Explorer_U_P",
+    "DD_DOD15Charger_P_P",
+    "DD_DOD12Charger_U_P",
 	"Bait_Kit"														
 ];
 
@@ -1007,15 +1009,16 @@ _copcpt = [
 	"RH_7Rnd_50_AE_SD",
 	"Rnd_45ACP_SD",
 	"RH_6Rnd_357_Mag_SD",																				
-	"olrpg_pdcapt", 											
-	"olrpg_pdcapt_slk",										
-	"olrpg_pdcptsub6",										
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon", 									
-	"olrpg_umcv_grey", 										
-	"olrpg_uctahoe_grey", 								
-	"olrpg_uctahoe_dblue", 								
-	"olrpg_pdtaurus_um",
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P",
+    "DD_FOR16Explorer_U_P",
+    "DD_DOD15Charger_P_P",
+    "DD_DOD12Charger_U_P",
+    "DD_DOD15Charger_U_P",
+    "DD_CHE15Suburban_U_P",
 	"Bait_Kit"														
 ];
 
@@ -1054,16 +1057,16 @@ _copastchief = [
 	"DDOPP_X3_b",
 	"Stinger_swat",												
 	"Stinger_mag",												
-	"olrpg_pdassistantchief", 					  
-	"olrpg_pdassistantchief_slk",					
-	"olrpg_pdascsub6",										
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon", 									
-	"olrpg_umcv_grey", 										
-	"olrpg_uctahoe_grey", 								
-	"olrpg_uctahoe_dblue", 								
-	"olrpg_pdtaurus_um", 									
-	"olrpg_pdchargerblack",
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P",
+    "DD_FOR16Explorer_U_P",
+    "DD_DOD15Charger_P_P",
+    "DD_DOD12Charger_U_P",
+    "DD_DOD15Charger_U_P",
+    "DD_CHE15Suburban_U_P",
 	"Bait_Kit"														
 ];
 
@@ -1103,17 +1106,16 @@ _copchief = [
 	"Stinger_swat",												
 	"Stinger_mag",												
 	"sahco",															
-	"olrpg_chf_cvold", 										
-	"olrpg_pdchief", 											
-	"olrpg_pdchief_slk",									
-	"olrpg_pdchiefsub6",									
-	"olrpg_umcv_dblue", 									
-	"olrpg_umcv_maroon", 									
-	"olrpg_umcv_grey", 										
-	"olrpg_uctahoe_grey", 								
-	"olrpg_uctahoe_dblue", 								
-	"olrpg_pdtaurus_um", 									
-	"olrpg_pdchargerblack", 							
+	"DD_FOR06CV_P_P", 											
+	"DD_FOR13Taurus_P_P",
+    "DD_DOD06charger_P_P",
+    "DD_FOR16Explorer_P_P",
+    "DD_DOD12Charger_P_P",
+    "DD_FOR16Explorer_U_P",
+    "DD_DOD15Charger_P_P",
+    "DD_DOD12Charger_U_P",
+    "DD_DOD15Charger_U_P",
+    "DD_CHE15Suburban_U_P",							
 	"Bait_Kit"														
 ];
 
@@ -1138,10 +1140,15 @@ _copk9p = [
 	"RH_Mk18aim_SD",											
 	"RH_Mk18acog_SD",											
 	"30Rnd_556x45_Stanag",								
-	"olrpg_pdk9cv_pb", 										
-	"olrpg_pdtaurusk9",										
-	"olrpg_pdk9",													
-	"olrpg_pdk9_charger" 								  
+	"DD_FOR16Explorer_U_P_K9",
+    "DD_CHE15Suburban_P_P_K9",
+    "DD_DOD12Charger_P_P_K9",
+    "DD_DOD12Charger_U_P_K9",
+    "DD_DOD15Charger_P_P_K9",
+    "DD_DOD15Charger_P_S_K9",
+    "DD_FOR06CV_P_K9",
+    "DD_FOR13Taurus_P_K9",
+    "DD_FOR16Explorer_P_P_K9"							  
 ];
 
 
