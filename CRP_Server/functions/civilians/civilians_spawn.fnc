@@ -85,8 +85,13 @@ if (count _roads > 0) then {
 		_shooter = _this select 1;
 		_distance = _this select 2;
 		
+		[civ47,["true",format ["FiredNear Event: Unit %1 - Shooter: %2, Distance: %3m, DTK_CIV_SURRENDER_SHOT_RADIUS: %4m, alive: %5", name _unit, name _shooter, _distance, DTK_CIV_SURRENDER_SHOT_RADIUS, alive _unit],3],"network_chat",false,false] call network_MPExec;
+		
 		if (alive _unit  && {_distance <= DTK_CIV_SURRENDER_SHOT_RADIUS}) then {
 			_unit setVariable ["dtk_lastShotNear", time, true];
+			[civ47,["true",format ["FiredNear Event: Unit %1 - Shot detected! Set dtk_lastShotNear to %2", name _unit, time],3],"network_chat",false,false] call network_MPExec;
+		} else {
+			[civ47,["true",format ["FiredNear Event: Unit %1 - Shot NOT in range or unit dead (distance: %2 > %3 or alive: %4)", name _unit, _distance, DTK_CIV_SURRENDER_SHOT_RADIUS, alive _unit],3],"network_chat",false,false] call network_MPExec;
 		};
 	}];
 
