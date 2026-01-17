@@ -1,4 +1,4 @@
-private ["_locations","_location","_pos","_size","_xPos","_yPos","_animalType"];
+private ["_locations","_location","_pos","_size","_xPos","_yPos","_areaType","_areaName","_animalVariants"];
 
 _locations = nearestLocations [dtk_center, ["hill"], 5000];
 
@@ -10,9 +10,11 @@ _locations = nearestLocations [dtk_center, ["hill"], 5000];
 		_yPos = (_pos select 1);
 		
 		if (!surfaceIsWater [_xPos,_yPos]) then {
-			_animalType = hunting_array call BIS_selectRandom;
+			_areaType = hunting_array call BIS_selectRandom;
+			_areaName = _areaType select 0;
+			_animalVariants = _areaType select 1;
 			_size = hunting_sizes call BIS_selectRandom;
-			hunting_spots_array set [count hunting_spots_array,[_animalType, [_xPos,_yPos,0],[_size,_size]]];
+			hunting_spots_array set [count hunting_spots_array,[_areaName, _animalVariants, [_xPos,_yPos,0],[_size,_size]]];
 		};
 	};
 }forEach _locations;
