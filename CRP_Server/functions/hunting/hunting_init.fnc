@@ -19,4 +19,4 @@ _locations = nearestLocations [dtk_center, ["VegetationFir"], 5000];
 	};
 }forEach _locations;
 
-[120,s_hunting_loop]call core_AddLoop;
+[60,s_hunting_loop]call core_AddLoop;

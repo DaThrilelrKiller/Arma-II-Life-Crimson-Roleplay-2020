@@ -5,5 +5,7 @@
 ["loop",false],
 ["despawn",false],
 ["setLoadout",false],
-["pullOver",true]
+["pullOver",true],
+["checkSurrender",false],
+["surrenderHandler",false]
 ];

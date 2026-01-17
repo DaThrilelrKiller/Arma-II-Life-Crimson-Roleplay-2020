@@ -73,6 +73,22 @@ if (count _roads > 0) then {
 	
 	_unit addMPEventHandler ["MPKilled",{_this call killfeed_display;}];
 	_unit addEventHandler ["Killed", { [(_this select 0),(_this select 0)] call storage_dropall;}];
+	
+	/* Initialize surrender system */
+	_unit setVariable ["dtk_surrendered", false, true];
+	_unit setVariable ["dtk_surrender_state", "normal", true];
+	_unit setVariable ["dtk_threatGoneTime", 0, true];
+	_unit setVariable ["dtk_lastShotNear", 0, true];
+	_unit addEventHandler ["FiredNear", {
+		private ["_unit", "_shooter", "_distance"];
+		_unit = _this select 0;
+		_shooter = _this select 1;
+		_distance = _this select 2;
+		
+		if (alive _unit && {side _shooter != civilian} && {_distance <= DTK_CIV_SURRENDER_SHOT_RADIUS}) then {
+			_unit setVariable ["dtk_lastShotNear", time, true];
+		};
+	}];
 
 	_unit moveInDriver _veh;
 
