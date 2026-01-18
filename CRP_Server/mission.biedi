@@ -842,7 +842,7 @@ class _vehicle_76
 	objectType="vehicle";
 	class Arguments
 	{
-		POSITION="[3519.53, 3227.09, 0]";
+		POSITION="[3516.2461, 3217.8503]";
 		TYPE="HeliH";
 		AZIMUT="180";
 		NAME="DTK_Shop_Cop_SheriffAviationVehSpawn";
@@ -1116,42 +1116,6 @@ class _vehicle_106
 		TYPE="tcg_atm";
 		AZIMUT="90.0241";
 		NAME="DTK_ATM_Sheriff";
-		PARENT="";
-	};
-};
-class _vehicle_107
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[3533.13, 3217.03, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="315.444";
-		NAME="shtele1";
-		PARENT="";
-	};
-};
-class _vehicle_108
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[3542.17, 3212.42, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="5.70677";
-		NAME="OL_COP_LANDSAVE2";
-		PARENT="";
-	};
-};
-class _vehicle_109
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[3542.97, 3213.75, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="180.466";
-		NAME="OL_Shop_Cop_SheriffEquipment";
 		PARENT="";
 	};
 };
@@ -1811,42 +1775,6 @@ class _vehicle_169
 		POSITION="[4186.46, 4975.33, 0]";
 		TYPE="Land_ladder";
 		AZIMUT="142.636";
-		PARENT="";
-	};
-};
-class _vehicle_170
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[4183.22, 4971.27, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="313.341";
-		NAME="cgp4";
-		PARENT="";
-	};
-};
-class _vehicle_171
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[4231.77, 5160.07, 0]";
-		TYPE="tcg_atm";
-		AZIMUT="230";
-		NAME="DTK_ATM_UC";
-		PARENT="";
-	};
-};
-class _vehicle_172
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[4233.34, 5165.03, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="321.2";
-		NAME="DTK_Shop_Undercover";
 		PARENT="";
 	};
 };
@@ -4457,7 +4385,7 @@ class _vehicle_407
 	objectType="vehicle";
 	class Arguments
 	{
-		POSITION="[4794.33, 5199.4, 0]";
+		POSITION="[4794.3301, 5199.3999]";
 		TYPE="armat_jailfenc1";
 		AZIMUT="270.505";
 		PARENT="";
@@ -9357,42 +9285,6 @@ class _vehicle_864
 		PARENT="";
 	};
 };
-class _vehicle_865
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[6193.03, 4119.04, 0]";
-		TYPE="Land_Ind_TankSmall2";
-		AZIMUT="90";
-		NAME="emsrefuel2";
-		PARENT="";
-	};
-};
-class _vehicle_866
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[6186.5, 4135.22, 0]";
-		TYPE="bry_helipad";
-		AZIMUT="180.093";
-		NAME="jailpad2_2";
-		PARENT="";
-	};
-};
-class _vehicle_867
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[6193.02, 4142.22, 0]";
-		TYPE="Infostand_2_EP1";
-		AZIMUT="180.093";
-		NAME="DTK_Shop_EMTAirsub";
-		PARENT="";
-	};
-};
 class _vehicle_868
 {
 	objectType="vehicle";
@@ -9603,18 +9495,6 @@ class _vehicle_886
 		POSITION="[6219.33, 4104.85, 0]";
 		TYPE="ASC_EU_BulbN";
 		AZIMUT="215.108";
-		PARENT="";
-	};
-};
-class _vehicle_887
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[6218.74, 4139.83, 0]";
-		TYPE="tcg_firehouse";
-		AZIMUT="180.093";
-		NAME="swagfire";
 		PARENT="";
 	};
 };
@@ -9903,7 +9783,7 @@ class _vehicle_913
 	objectType="vehicle";
 	class Arguments
 	{
-		POSITION="[6269.15, 4329.98, 0]";
+		POSITION="[6269.1499, 4329.98]";
 		TYPE="Infostand_2_EP1";
 		AZIMUT="221.289";
 		NAME="DTK_Shop_Taxi";
@@ -15605,6 +15485,437 @@ class _vehicle_1453
 	{
 		POSITION="[9023.2969, 3675.1025, 0.20315352]";
 		TYPE="oilrig_base";
+		PARENT="";
+	};
+};
+class _vehicle_1462
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4340.2017, 5009.0444, 6.8664551e-005]";
+		TYPE="Land_burntower";
+		AZIMUT="410.46558";
+		PARENT="";
+	};
+};
+class _vehicle_1463
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4338.3018, 5060.1968]";
+		TYPE="Land_bc_Classroom";
+		AZIMUT="-129.89839";
+		PARENT="";
+	};
+};
+class _vehicle_1466
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4381.8877, 4964.6274, -2.4795532e-005]";
+		TYPE="Land_bargate";
+		PARENT="";
+	};
+};
+class _vehicle_1472
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4391.6436, 4964.623, -0.38400096]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="363.09219";
+		PARENT="";
+	};
+};
+class _vehicle_1476
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4371.3555, 4964.1201, -0.9084518]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="354.23126";
+		PARENT="";
+	};
+};
+class _vehicle_1478
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4364.1865, 4963.4331, -1.1178455]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="172.71255";
+		PARENT="";
+	};
+};
+class _vehicle_1481
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4356.3037, 4962.9839, -1.3682245]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="177.34634";
+		PARENT="";
+	};
+};
+class _vehicle_1483
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4348.1323, 4961.9023, -0.95641947]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="165.99428";
+		PARENT="";
+	};
+};
+class _vehicle_1491
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4389.7695, 4968.377, -0.40133309]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="258.63278";
+		PARENT="";
+	};
+};
+class _vehicle_1493
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4387.8882, 4976.7236, -0.60181004]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="255.69887";
+		PARENT="";
+	};
+};
+class _vehicle_1495
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4385.9893, 4985.0454, -0.73320967]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="258.88037";
+		PARENT="";
+	};
+};
+class _vehicle_1499
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4383.353, 4998.1792, -0.69126874]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="258.63278";
+		PARENT="";
+	};
+};
+class _vehicle_1500
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4384.2808, 4993.4341, -0.71595556]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="257.61191";
+		PARENT="";
+	};
+};
+class _vehicle_1508
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4382.3701, 5004.0039, -0.69887757]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="262.49438";
+		PARENT="";
+	};
+};
+class _vehicle_1509
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4381.0513, 5012.4609, -0.69620615]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="259.56042";
+		PARENT="";
+	};
+};
+class _vehicle_1510
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4379.7197, 5020.8911, -0.71941441]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="262.74197";
+		PARENT="";
+	};
+};
+class _vehicle_1511
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4377.0601, 5037.6958, -0.75819302]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="258.00137";
+		PARENT="";
+	};
+};
+class _vehicle_1512
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4378.5811, 5029.3735, -0.75084108]";
+		TYPE="armat_jailfenc1";
+		AZIMUT="261.47345";
+		PARENT="";
+	};
+};
+class _vehicle_1571
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4385.0439, 4964.1865, -7.6293945e-006]";
+		TYPE="cl_speed_bump";
+		AZIMUT="-5.4355464";
+		PARENT="";
+	};
+};
+class _vehicle_1573
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[4379.8013, 4963.71, 9.5367432e-007]";
+		TYPE="cl_speed_bump";
+		AZIMUT="-4.394289";
+		PARENT="";
+	};
+};
+class _vehicle_1577
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[6206.4048, 4104.7188, -3.8146973e-006]";
+		TYPE="Land_Flyers_Garage";
+		AZIMUT="179.99544";
+		PARENT="";
+	};
+};
+class _vehicle_1579
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[6195.7412, 4128.1875, 5.3405762e-005]";
+		TYPE="Infostand_2_EP1";
+		AZIMUT="270.11215";
+		NAME="DTK_Shop_Flyers";
+		PARENT="";
+	};
+};
+class _vehicle_1582
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[6195.8589, 4130.3242, 0.11427225]";
+		TYPE="tcg_atm";
+		AZIMUT="269.56824";
+		PARENT="";
+	};
+};
+class _vehicle_1588
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7941.6006, 4759.1074, 0.26671541]";
+		TYPE="DAR_ILSD";
+		AZIMUT="89.987274";
+		PARENT="";
+	};
+};
+class _vehicle_1600
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7879.6655, 4766.6084]";
+		TYPE="HeliH";
+		AZIMUT="180";
+		NAME="DTK_Shop_Cop_SheriffAviationVehSpawnN";
+		PARENT="";
+	};
+};
+class _vehicle_1603
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7948.7681, 4757.5249, 0.50784034]";
+		TYPE="Land_psi_bouda";
+		AZIMUT="87.108887";
+		NAME="dogspawn2";
+		PARENT="";
+	};
+};
+class _vehicle_1604
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7943.7529, 4760.6763, 0.436955]";
+		TYPE="tcg_atm";
+		AZIMUT="273.55658";
+		NAME="DTK_ATM_Sheriff";
+		PARENT="";
+	};
+};
+class _vehicle_1605
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7943.8594, 4762.1772, 0.63111347]";
+		TYPE="Infostand_2_EP1";
+		AZIMUT="270.40433";
+		NAME="DTK_Shop_Cop_SheriffDivisionN";
+		PARENT="";
+	};
+};
+class _vehicle_1606
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7947.5347, 4757.791, 1.0807419]";
+		TYPE="Pastor";
+		AZIMUT="181.39404";
+		PARENT="";
+	};
+};
+class _vehicle_1616
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7933.6099, 4759.7285, -1.5258789e-005]";
+		TYPE="il_barrier";
+		PARENT="";
+	};
+};
+class _vehicle_1618
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7933.6138, 4765.8735, 3.0517578e-005]";
+		TYPE="il_barrier";
+		PARENT="";
+	};
+};
+class _vehicle_1620
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7936.6636, 4768.4238, 2.6702881e-005]";
+		TYPE="il_barrier";
+		AZIMUT="90.855904";
+		PARENT="";
+	};
+};
+class _vehicle_1622
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7942.8389, 4768.3618, 1.1444092e-005]";
+		TYPE="il_barrier";
+		AZIMUT="-89.42878";
+		PARENT="";
+	};
+};
+class _vehicle_1625
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7948.3848, 4768.4561, -1.9073486e-005]";
+		TYPE="il_barrier";
+		AZIMUT="-89.42878";
+		PARENT="";
+	};
+};
+class _vehicle_1627
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7951.6372, 4765.4341, 6.1035156e-005]";
+		TYPE="il_barrier";
+		AZIMUT="-0.48903966";
+		PARENT="";
+	};
+};
+class _vehicle_1630
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7933.5879, 4754.3633, -9.5367432e-006]";
+		TYPE="il_barrier";
+		PARENT="";
+	};
+};
+class _vehicle_1632
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7936.5347, 4751.1753, -0.0052097337]";
+		TYPE="il_barrier";
+		AZIMUT="90.600639";
+		PARENT="";
+	};
+};
+class _vehicle_1634
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7938.1719, 4751.1577, -7.6293945e-006]";
+		TYPE="il_barrier";
+		AZIMUT="-89.444908";
+		PARENT="";
+	};
+};
+class _vehicle_1637
+{
+	objectType="vehicle";
+	class Arguments
+	{
+		POSITION="[7943.8496, 4762.6919, 0.67270494]";
+		TYPE="Infostand_2_EP1";
+		AZIMUT="270.40433";
+		NAME="DTK_Shop_Cop_SheriffAirN";
 		PARENT="";
 	};
 };
