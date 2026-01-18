@@ -22,7 +22,7 @@ if (_pos < 2)then {
 					_vehicle setVelocity [
 					(_vel select 0) * _upgrade, 
 					(_vel select 1) * _upgrade, 
-					(((_vel select 2)  * _upgrade) + 2)
+					(_vel select 2)
 					];
 				};
 			}
@@ -40,7 +40,7 @@ if (_pos < 2)then {
 					_vehicle setVelocity [
 					(_vel select 0) * _upgrade, 
 					(_vel select 1) * _upgrade, 
-					(((_vel select 2)  * _upgrade) + 2)
+					(_vel select 2)
 					];
 			};
 		};
