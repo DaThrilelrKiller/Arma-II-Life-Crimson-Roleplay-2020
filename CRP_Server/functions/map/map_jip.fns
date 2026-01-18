@@ -1,4 +1,6 @@
-	["ALL",[DTK_Start_Damaged],{
+	_player = _this select 0;
+
+    [_player,[DTK_Start_Damaged],{
 		private ["_pos","_building"];
 		{
 			_pos = profileNamespace getVariable [format["%1",_x],dtk_center];
