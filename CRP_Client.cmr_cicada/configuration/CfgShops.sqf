@@ -704,6 +704,10 @@ _rs = [
 ];
 
 
+_flyers = [
+	"Cherokee_green"
+];
+
 _gds = [
 	"bread",															
 	"straw"																
@@ -2362,6 +2366,10 @@ INV_ItemShops = [
 [DTK_Shop_Cop_SheriffAirN, ["Sheriff","Sheriff Aviation Equipment"], [
 	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawnN", true],
 	[["Sheriff","Sheriff Aviation"], _copavsh, _copavsh,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawnN", true]
+]],
+
+[DTK_Shop_Flyers, ["Flyer's","Flyer's Tow Service"], [
+	[["Flyer's","Flyer's Tow Service"], _flyers, _flyers,{true}, "DTK_Shop_Cop_FlyersSpawn", true]
 ]],
 
 [DTK_Shop_BM,["picture","Black Market"], [
