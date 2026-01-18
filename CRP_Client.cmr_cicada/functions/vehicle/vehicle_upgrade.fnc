@@ -1,5 +1,5 @@
 ﻿private ["_vehicle","_vel","_cc","_upgrade","_dir","_pos"];
-
+systemchat "a";
 _vehicle = vehicle player;
 if (_vehicle == player)exitWith {};
 
@@ -22,7 +22,7 @@ if (_pos < 2)then {
 					_vehicle setVelocity [
 					(_vel select 0) * _upgrade, 
 					(_vel select 1) * _upgrade, 
-					(_vel select 2)
+					((_vel select 2)  * _upgrade)
 					];
 				};
 			}
@@ -30,7 +30,7 @@ if (_pos < 2)then {
 					_vehicle setVelocity [
 					(_vel select 0) - (sin _dir * 0.1), 
 					(_vel select 1) - (cos _dir * 0.1), 
-					(_vel select 2)
+					(_vel select 2) 
 					];
 			
 			};
@@ -40,7 +40,7 @@ if (_pos < 2)then {
 					_vehicle setVelocity [
 					(_vel select 0) * _upgrade, 
 					(_vel select 1) * _upgrade, 
-					(_vel select 2)
+					((_vel select 2)  * _upgrade)
 					];
 			};
 		};
