@@ -35,6 +35,6 @@ for [{_i = 0}, {_i < 8}, {_i=_i+1}] do {
 systemchat format ["Codepad Code Found: %1",_return];
 
 [theVault,{
-	theVault animate ["vaultLockAnim",0]
+	theVault animate ["vaultLockAnim",0];
 	theVault spawn vault_close;
 }]call codepad_open;
