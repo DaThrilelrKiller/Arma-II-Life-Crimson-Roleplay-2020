@@ -7,7 +7,8 @@ class _prefix_0
 		{
 			"as_eu_oa_lights",
 			"cl_wheelchair",
-			"cl_objects_pack"
+			"cl_objects_pack",
+			"as_eu_oa_signs"
 		};
 	};
 };
@@ -36,28 +37,6 @@ class _group_3
 		CENTER="_center_0";
 	};
 };
-class _vehicle_0
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[4888.5566, 5216.3784, 107.97213]";
-		TYPE="Land_ConcreteBlock";
-		AZIMUT="-49.419346";
-		PARENT="";
-	};
-};
-class _vehicle_2
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[-8.05064, 6262.57, 0]";
-		TYPE="cl_wheelchair";
-		NAME="police";
-		PARENT="";
-	};
-};
 class _vehicle_3
 {
 	objectType="vehicle";
@@ -66,16 +45,6 @@ class _vehicle_3
 		POSITION="[-9.16829, 6242.09, 0]";
 		TYPE="FlagCarrierUSA_EP1";
 		NAME="dummyobj";
-		PARENT="";
-	};
-};
-class _vehicle_4
-{
-	objectType="vehicle";
-	class Arguments
-	{
-		POSITION="[-32.4585, 6243.38, 0]";
-		TYPE="Toolbox";
 		PARENT="";
 	};
 };
@@ -15760,12 +15729,12 @@ class _vehicle_1420
 		PARENT="";
 	};
 };
-class _unit_0
+class _unit_1
 {
 	objectType="unit";
 	class Arguments
 	{
-		POSITION="[4487.0669, 5396.4009, -3.8146973e-006]";
+		POSITION="[4487.6563, 5401.3691, -7.6293945e-006]";
 		GROUP="_group_3";
 		TYPE="Pastor";
 		SKILL="0.60000002";
