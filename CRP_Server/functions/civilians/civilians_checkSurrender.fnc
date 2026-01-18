@@ -43,7 +43,7 @@ _armedEnemy = false;
 		_civSide = side _unit;
 		_isAiming = [animationState _x, "aiming"] call core_hasSubstring;
 				
-		if (_hasWeapon && _hasAmmo && _isAiming) then {
+		if (_hasWeapon && _hasAmmo) then {
 			if (_isPlayer || {_unitSide != _civSide}) then {
 				_armedEnemy = true;
 			};
