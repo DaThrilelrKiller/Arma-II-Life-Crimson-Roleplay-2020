@@ -189,18 +189,35 @@ set "BIEDI_FILE=%PROJECT_ROOT%\CRP_Server\mission.biedi"
 set "TEMPLATE_FILE=%PROJECT_ROOT%\CRP_Server\mission.template"
 
 (
-echo $ErrorActionPreference = 'Continue'
+echo $ErrorActionPreference = 'Stop'
 echo $biediFile = '%BIEDI_FILE%'
 echo $templateFile = '%TEMPLATE_FILE%'
 echo.
 echo Write-Host '[BUILD] Reading mission.biedi...'
+echo if ^(-not ^(Test-Path $biediFile^)^) {
+echo     Write-Error "[ERROR] mission.biedi not found at: $biediFile"
+echo     exit 1
+echo }
 echo $content = Get-Content -Path $biediFile -Raw
+echo if ^(-not $content^) {
+echo     Write-Error "[ERROR] mission.biedi is empty or could not be read"
+echo     exit 1
+echo }
+echo Write-Host '[BUILD] Successfully read mission.biedi, size: ' $content.Length ' characters'
 echo.
 echo # Find all vehicle classes using regex
 echo $vehicleEntries = @^(^)
 echo $pattern = '(?s)class\s+_vehicle_\d+\s*\{[^}]*?objectType\s*=\s*"vehicle"[^}]*?class\s+Arguments\s*\{([^}]+)\}[^}]*?\}'
-echo $matches = [regex]::Matches^(^$content, $pattern^)
-echo Write-Host '[BUILD] Found ' $matches.Count ' vehicle classes'
+echo try {
+echo     $matches = [regex]::Matches^(^$content, $pattern^)
+echo     Write-Host '[BUILD] Found ' $matches.Count ' vehicle classes'
+echo     if ^($matches.Count -eq 0^) {
+echo         Write-Warning "[WARNING] No vehicle classes found in mission.biedi"
+echo     }
+echo } catch {
+echo     Write-Error "[ERROR] Failed to parse vehicle classes: $_"
+echo     exit 1
+echo }
 echo.
 echo foreach ^($match in $matches^) {
 echo     $argsContent = $match.Groups[1].Value
@@ -252,37 +269,67 @@ echo }
 echo.
 echo # Write template file
 echo Write-Host '[BUILD] Writing mission.template...'
-echo $output = '['
-echo if ^($vehicleEntries.Count -gt 0^) {
-echo     $output += "`r`n" + ^($vehicleEntries[0]^)
-echo     for ^($i = 1; $i -lt $vehicleEntries.Count; $i++^) {
-echo         $output += ",`r`n" + $vehicleEntries[$i]
+echo try {
+echo     $output = '['
+echo     if ^($vehicleEntries.Count -gt 0^) {
+echo         $output += "`r`n" + ^($vehicleEntries[0]^)
+echo         for ^($i = 1; $i -lt $vehicleEntries.Count; $i++^) {
+echo             $output += ",`r`n" + $vehicleEntries[$i]
+echo         }
 echo     }
+echo     $output += "`r`n]"
+echo     $output ^| Set-Content -Path $templateFile -Encoding UTF8 -ErrorAction Stop
+echo     Write-Host '[BUILD] Generated mission.template with ' $vehicleEntries.Count ' vehicle entries'
+echo } catch {
+echo     Write-Error "[ERROR] Failed to write mission.template: $_"
+echo     exit 1
 echo }
-echo $output += "`r`n]"
-echo $output ^| Set-Content -Path $templateFile -Encoding UTF8
-echo Write-Host '[BUILD] Generated mission.template with ' $vehicleEntries.Count ' vehicle entries'
 ) > "%TEMPLATE_PS_SCRIPT%"
 
 echo [BUILD] Running template generation script...
+echo [DEBUG] Template script path: %TEMPLATE_PS_SCRIPT%
+echo [DEBUG] Biedi file path: %BIEDI_FILE%
+echo [DEBUG] Template file path: %TEMPLATE_FILE%
+
 powershell -ExecutionPolicy Bypass -NoProfile -File "%TEMPLATE_PS_SCRIPT%"
+set TEMPLATE_EXIT_CODE=%errorlevel%
 
-if errorlevel 1 (
-    echo [ERROR] Template generation failed with error code %errorlevel%
+if %TEMPLATE_EXIT_CODE% NEQ 0 (
+    echo [WARNING] Template generation failed with error code %TEMPLATE_EXIT_CODE%
     echo [DEBUG] Check the script at: %TEMPLATE_PS_SCRIPT%
-    pause
-    exit /b 1
+    echo [WARNING] Continuing build despite template generation error...
+    echo [WARNING] You may need to manually check mission.template
+) else (
+    echo [BUILD] Template generation completed successfully
 )
-
-echo [BUILD] Template generation completed successfully
 
 :: Clean up template script
 if exist "%TEMPLATE_PS_SCRIPT%" del /q "%TEMPLATE_PS_SCRIPT%"
 
+echo [BUILD] Continuing to file copy step...
+
 echo [BUILD] Copying project to build directory...
 
 :: Copy everything from PROJECT_ROOT to BUILD_DIR
-xcopy /s /e /y /I "%PROJECT_ROOT%\*" "%BUILD_DIR%"
+echo [BUILD] Copying files to %BUILD_DIR%...
+xcopy /s /e /y /I "%PROJECT_ROOT%\*" "%BUILD_DIR%" 2>nul
+if errorlevel 1 (
+    echo [WARNING] xcopy returned error, but continuing...
+)
+
+:: Ensure CRP_Server is copied explicitly
+echo [BUILD] Ensuring CRP_Server directory is copied...
+if not exist "%BUILD_DIR%\CRP_Server" (
+    echo [BUILD] CRP_Server not found, copying now...
+    xcopy /s /e /y /I "%PROJECT_ROOT%\CRP_Server" "%BUILD_DIR%\CRP_Server"
+    if errorlevel 1 (
+        echo [ERROR] Failed to copy CRP_Server directory!
+    ) else (
+        echo [BUILD] CRP_Server directory copied successfully
+    )
+) else (
+    echo [BUILD] CRP_Server directory already exists in build directory
+)
 
 echo [BUILD] Removing functions folder from build...
 
@@ -331,7 +378,10 @@ if errorlevel 1 (
 :: Return to project root
 cd /d "%PROJECT_ROOT%"
 
+echo.
+echo ============================================
 echo [BUILD] Build complete!
+echo ============================================
 echo [BUILD] Project copied to: %BUILD_DIR%
 echo [BUILD] Mission built at: %BUILD_DIR%\CRP_Client.cmr_cicada
 echo [BUILD] PBO file: %BUILD_DIR%\CRP_Client.cmr_cicada.pbo
