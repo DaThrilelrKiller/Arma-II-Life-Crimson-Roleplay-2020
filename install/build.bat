@@ -189,20 +189,18 @@ set "BIEDI_FILE=%PROJECT_ROOT%\CRP_Server\mission.biedi"
 set "TEMPLATE_FILE=%PROJECT_ROOT%\CRP_Server\mission.template"
 
 (
-echo $ErrorActionPreference = 'Continue'
+echo $ErrorActionPreference = 'Stop'
 echo $biediFile = '%BIEDI_FILE%'
 echo $templateFile = '%TEMPLATE_FILE%'
 echo.
 echo Write-Host '[BUILD] Reading mission.biedi...'
 echo if ^(-not ^(Test-Path $biediFile^)^) {
 echo     Write-Error "[ERROR] mission.biedi not found at: $biediFile"
-echo     $ErrorActionPreference = 'Stop'
 echo     exit 1
 echo }
 echo $content = Get-Content -Path $biediFile -Raw
 echo if ^(-not $content^) {
 echo     Write-Error "[ERROR] mission.biedi is empty or could not be read"
-echo     $ErrorActionPreference = 'Stop'
 echo     exit 1
 echo }
 echo Write-Host '[BUILD] Successfully read mission.biedi, size: ' $content.Length ' characters'
@@ -218,7 +216,6 @@ echo         Write-Warning "[WARNING] No vehicle classes found in mission.biedi"
 echo     }
 echo } catch {
 echo     Write-Error "[ERROR] Failed to parse vehicle classes: $_"
-echo     $ErrorActionPreference = 'Stop'
 echo     exit 1
 echo }
 echo.
@@ -266,7 +263,7 @@ echo         $azimutNum = 0
 echo     }
 echo.
 echo     # Add to entries array: [NAME, TYPE, POSITION, AZIMUT]
-echo     $entry = '[' + '"' + $name + '"' + ',' + '"' + $type + '"' + ',' + $posArray + ',' + $azimutNum + ']'
+echo     $entry = "[`"$name`",`"$type`",$posArray,$azimutNum]"
 echo     $vehicleEntries += $entry
 echo }
 echo.
@@ -285,7 +282,6 @@ echo     $output ^| Set-Content -Path $templateFile -Encoding UTF8 -ErrorAction 
 echo     Write-Host '[BUILD] Generated mission.template with ' $vehicleEntries.Count ' vehicle entries'
 echo } catch {
 echo     Write-Error "[ERROR] Failed to write mission.template: $_"
-echo     $ErrorActionPreference = 'Stop'
 echo     exit 1
 echo }
 ) > "%TEMPLATE_PS_SCRIPT%"
