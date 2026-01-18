@@ -5,12 +5,13 @@ SpawnPoints = [
 ["Fire Department #1",[4910.05,5178.93,0.00144196],"dtk_ems"],
 ["Fire Department #2",[3570.91,3110.97,0.00143814],"dtk_ems"],
 
-["Police Base (North)",[4894.99,5317.32,0.00143433],"dtk_cop"],
+["Police Department",[4894.99,5317.32,0.00143433],"dtk_cop"],
 ["CID Base",[4858.66,5302.3,0.00143433],"dtk_cop"],
 ["Police Command",[4835.2,5219.37,0.00143433],"dtk_cop"],
 ["Police Avation",[4900.38,5195.08,0.00144196],"dtk_cop"],
 ["SWAT",[4859.64,5165.03,0.00143433],"dtk_cop"],
 ["Internal Affairs",[4814.34,5171.78,0.00144196],"dtk_cop"],
+["Sheriff (North)",[],"dtk_cop"],
 ["Sheriff (South)",[3545.29,3218.55,0.00144196],"dtk_cop"],
 ["Sheriff (DNR)",[4865.21,4140.39,0.00143814],"dtk_cop"],
 
