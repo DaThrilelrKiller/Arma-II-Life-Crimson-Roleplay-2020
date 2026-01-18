@@ -59,3 +59,4 @@ QUICK DIAGNOSIS - Run all these at once:
 diag_log "[DEBUG] ==== SURRENDER SYSTEM DIAGNOSIS ===="; if (!DTK_CIV_SURRENDER_ENABLED) then {diag_log "[DEBUG] ERROR: Surrender system is DISABLED";} else {diag_log "[DEBUG] Surrender system is ENABLED";}; _civCount = {side _x == civilian && {alive _x}} count allUnits; diag_log format ["[DEBUG] Civilian units found: %1", _civCount]; if (isNil "civ47") then {diag_log "[DEBUG] ERROR: civ47 is nil - messages won't work!";} else {diag_log "[DEBUG] civ47 exists";}; if (isNil "s_civilians_surrenderHandler") then {diag_log "[DEBUG] ERROR: s_civilians_surrenderHandler function missing!";} else {diag_log "[DEBUG] s_civilians_surrenderHandler function exists";}; if (isNil "s_civilians_checkSurrender") then {diag_log "[DEBUG] ERROR: s_civilians_checkSurrender function missing!";} else {diag_log "[DEBUG] s_civilians_checkSurrender function exists";}; diag_log "[DEBUG] ==== END DIAGNOSIS ====";
 
 
+
