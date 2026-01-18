@@ -6,7 +6,11 @@ _ctrl = _this select 3;
 _alt = _this select 4;
 _return = false;
 
-_data = [format["dtk_ku_%1_%2_%3_%4",_key,_shift,_ctrl,_alt],format["dtk_ku_%1",_key]];
+if (_shift or _ctrl or _alt)then {
+	_data = [format["dtk_ku_%1_%2_%3_%4",_key,_shift,_ctrl,_alt]];
+}else{
+	_data = [format["dtk_ku_%1_%2_%3_%4",_key,_shift,_ctrl,_alt],format["dtk_ku_%1",_key]];
+};
 
 _functions = {
 	if (!isNil _x)exitWith {
