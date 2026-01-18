@@ -20,11 +20,29 @@ _armedEnemy = false;
 {
 	if (_x != _unit && {alive _x}) then {
 		_hasWeapon = (primaryWeapon _x != "" || secondaryWeapon _x != "");
+		_hasAmmo = false;
+		
+		if (_hasWeapon) then {
+			if (primaryWeapon _x != "") then {
+				_primaryState = weaponState _x;
+				if (count _primaryState > 3 && {(_primaryState select 3) != ""}) then {
+					_hasAmmo = true;
+				};
+			};
+			
+			if (!_hasAmmo && secondaryWeapon _x != "") then {
+				_secondaryState = weaponState [_x, "secondary"];
+				if (count _secondaryState > 3 && {(_secondaryState select 3) != ""}) then {
+					_hasAmmo = true;
+				};
+			};
+		};
+		
 		_isPlayer = isPlayer _x;
 		_unitSide = side _x;
 		_civSide = side _unit;
 				
-		if (_hasWeapon) then {
+		if (_hasWeapon && _hasAmmo) then {
 			if (_isPlayer || {_unitSide != _civSide}) then {
 				_armedEnemy = true;
 			};
