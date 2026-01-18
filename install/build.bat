@@ -5,7 +5,7 @@
 
 
 title Crimson Roleplay - Build Script
-SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+SETLOCAL ENABLEEXTENSIONS
 
 cd Arma-II-Life-Crimson-Roleplay-2020
 git pull
@@ -314,62 +314,25 @@ echo [BUILD] Continuing to file copy step...
 
 echo [BUILD] Copying project to build directory...
 
-:: Copy CRP_Server first (explicitly and with verbose output)
-echo [BUILD] Copying CRP_Server directory...
-echo [DEBUG] Source: %PROJECT_ROOT%\CRP_Server
-echo [DEBUG] Destination: %BUILD_DIR%\CRP_Server
+:: Copy everything from PROJECT_ROOT to BUILD_DIR
+echo [BUILD] Copying files to %BUILD_DIR%...
+xcopy /s /e /y /I "%PROJECT_ROOT%\*" "%BUILD_DIR%" 2>nul
+if errorlevel 1 (
+    echo [WARNING] xcopy returned error, but continuing...
+)
 
-if exist "%PROJECT_ROOT%\CRP_Server" (
-    if not exist "%BUILD_DIR%\CRP_Server" (
-        mkdir "%BUILD_DIR%\CRP_Server"
-    )
-    xcopy /s /e /y /I "%PROJECT_ROOT%\CRP_Server\*" "%BUILD_DIR%\CRP_Server\"
+:: Ensure CRP_Server is copied explicitly
+echo [BUILD] Ensuring CRP_Server directory is copied...
+if not exist "%BUILD_DIR%\CRP_Server" (
+    echo [BUILD] CRP_Server not found, copying now...
+    xcopy /s /e /y /I "%PROJECT_ROOT%\CRP_Server" "%BUILD_DIR%\CRP_Server"
     if errorlevel 1 (
-        echo [ERROR] xcopy failed with error code: %errorlevel%
-        echo [DEBUG] Attempting robocopy as fallback...
-        robocopy "%PROJECT_ROOT%\CRP_Server" "%BUILD_DIR%\CRP_Server" /E /NFL /NDL /NJH /NJS /NP /R:3 /W:1
+        echo [ERROR] Failed to copy CRP_Server directory!
     ) else (
         echo [BUILD] CRP_Server directory copied successfully
     )
-    
-    :: Verify CRP_Server was copied
-    if exist "%BUILD_DIR%\CRP_Server" (
-        echo [BUILD] VERIFIED: CRP_Server directory exists
-        if exist "%BUILD_DIR%\CRP_Server\mission.template" (
-            echo [BUILD] VERIFIED: mission.template exists in CRP_Server
-        ) else (
-            echo [WARNING] mission.template not found in CRP_Server
-        )
-    ) else (
-        echo [ERROR] CRP_Server directory was not copied!
-    )
 ) else (
-    echo [ERROR] CRP_Server source directory does not exist at: %PROJECT_ROOT%\CRP_Server
-)
-
-:: Copy other directories/files
-echo [BUILD] Copying other project directories...
-for /d %%D in ("%PROJECT_ROOT%\*") do (
-    set "DIRNAME=%%~nD"
-    if /i not "!DIRNAME!"=="CRP_Server" (
-        if /i not "!DIRNAME!"==".git" (
-            if /i not "!DIRNAME!"=="install" (
-                echo [BUILD] Copying %%D...
-                xcopy /s /e /y /I "%%D" "%BUILD_DIR%\%%~nD\" >nul 2>&1
-            )
-        )
-    )
-)
-
-:: Copy files in root directory
-echo [BUILD] Copying root files...
-xcopy /y "%PROJECT_ROOT%\*.*" "%BUILD_DIR%\" >nul 2>&1
-
-:: Final verification
-if exist "%BUILD_DIR%\CRP_Server" (
-    echo [BUILD] Final verification: CRP_Server exists in build directory
-) else (
-    echo [ERROR] Final verification FAILED: CRP_Server does not exist in build directory!
+    echo [BUILD] CRP_Server directory already exists in build directory
 )
 
 echo [BUILD] Removing functions folder from build...
