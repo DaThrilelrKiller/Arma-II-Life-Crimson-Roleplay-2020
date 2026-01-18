@@ -20,7 +20,7 @@ _config = call compile preprocessFile "\MPMissions\mission.template";
 	
 	/*if simulation needs disabled*/
 	if !(_simulation)then {
-		_init = format ["%1 this enableSimulation false; this setPosASL %2; this allowDamage false; ",_init,(_x select 2)];
+		_init = format ["%1 this enableSimulation false; this setPos %2; this allowDamage false; ",_init,(_x select 2)];
 	};
 	
 	/*sets variable names*/
