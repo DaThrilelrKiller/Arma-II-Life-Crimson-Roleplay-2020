@@ -21,6 +21,7 @@ if ([60]call Main_Random)then {
 
 if ([40]call Main_Random) exitWith {
 	systemchat format ["Codepad Code Found: %1",_code];
+	[theVault,{theVault animate ["vaultLockAnim",0]}]call codepad_open;
 };
 
 
