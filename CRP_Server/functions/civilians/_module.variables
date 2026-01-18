@@ -440,11 +440,10 @@ DTK_CIV_Loadouts = [
 
 /* Civilian Surrender System Configuration */
 DTK_CIV_SURRENDER_ENABLED = true;
-DTK_CIV_SURRENDER_DISTANCE = 100; // Enemy detection distance in meters
-DTK_CIV_SURRENDER_SHOT_RADIUS = 50; // Gunfire detection radius in meters
-DTK_CIV_SURRENDER_DURATION = 30; // Seconds to remain surrendered after threat is gone
-DTK_CIV_SURRENDER_CHECK_INTERVAL = 2; // Seconds between checks for surrender conditions
-
+DTK_CIV_SURRENDER_DISTANCE = 20; 
+DTK_CIV_SURRENDER_SHOT_RADIUS = 50; 
+DTK_CIV_SURRENDER_DURATION = 10;
+DTK_CIV_SURRENDER_CHECK_INTERVAL = 2;
 
 
 
