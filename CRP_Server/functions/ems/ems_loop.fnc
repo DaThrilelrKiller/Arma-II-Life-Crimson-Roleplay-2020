@@ -11,7 +11,7 @@ for "_i" from 0 to 1 step 0 do {
 		};
 		if (_num == 1) then
 		{
-			[]spawn s_ems_spill;
+			[]spawn s_ems_brushFire;
 		};
 		if (_num == 2) then
 		{
