@@ -2332,9 +2332,9 @@ INV_ItemShops = [
 ]],
 
 [DTK_SHOP_COP_SHERIFFDNR, ["Sheriff","Sheriff DNR"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "", true],
-    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},  "", false],
-    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "", false]
+	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, nil, true],
+    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},nil, false],
+    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},nil, false]
 ]],
 
 [DTK_Shop_Cop_SheriffAvitaion, ["Sheriff","Sheriff Aviation Equipment"], [
