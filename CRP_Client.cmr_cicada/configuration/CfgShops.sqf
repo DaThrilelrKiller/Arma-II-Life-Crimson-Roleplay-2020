@@ -2328,7 +2328,24 @@ INV_ItemShops = [
     [["Sheriff","Sheriff K-9"], _copk9sheriff,  _copk9sheriff,  {dtk_cop && sk9_id},  "DTK_COP_LANDSPAWN2", false],
     [["Sheriff","Special Ops"], _spo,  _spo,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
     [["Sheriff","Special Ops Vehicles"], _spovehicles,  _spovehicles,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
-    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "DTK_COP_LANDSPAWN2", false]
+    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},nil, false]
+]],
+
+[DTK_Shop_Cop_SheriffDivisionN, ["Sheriff","Sheriff Division Equipment"], [
+    [["Sheriff","Basic Police Gear"], _copbasic,  _copbasic,  {dtk_cop},  "", false],
+    [["Sheriff","Traffic Equipment"], _coptraffic,  _coptraffic,  {dtk_cop},  "", false],
+    [["Sheriff","Sheriff Deputy"], _dp,  _dp,  {dtk_cop && DP_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Corporal"], _dp2,  _dp2,  {dtk_cop && DP2_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Sergeant"], _dp3,  _dp3,  {dtk_cop && DP3_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Lieutenant"], _dp4,  _dp4,  {dtk_cop && DP4_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff Captain"], _dp5,  _dp5,  {dtk_cop && DP5_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff"], _shf,  _shf,  {dtk_cop && SHF_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Sheriff K-9"], _copk9sheriff,  _copk9sheriff,  {dtk_cop && sk9_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Special Ops"], _spo,  _spo,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","Special Ops Vehicles"], _spovehicles,  _spovehicles,  {dtk_cop && spo_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","DNR Vehicles"], _dnrvehicles,  _dnrvehicles,  {dtk_cop && dnr_id},  "DTK_COP_LANDSPAWN2", false],
+    [["Sheriff","DNR Equipment"], _dnrequip,  _dnrequip,  {dtk_cop && dnr_id},nil, false]
 ]],
 
 [DTK_SHOP_COP_SHERIFFDNR, ["Sheriff","Sheriff DNR"], [
@@ -2338,10 +2355,15 @@ INV_ItemShops = [
 ]],
 
 [DTK_Shop_Cop_SheriffAvitaion, ["Sheriff","Sheriff Aviation Equipment"], [
-	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "OL_Shop_Cop_SheriffAviationVehSpawn", true],
-	[["Sheriff","Sheriff Aviation"], _copavsh, _copavsh,{true}, "OL_Shop_Cop_SheriffAviationVehSpawn", true]
+	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawn", true],
+	[["Sheriff","Sheriff Aviation"], _copavsh, _copavsh,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawn", true]
 ]],
-	
+
+[DTK_Shop_Cop_SheriffAirN, ["Sheriff","Sheriff Aviation Equipment"], [
+	[["Sheriff","Basic Police Gear"], _copbasic, _copbasic,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawnN", true],
+	[["Sheriff","Sheriff Aviation"], _copavsh, _copavsh,{true}, "DTK_Shop_Cop_SheriffAviationVehSpawnN", true]
+]],
+
 [DTK_Shop_BM,["picture","Black Market"], [
     [["picture","Black Market"], _bm, _bm, {true},nil, true]
 ]],
