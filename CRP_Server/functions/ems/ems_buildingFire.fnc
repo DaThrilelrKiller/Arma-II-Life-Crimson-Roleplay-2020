@@ -8,8 +8,8 @@ if ((count _postions) - 1 < _index)exitWith {};
 
 _object = createVehicle ["HeliHEmpty", [0,0,0], [],0, "CAN_COLLIDE"];
 _object setPos (_postions select _index);
-_object setVehicleInit format["[this,4,%1] spawn core_burn;",_building]; 
-processInitCommands;
+
+["ALL",[_object,4,_building],"core_burn",true,true]call network_MPExec;
 
 sleep random(40) + 7;
 if (isNull _object)exitWith {};
