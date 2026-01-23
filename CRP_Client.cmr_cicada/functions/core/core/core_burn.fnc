@@ -6,7 +6,7 @@ _realObj = _this select 2;
 
 _int = if (_int == 0)then {round (random 15)}else{_int};
 _int = if (_int < 4)then {4}else{_int};
-_attach = (typeOf _realObj != "HeliHEmpty");
+_attach = false;
 
 _time = time;
 
