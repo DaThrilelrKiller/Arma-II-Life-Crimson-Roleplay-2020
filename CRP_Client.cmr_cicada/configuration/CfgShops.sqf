@@ -2288,10 +2288,7 @@ INV_ItemShops = [
     [["meth","Meth Dealer"], _msc, _msc, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_Butcher,["picture","Butcher Shop"], [
-    [["picture","Processed Meat"], _processedmeat, _processedmeat, {true},nil, false]
-]],
-[DTK_Shop_Poacher,["picture","Poacher Dealer"], [
-    [["picture","Illegal Processed Meat"], _processedmeat, _processedmeat, {dtk_civ},nil, false]
+    [["picture","Butcher Shop"], _processedmeat, _processedmeat, {true},nil, false]
 ]],
 [DTK_COP_SHOP_BASIC2,["PD","Patrol Officer Equipment"], [
     [["PD","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop},nil, true]
