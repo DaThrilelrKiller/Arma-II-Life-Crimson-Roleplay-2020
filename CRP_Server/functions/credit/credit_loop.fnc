@@ -1,5 +1,5 @@
 // Process interest and update credit scores periodically
-private ["_currentTime","_data","_loanAmount","_cardBalance","_loanInterest","_cardInterest","_newLoanAmount","_newCardBalance","_newScore"];
+private ["_currentTime","_data","_loanAmount","_cardBalance","_loanInterest","_cardInterest","_newLoanAmount","_newCardBalance","_newScore","_uid"];
 
 _currentTime = time;
 
@@ -34,6 +34,8 @@ _currentTime = time;
 					_formattedInterest = format['$%1', _interestAmount];
 					_formattedBalance = format['$%1', _newLoanAmount];
 					[_x, [format ["Loan interest added: %1. New balance: %2. Credit score decreased due to late payment.", _formattedInterest, _formattedBalance]], {systemChat _this}, false, false] call network_MPExec;
+					// Update client
+					[_x, [_data], "credit_update", false, false] call network_MPExec;
 				};
 			}forEach allPlayers;
 			
@@ -68,6 +70,8 @@ _currentTime = time;
 					_formattedInterest = format['$%1', _interestAmount];
 					_formattedBalance = format['$%1', _newCardBalance];
 					[_x, [format ["Credit card interest added: %1. New balance: %2", _formattedInterest, _formattedBalance]], {systemChat _this}, false, false] call network_MPExec;
+					// Update client
+					[_x, [_data], "credit_update", false, false] call network_MPExec;
 				};
 			}forEach allPlayers;
 			

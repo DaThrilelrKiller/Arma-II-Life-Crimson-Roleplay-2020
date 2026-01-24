@@ -57,7 +57,7 @@ if (_newLoanAmount <= 0) then {
 // Save to database
 [_uid, "Main", "Credit", _data] call s_stats_write;
 
-// Update client
+// CRITICAL FIX: Update client immediately
 [_player, [_data], "credit_update", false, false] call network_MPExec;
 
 diag_log formatText ["[CREDIT] Loan payment processed for %1 (UID: %2) - Amount: %3, Remaining: %4", name _player, _uid, _amount, _newLoanAmount];
