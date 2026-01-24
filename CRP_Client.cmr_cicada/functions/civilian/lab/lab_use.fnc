@@ -20,6 +20,6 @@ if (isNil "_laced")exitWith {};
 	if (isNil format ["%1",_filename])then {
 		["use", _x, (_amount1 select _forEachIndex)] execVM format["scripts\items\%1.sqf",_filename];
 	}else{
-		["use", _x, (_amount1 select _forEachIndex)]spawn call compile _filename;gt
+		["use", _x, (_amount1 select _forEachIndex)]spawn call compile _filename;
 	};
 }forEach _items;
