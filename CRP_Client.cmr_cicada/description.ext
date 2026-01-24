@@ -67,6 +67,7 @@ class MissionSQM
 #include "data\dialogs\factory_dialog.hpp"
 #include "data\dialogs\DTK_Lab.hpp"
 #include "data\dialogs\devcon.hpp"
+#include "data\dialogs\loading_dialog.hpp"
 #include "data\dialogs\credit_dialog.hpp"
 
 class RscTitles
