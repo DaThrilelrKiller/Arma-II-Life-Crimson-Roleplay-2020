@@ -10,7 +10,7 @@ _item    = _this select 1;
 _pos = getPosASL player;
 _dir = getDir player;
 
-_lab = createVehicle ["a2l_methlab",[0,0,0], [], 0, "CAN_COLIDE"];
+_lab = createVehicle ["Land_Ind_TankSmall2",[0,0,0], [], 0, "CAN_COLIDE"];
 _lab setdir (getdir player) + 180;
 _lab setposASL (getPosASL player);
 _lab call core_setVarName;	
