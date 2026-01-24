@@ -110,15 +110,37 @@ _mgs = [
 ];
 
 _es = [
-	"Binocular",												
+	"Binocular",													
 	"GPS",													
-	"NVGoggles",												
-	"hideout",												
+	"NVGoggles",													
+	"hideout",													
 	"fishing_rod",
 	"radio",	
 	"Lab_Desk",
 	"treeseed",
 	"bunnyhop"											
+];
+
+_huntingtags = [
+	"huntingtag_cow",
+	"huntingtag_goat",
+	"huntingtag_rabbit",
+	"huntingtag_sheep",
+	"huntingtag_boar"
+];
+
+_processedmeat = [
+	"beef_steak",
+	"beef_burger",
+	"beef_jerky",
+	"goat_curry",
+	"goat_stew",
+	"rabbit_stew",
+	"rabbit_pie",
+	"lamb_chops",
+	"lamb_roast",
+	"boar_sausage",
+	"boar_ribs"
 ];
 
 _cs1 = [
@@ -2134,7 +2156,8 @@ INV_ItemShops = [
     [["picture","Government Security"], _mgs, _mgs, {true},'DTK_Shop_MayorVehSpawn', true]
 ]],
 [DTK_Shop_Equipment,["tools","Equipment Shop"], [
-    [["tools","Equipment"], _es, _es, {true},nil, true]
+    [["tools","Equipment"], _es, _es, {true},nil, true],
+    [["tools","Hunting Tags"], _huntingtags, _huntingtags, {true},nil, true]
 ]],
 [DTK_Shop_EquipmentSheriff,["tools","Equipment Shop"], [
     [["tools","Equipment"], _es, _es, {true},nil, true]
@@ -2263,6 +2286,12 @@ INV_ItemShops = [
 ]],
 [DTK_Shop_Meth,["meth","Meth Dealer"], [
     [["meth","Meth Dealer"], _msc, _msc, {dtk_civ},nil, false]
+]],
+[DTK_Shop_Butcher,["picture","Butcher Shop"], [
+    [["picture","Processed Meat"], _processedmeat, _processedmeat, {true},nil, false]
+]],
+[DTK_Shop_Poacher,["picture","Poacher Dealer"], [
+    [["picture","Illegal Processed Meat"], _processedmeat, _processedmeat, {dtk_civ},nil, false]
 ]],
 [DTK_COP_SHOP_BASIC2,["PD","Patrol Officer Equipment"], [
     [["PD","Basic Police Gear"], _copbasic, _copbasic, {dtk_cop},nil, true]
