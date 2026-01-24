@@ -18,8 +18,8 @@ if (isNil "_laced")exitWith {};
 	_filename = _x call config_code;
 	
 	if (isNil format ["%1",_filename])then {
-		["use", _x, (_amount1 select _forEachIndex)] execVM format["functions\items\%1.sqf",_filename];
+		["use", _x, (_amount1 select _forEachIndex)] execVM format["scripts\items\%1.sqf",_filename];
 	}else{
-		["use", _x, (_amount1 select _forEachIndex)]spawn call compile _filename;
+		["use", _x, (_amount1 select _forEachIndex)]spawn call compile _filename;gt
 	};
 }forEach _items;
