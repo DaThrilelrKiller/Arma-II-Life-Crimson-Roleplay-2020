@@ -1,0 +1,29 @@
+HOW TO USE YOUR CREDIT CARD
+===========================
+
+1. VIEWING CARD INFO:
+   - Use the "Credit_Card" item from your inventory
+   - Shows: Balance, Limit, Available Credit, Interest Rate
+
+2. USING FOR PURCHASES:
+   - The credit card works automatically in shops (if integrated)
+   - Payment priority: Wallet -> Bank -> Credit Card
+   - Charges are added to your card balance (not deducted from wallet/bank)
+
+3. MAKING PAYMENTS:
+   - Go to ATM or Tablet App -> Credit & Loans
+   - Enter payment amount in "Pay Card" field
+   - Click "Pay Card" button
+   - Payments improve your credit score
+
+4. CREDIT CARD DETAILS:
+   - Credit Limit: $5,000
+   - Interest Rate: Based on credit score (12-25%)
+   - Interest accrues every 2 hours on outstanding balances
+   - Carrying balance decreases credit score
+
+5. IMPORTANT:
+   - You must have the "Credit_Card" item in inventory to use it
+   - Your account must be active (credit_hasCard = true)
+   - Available credit = Limit - Current Balance
+   - Make regular payments to avoid interest and maintain good credit
