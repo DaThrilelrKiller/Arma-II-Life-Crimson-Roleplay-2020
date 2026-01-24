@@ -1,4 +1,4 @@
-﻿dtk_weapons = [
+dtk_weapons = [
   ["VSS_vintorez_ass",["weapon","rifle"],["VSS_vintorez","VSS Vintorez"],[230000,115000],[1,"DTK_License_civ_assassin","DTK_License_civ_assassin"],[]],
   ["RH_mp5sd6eot_ass",["weapon","rifle"],["RH_mp5sd6eot","MP5SD6 Eotech"],[40000,15000],[2,"DTK_License_civ_assassin","DTK_License_civ_assassin"],[]],
   ["RH_mk12mod1sd_ass",["weapon","rifle"],["RH_mk12mod1sd","Mk12 Mod1 SD SPR"],[80000,40000],[1,"DTK_License_civ_assassin","DTK_License_civ_assassin"],[]],
@@ -1884,6 +1884,7 @@ dtk_items = [
 ["app_stockmarket",["App", "misc"],["app_stockmarket", "Stock Market"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_computer",["App", "misc"],["app_computer", "Police Computer"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_store",["App", "misc"],["app_store", "App Store"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
+["app_credit",["App", "misc"],["app_credit", "Cicada Credit Company"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_settings",["App", "misc"],["app_settings", "Settings"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_background",["App", "misc"],["app_background", "Change Background"],[0, 0], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_vote",["App", "misc"],["app_vote", "Voteing App"],[0, 0], [5, "", ""], [true, true, true,false,"nouse"]],

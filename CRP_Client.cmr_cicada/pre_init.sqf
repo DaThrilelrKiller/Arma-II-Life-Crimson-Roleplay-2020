@@ -56,6 +56,7 @@ dtk_active_modules =
 ["Core","Tag"],
 ["Core","Hud"],
 ["Core","Log"],
+["Core","Credit"],
 
 "Police",
 ["Police","ID"],
