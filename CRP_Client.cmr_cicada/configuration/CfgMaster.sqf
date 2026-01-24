@@ -1929,6 +1929,7 @@ dtk_items = [
 ["geld",["Item", "geld"], ["EvMoney", "Money"], [1, 1],[0, "",""],[true,true,true, false, ""]],
 ["medikit",["Item", "Shop"],["cl_small_medkit", "Med-kit"],[50, 10], [2, "",""], [true, true, true,false,"medkit"]], 
 ["Debit_Card",["Item", "Shop"],["Debit_Card", "Debit Card"],[5, 0], [2, "",""], [true, true, true,false,"nouse"]],
+["Credit_Card",["Item", "Shop"],["Credit_Card", "Credit Card"],[0, 0], [0, "",""], [false, false, false,false,"creditcard"]],
 ["reparaturkit",["Item", "service"],["cl_repair_kit", "Repair Kit"],[150, 30], [10, "", ""],[true,true,true, false, "largerepair"] ],
 ["lighter",["Item", "Shop"],["lighter", "lighter"],[2, 0], [0.5, "", ""],[true,true,true, false, "ignitefuel"] ],
 ["kanister", ["Item", "service"],["Fuel_can", "Gas Can"], [25, 12], [2, "", ""],[true,true,true, false, "refuelveh"] ],
