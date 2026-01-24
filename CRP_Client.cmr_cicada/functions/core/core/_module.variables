@@ -1,6 +1,6 @@
 ﻿module_core = true;
-add_civmoney		 = 1000;
-add_copmoney		 = 5000;
+add_civmoney		 = 15;
+add_copmoney		 = 50;
 MayorSteuern             = 0;
 dtk_jointime = time;
 core_loop_array = [];
@@ -9,13 +9,13 @@ dtk_center = [5125,5125,0];
 
 ar_paychecks = 
 [
-[{dtk_cop},5000],
-[{dtk_cop and Cpl_id and DP2_id},2000],
-[{dtk_cop and Sgt_id and DP3_id},3000],
-[{dtk_cop and Lt_id and DP4_id},10000],
-[{dtk_cop and Cpt_id and DP5_id},15000],
-[{dtk_cop and Chief_id and SHF_id},50000],
-[{dtk_ems},(5000 + random 2000 - random 2000)],
+[{dtk_cop},50],
+[{dtk_cop and Cpl_id and DP2_id},60],
+[{dtk_cop and Sgt_id and DP3_id},75],
+[{dtk_cop and Lt_id and DP4_id},100],
+[{dtk_cop and Cpt_id and DP5_id},125],
+[{dtk_cop and Chief_id and SHF_id},200],
+[{dtk_ems},(40 + random 10 - random 10)],
 [{dtk_civ},add_civmoney]
 ];
 

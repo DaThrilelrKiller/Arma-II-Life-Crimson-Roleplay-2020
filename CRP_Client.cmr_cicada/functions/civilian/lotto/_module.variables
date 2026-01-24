@@ -2,10 +2,10 @@ playing_lotto = 0;
 
 LottoArray = 
 [
-	["Penny Saver Scratch Card",100,1000],							
-	["Money Lover Scratch Card",2500,15000],	
-	["Big Bucks Scratch Card",10000,70000],								
-	["Fortune Scratch Card",25000,175000]
+	["Penny Saver Scratch Card",2,10],							
+	["Money Lover Scratch Card",5,30],	
+	["Big Bucks Scratch Card",10,70],								
+	["Fortune Scratch Card",25,175]
 ];
 
 LottoFlags = 									

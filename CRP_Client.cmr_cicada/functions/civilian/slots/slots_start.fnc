@@ -2,7 +2,7 @@
 private ["_machine","_wallet","_wheel","_wheel1","_wheel2","_wheel3","_wheel4","_rNumber","_payout"];
 _machine = _this;
 _wallet = [player,"geld"] call storage_amount;
-if (_wallet < 1000) exitWith {systemChat  "Sorry, you dont have enough money to play.";};
+if (_wallet < 5) exitWith {systemChat  "Sorry, you dont have enough money to play.";};
 
 if (time < dtk_playing_slots)exitWith {systemChat format ["wait: %1 seconds before playing again",(dtk_playing_slots - time)];};
 
@@ -25,7 +25,7 @@ if (_machine animationPhase "armat_wheel" > 0)exitWith
 	systemchat "Slot machine has been reset, go for a spin";
 };
 
-[player,"geld",-1000] call storage_add;
+[player,"geld",-5] call storage_add;
 ["ALL",[_machine,"slot",7],"network_say3d",false,true]call network_MPExec;
 
 
@@ -55,7 +55,7 @@ if ([90]call Main_Random)exitWith {systemChat  "Sorry you've lost, please play a
 dtk_playing_slots = time + 300;
 
 _rNumber = random 1000;
-_payout = round(_rNumber*50);
+_payout = round(_rNumber*0.25);
 
 ["ALL",[_machine,"slotwin",7],"network_say3d",false,true]call network_MPExec;
 

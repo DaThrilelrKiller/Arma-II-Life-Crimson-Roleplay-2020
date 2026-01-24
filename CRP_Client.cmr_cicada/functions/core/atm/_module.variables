@@ -1,5 +1,5 @@
 ﻿module_atm = true;
 atm_running = false;
-bank_limit		 = 75000000;
+bank_limit		 = 1000000;
 local_useBankPossible    = true;
 dtk_player_storage = 60;

@@ -25,8 +25,8 @@ deleteVehicle _vehicle;
 ["SERVER",[],"s_impound_save",false,false]call network_MPExec;
 
 if !([player,_vehicle]call keys_has)then {
-[player,"geld",2000] call storage_add; 
-systemchat format ["you have been paid 2000$ for impound (%1)",_displayname];
+[player,"geld",50] call storage_add; 
+systemchat format ["you have been paid 50$ for impound (%1)",_displayname];
 };
 
 

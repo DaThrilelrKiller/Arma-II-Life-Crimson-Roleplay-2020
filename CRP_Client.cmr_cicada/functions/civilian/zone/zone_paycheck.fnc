@@ -9,7 +9,7 @@ if ((call gang_name) == "")exitWith {};
 
 {
 	if ((call gang_name) == [_x] call zone_owner)then {
-		_income = _income + 3000;
+		_income = _income + 75;
 		_areas = _areas + 1;
 	};
 }forEach zones;

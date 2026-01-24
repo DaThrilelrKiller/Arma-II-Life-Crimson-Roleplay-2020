@@ -49,4 +49,4 @@ deleteVehicle LifePack;
 
 _msg = format ["%1 was revived by %2",name _Deadplayer,name player];
 ["ALL",_msg,{systemchat _this},false,true]call network_MPExec;
-[player,"geld",5000] call storage_add;
+[player,"geld",100] call storage_add;

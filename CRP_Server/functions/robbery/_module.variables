@@ -1,2 +1,2 @@
 module_robbery = true;
-maxstationmoney = 25000;
+maxstationmoney = 500;

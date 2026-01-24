@@ -3,9 +3,9 @@ private ["_random","_object","_amount"];
 for "_i" from 0 to 1 step 0 do {
 
 	{
-		_random = ceil ((random 250) + 250);
+		_random = ceil ((random 5) + 5);
 		_object = _x select 0;
-		_amount = _object getVariable ["robbery_money",5000];
+		_amount = _object getVariable ["robbery_money",100];
 
 		if (_amount < maxstationmoney) then
 		{
