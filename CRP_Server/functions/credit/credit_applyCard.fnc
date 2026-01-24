@@ -37,7 +37,13 @@ _data set [7, true]; // has card
 // Save to database
 [_uid, "Main", "Credit", _data] call s_stats_write;
 
+// CRITICAL FIX: Give physical credit card item to player
+[_player, ["Credit_Card", 1], {[player, (_this select 0), (_this select 1)] call storage_add}, false, false] call network_MPExec;
+
+// CRITICAL FIX: Immediately update client with new card data
+[_player, [_data], "credit_update", false, false] call network_MPExec;
+
 // Notify player
-[_player, [format ["Credit card approved! Limit: $5,000. Interest rate: %1%%", _interestRate]], {systemChat _this}, false, false] call network_MPExec;
+[_player, [format ["Credit card approved! A physical card has been added to your inventory. Limit: $5,000. Interest rate: %1%%", _interestRate]], {systemChat _this}, false, false] call network_MPExec;
 
 diag_log formatText ["[CREDIT] Credit card approved for %1 (UID: %2) - Interest: %3%%", name _player, _uid, _interestRate];

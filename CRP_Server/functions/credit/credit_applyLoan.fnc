@@ -1,4 +1,4 @@
-private ["_player","_amount","_interestRate","_score","_uid","_data","_index"];
+private ["_player","_amount","_interestRate","_score","_uid","_data","_index","_maxLoan"];
 
 _player = _this select 0;
 _amount = _this select 1;
@@ -28,7 +28,6 @@ if (_data select 6) exitWith {
 };
 
 // Check maximum loan amount based on credit score
-private ["_maxLoan"];
 _maxLoan = [_score] call S_credit_getMaxLoan;
 if (_amount > _maxLoan) exitWith {
 	private ["_formattedMax"];
@@ -51,6 +50,9 @@ _data set [9, time + 3600]; // payment due (1 hour)
 
 // Save to database
 [_uid, "Main", "Credit", _data] call s_stats_write;
+
+// CRITICAL FIX: Immediately update client with new loan data
+[_player, [_data], "credit_update", false, false] call network_MPExec;
 
 // Notify player
 private ["_formattedAmount"];
