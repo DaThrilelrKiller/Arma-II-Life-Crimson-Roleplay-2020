@@ -1,3 +1,4 @@
+hunting_processIllegal = {
 private ["_data","_item1","_item2","_req","_nitem1","_name1","_name2","_multi","_total","_num"];
 
 if (processscriptrunning == 1) exitWith {
@@ -37,4 +38,4 @@ if (_num < 25) then {
 
 systemChat format["%1 %2 Was Processed Into %3 %4!", _total, _name1, _multi, _name2];
 processscriptrunning = 0;
-
+};

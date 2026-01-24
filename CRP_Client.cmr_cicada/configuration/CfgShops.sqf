@@ -2102,7 +2102,8 @@ INV_ItemShops = [
 [DTK_Shop_LegalWeapon,["Rifle","Licensed Weapon Shop"], [
     [["pistol","Licensed Pistols"], _pistol, _pistol, {dtk_civ},nil, true],
     [["submachine","Licensed Submachine Guns"], _sub, _sub, {dtk_civ},nil, true],
-    [["Rifle","Licensed Rifle Guns"], _rifle, _rifle, {dtk_civ},nil, true]
+    [["Rifle","Licensed Rifle Guns"], _rifle, _rifle, {dtk_civ},nil, true],
+	[["tools","Hunting Tags"], _huntingtags, _huntingtags, {true},nil, true]
 ]],
 [DTK_Shop_Guss,["Rifle","Illegal Weapons Dealer"], [
     [["Rifle","Illegal Weapons"], _guss, _guss, {dtk_civ},nil, true]

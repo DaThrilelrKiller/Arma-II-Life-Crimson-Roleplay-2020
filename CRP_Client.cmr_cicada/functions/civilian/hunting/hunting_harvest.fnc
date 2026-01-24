@@ -1,8 +1,6 @@
-
+private ["_animal","_amount","_animalType","_tagItem","_meatItem","_taggedMeatItem","_hasTag","_item"];
 _animal = _this select 0;
 _amount = ceil(random 7);
-
-private ["_animalType","_tagItem","_meatItem","_taggedMeatItem","_hasTag"];
 
 _animalType = typeOf _animal;
 

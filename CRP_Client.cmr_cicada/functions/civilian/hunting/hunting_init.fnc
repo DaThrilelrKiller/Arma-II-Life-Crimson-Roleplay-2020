@@ -1,60 +1,25 @@
 
-
 {
-    private ["_legalActions", "_illegalActions", "_actionIndices", "_marker", "_markerName", "_building"];
+    _x addAction["Process Cow into Steak","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawcow_tagged","beef_steak",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Cow Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Cow into Burger","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawcow_tagged","beef_burger",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Cow Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Cow into Jerky","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawcow_tagged","beef_jerky",3], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Cow Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Goat into Curry","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawgoat_tagged","goat_curry",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Goat Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Goat into Stew","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawgoat_tagged","goat_stew",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Goat Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Rabbit into Stew","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawrabbit_tagged","rabbit_stew",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Rabbit Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Rabbit into Pie","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawrabbit_tagged","rabbit_pie",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Rabbit Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Sheep into Lamb Chops","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawsheep_tagged","lamb_chops",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Sheep Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Sheep into Lamb Roast","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawsheep_tagged","lamb_roast",3], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Sheep Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Boar into Sausage","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawboar_tagged","boar_sausage",2], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Boar Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Boar into Ribs","noscript.sqf",format["[%1,%2,%3]spawn hunting_processLegal","rawboar_tagged","boar_ribs",3], 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'Process Tagged Boar Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+   
+    _x addAction["Process Untagged Cow into Steak","noscript.sqf",format["[%1,%2,%3]spawn hunting_processIllegal","rawcow","beef_steak",2], 25, false, true, "LeanRight","dtk_civ && {player distance _target < 5} && {!([_target,'Process Untagged Cow Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Untagged Goat into Curry","noscript.sqf",format["[%1,%2,%3]spawn hunting_processIllegal","rawgoat","goat_curry",2], 25, false, true, "LeanRight","dtk_civ && {player distance _target < 5} && {!([_target,'Process Untagged Goat Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Untagged Rabbit into Stew","noscript.sqf",format["[%1,%2,%3]spawn hunting_processIllegal","rawrabbit","rabbit_stew",2], 25, false, true, "LeanRight","dtk_civ && {player distance _target < 5} && {!([_target,'Process Untagged Rabbit Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Untagged Sheep into Lamb Chops","noscript.sqf",format["[%1,%2,%3]spawn hunting_processIllegal","rawsheep","lamb_chops",2], 25, false, true, "LeanRight","dtk_civ && {player distance _target < 5} && {!([_target,'Process Untagged Sheep Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
+    _x addAction["Process Untagged Boar into Sausage","noscript.sqf",format["[%1,%2,%3]spawn hunting_processIllegal","rawboar","boar_sausage",2], 25, false, true, "LeanRight","dtk_civ && {player distance _target < 5} && {!([_target,'Process Untagged Boar Meat (E)','data\\images\\items\\raw-meat']call tag_show)}"];
     
-    _building = _x;
-    
-    _legalActions = [
-        ["Process Beef into Steak", "rawcow_tagged", "beef_steak", 2],
-        ["Process Beef into Burger", "rawcow_tagged", "beef_burger", 2],
-        ["Process Beef into Jerky", "rawcow_tagged", "beef_jerky", 3],
-        ["Process Goat into Curry", "rawgoat_tagged", "goat_curry", 2],
-        ["Process Goat into Stew", "rawgoat_tagged", "goat_stew", 2],
-        ["Process Rabbit into Stew", "rawrabbit_tagged", "rabbit_stew", 2],
-        ["Process Rabbit into Pie", "rawrabbit_tagged", "rabbit_pie", 2],
-        ["Process Sheep into Lamb Chops", "rawsheep_tagged", "lamb_chops", 2],
-        ["Process Sheep into Lamb Roast", "rawsheep_tagged", "lamb_roast", 3],
-        ["Process Boar into Sausage", "rawboar_tagged", "boar_sausage", 2],
-        ["Process Boar into Ribs", "rawboar_tagged", "boar_ribs", 3]
-    ];
-    
-    _illegalActions = [
-        ["Process Raw Cow into Steak", "rawcow", "beef_steak", 2],
-        ["Process Raw Goat into Curry", "rawgoat", "goat_curry", 2],
-        ["Process Raw Rabbit into Stew", "rawrabbit", "rabbit_stew", 2],
-        ["Process Raw Sheep into Lamb Chops", "rawsheep", "lamb_chops", 2],
-        ["Process Raw Boar into Sausage", "rawboar", "boar_sausage", 2]
-    ];
-    
-    if (_forEachIndex % 2 == 0) then {
-        _markerName = format["game_processing_%1", _forEachIndex];
-        _marker = [_markerName, getPos _building, nil, nil, "ColorGreen", "mil_dot", nil, "Game Processing"] call core_createMarkerLocal;
-    } else {
-        _markerName = format["illegal_game_processing_%1", _forEachIndex];
-        _marker = [_markerName, getPos _building, nil, nil, "ColorRed", "mil_dot", nil, "Illegal Game Processing"] call core_createMarkerLocal;
-    };
-    
-    _maxCount = ((count _legalActions) max (count _illegalActions)) * 2;
-    _actionIndices = [];
-    for "_i" from 0 to (_maxCount - 1) do {
-        _actionIndices set [count _actionIndices, _i];
-    };
-    
-    {
-        if (_forEachIndex % 2 == 0) then {
-            _legalIndex = _forEachIndex / 2;
-            if (_legalIndex < count _legalActions) then {
-                _action = _legalActions select _legalIndex;
-                _building addAction[_action select 0, "noscript.sqf", format["[%1,%2,%3,'DTK_License_civ_butcher']spawn hunting_processLegal", _action select 1, _action select 2, _action select 3], 25, false, true, "LeanRight", "player distance _target < 10"];
-            };
-        } else {
-            _illegalIndex = (_forEachIndex - 1) / 2;
-            if (_illegalIndex < count _illegalActions) then {
-                _action = _illegalActions select _illegalIndex;
-                _building addAction[_action select 0, "noscript.sqf", format["[%1,%2,%3]spawn hunting_processIllegal", _action select 1, _action select 2, _action select 3], 25, false, true, "LeanRight", "dtk_civ && {player distance _target < 10"];
-            };
-        };
-    } forEach _actionIndices;
-    
+    [("game_processing_" + str _forEachIndex),getPos _x,nil,nil,"ColorOrange","mil_dot",[1,1],"Game Processing"]call core_createMarkerLocal;
+        
 } forEach nearestObjects[dtk_center, ["Land_HouseV_3I3"], (dtk_center select 0)];
+
+
