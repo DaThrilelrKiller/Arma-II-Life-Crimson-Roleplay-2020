@@ -1,4 +1,4 @@
-﻿onLoadIntro   = "RealLifeRPG 2.0";
+onLoadIntro   = "RealLifeRPG 2.0";
 onLoadMission = "RealLifeRPG 2.0";
 showCompass   = 1;
 showGPS       = 1;
@@ -68,6 +68,8 @@ class MissionSQM
 #include "data\dialogs\DTK_Lab.hpp"
 #include "data\dialogs\devcon.hpp"
 #include "data\dialogs\loading_dialog.hpp"
+#include "data\dialogs\credit_dialog.hpp"
+#include "data\dialogs\credit_employee_dialog.hpp"
 
 class RscTitles
 {
