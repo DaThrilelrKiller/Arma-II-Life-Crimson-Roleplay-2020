@@ -43,7 +43,6 @@ class MissionSQM
 #include "data\dialogs\invdialogs.hpp"
 #include "data\dialogs\spawn_dialog.hpp"
 #include "data\dialogs\ipad_dialog.hpp"
-#include "data\dialogs\cdb_dialog.hpp"
 #include "data\dialogs\cdb_dialog_new.hpp"
 #include "data\dialogs\admin_dialog.hpp"
 #include "data\dialogs\shipments_dialog.hpp"

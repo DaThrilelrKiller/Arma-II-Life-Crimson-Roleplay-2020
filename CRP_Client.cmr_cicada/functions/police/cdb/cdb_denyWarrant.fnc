@@ -7,9 +7,9 @@ if (_selected == -1) exitWith {
 	systemChat "Please select a report first.";
 };
 
-// Check if officer has authority (Sergeant and above)
-if (!(Sgt_id || Cpl_id || Lt_id || Cpt_id || Chief_ID || SwagDevs || adminlevel4 || adminlevel3)) exitWith {
-	systemChat "You do not have authority to deny warrants.";
+// Judges only (police cannot approve/deny)
+if (!(call court_isJudge)) exitWith {
+	systemChat "Only a judge can deny warrant requests.";
 };
 
 _reportIndex = parseNumber (lbData [_listbox, _selected]);
@@ -25,7 +25,7 @@ if (_report select 10 != "pending") exitWith {
 };
 
 // Update report status on server
-["ALL", [_reportIndex, "denied"], "cdb_updateReport", false, false] call network_MPExec;
+["SERVER", [_reportIndex, "denied"], "s_cdb_updateReport", false, false] call network_MPExec;
 
 systemChat format ["Warrant request denied for %1", _report select 3];
 ["ALL", [format["Warrant request denied by %1 for %2", name player, _report select 3]], "network_chat", false, true] call network_MPExec;

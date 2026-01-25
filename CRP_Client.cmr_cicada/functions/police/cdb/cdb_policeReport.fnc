@@ -22,33 +22,48 @@ if (_incidentDetails == "") exitWith {
 // Find suspect
 _suspect = objNull;
 {
-	if (name _x == _suspectName) then {
-		_suspect = _x;
-	};
+	if (name _x == _suspectName) exitWith { _suspect = _x; };
 } forEach playableUnits;
 
-if (isNull _suspect) exitWith {
-	systemChat format ["Suspect '%1' not found. Make sure they are online.", _suspectName];
+// If not found online, allow entering UID directly (offline suspects)
+private ["_suspectUID"];
+_suspectUID = if (isNull _suspect) then {_suspectName} else {getPlayerUID _suspect};
+
+// If this is an AI unit (no UID), keep the name and send legacy format so it displays correctly
+if (!isNull _suspect && {_suspectUID == ""}) then {
+	_report = [
+		time,
+		name player,
+		getPlayerUID player,
+		name _suspect,  // suspect name (AI)
+		"",             // suspect UID (none)
+		_type,
+		_incidentDetails,
+		_warrantRequested,
+		_warrantReason,
+		_warrantAmount,
+		"pending"
+	];
+	["SERVER", [_report], "s_cdb_createReport", false, false] call network_MPExec;
+	closeDialog 0;
 };
 
-
-// Create report
+// Create compact report payload for server (server resolves suspect name from DB)
+// [timestamp, officerName, officerUID, suspectUID, type, details, warrantRequested, warrantReason, warrantAmount]
 _report = [
-	time, // timestamp
-	name player, // officer name
-	getPlayerUID player, // officer UID
-	name _suspect, // suspect name
-	getPlayerUID _suspect, // suspect UID
-	_type, // report type
-	_incidentDetails, // details
-	_warrantRequested, // warrant requested
-	_warrantReason, // warrant reason
-	_warrantAmount, // warrant amount
-	"pending" // status
+	time,
+	name player,
+	getPlayerUID player,
+	_suspectUID,
+	_type,
+	_incidentDetails,
+	_warrantRequested,
+	_warrantReason,
+	_warrantAmount
 ];
 
-// Send report to server
-["ALL", [_report], "cdb_createReport", false, false] call network_MPExec;
+// Send report to server (DB-backed)
+["SERVER", [_report], "s_cdb_createReport", false, false] call network_MPExec;
 
 // If warrant requested and officer has authority, add warrant directly
 if (_warrantRequested) then {
@@ -60,16 +75,16 @@ if (_warrantRequested) then {
 	};
 	
 	if (_canIssueWarrant) then {
-		// Issue warrant directly
-		[_suspect, _warrantReason, _warrantAmount] call cdb_addWarrant;
+		// Issue warrant directly (DB-backed, works for offline too)
+		["SERVER", [_suspectUID, _warrantReason, _warrantAmount, name player, getPlayerUID player], "s_cdb_addWarrantUID", false, false] call network_MPExec;
 		// Report status will be updated by server
-		systemChat format ["Warrant issued for %1: %2 ($%3)", name _suspect, _warrantReason, _warrantAmount];
+		systemChat format ["Warrant issued for %1: %2 ($%3)", if (isNull _suspect) then {_suspectUID} else {name _suspect}, _warrantReason, _warrantAmount];
 	} else {
 		systemChat "Warrant request submitted for supervisor approval.";
-		["ALL", [format["Officer %1 has submitted a warrant request for %2. Review in Police Computer.", name player, name _suspect]], "network_chat", false, true] call network_MPExec;
+		["ALL", [format["Officer %1 has submitted a warrant request for %2. Review in Police Computer.", name player, if (isNull _suspect) then {_suspectUID} else {name _suspect}]], "network_chat", false, true] call network_MPExec;
 	};
 } else {
-	systemChat format ["Police report filed for %1", name _suspect];
+	systemChat format ["Police report filed for %1", if (isNull _suspect) then {_suspectUID} else {name _suspect}];
 };
 
 closeDialog 0;

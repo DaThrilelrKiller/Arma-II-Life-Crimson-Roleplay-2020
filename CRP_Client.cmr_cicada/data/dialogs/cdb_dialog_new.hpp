@@ -174,7 +174,115 @@ class cdb_search_new
 			colorText[] = {0.9, 0.9, 0.9, 1};
 			onLBDblClick = "_this call cdb_DblClick;";
 		};
+		
+		// Hidden legacy listboxes (old `cdb_search.sqf` clears 3 and 4)
+		class Legacy_List3 : RscListBox
+		{
+			idc = 3;
+			x = -10;
+			y = -10;
+			w = 0;
+			h = 0;
+		};
+		class Legacy_List4 : RscListBox
+		{
+			idc = 4;
+			x = -10;
+			y = -10;
+			w = 0;
+			h = 0;
+		};
 	};
+};
+
+// ------------------------------------------------------------------
+// Legacy popups (moved from old `cdb_dialog.hpp` so we can remove it)
+// ------------------------------------------------------------------
+
+class cdb_warrant{
+	idd=-1;
+	controlsBackground[] = {};
+	objects[] = {};
+	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscShortcutButton_1700};
+	
+ 		class RscFrame_1800: RscBackground
+		{
+			idc = 1800;
+			x = 0.331771 * safezoneW + safezoneX;
+			y = 0.447222 * safezoneH + safezoneY;
+			w = 0.340209 * safezoneW;
+			h = 0.127222 * safezoneH;
+		};
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "Submit Warrant";
+			x = 0.461458 * safezoneW + safezoneX;
+			y = 0.458333 * safezoneH + safezoneY;
+			w = 0.0823958 * safezoneW;
+			h = 0.0411112 * safezoneH;
+		};
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			x = 0.377604 * safezoneW + safezoneX;
+			y = 0.500926 * safezoneH + safezoneY;
+			w = 0.219895 * safezoneW;
+			h = 0.0253702 * safezoneH;
+		};
+		class RscShortcutButton_1700: RscShortcutButton
+		{
+			idc = 1700;
+			text = "Submit Query";
+			x = 0.442187 * safezoneW + safezoneX;
+			y = 0.523148 * safezoneH + safezoneY;
+			w = 0.101667 * safezoneW;
+			h = 0.0605556 * safezoneH;
+			action = "[cdb_object,CtrlText 1400]call cdb_addWarrant; closeDialog 0;";
+		};
+};
+
+class cdb_note{
+	idd=-1;
+	controlsBackground[] = {};
+	objects[] = {};
+	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscShortcutButton_1700};
+	
+ 		class RscFrame_1800: RscBackground
+		{
+			idc = 1800;
+			x = 0.331771 * safezoneW + safezoneX;
+			y = 0.447222 * safezoneH + safezoneY;
+			w = 0.340209 * safezoneW;
+			h = 0.127222 * safezoneH;
+		};
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "Submit Note";
+			x = 0.461458 * safezoneW + safezoneX;
+			y = 0.458333 * safezoneH + safezoneY;
+			w = 0.0823958 * safezoneW;
+			h = 0.0411112 * safezoneH;
+		};
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			x = 0.377604 * safezoneW + safezoneX;
+			y = 0.500926 * safezoneH + safezoneY;
+			w = 0.219895 * safezoneW;
+			h = 0.0253702 * safezoneH;
+		};
+		class RscShortcutButton_1700: RscShortcutButton
+		{
+			idc = 1700;
+			text = "Submit Query";
+			x = 0.442187 * safezoneW + safezoneX;
+			y = 0.523148 * safezoneH + safezoneY;
+			w = 0.101667 * safezoneW;
+			h = 0.0605556 * safezoneH;
+			action = "[cdb_object,CtrlText 1400]call cdb_addNote; closeDialog 0;";
+		};
 };
 
 // Police Report Submission Dialog
@@ -525,5 +633,5 @@ class cdb_reportsList
 		};
 	};
 	
-	onLoad = "[] call cdb_loadReports;";
+	onLoad = "[] call cdb_loadReports; [] call cdb_reportsList_init;";
 };
