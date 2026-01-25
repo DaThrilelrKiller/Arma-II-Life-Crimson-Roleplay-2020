@@ -1,6 +1,6 @@
 // Redesigned Police Computer System
 // Main Computer Interface
-class cdb_search
+class cdb_search_new
 {
 	idd = -1;
 	moveEnable = true;
@@ -172,7 +172,7 @@ class cdb_search
 			h = safeZoneH * 0.6;
 			colorBackground[] = {0.1, 0.1, 0.15, 1};
 			colorText[] = {0.9, 0.9, 0.9, 1};
-			onLBDblClick = "_this call cdb_DblClick";
+			onLBDblClick = "_this call cdb_DblClick;";
 		};
 	};
 };

@@ -23,7 +23,7 @@ INV_apps = [
 ["app_settings","data\images\ipad\controls.PAA","call keypress_menu"],
 ["app_background","data\images\ipad\background.PAA","call ipad_background"],
 ["app_vote","data\images\ipad\vote.PAA","call goverment_vote"],
-["app_judge","data\images\ipad\laws.PAA","closeDialog 0;call court_viewCases"]
+["app_judge","data\images\ipad\courtsys.PAA","closeDialog 0;call court_viewCases"]
 ];
 
 AppStoreArray = {
