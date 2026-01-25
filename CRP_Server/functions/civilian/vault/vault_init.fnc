@@ -1,0 +1,1 @@
+theVault animate ["vaultLockAnim",0.9];

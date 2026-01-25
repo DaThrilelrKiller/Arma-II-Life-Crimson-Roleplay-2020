@@ -1,0 +1,1 @@
+﻿call shops_info;

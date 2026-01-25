@@ -1,110 +1,58 @@
-private [
-    "_side","_uid","_player",
-    "_year","_month","_day",
-    "_civTime","_unTime","_pdTime",
-    "_civ7","_un7","_pd7",
-    "_todayTime","_last7Time",
-    "_count","_d","_m","_y",
-    "_todayCiv","_todayUn","_todayPd",
-    "_daysInMonth"
-];
 
-_side   = _this select 1;
-_player = _this select 0;
-_uid    = getPlayerUID _player;
+DTK_civTime = _this select 0;
+DTK_unTime = _this select 1;
+DTK_pdTime = _this select 2;
+_todayTime = _this select 3;
+_last7Days = _this select 4;
+DTK_JoinTime = time;
 
-_year  = date select 0;
-_month = date select 1;
-_day   = date select 2;
+systemchat format ["30 Day Time Log Report: CIV: %1 FIRE: %2 PD: %3 ",[DTK_civTime/60/60,1]call BIS_fnc_cutDecimals,[DTK_unTime/60/60,1]call BIS_fnc_cutDecimals,[DTK_pdTime/60/60,1]call BIS_fnc_cutDecimals];
+systemchat format ["7 Day Time Report: CIV: %1 FIRE: %2 PD: %3 ",[(_last7Days select 0)/60/60,1]call BIS_fnc_cutDecimals,[(_last7Days select 1)/60/60,1]call BIS_fnc_cutDecimals,[(_last7Days select 2)/60/60,1]call BIS_fnc_cutDecimals];
+systemchat format ["Todays Time Report: CIV: %1 FIRE: %2 PD: %3 ",[(_todayTime select 0)/60/60,1]call BIS_fnc_cutDecimals,[(_todayTime select 1)/60/60,1]call BIS_fnc_cutDecimals,[(_todayTime select 2)/60/60,1]call BIS_fnc_cutDecimals];
 
-/* Totals */
-_civTime = 0;
-_unTime  = 0;
-_pdTime  = 0;
-
-_civ7 = 0;
-_un7  = 0;
-_pd7  = 0;
-
-_todayTime = [0,0,0];
-_last7Time = [0,0,0];
-
-_count = 0;
-_d = _day;
-_m = _month;
-_y = _year;
-
-while {_count < 31} do {
-
-    /* Read DAILY values */
-    _todayCiv = ([format["Timelog - %1",_uid],_m,format["time_CIV_%1_%2",_y,_d],0] call s_stats_read) max 0;
-    _todayUn  = ([format["Timelog - %1",_uid],_m,format["time_UN_%1_%2", _y,_d],0] call s_stats_read) max 0;
-    _todayPd  = ([format["Timelog - %1",_uid],_m,format["time_PD_%1_%2", _y,_d],0] call s_stats_read) max 0;
-
-    /* TODAY only */
-    if (_count == 0) then {
-        _todayTime = [_todayCiv,_todayUn,_todayPd];
-    };
-
-    /* LAST 7 DAYS */
-    if (_count < 7) then {
-        _civ7 = _civ7 + _todayCiv;
-        _un7  = _un7  + _todayUn;
-        _pd7  = _pd7  + _todayPd;
-    };
-
-    /* LAST 31 DAYS */
-    _civTime = _civTime + _todayCiv;
-    _unTime  = _unTime  + _todayUn;
-    _pdTime  = _pdTime  + _todayPd;
-
-    _count = _count + 1;
-    _d = _d - 1;
-
-    /* Month rollover */
-    if (_d < 1) then {
-
-        _m = _m - 1;
-        if (_m < 1) then {
-            _m = 12;
-            _y = _y - 1;
-        };
-
-        _daysInMonth = switch (_m) do {
-            case 1;
-            case 3;
-            case 5;
-            case 7;
-            case 8;
-            case 10;
-            case 12: {31};
-            case 4;
-            case 6;
-            case 9;
-            case 11: {30};
-            case 2: {
-                if ((_y mod 4 == 0 && _y mod 100 != 0) || (_y mod 400 == 0)) then {29} else {28};
-            };
-        };
-
-        _d = _daysInMonth;
-    };
-};
-
-/* Pack last-7 */
-_last7Time = [_civ7,_un7,_pd7];
-
-/* Send result */
-[
-    _player,
-    [
-        _civTime,     
-        _unTime,
-        _pdTime,
-        _todayTime,    
-        _last7Time     
-    ],
-    "experience_load",
-    false,
-    false
-] call network_MPExec;
+/* Playtime-based whitelisting */
+private ["_whitelistEntry","_playtimeParams","_requiredHours","_periodType","_timeType","_playerTime","_requiredSeconds","_whitelistVar"];
+{
+	_whitelistEntry = _x;
+	_playtimeParams = if (count _whitelistEntry > 3) then {_whitelistEntry select 3} else {[]};
+	
+	/* Check if this entry has playtime requirements */
+	if (count _playtimeParams == 3) then {
+		_requiredHours = _playtimeParams select 0;
+		_periodType = _playtimeParams select 1; /* 7 for 7-day, 30 for 30-day */
+		_timeType = _playtimeParams select 2; /* "CIV", "UN", or "PD" */
+		
+		/* Check if player's current side matches the required side for this role */
+		/* Civs cannot be whitelisted for EMS roles */
+		if (dtk_side == _timeType) then {
+			/* Convert required hours to seconds */
+			_requiredSeconds = _requiredHours * 60 * 60;
+			
+			/* Get player's playtime based on period type and time type */
+			if (_periodType == 7) then {
+				/* Use 7-day totals */
+				switch (_timeType) do {
+					case "CIV": {_playerTime = _last7Days select 0;};
+					case "UN": {_playerTime = _last7Days select 1;};
+					case "PD": {_playerTime = _last7Days select 2;};
+					default {_playerTime = 0;};
+				};
+			} else {
+				/* Use 30-day totals */
+				switch (_timeType) do {
+					case "CIV": {_playerTime = DTK_civTime;};
+					case "UN": {_playerTime = DTK_unTime;};
+					case "PD": {_playerTime = DTK_pdTime;};
+					default {_playerTime = 0;};
+				};
+			};
+			
+			/* Check if player meets requirement and set whitelist variable */
+			if (_playerTime >= _requiredSeconds) then {
+				_whitelistVar = _whitelistEntry select 1;
+				missionNamespace setVariable [_whitelistVar, true];
+				systemchat format ["Auto-whitelisted for %1 (Playtime requirement met: %2h %3-day %4)", _whitelistEntry select 0, _requiredHours, _periodType, _timeType];
+			};
+		};
+	};
+} forEach whitelist_data;

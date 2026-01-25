@@ -1,0 +1,31 @@
+CREDIT CARD SHOP INTEGRATION GUIDE
+===================================
+
+To integrate credit card into your shop payment system, you need to update the shops_ProcessMoney function.
+
+FIND: CRP_Client.cmr_cicada\functions\core\shops\shops_ProcessMoney.fnc
+
+UPDATE THE FUNCTION TO INCLUDE CREDIT CARD SUPPORT:
+
+1. Add credit card check after debit card check:
+   _hasCreditCard = ([player,"Credit_Card"] call storage_amount > 0) && credit_hasCard;
+   _creditAvailable = if (_hasCreditCard) then {credit_cardLimit - credit_cardBalance} else {0};
+
+2. Update total calculation:
+   _total = if (_hasDebitCard) then {_wallet + _bank} else {_wallet};
+   _total = _total + _creditAvailable; // Add credit card available credit
+
+3. Add credit card payment option in the payment processing section:
+   // After checking bank account, add:
+   else {
+       if (_hasCreditCard && _creditAvailable >= _cost) then {
+           if ([_cost] call credit_processPayment) then {
+               systemChat format ["Paid %1 using credit card", [_cost] call Main_FormatMoney];
+               _return = true;
+           };
+       };
+   };
+
+ALTERNATIVE: Use the integrated credit_ProcessMoney function I created which handles all payment methods automatically.
+
+Replace calls to shops_ProcessMoney with credit_ProcessMoney for automatic credit card support.

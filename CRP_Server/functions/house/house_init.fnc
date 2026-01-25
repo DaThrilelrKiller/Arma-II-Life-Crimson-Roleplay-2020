@@ -1,21 +1,28 @@
-[]call s_house_makeList;
+
+if (dtk_server)exitWith {};
+
+private ["_type","_name","_marker","_price","_formattedPrice","_houseShopCondition"];
+
+_houseShopCondition = "player distance _target < 5 && {!([_target,'House Market (E)','data\images\misc\bank']call tag_show)}";
 
 {
 	_type = typeOf _x;
 	_name = gettext(configFile >> "CfgVehicles" >> _type >> "Displayname");
+	_marker = format["house_%1",_forEachIndex];
+	_price = _type call house_price;
 	
-	_marker = createMarker [format["house_%1",_ForEachINdex],getPos _x];
-	_marker setMarkerType "mil_box";
+	_formattedPrice = [_price] call Main_FormatMoney;
 	
-	_owner = ["Houses",_marker, "Owner",""]call s_stats_read;
-	
-	if (_owner != "")then {
-		_name = ["Houses",_marker, "Name",""]call s_stats_read;
-		_marker setMarkerText format ["%1's House",_name];
-	};
-	
-	_marker setMarkerAlpha 1;
-	
-	dtk_houses set [count dtk_houses,_marker];
-	
-}forEAch dtk_house_list;
+	_x addaction ["","noscript.sqf",format["['%1',%2]call house_buy;",_marker,_price], 25, false, true, "LeanRight",format["!(['%3']call house_own) && {!([_target,'Buy %1 (%2$) (E)','data\images\misc\bank']call tag_show)}",_name,_formattedPrice,_marker]];
+	_x addaction ["","noscript.sqf",format["['%1']call house_menu;",_marker], 25, false, true, "LeanRight",format["(['%2']call house_own) && {!([_target,'Access %1 (E)','data\images\misc\bank']call tag_show)}",_name,_marker]];
+
+}forEach dtk_house_list;
+
+DTK_House_Shop_1 addaction ["","noscript.sqf","[]call house_market;", 25, false, true, "LeanRight",_houseShopCondition];
+DTK_House_Shop_2 addaction ["","noscript.sqf","[]call house_market;", 25, false, true, "LeanRight",_houseShopCondition];
+DTK_House_Shop_3 addaction ["","noscript.sqf","[]call house_market;", 25, false, true, "LeanRight",_houseShopCondition];
+["mrk_House_Shop_1",getPos DTK_House_Shop_1,nil,nil,"colorBlue","mil_dot",nil,"House Market"]call core_createMarkerLocal;
+["mrk_House_Shop_2",getPos DTK_House_Shop_2,nil,nil,"colorBlue","mil_dot",nil,"House Market"]call core_createMarkerLocal;
+["mrk_House_Shop_3",getPos DTK_House_Shop_3,nil,nil,"colorBlue","mil_dot",nil,"House Market"]call core_createMarkerLocal;
+
+[]spawn house_loop;

@@ -1,13 +1,9 @@
-_side = _this select 1;
-_uid = getPlayerUID(_this select 0);
-_player = (_this select 0);
-_value = _this select 2;
-
-_year = date select 0;
-_month = date select 1;
-_day = date select 2;
-
-_key = format["time_%1_%2_%3",_side,_year,_day];
+_savedTime = missionNameSpace getVariable [format["DTK_%1Time",dtk_side],0];
+_playTime = round((time - DTK_JoinTime) + _savedTime);
 
 
-[format["Timelog - %1",_uid],_month, _key, _value] call s_stats_write;
+_save = [
+    player,dtk_side,_playTime
+];
+
+["SERVER",_save,"S_experience_save",false,false]call network_MPExec;

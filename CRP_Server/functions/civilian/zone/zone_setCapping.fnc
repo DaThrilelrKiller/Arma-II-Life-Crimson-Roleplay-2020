@@ -1,0 +1,1 @@
+(_this select 0) setMarkerColor (_this select 1);

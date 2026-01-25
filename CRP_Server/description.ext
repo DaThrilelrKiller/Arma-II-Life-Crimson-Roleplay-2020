@@ -1,0 +1,84 @@
+onLoadIntro   = "RealLifeRPG 2.0";
+onLoadMission = "RealLifeRPG 2.0";
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showNotePad   = 1;
+showWatch     = 1;
+debriefing    = 1;
+respawn       = 3;
+respawnDelay  = 10;
+respawnButton = 0;
+RespawnDialog = 0;
+saving = 0;
+showHUD = 1;
+disabledAI    = 1;
+enableItemsDropping = 0;
+disableChannels[]={0,1,2,3,4,6,7,8,9,10};
+onMinimapScript[] = {"BIS_customGPS_Spawn"};
+
+class Header
+{
+	 gameType = Life;            
+	 minPlayers = 1;             
+	 maxPlayers = 80;           
+};
+
+class MissionSQM
+{
+	#include "mission.sqm"
+};
+
+#include "data\sounds\cfgSounds.hpp"
+
+
+#include "data\dialogs\rscdefines.h"
+#include "data\dialogs\rscmap.hpp"
+#include "data\dialogs\dance_dialog.hpp"
+#include "data\dialogs\2085272.hpp"
+#include "data\dialogs\keys_dialog.hpp"
+#include "data\dialogs\maindialogs.hpp"
+#include "data\dialogs\civmenu.hpp"
+#include "data\dialogs\checkpoint_dialog.hpp"
+#include "data\dialogs\invdialogs.hpp"
+#include "data\dialogs\spawn_dialog.hpp"
+#include "data\dialogs\ipad_dialog.hpp"
+#include "data\dialogs\cdb_dialog_new.hpp"
+#include "data\dialogs\admin_dialog.hpp"
+#include "data\dialogs\shipments_dialog.hpp"
+#include "data\dialogs\atm_dialog.hpp"
+#include "data\dialogs\gang_dialog.hpp"
+#include "data\dialogs\shopping.hpp"
+#include "data\dialogs\impound.hpp"
+#include "data\dialogs\keypress_dialog.hpp"
+#include "data\dialogs\hooker_diaglog.hpp"
+#include "data\dialogs\interaction_menu.hpp"
+#include "data\dialogs\Whitelist.hpp"
+#include "data\dialogs\Paint_shop.hpp"
+#include "data\dialogs\radio_tower.hpp"
+#include "data\dialogs\clothing_dialog.hpp"
+#include "data\dialogs\house_diaglog.hpp"
+#include "data\dialogs\jail_diaglog.hpp"
+#include "data\dialogs\settings_diaglog.hpp"
+#include "data\dialogs\dealer_dialog.hpp"
+#include "data\dialogs\codepad.hpp"
+#include "data\dialogs\test.hpp"
+#include "data\dialogs\factory_dialog.hpp"
+#include "data\dialogs\DTK_Lab.hpp"
+#include "data\dialogs\devcon.hpp"
+#include "data\dialogs\loading_dialog.hpp"
+#include "data\dialogs\credit_dialog.hpp"
+#include "data\dialogs\credit_employee_dialog.hpp"
+#include "data\dialogs\court_dialog.hpp"
+#include "data\dialogs\fuel_business_dialog.hpp"
+
+class RscTitles
+{
+	#define screenwidth  (1 - safeZonex*2)
+	#define screenheight (1 - safeZoney*2)
+	#include "data\dialogs\hud_dialog.hpp"
+	#include "data\dialogs\idcard.hpp"
+	#include "data\dialogs\rsctitles.hpp"
+	#include "data\dialogs\ar_plate.hpp"
+	#include "data\dialogs\tags.hpp"
+};

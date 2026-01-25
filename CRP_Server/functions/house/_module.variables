@@ -1,9 +1,13 @@
-dtk_houses = [];
-
-DTK_NotHouses = [
-"Land_Hangar_2",
-"Land_Ind_Garage01_EP1",
-"Land_Hlidac_Budka_EP1",
-"Land_Hlidac_budka",
-"Land_Shed_wooden"
+﻿dtk_house_actions = [
+["Storage",{[DTK_House_Logic]call storage_trunk;}],
+["Gear",{[DTK_House_Logic]call gear_open}],
+["Lock/Unlock",{dtk_home_mrk call house_lock}],
+["Garage",{"Land" call vehicle_saveMenu}],
+["Save Nearby Vehicle",{call stats_SaveVehicle; closeDialog 0}],
+["",{}],
+["Sell House",{[dtk_home_mrk]call house_sell}]
 ];
+
+dtk_houseLimit = 2;
+DTK_LastLocked = 0;
+DTK_Locked = [];

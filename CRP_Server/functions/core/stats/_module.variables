@@ -1,0 +1,24 @@
+﻿module_core = true;
+
+statsave_ranks = [
+["Mod", "adminlevel4"],
+["Admin", "adminlevel3"],
+["Senior Admin", "adminlevel2"],
+["Developer", "SwagDevs"],
+["PMC", "PMC_id"],
+["PMC", "PMCDivisions_id"],
+["PMC Command", "PMCCommand_id"]
+];
+
+DTK_Land_Saves = [];
+DTK_Plane_Saves = [];
+DTK_Heli_Saves = [];
+DTK_Boat_Saves = [];
+
+adminlevel4 = false;
+adminlevel3 = false;
+adminlevel2 = false;
+SwagDevs = false;
+PMC_id = false;
+PMCDivisions_id = false;
+PMCCommand_id = false;
