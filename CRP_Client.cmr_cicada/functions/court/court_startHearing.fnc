@@ -1,4 +1,5 @@
 // Start a court hearing for the selected case
+private ["_status","_defendantName","_plaintiffName","_defendantUID","_plaintiffUID","_defendant","_plaintiff","_caseID"];
 if (!(call court_isJudge)) exitWith {
 	systemChat "You are not authorized to start court hearings.";
 };
@@ -7,19 +8,19 @@ if (count court_currentCase == 0) exitWith {
 	systemChat "Please select a case first.";
 };
 
-private _status = court_currentCase select 6;
+_status = court_currentCase select 6;
 if (_status != "pending" && _status != "scheduled") exitWith {
 	systemChat "This case cannot be started. Status: " + _status;
 };
 
-private _defendantName = court_currentCase select 3;
-private _plaintiffName = court_currentCase select 1;
-private _defendantUID = court_currentCase select 4;
-private _plaintiffUID = court_currentCase select 2;
+_defendantName = court_currentCase select 3;
+_plaintiffName = court_currentCase select 1;
+_defendantUID = court_currentCase select 4;
+_plaintiffUID = court_currentCase select 2;
 
 // Find players by UID
-private _defendant = objNull;
-private _plaintiff = objNull;
+_defendant = objNull;
+_plaintiff = objNull;
 {
 	if (getPlayerUID _x == _defendantUID) then {
 		_defendant = _x;
@@ -48,11 +49,8 @@ court_currentJudge = player;
 court_currentDefendant = _defendant;
 court_currentPlaintiff = _plaintiff;
 
-// Update current case reference
-court_currentCase = _selectedCase;
-
 // Update case status on server
-private _caseID = court_currentCase select 0;
+_caseID = court_currentCase select 0;
 ["ALL", [_caseID, ["in_session", name player, getPlayerUID player, 0, 0]], "court_updateCase", false, false] call network_MPExec;
 
 // Notify parties

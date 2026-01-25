@@ -1,14 +1,15 @@
 // Submit a new court case
-private _defendantName = ctrlText 1001;
-private _charges = ctrlText 1003;
-private _description = ctrlText 1005;
+private ["_defendantName","_charges","_description","_defendant","_case"];
+_defendantName = ctrlText 1001;
+_charges = ctrlText 1003;
+_description = ctrlText 1005;
 
 if (_defendantName == "" || _charges == "") exitWith {
 	systemChat "Please fill in all required fields (Defendant Name and Charges).";
 };
 
 // Find defendant player
-private _defendant = objNull;
+_defendant = objNull;
 {
 	if (name _x == _defendantName) then {
 		_defendant = _x;
@@ -21,7 +22,7 @@ if (isNull _defendant) exitWith {
 
 // Create case - send to server
 // Case structure: [caseID, plaintiffName, plaintiffUID, defendantName, defendantUID, charges, status, judgeName, judgeUID, sentence, fine, filedTime, description]
-private _case = [
+_case = [
 	-1, // caseID (server will assign)
 	name player, // plaintiff name
 	getPlayerUID player, // plaintiff UID

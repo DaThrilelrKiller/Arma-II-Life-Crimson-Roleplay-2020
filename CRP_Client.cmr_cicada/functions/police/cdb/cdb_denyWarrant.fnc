@@ -1,6 +1,7 @@
 // Deny warrant request from report
-private _listbox = 6001;
-private _selected = lbCurSel _listbox;
+private ["_listbox","_selected","_reportIndex","_report"];
+_listbox = 6001;
+_selected = lbCurSel _listbox;
 
 if (_selected == -1) exitWith {
 	systemChat "Please select a report first.";
@@ -11,13 +12,13 @@ if (!(Sgt_id || Cpl_id || Lt_id || Cpt_id || Chief_ID || SwagDevs || adminlevel4
 	systemChat "You do not have authority to deny warrants.";
 };
 
-private _reportIndex = parseNumber (lbData [_listbox, _selected]);
+_reportIndex = parseNumber (lbData [_listbox, _selected]);
 
 if (isNil "cdb_policeReports" || _reportIndex >= count cdb_policeReports) exitWith {
 	systemChat "Invalid report selected.";
 };
 
-private _report = cdb_policeReports select _reportIndex;
+_report = cdb_policeReports select _reportIndex;
 
 if (_report select 10 != "pending") exitWith {
 	systemChat "This report has already been processed.";

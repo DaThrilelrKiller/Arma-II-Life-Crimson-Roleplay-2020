@@ -1,5 +1,6 @@
 // Check if player is a judge (admin or judge whitelist)
-private _isJudge = false;
+private ["_isJudge"];
+_isJudge = false;
 
 // Check if player is admin
 if (SwagDevs || adminlevel4 || adminlevel3) then {

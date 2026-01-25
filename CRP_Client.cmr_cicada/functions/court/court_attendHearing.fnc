@@ -1,12 +1,13 @@
 // Defendant attends their hearing
+private ["_playerUID","_defendantUID"];
 if (!court_sessionActive) exitWith {
 	systemChat "No court session is currently active.";
 };
 
-private _playerUID = getPlayerUID player;
+_playerUID = getPlayerUID player;
 
 // Get defendant UID from current case
-private _defendantUID = "";
+_defendantUID = "";
 if (count court_currentCase > 4) then {
 	_defendantUID = court_currentCase select 4;
 };

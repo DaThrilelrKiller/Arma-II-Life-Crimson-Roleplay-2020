@@ -1,4 +1,5 @@
 // Judge pronounces verdict
+private ["_verdict","_sentence","_fine","_caseID","_defendantUID","_defendant","_money","_bank","_total"];
 if (!(call court_isJudge)) exitWith {
 	systemChat "You are not authorized to pronounce verdicts.";
 };
@@ -11,15 +12,15 @@ if (player != court_currentJudge) exitWith {
 	systemChat "You are not the presiding judge for this case.";
 };
 
-private _verdict = _this select 0; // "guilty" or "not_guilty"
-private _sentence = parseNumber (_this select 1); // minutes
-private _fine = parseNumber (_this select 2); // amount
+_verdict = _this select 0; // "guilty" or "not_guilty"
+_sentence = parseNumber (_this select 1); // minutes
+_fine = parseNumber (_this select 2); // amount
 
-private _caseID = court_currentCase select 0;
-private _defendantUID = court_currentCase select 4;
+_caseID = court_currentCase select 0;
+_defendantUID = court_currentCase select 4;
 
 // Find defendant by UID
-private _defendant = objNull;
+_defendant = objNull;
 {
 	if (getPlayerUID _x == _defendantUID) then {
 		_defendant = _x;
@@ -40,9 +41,9 @@ if (_verdict == "guilty") then {
 	
 	if (_fine > 0) then {
 		// Apply fine
-		private _money = [_defendant, "geld"] call storage_amount;
-		private _bank = _defendant getVariable ["dtk_bank", 0];
-		private _total = _money + _bank;
+		_money = [_defendant, "geld"] call storage_amount;
+		_bank = _defendant getVariable ["dtk_bank", 0];
+		_total = _money + _bank;
 		
 		if (_total >= _fine) then {
 			_money = if (_fine >= _money) then {_money} else {_fine};

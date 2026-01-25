@@ -1,14 +1,15 @@
 // Create a police report with warrant request option
-private _suspectName = ctrlText 5001;
-private _reportType = lbCurSel 5003;
-private _incidentDetails = ctrlText 5005;
-private _warrantRequested = if (isNil "cdb_warrantRequested") then {false} else {cdb_warrantRequested};
-private _warrantReason = if (_warrantRequested) then {ctrlText 5012} else {""};
-private _warrantAmount = if (_warrantRequested) then {parseNumber (ctrlText 5006)} else {0};
+private ["_suspectName","_reportType","_incidentDetails","_warrantRequested","_warrantReason","_warrantAmount","_types","_type","_suspect","_report","_canIssueWarrant"];
+_suspectName = ctrlText 5001;
+_reportType = lbCurSel 5003;
+_incidentDetails = ctrlText 5005;
+_warrantRequested = if (isNil "cdb_warrantRequested") then {false} else {cdb_warrantRequested};
+_warrantReason = if (_warrantRequested) then {ctrlText 5012} else {""};
+_warrantAmount = if (_warrantRequested) then {parseNumber (ctrlText 5006)} else {0};
 
 // Get report type from combo
-private _types = ["Traffic Violation", "Assault", "Theft", "Drug Offense", "Weapons Violation", "Other"];
-private _type = if (_reportType >= 0 && _reportType < count _types) then {_types select _reportType} else {"Other"};
+_types = ["Traffic Violation", "Assault", "Theft", "Drug Offense", "Weapons Violation", "Other"];
+_type = if (_reportType >= 0 && _reportType < count _types) then {_types select _reportType} else {"Other"};
 
 if (_suspectName == "") exitWith {
 	systemChat "Please enter a suspect name.";
@@ -19,7 +20,7 @@ if (_incidentDetails == "") exitWith {
 };
 
 // Find suspect
-private _suspect = objNull;
+_suspect = objNull;
 {
 	if (name _x == _suspectName) then {
 		_suspect = _x;
@@ -32,7 +33,7 @@ if (isNull _suspect) exitWith {
 
 
 // Create report
-private _report = [
+_report = [
 	time, // timestamp
 	name player, // officer name
 	getPlayerUID player, // officer UID
@@ -51,7 +52,7 @@ private _report = [
 
 // If warrant requested and officer has authority, add warrant directly
 if (_warrantRequested) then {
-	private _canIssueWarrant = false;
+	_canIssueWarrant = false;
 	
 	// Check if officer has authority to issue warrants (Sergeant and above)
 	if (Sgt_id || Cpl_id || Lt_id || Cpt_id || Chief_ID || SwagDevs || adminlevel4 || adminlevel3) then {

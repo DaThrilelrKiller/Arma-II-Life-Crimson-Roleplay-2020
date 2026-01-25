@@ -20,7 +20,8 @@ if (dtk_server) exitWith {};
 };
 
 // Find or create court building object
-private _courtBuilding = court_location nearestObject "Land_A_Office01_EP1";
+private ["_courtBuilding"];
+_courtBuilding = court_location nearestObject "Land_A_Office01_EP1";
 if (isNull _courtBuilding) then {
 	// Try to find any building near the location
 	_courtBuilding = (nearestObjects [court_location, ["House", "Building"], 50]) select 0;
