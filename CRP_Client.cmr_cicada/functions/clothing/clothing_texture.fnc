@@ -1,8 +1,14 @@
-﻿_unit = _this;
+_unit = _this;
 _type = _unit getVariable ["type",typeOf _unit];
 
 _config =  (missionConfigFile >> "CfgVehicles" >> _type);
-_init = format['this setFace "%1";',dtk_dob select 3];
+private ["_face"];
+_face = "";
+if (!isNil "dtk_dob" && {typeName dtk_dob == "ARRAY"} && {count dtk_dob > 3} && {typeName (dtk_dob select 3) == "STRING"}) then {
+	_face = dtk_dob select 3;
+};
+if (_face == "") then { _face = face player; };
+_init = format['this setFace "%1";', _face];
 _textures = [];
 
 if (isClass _config)then {

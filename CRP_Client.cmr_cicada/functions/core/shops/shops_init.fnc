@@ -41,13 +41,60 @@ dtk_fuelShopObjects = [];
 		_shop addaction ["Open Gear","noscript.sqf", format ["[%1]call gear_open",_shop], 1, false, true,"Gear"];
 		
 		
-		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
+		// NOTE: use double-quotes inside condition string so shop names with apostrophes (e.g. "Flyer's")
+		// don't break parsing.
+		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,""%2 (%3)"",""%1""] call tag_show)}",_img,_text,_leanRightKey]];
 
 		// Fuel station business management action (fuel shops only)
 		if ((_fuelStationNames find _text) > -1) then {
 			dtk_fuelShopObjects set [count dtk_fuelShopObjects, _shop];
-			// noscript.sqf executes the string with the original action _this, so use (_this select 0)
-			_shop addAction ["","noscript.sqf","[(_this select 0)] call business_fuel_open;", 24, false, true, "LeanRight", "player distance _target < 5 && {!([_target,'Manage Fuel Station (E)','data\\images\\tags\\Gas pump']call tag_show)}"];
+			// Init cached ownership state (populated by server via business_fuel_cacheReceive)
+			if (isNil { _shop getVariable "business_fuel_ownerUid" }) then {
+				_shop setVariable ["business_fuel_ownerUid", "UNKNOWN", false];
+				_shop setVariable ["business_fuel_ownerName", "", false];
+				_shop setVariable ["business_fuel_forSale", 0, false];
+				_shop setVariable ["business_fuel_balance", 0, false];
+				_shop setVariable ["business_fuel_stock", 0, false];
+			};
+
+			// Request a fresh state from server once at init so the correct action (Buy/Manage/Info) appears quickly.
+			["SERVER",[player,_shop,_forEachIndex],"S_business_getFuel",false,false] call network_MPExec;
+
+			// Unowned: show Buy option (scroll-wheel)
+			_shop addAction [
+				"Buy Fuel Station",
+				"noscript.sqf",
+				"[(_this select 0)] call business_fuel_open;",
+				24,
+				false,
+				true,
+				"",
+				"player distance _target < 5 && {(_target getVariable ['business_fuel_ownerUid','UNKNOWN']) == ''}"
+			];
+
+			// Owned by you: show Manage option (scroll-wheel)
+			_shop addAction [
+				"Manage Fuel Station",
+				"noscript.sqf",
+				"[(_this select 0)] call business_fuel_open;",
+				24,
+				false,
+				true,
+				"",
+				"player distance _target < 5 && {(_target getVariable ['business_fuel_ownerUid','UNKNOWN']) == (getPlayerUID player)}"
+			];
+
+			// Owned by someone else: show Info option (scroll-wheel)
+			_shop addAction [
+				"Fuel Station (Owned)",
+				"noscript.sqf",
+				"[(_this select 0)] call business_fuel_open;",
+				24,
+				false,
+				true,
+				"",
+				"player distance _target < 5 && {(_target getVariable ['business_fuel_ownerUid','UNKNOWN']) != ''} && {(_target getVariable ['business_fuel_ownerUid','UNKNOWN']) != 'UNKNOWN'} && {(_target getVariable ['business_fuel_ownerUid','UNKNOWN']) != (getPlayerUID player)}"
+			];
 		};
 	};
 }forEach INV_ItemShops;

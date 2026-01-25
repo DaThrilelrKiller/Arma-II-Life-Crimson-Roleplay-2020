@@ -25,5 +25,7 @@ _stock = ["Businesses", _section, "FuelStock", dtk_fuelStockMax] call s_stats_re
 // Keep the nearest physical pump updated for all clients
 [_shop, _shopIndex, _stock] call S_Business_syncFuelPump;
 
+// Cache on client (for scroll-wheel Buy/Manage visibility) + update dialog if open
+[_player, [_shopIndex, _ownerUid, _ownerName, _balance, _forSale, _stock], "business_fuel_cacheReceive", false, false] call network_MPExec;
 [_player, [_shopIndex, _ownerUid, _ownerName, _balance, _forSale, _stock], "business_fuel_receive", false, false] call network_MPExec;
 

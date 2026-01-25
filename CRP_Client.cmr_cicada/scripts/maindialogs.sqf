@@ -4,6 +4,9 @@ _geld  = [player,"geld"] call storage_amount;
 _zusatzString = "";
 _trennlinie = "------------------------------------------------------------------------------------------";
 
+// UI scripts must disable serialization before using display/controls (prevents RPT spam)
+disableSerialization;
+
 if ((count _array)>1) then 
 {
 	_zusatzString = _array select 1;

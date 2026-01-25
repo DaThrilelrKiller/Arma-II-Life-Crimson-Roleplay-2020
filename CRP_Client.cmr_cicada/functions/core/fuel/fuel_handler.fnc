@@ -30,9 +30,9 @@ while {((fuel _vehicle) < 0.99)} do
 		["SERVER",[player,_stationObj,_stationIdx,_tickLiters],"S_business_consumeFuelStock",false,false] call network_MPExec;
 	};
 	
-	[format['Fuel Status: %1 of 100. You refuelled 10 litres into your car. If you have enough',round(fuel _Vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;
+	[format['Fuel Status: %1 of 100. You refuelled 10 litres into your car. If you have enough',round(fuel _vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;
 	
 	sleep 1.5;
 };
 
-[format ["you have refueled the vehicle %1%",round(fuel _Vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;
+[format ["you have refueled the vehicle %1%",round(fuel _vehicle * 100)],'data\images\tags\Gas pump']call tag_notify;

@@ -62,6 +62,33 @@ business_fuel_updateDialog = {
 	_btnDeposit ctrlEnable (_ownerUid == _myUid);
 };
 
+business_fuel_cacheReceive = {
+	// Params: [shopIndex, ownerUid, ownerName, balance, forSalePrice, stock]
+	// Cache station ownership on the shop object so addAction conditions can show Buy/Manage correctly.
+	private ["_shopIndex","_ownerUid","_ownerName","_balance","_forSale","_stock","_shops","_shopObj"];
+	_shopIndex = _this select 0;
+	_ownerUid = _this select 1;
+	_ownerName = _this select 2;
+	_balance = _this select 3;
+	_forSale = _this select 4;
+	_stock = _this select 5;
+
+	_shops = missionNamespace getVariable ["dtk_fuelShopObjects", []];
+	if ((typeName _shops) != "ARRAY") exitWith {};
+
+	_shopObj = objNull;
+	{
+		if ((_x getVariable ["shop_data",-1]) == _shopIndex) exitWith { _shopObj = _x; };
+	} forEach _shops;
+	if (isNull _shopObj) exitWith {};
+
+	_shopObj setVariable ["business_fuel_ownerUid", _ownerUid, false];
+	_shopObj setVariable ["business_fuel_ownerName", _ownerName, false];
+	_shopObj setVariable ["business_fuel_forSale", _forSale, false];
+	_shopObj setVariable ["business_fuel_balance", _balance, false];
+	_shopObj setVariable ["business_fuel_stock", _stock, false];
+};
+
 business_fuel_receive = {
 	// Params: [shopIndex, ownerUid, ownerName, balance, forSalePrice, stock]
 	private ["_shopIndex","_ownerUid","_ownerName","_balance","_forSale","_stock"];
@@ -71,6 +98,9 @@ business_fuel_receive = {
 	_balance = _this select 3;
 	_forSale = _this select 4;
 	_stock = _this select 5;
+
+	// Always cache to support scroll-wheel Buy/Manage visibility
+	[_shopIndex, _ownerUid, _ownerName, _balance, _forSale, _stock] call business_fuel_cacheReceive;
 
 	// Ignore stale responses
 	if (_shopIndex != business_fuel_shopIndex) exitWith {};
