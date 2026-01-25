@@ -19,7 +19,7 @@ INV_apps = [
 ["app_gangs","data\images\ipad\gangs.PAA","closeDialog 0;call gang_open"],
 ["app_stockmarket","data\images\ipad\stockmarket.PAA","[0,0,0,[""fundsswag""]] execVM ""scripts\maindialogs.sqf"";"],
 ["app_store","data\images\ipad\store.PAA","[(BuildingCollapesLogic call shops_index)]call shops_open; "],
-["app_credit","data\images\ipad\store.PAA","closeDialog 0;call credit_open"],
+["app_credit","data\images\ipad\cicadacredit.PAA","closeDialog 0;call credit_open"],
 ["app_settings","data\images\ipad\controls.PAA","call keypress_menu"],
 ["app_background","data\images\ipad\background.PAA","call ipad_background"],
 ["app_vote","data\images\ipad\vote.PAA","call goverment_vote"]
