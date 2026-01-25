@@ -1,0 +1,17 @@
+module_court = true;
+
+// Court case storage - synced from server
+court_cases = [];
+
+// Current case being viewed
+court_currentCase = [];
+court_caseID = 0;
+
+// Court building location (Cicada Municipal Court)
+court_location = [6500, 5700, 0]; // Near the hospital/bank area
+
+// Court status
+court_sessionActive = false;
+court_currentJudge = objNull;
+court_currentDefendant = objNull;
+court_currentPlaintiff = objNull;

@@ -1,4 +1,4 @@
-﻿class cdb_warrant{
+class cdb_warrant{
 	idd=-1;
 	controlsBackground[] = {};
 	objects[] = {};

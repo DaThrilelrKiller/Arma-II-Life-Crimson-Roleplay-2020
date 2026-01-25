@@ -2,7 +2,7 @@ dtk_civ         	= false;
 dtk_cop          	= false;	
 iscop = false;
 dtk_ems       	= true;	
-dtk_sidename = "Emergency Medical Service";
+dtk_sidename = "Fire Rescue Service";
 
 USBW_Interactions = [
 ["'Enable License Plate'",'!ar_plates','[]spawn plates_plate'],
@@ -22,7 +22,8 @@ INV_apps = [
 ["app_credit","data\images\ipad\cicadacredit.PAA","closeDialog 0;call credit_open"],
 ["app_settings","data\images\ipad\controls.PAA","call keypress_menu"],
 ["app_background","data\images\ipad\background.PAA","call ipad_background"],
-["app_vote","data\images\ipad\vote.PAA","call goverment_vote"]
+["app_vote","data\images\ipad\vote.PAA","call goverment_vote"],
+["app_judge","data\images\ipad\laws.PAA","closeDialog 0;call court_viewCases"]
 ];
 
 AppStoreArray = {

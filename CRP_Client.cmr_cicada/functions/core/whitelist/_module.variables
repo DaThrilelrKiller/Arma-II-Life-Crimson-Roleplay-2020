@@ -66,7 +66,9 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["PMC Marksman","PMC_Marksman",{SwagDevs or PMC_General}],
 ["PMC Aviation","PMC_Aviation",{SwagDevs or PMC_General}],
 
-["Cicada Credit Company Employee","ccc_id",{SwagDevs}]
+["Cicada Credit Company Employee","ccc_id",{SwagDevs}],
+
+["Judge","judge_id",{SwagDevs}]
 
 ];
 

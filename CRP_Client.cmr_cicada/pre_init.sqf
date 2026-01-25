@@ -98,6 +98,7 @@ dtk_active_modules =
 "Groups",
 "Paint",
 "Goverment",
+"Court",
 "Dealer",
 "Impound",
 "Markers",

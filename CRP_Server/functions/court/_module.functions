@@ -1,0 +1,8 @@
+[
+["init", false],
+["save", false],
+["createCase", false],
+["updateCase", false],
+["syncCases", false],
+["loop", false]
+];
