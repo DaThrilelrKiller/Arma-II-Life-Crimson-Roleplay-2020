@@ -10,7 +10,13 @@ dtk_dob = [
 	["Main", "data", dtk_dob] 
 ] ],"S_stats_update",false,false]call network_mpexec;
 
-player setVehicleInit format["this setFace '%1';", dtk_dob select 3];
-processInitCommands;
+private ["_face"];
+_face = "";
+if (typeName dtk_dob == "ARRAY" && {count dtk_dob > 3} && {typeName (dtk_dob select 3) == "STRING"}) then {
+	_face = dtk_dob select 3;
+};
+if (_face == "") then { _face = face player; };
+// Arma 2 OA: set face directly; avoids brittle setVehicleInit/format parsing issues.
+player setFace _face;
 
 []call spawn_openMenu;

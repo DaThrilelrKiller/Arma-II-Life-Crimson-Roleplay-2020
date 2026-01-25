@@ -1,4 +1,4 @@
-﻿class baildialog
+class baildialog
 {
 	idd = -1;
 	movingEnable = true;
@@ -116,13 +116,128 @@ class liste_1_button
 	};
 };
 
+class lawsdialog
+{
+	idd = 7700;
+	movingEnable = true;
+	controlsBackground[] = {DLG_BACK1, background};
+	objects[] = { };
+	controls[] = {title, governorLabel, lawsHeader, lawsList, lawPreview, taxesHeader, taxesList, closeBtn, dummybutton};
+
+	class DLG_BACK1: RscBackground
+	{
+		x = 0.15;
+		y = 0.10;
+		w = 0.70;
+		h = 0.80;
+	};
+
+	class background : RscBgRahmen
+	{
+		x = 0.15;
+		y = 0.10;
+		w = 0.70;
+		h = 0.80;
+		text = "County Government";
+	};
+
+	class title : D_RscTextTitle
+	{
+		idc = 900;
+		x = 0.17;
+		y = 0.12;
+		w = 0.66;
+		h = 0.04;
+		text = "Laws & Taxes";
+	};
+
+	class governorLabel : RscText
+	{
+		idc = 901;
+		x = 0.17;
+		y = 0.165;
+		w = 0.66;
+		h = 0.03;
+		text = "Mayor (Governor):";
+	};
+
+	class lawsHeader : RscText
+	{
+		idc = -1;
+		x = 0.17;
+		y = 0.205;
+		w = 0.33;
+		h = 0.03;
+		text = "Laws";
+	};
+
+	class lawsList : RscListBox
+	{
+		idc = 910;
+		x = 0.17;
+		y = 0.235;
+		w = 0.33;
+		h = 0.48;
+		SizeEX = 0.0195;
+		RowHeight = 0.03;
+	};
+
+	class lawPreview : RscStructuredText
+	{
+		idc = 911;
+		x = 0.17;
+		y = 0.725;
+		w = 0.66;
+		h = 0.08;
+		colorText[] = {1,1,1,1};
+		text = "";
+	};
+
+	class taxesHeader : RscText
+	{
+		idc = -1;
+		x = 0.52;
+		y = 0.205;
+		w = 0.31;
+		h = 0.03;
+		text = "Taxes";
+	};
+
+	class taxesList : RscListBox
+	{
+		idc = 920;
+		x = 0.52;
+		y = 0.235;
+		w = 0.31;
+		h = 0.48;
+		SizeEX = 0.0195;
+		RowHeight = 0.03;
+	};
+
+	class closeBtn : RscButton
+	{
+		idc = 921;
+		x = 0.65;
+		y = 0.82;
+		w = 0.18;
+		h = 0.04;
+		text = "Close";
+		action = "closeDialog 0;";
+	};
+
+	class dummybutton : RscDummy
+	{
+		idc = 9099;
+	};
+};
+
 class gesetzdialog
 {
 	idd = -1;
 	movingEnable = true;
 	controlsBackground[] = {DLG_BACK1, background};
 	objects[] = { };
-	controls[] = {gesetzliste, eingabefenster, submit, dummybutton};	
+	controls[] = {gesetzliste, eingabefenster, submit, closeBtn, charCount, helpText, dummybutton};	
 	
 	class DLG_BACK1: RscBackground	
 	{
@@ -147,16 +262,18 @@ class gesetzdialog
 		idc = 1;		
 		x = 0.04; 
 		y = 0.24;
-		w = 0.91; 
+		w = 0.55; 
 		h = 0.34;	
+		SizeEX = 0.0195;
+		RowHeight = 0.03;
 	};
 	
 	class eingabefenster : RscEdit	
 	{
 		idc = 2;
-		x = 0.04; 
+		x = 0.60; 
 		y = 0.58;
-		w = 0.71; 
+		w = 0.35; 
 		h = 0.04;
 		
 		onChar = "[_this, 1] call TastenDruck;";
@@ -164,15 +281,45 @@ class gesetzdialog
 	
 	class submit : RscButton
 	{
-		x = 0.75;
+		x = 0.60;
 		y = 0.58;
-		w = 0.20; 
+		w = 0.17; 
 		h = 0.04;	
 		idc = 3;
 
 		text = $STRD_dialogandere_gesetze_submit;	
 		action = "[0,0,0,[""clientgesetz"", lbcursel 1, Ctrltext 2]] execVM ""scripts\mayor.sqf""; closedialog 0;";	
 	};	
+
+	class closeBtn : RscButton
+	{
+		x = 0.78;
+		y = 0.58;
+		w = 0.17;
+		h = 0.04;
+		text = $STRD_description_buyitem_close;
+		action = "closeDialog 0;";
+	};
+
+	class charCount : RscText
+	{
+		idc = 4;
+		x = 0.60;
+		y = 0.54;
+		w = 0.35;
+		h = 0.03;
+		text = "0 / 60";
+	};
+
+	class helpText : RscText
+	{
+		idc = -1;
+		x = 0.60;
+		y = 0.24;
+		w = 0.35;
+		h = 0.30;
+		text = "Select a law on the left, edit it here.\nKeep it short and clear (max 60).";
+	};
 	
 	class dummybutton : RscDummy 
 	{
@@ -188,7 +335,7 @@ class wahldialog
 	objects[] = { };
 	controls[] = {spielerliste, submit, cancel, dummybutton};	
 	
-	class DLG_BACK1: Rscbackground		
+	class DLG_BACK1: RscBackground		
 	{	
 		x = 0.36;
 		y = 0.06;
@@ -253,7 +400,7 @@ class steuerdialog
 	objects[] = { };	
 	controls[] = {text_itemsteuer, slider_itemsteuer, fahrzeugsteuer_text, fahrzeugsteuer_slider, magazinsteuer_text, magazinsteuer_slider, waffesteuer_text, waffesteuer_slider, banksteuer_text, banksteuer_slider, button_submit, button_cancel, dummybutton};	
 	
-	class DLG_BACK1: Rscbackground		
+	class DLG_BACK1: RscBackground		
 	{						
 		x = 0.34;
 		y = 0.08;	

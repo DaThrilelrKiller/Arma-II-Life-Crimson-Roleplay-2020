@@ -1,15 +1,17 @@
-﻿private ["_vehicle","_item","_amount"];
+private ["_vehicle","_item","_amount"];
 
 _item = _this select 1;
 _amount = _this select 2;
 
-_vehicle = (nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 6] select 0);
+private ["_near"];
+_near = nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 6];
+_vehicle = if (count _near > 0) then { _near select 0 } else { objNull };
 
 if (animationstate player == "AinvPknlMstpSlayWrflDnon_medic")exitWith {
 	systemchat "You are already performing a action";
 };
 
-if (isnil ("_vehicle")) exitwith {
+if (isNull _vehicle) exitwith {
 	systemChat  "Not near any vehicles"
 };
 if (player != vehicle player) exitWith {

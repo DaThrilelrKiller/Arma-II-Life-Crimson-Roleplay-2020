@@ -50,7 +50,7 @@ if (!isNull _suspect && {_suspectUID == ""}) then {
 		_warrantAmount,
 		"pending"
 	];
-	["SERVER", [_report], "s_cdb_createReport", false, false] call network_MPExec;
+	["SERVER", [_report], "S_Cdb_createReport", false, false] call network_MPExec;
 	closeDialog 0;
 };
 
@@ -69,7 +69,7 @@ _report = [
 ];
 
 // Send report to server (DB-backed)
-["SERVER", [_report], "s_cdb_createReport", false, false] call network_MPExec;
+["SERVER", [_report], "S_Cdb_createReport", false, false] call network_MPExec;
 
 // If warrant requested and officer has authority, add warrant directly
 if (_warrantRequested) then {
@@ -82,7 +82,7 @@ if (_warrantRequested) then {
 	
 	if (_canIssueWarrant) then {
 		// Issue warrant directly (DB-backed, works for offline too)
-		["SERVER", [_suspectUID, _warrantReason, _warrantAmount, name player, getPlayerUID player], "s_cdb_addWarrantUID", false, false] call network_MPExec;
+		["SERVER", [_suspectUID, _warrantReason, _warrantAmount, name player, getPlayerUID player], "S_Cdb_addWarrantUID", false, false] call network_MPExec;
 		// Report status will be updated by server
 		systemChat format ["Warrant issued for %1: %2 ($%3)", if (isNull _suspect) then {_suspectUID} else {name _suspect}, _warrantReason, _warrantAmount];
 	} else {

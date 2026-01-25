@@ -305,7 +305,8 @@ class cdb_note{
 // Ticket issuance dialog (new ticket system; persists to court)
 class cdb_ticketIssue
 {
-	idd = 7200;
+	// NOTE: must not collide with fuel_business_dialog (idd=7200).
+	idd = 7300;
 	moveEnable = true;
 	enableSimulation = true;
 

@@ -10,10 +10,15 @@ _locations = nearestLocations [dtk_center, ["VegetationFir"], 5000];
 		_yPos = (_pos select 1);
 		
 		if (!surfaceIsWater [_xPos,_yPos]) then {
-			_areaType = hunting_array call BIS_selectRandom;
+			if (count hunting_array == 0) exitWith {};
+			_areaType = hunting_array select floor (random (count hunting_array));
 			_areaName = _areaType select 0;
 			_animalVariants = _areaType select 1;
-			_size = hunting_sizes call BIS_selectRandom;
+			if (count hunting_sizes > 0) then {
+				_size = hunting_sizes select floor (random (count hunting_sizes));
+			} else {
+				_size = 150;
+			};
 			hunting_spots_array set [count hunting_spots_array,[_areaName, _animalVariants, [_xPos,_yPos,0],[_size,_size]]];
 		};
 	};

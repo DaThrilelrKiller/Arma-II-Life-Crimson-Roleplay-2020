@@ -6,6 +6,6 @@ _arrayitems = _storage select 0;
 _arrayamount = _storage select 1;
 
 {
-	if !(_x call config_kind in ["drug","food"])exiTWith{false};
+	if ((["drug","food"] find (_x call config_kind)) < 0)exiTWith{false};
 	true
 }foreach _arrayitems;

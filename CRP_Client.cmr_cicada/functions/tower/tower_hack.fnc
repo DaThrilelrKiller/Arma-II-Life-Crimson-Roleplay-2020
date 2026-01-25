@@ -35,7 +35,7 @@ _alert = round (random (count _units));
 				[format['Hacking Radio Tower Freq: (%3/%4) ... %1%2',_i,"%",_index,count _units],'',true]call tag_notify;
 					
 				if !(alive player)exitWith {DTK_Hacked_Freqs = [];};
-				if (animationState player in ["adthpercmstpslowwrfldnon_4","adthppnemstpsraswpstdnon_2","actspercmstpsnonwrfldnon_interrogate02_forgoten"])exitWith {DTK_Hacked_Freqs = [];};		
+				if ((["adthpercmstpslowwrfldnon_4","adthppnemstpsraswpstdnon_2","actspercmstpsnonwrfldnon_interrogate02_forgoten"] find (animationState player)) > -1)exitWith {DTK_Hacked_Freqs = [];};		
 					
 				if (_i == 100)exitWith {
 					DTK_Hacked_Freqs set [count DTK_Hacked_Freqs,format ["C%1 %2",_x call TFAR_fnc_getSwChannel,(_x call TFAR_fnc_getSwFrequency)]];
@@ -46,7 +46,7 @@ _alert = round (random (count _units));
 	}forEach (weapons _x);
 
 	if !(alive player)exitWith {DTK_Hacked_Freqs = [];};
-	if (animationState player in ["adthpercmstpslowwrfldnon_4","adthppnemstpsraswpstdnon_2","actspercmstpsnonwrfldnon_interrogate02_forgoten"])exitWith {DTK_Hacked_Freqs = [];};
+	if ((["adthpercmstpslowwrfldnon_4","adthppnemstpsraswpstdnon_2","actspercmstpsnonwrfldnon_interrogate02_forgoten"] find (animationState player)) > -1)exitWith {DTK_Hacked_Freqs = [];};
 }forEach _units;
 
 DTK_Hacking = false;

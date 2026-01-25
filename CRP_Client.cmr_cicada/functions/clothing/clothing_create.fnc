@@ -1,4 +1,4 @@
-﻿private ["_type","_config","_init","_textures","_name","_group","_unit"];
+private ["_type","_config","_init","_textures","_name","_group","_unit"];
 
 _type = _this select 0;
 _type = _type call config_class;
@@ -19,7 +19,13 @@ _group = (group player);
 _unit = _group createUnit [_type, (position player), [], 0, "NONE"];
 _unit setDir (getDir player);
 player setVehicleVarName format["old_%1", _name];
-_init = format['this setVehicleVarName "%1"; %1 = this; this setFace "%2";',_name,dtk_dob select 3];
+private ["_face"];
+_face = "";
+if (!isNil "dtk_dob" && {typeName dtk_dob == "ARRAY"} && {count dtk_dob > 3} && {typeName (dtk_dob select 3) == "STRING"}) then {
+	_face = dtk_dob select 3;
+};
+if (_face == "") then { _face = face player; };
+_init = format['this setVehicleVarName "%1"; %1 = this; this setFace "%2";', _name, _face];
 _unit setVariable ["type",_this select 0,true];
 
 {

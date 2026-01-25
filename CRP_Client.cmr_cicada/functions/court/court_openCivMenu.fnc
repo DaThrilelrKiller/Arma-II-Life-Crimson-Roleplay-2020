@@ -7,5 +7,5 @@ createDialog "court_civMenu";
 [] call court_loadCivMenu;
 
 // Refresh tickets from server (persisted)
-["SERVER", [player], "S_court_getTickets", false, false] call network_MPExec;
+["SERVER", [player], "S_Court_getTickets", false, false] call network_MPExec;
 

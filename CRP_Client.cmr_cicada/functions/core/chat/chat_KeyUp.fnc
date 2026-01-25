@@ -1,4 +1,4 @@
-﻿private ["_Key","_return"];
+private ["_Key","_return"];
 _Key = _this select 1;
 _return = false;
 
@@ -9,7 +9,7 @@ if (_Key == 28)then {
 	_return = true;
  }; 
  
-if (_Key in [200,201])then {
+if (([200,201] find _Key) > -1)then {
 	if (count chat_channels >= dtk_active_chat + 1)then {
 		dtk_active_chat = dtk_active_chat + 1;
 	}else{
@@ -18,7 +18,7 @@ if (_Key in [200,201])then {
 	_return = true;
 }; 
  
-if (_Key in [208,209])then {
+if (([208,209] find _Key) > -1)then {
 	if (dtk_active_chat >= 0)then {
 		dtk_active_chat = dtk_active_chat - 1;
 	}else{

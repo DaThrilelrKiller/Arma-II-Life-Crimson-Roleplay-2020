@@ -34,7 +34,7 @@ if (_uidFromCombo != "") then {
 };
 if (_uid == "") exitWith { systemChat "Invalid suspect."; };
 
-["SERVER", [_uid, _reason, _amount, name player, getPlayerUID player], "S_court_addTicket", false, false] call network_MPExec;
+["SERVER", [_uid, _reason, _amount, name player, getPlayerUID player], "S_Court_addTicket", false, false] call network_MPExec;
 
 systemChat "Ticket issued (saved to database).";
 closeDialog 0;

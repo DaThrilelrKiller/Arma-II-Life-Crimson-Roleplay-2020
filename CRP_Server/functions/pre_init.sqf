@@ -16,6 +16,7 @@ dtk_server_modules =
 "Hunting",
 "Zone",
 "Whitelist",
+	"Goverment",
 "Accidents",
 "EMS",
 "House",
@@ -26,7 +27,11 @@ dtk_server_modules =
 "Vehicle",
 "Civilians",
 "Experience",
-"OwlEye"
+"OwlEye",
+ "Business",
+"Credit",
+"Court",
+"Cdb"
 ];
 
 /*loads module functions*/ 

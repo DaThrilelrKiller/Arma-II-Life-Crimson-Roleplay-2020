@@ -132,7 +132,7 @@ business_fuel_refund = {
 business_fuel_requestRefresh = {
 	if (isNull business_fuel_shopObject) exitWith {};
 	if (business_fuel_shopIndex < 0) exitWith {};
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex],"S_business_getFuel",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex],"S_Business_getFuel",false,false] call network_MPExec;
 };
 
 business_fuel_open = {
@@ -162,7 +162,7 @@ business_fuel_buy = {
 	if (dtk_bank < _price) exitWith { systemChat format ["You need %1 in bank to buy this station.", [_price] call Main_FormatMoney]; };
 
 	dtk_bank = dtk_bank - _price;
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_price],"S_business_buyFuel",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_price],"S_Business_buyFuel",false,false] call network_MPExec;
 	call business_fuel_requestRefresh;
 };
 
@@ -178,12 +178,12 @@ business_fuel_buyForSale = {
 	if (dtk_bank < _forSale) exitWith { systemChat format ["You need %1 in bank to buy this station.", [_forSale] call Main_FormatMoney]; };
 
 	dtk_bank = dtk_bank - _forSale;
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_forSale],"S_business_buyFuel",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_forSale],"S_Business_buyFuel",false,false] call network_MPExec;
 	call business_fuel_requestRefresh;
 };
 
 business_fuel_withdraw = {
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex],"S_business_withdrawFuel",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex],"S_Business_withdrawFuel",false,false] call network_MPExec;
 	call business_fuel_requestRefresh;
 };
 
@@ -197,7 +197,7 @@ business_fuel_setForSale = {
 	_price = _priceText call string_toInt;
 	if (_price < 0) exitWith { systemChat "Price must be 0 or more."; };
 
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_price],"S_business_setForSaleFuel",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_price],"S_Business_setForSaleFuel",false,false] call network_MPExec;
 	call business_fuel_requestRefresh;
 };
 
@@ -215,7 +215,7 @@ business_fuel_deposit = {
 	_liters = _count * _litersPer;
 
 	[player,"GasBarrel",-_count] call storage_add;
-	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_liters],"S_business_addFuelStock",false,false] call network_MPExec;
+	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_liters],"S_Business_addFuelStock",false,false] call network_MPExec;
 	call business_fuel_requestRefresh;
 };
 
@@ -234,6 +234,6 @@ business_fuel_recordSale = {
 	_shopIndex = shop_object getVariable ["shop_data",-1];
 	if (_shopIndex < 0) exitWith {};
 
-	["SERVER",[player,shop_object,_shopIndex,_saleAmount],"S_business_recordSale",false,false] call network_MPExec;
+	["SERVER",[player,shop_object,_shopIndex,_saleAmount],"S_Business_recordSale",false,false] call network_MPExec;
 };
 

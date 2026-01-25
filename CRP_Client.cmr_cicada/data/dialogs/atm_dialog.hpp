@@ -1,4 +1,4 @@
-﻿
+
 class atm_menu
 {
 	idd = 111;
@@ -89,7 +89,7 @@ class atm_menu
 			w = 0.200013 * safezoneW;
 			h = 0.0679951 * safezoneH;
 		};
-		class RscEdit_1400: RSCEdit
+		class RscEdit_1400: RscEdit
 		{
 			idc = 1400;
 

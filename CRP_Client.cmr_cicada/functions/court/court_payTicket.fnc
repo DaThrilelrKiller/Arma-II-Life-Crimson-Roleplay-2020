@@ -41,7 +41,7 @@ court_myTickets set [_idx, "REMOVE"];
 court_myTickets = court_myTickets - ["REMOVE"];
 
 // Save tickets to server
-["SERVER", [player, court_myTickets], "S_court_saveTickets", false, false] call network_MPExec;
+["SERVER", [player, court_myTickets], "S_Court_saveTickets", false, false] call network_MPExec;
 
 // Notify
 ["ALL", [format["%1 paid a ticket: $%2 for %3", name player, [_amount] call main_formatMoney, _reason]], "network_chat", false, true] call network_MPExec;

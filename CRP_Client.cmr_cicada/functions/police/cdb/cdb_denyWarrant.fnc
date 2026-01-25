@@ -25,7 +25,7 @@ if (_report select 10 != "pending") exitWith {
 };
 
 // Update report status on server
-["SERVER", [_reportIndex, "denied"], "s_cdb_updateReport", false, false] call network_MPExec;
+["SERVER", [_reportIndex, "denied"], "S_Cdb_updateReport", false, false] call network_MPExec;
 
 systemChat format ["Warrant request denied for %1", _report select 3];
 ["ALL", [format["Warrant request denied by %1 for %2", name player, _report select 3]], "network_chat", false, true] call network_MPExec;

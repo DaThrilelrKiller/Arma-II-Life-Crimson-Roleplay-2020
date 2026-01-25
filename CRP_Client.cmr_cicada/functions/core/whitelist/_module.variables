@@ -1,4 +1,4 @@
-﻿
+
 whitelist_data = [
 /* Format: ["Display Name", "Variable Name", {Condition Code}, [Playtime Hours Required, Period Type (7 or 30), Time Type ("CIV", "UN", or "PD")]] */
 /* Period Type: 7 = 7-day total, 30 = 30-day total */
@@ -18,6 +18,9 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Senior Administrator","adminlevel4",{SwagDevs or adminlevel4}],
 ["Administrator","adminlevel3",{SwagDevs or adminlevel4}],
 ["Moderator","adminlevel2",{SwagDevs or adminlevel4}],
+
+// Community-picked role (manual whitelist)
+["Mayor (Governor)","mayor_id",{SwagDevs or adminlevel4}],
 
 ["Chief of Police","Chief_ID",{SwagDevs}],
 ["Police Captain","Cpt_id",{SwagDevs}],
@@ -64,7 +67,11 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["PMC Private","PMC_Private",{SwagDevs or PMC_General}],
 ["PMC Recruit","PMC_Recruit",{SwagDevs or PMC_General}],
 ["PMC Marksman","PMC_Marksman",{SwagDevs or PMC_General}],
-["PMC Aviation","PMC_Aviation",{SwagDevs or PMC_General}]
+["PMC Aviation","PMC_Aviation",{SwagDevs or PMC_General}],
+
+["Cicada Credit Company Employee","ccc_id",{SwagDevs}],
+
+["Judge","judge_id",{SwagDevs}]
 
 ];
 

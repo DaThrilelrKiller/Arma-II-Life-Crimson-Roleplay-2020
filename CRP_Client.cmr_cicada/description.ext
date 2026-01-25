@@ -1,4 +1,4 @@
-﻿onLoadIntro   = "RealLifeRPG 2.0";
+onLoadIntro   = "RealLifeRPG 2.0";
 onLoadMission = "RealLifeRPG 2.0";
 showCompass   = 1;
 showGPS       = 1;
@@ -19,15 +19,14 @@ onMinimapScript[] = {"BIS_customGPS_Spawn"};
 
 class Header
 {
-	 gameType = Life;            
+	 gameType = "Life";
 	 minPlayers = 1;             
 	 maxPlayers = 80;           
 };
 
-class MissionSQM
-{
-	#include "mission.sqm"
-};
+// NOTE:
+// Do not include mission.sqm here. mission.sqm contains top-level assignments (e.g. version=...),
+// and embedding it inside description.ext can break mission config parsing.
 
 #include "data\sounds\cfgSounds.hpp"
 
@@ -43,7 +42,7 @@ class MissionSQM
 #include "data\dialogs\invdialogs.hpp"
 #include "data\dialogs\spawn_dialog.hpp"
 #include "data\dialogs\ipad_dialog.hpp"
-#include "data\dialogs\cdb_dialog.hpp"
+#include "data\dialogs\cdb_dialog_new.hpp"
 #include "data\dialogs\admin_dialog.hpp"
 #include "data\dialogs\shipments_dialog.hpp"
 #include "data\dialogs\atm_dialog.hpp"
@@ -58,7 +57,6 @@ class MissionSQM
 #include "data\dialogs\radio_tower.hpp"
 #include "data\dialogs\clothing_dialog.hpp"
 #include "data\dialogs\house_diaglog.hpp"
-#include "data\dialogs\ticket_dialog.hpp"
 #include "data\dialogs\jail_diaglog.hpp"
 #include "data\dialogs\settings_diaglog.hpp"
 #include "data\dialogs\dealer_dialog.hpp"
@@ -68,6 +66,10 @@ class MissionSQM
 #include "data\dialogs\DTK_Lab.hpp"
 #include "data\dialogs\devcon.hpp"
 #include "data\dialogs\loading_dialog.hpp"
+#include "data\dialogs\credit_dialog.hpp"
+#include "data\dialogs\credit_employee_dialog.hpp"
+#include "data\dialogs\court_dialog.hpp"
+#include "data\dialogs\fuel_business_dialog.hpp"
 
 class RscTitles
 {

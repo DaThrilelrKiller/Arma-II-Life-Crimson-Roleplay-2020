@@ -9,7 +9,7 @@ if (count _locations == 0) exitWith {
 	[_x,_y,0]
 };
 
-_location = _locations call BIS_selectRandom;
+_location = _locations select floor (random (count _locations));
 _pos = locationPosition _location;
 
 _x = (_pos select 0);

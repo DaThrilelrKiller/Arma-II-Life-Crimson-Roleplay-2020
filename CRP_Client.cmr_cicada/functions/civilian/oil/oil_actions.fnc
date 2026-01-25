@@ -1,4 +1,4 @@
-﻿if (dtk_server)exitWith {};
+if (dtk_server)exitWith {};
 
 {
 	_x setVehicleVarName format ["drill_%1",_forEachIndex];
