@@ -13,21 +13,22 @@ if (isNil "_shop" || {isNull _shop}) exitWith {};
 if (isNil "_saleAmount" || {typeName _saleAmount != "SCALAR"} || {_saleAmount <= 0}) exitWith {};
 
 call S_Business_ensureFuelStations;
-if !(_shop in business_fuelStations) exitWith {};
+if ((business_fuelStations find _shop) < 0) exitWith {};
 
-private _section = format ["Fuel_%1", _shopIndex];
-private _ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
+private ["_section","_ownerUid","_rate","_profit","_balance","_newBalance"];
+_section = format ["Fuel_%1", _shopIndex];
+_ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
 if (_ownerUid == "") exitWith {};
 
-private _rate = if (isNil "dtk_fuelProfitRate") then {0.10} else {dtk_fuelProfitRate};
+_rate = if (isNil "dtk_fuelProfitRate") then {0.10} else {dtk_fuelProfitRate};
 if (_rate < 0) then {_rate = 0;};
 if (_rate > 1) then {_rate = 1;};
 
-private _profit = round (_saleAmount * _rate);
+_profit = round (_saleAmount * _rate);
 if (_profit <= 0) exitWith {};
 
-private _balance = ["Businesses", _section, "Balance", 0] call s_stats_read;
-private _newBalance = _balance + _profit;
+_balance = ["Businesses", _section, "Balance", 0] call s_stats_read;
+_newBalance = _balance + _profit;
 
 ["Businesses", _section, "Balance", _newBalance] call s_stats_write;
 

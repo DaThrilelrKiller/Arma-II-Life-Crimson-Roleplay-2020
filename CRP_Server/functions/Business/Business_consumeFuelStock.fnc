@@ -13,11 +13,12 @@ if (isNil "_shop" || {isNull _shop}) exitWith {};
 if (isNil "_litres" || {typeName _litres != "SCALAR"} || {_litres <= 0}) exitWith {};
 
 call S_Business_ensureFuelStations;
-if !(_shop in business_fuelStations) exitWith {};
+if ((business_fuelStations find _shop) < 0) exitWith {};
 
-private _section = format ["Fuel_%1", _shopIndex];
-private _stock = ["Businesses", _section, "FuelStock", dtk_fuelStockMax] call s_stats_read;
-private _newStock = _stock - _litres;
+private ["_section","_stock","_newStock"];
+_section = format ["Fuel_%1", _shopIndex];
+_stock = ["Businesses", _section, "FuelStock", dtk_fuelStockMax] call s_stats_read;
+_newStock = _stock - _litres;
 if (_newStock < 0) then { _newStock = 0; };
 
 ["Businesses", _section, "FuelStock", _newStock] call s_stats_write;

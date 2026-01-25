@@ -12,16 +12,17 @@ if (isNil "_player" || {isNull _player}) exitWith {};
 if (isNil "_shop" || {isNull _shop}) exitWith {};
 
 call S_Business_ensureFuelStations;
-if !(_shop in business_fuelStations) exitWith {};
+if ((business_fuelStations find _shop) < 0) exitWith {};
 
-private _section = format ["Fuel_%1", _shopIndex];
-private _ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
+private ["_section","_ownerUid","_myUid","_balance"];
+_section = format ["Fuel_%1", _shopIndex];
+_ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
 if (_ownerUid == "") exitWith { [_player, ["This fuel station is unowned."], {systemChat _this}, false, false] call network_MPExec; };
 
-private _myUid = getPlayerUID _player;
+_myUid = getPlayerUID _player;
 if (_ownerUid != _myUid) exitWith { [_player, ["You don't own this fuel station."], {systemChat _this}, false, false] call network_MPExec; };
 
-private _balance = ["Businesses", _section, "Balance", 0] call s_stats_read;
+_balance = ["Businesses", _section, "Balance", 0] call s_stats_read;
 if (_balance <= 0) exitWith { [_player, ["No balance to withdraw."], {systemChat _this}, false, false] call network_MPExec; };
 
 ["Businesses", _section, "Balance", 0] call s_stats_write;

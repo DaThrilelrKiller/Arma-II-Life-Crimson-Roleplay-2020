@@ -54,7 +54,8 @@ if (count _tickets == 0) then {
 _cases = if (isNil "court_cases") then {[]} else {court_cases};
 if ((typeName _cases) != "ARRAY") then {_cases = [];};
 
-private _foundCase = false;
+private ["_foundCase"];
+_foundCase = false;
 {
 	private ["_c","_caseID","_defUID","_charges","_status","_filed","_timeStr"];
 	_c = _x;

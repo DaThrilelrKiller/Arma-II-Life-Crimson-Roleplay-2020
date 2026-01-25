@@ -5,7 +5,7 @@ _unit = _this select 1;
 _whitelist = _this select 2;
 _value = _this select 3;
 
-_uid = getPlayerUid _unit;
+_uid = getPlayerUID _unit;
 
 [format["%1 - %2","Whitelist",_uid], "Whitelist", _whitelist, _value] call s_stats_write;
 

@@ -2,7 +2,7 @@ private ["_unit","_side","_uid","_name","_return","_value"];
 
 _unit = _this select 0;
 _side = _this select 1;
-_uid = getPlayerUid _unit;
+_uid = getPlayerUID _unit;
 _name = name _unit;
 _return = [];
 

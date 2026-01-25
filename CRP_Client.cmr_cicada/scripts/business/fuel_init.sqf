@@ -16,26 +16,28 @@ business_fuel_getMyUid = {
 };
 
 business_fuel_isIntegerString = {
-	private _s = _this;
+	private ["_s"];
+	_s = _this;
 	if (isNil "_s") exitWith {false};
 	if (typeName _s != "STRING") exitWith {false};
 	(_s call string_isInteger)
 };
 
 business_fuel_updateDialog = {
-	private _disp = findDisplay 7100;
+	private ["_disp","_shopIndex","_ownerUid","_ownerName","_balance","_forSale","_stock","_ownerText","_myUid","_btnBuy","_btnBuyForSale","_btnWithdraw","_btnSetForSale","_btnDeposit"];
+	_disp = findDisplay 7200;
 	if (isNull _disp) exitWith {};
 
-	private _shopIndex = business_fuel_data select 0;
-	private _ownerUid = business_fuel_data select 1;
-	private _ownerName = business_fuel_data select 2;
-	private _balance = business_fuel_data select 3;
-	private _forSale = business_fuel_data select 4;
-	private _stock = business_fuel_data select 5;
+	_shopIndex = business_fuel_data select 0;
+	_ownerUid = business_fuel_data select 1;
+	_ownerName = business_fuel_data select 2;
+	_balance = business_fuel_data select 3;
+	_forSale = business_fuel_data select 4;
+	_stock = business_fuel_data select 5;
 
 	(_disp displayCtrl 7101) ctrlSetText format ["Fuel Station #%1", _shopIndex];
 
-	private _ownerText = if (_ownerUid == "") then {"Unowned"} else {format ["Owned by: %1", _ownerName]};
+	_ownerText = if (_ownerUid == "") then {"Unowned"} else {format ["Owned by: %1", _ownerName]};
 	(_disp displayCtrl 7102) ctrlSetText _ownerText;
 
 	(_disp displayCtrl 7103) ctrlSetText format ["Balance: %1", [_balance] call Main_FormatMoney];
@@ -45,13 +47,13 @@ business_fuel_updateDialog = {
 	// Set edit box to current for-sale price (or 0)
 	(_disp displayCtrl 7105) ctrlSetText str _forSale;
 
-	private _myUid = call business_fuel_getMyUid;
+	_myUid = call business_fuel_getMyUid;
 
-	private _btnBuy = (_disp displayCtrl 7110);
-	private _btnBuyForSale = (_disp displayCtrl 7111);
-	private _btnWithdraw = (_disp displayCtrl 7112);
-	private _btnSetForSale = (_disp displayCtrl 7113);
-	private _btnDeposit = (_disp displayCtrl 7115);
+	_btnBuy = (_disp displayCtrl 7110);
+	_btnBuyForSale = (_disp displayCtrl 7111);
+	_btnWithdraw = (_disp displayCtrl 7112);
+	_btnSetForSale = (_disp displayCtrl 7113);
+	_btnDeposit = (_disp displayCtrl 7115);
 
 	_btnBuy ctrlEnable (_ownerUid == "");
 	_btnBuyForSale ctrlEnable (_ownerUid != "" && {_ownerUid != _myUid} && {_forSale > 0});
@@ -62,12 +64,13 @@ business_fuel_updateDialog = {
 
 business_fuel_receive = {
 	// Params: [shopIndex, ownerUid, ownerName, balance, forSalePrice, stock]
-	private _shopIndex = _this select 0;
-	private _ownerUid = _this select 1;
-	private _ownerName = _this select 2;
-	private _balance = _this select 3;
-	private _forSale = _this select 4;
-	private _stock = _this select 5;
+	private ["_shopIndex","_ownerUid","_ownerName","_balance","_forSale","_stock"];
+	_shopIndex = _this select 0;
+	_ownerUid = _this select 1;
+	_ownerName = _this select 2;
+	_balance = _this select 3;
+	_forSale = _this select 4;
+	_stock = _this select 5;
 
 	// Ignore stale responses
 	if (_shopIndex != business_fuel_shopIndex) exitWith {};
@@ -77,7 +80,8 @@ business_fuel_receive = {
 };
 
 business_fuel_withdrawReceive = {
-	private _amount = _this select 0;
+	private ["_amount"];
+	_amount = _this select 0;
 	if (isNil "_amount") exitWith {};
 	if (typeName _amount != "SCALAR") exitWith {};
 	if (_amount <= 0) exitWith {};
@@ -86,7 +90,8 @@ business_fuel_withdrawReceive = {
 };
 
 business_fuel_refund = {
-	private _amount = _this select 0;
+	private ["_amount"];
+	_amount = _this select 0;
 	if (isNil "_amount") exitWith {};
 	if (typeName _amount != "SCALAR") exitWith {};
 	if (_amount <= 0) exitWith {};
@@ -101,7 +106,8 @@ business_fuel_requestRefresh = {
 };
 
 business_fuel_open = {
-	private _target = _this select 0;
+	private ["_target"];
+	_target = _this select 0;
 	if (isNil "_target" || {isNull _target}) exitWith {};
 
 	business_fuel_shopObject = _target;
@@ -118,10 +124,11 @@ business_fuel_open = {
 
 business_fuel_buy = {
 	// Buy unowned station
-	private _ownerUid = business_fuel_data select 1;
+	private ["_ownerUid","_price"];
+	_ownerUid = business_fuel_data select 1;
 	if (_ownerUid != "") exitWith { systemChat "This fuel station is already owned."; };
 
-	private _price = if (isNil "dtk_fuelStationBuyPrice") then {250000} else {dtk_fuelStationBuyPrice};
+	_price = if (isNil "dtk_fuelStationBuyPrice") then {250000} else {dtk_fuelStationBuyPrice};
 	if (dtk_bank < _price) exitWith { systemChat format ["You need %1 in bank to buy this station.", [_price] call Main_FormatMoney]; };
 
 	dtk_bank = dtk_bank - _price;
@@ -131,8 +138,9 @@ business_fuel_buy = {
 
 business_fuel_buyForSale = {
 	// Buy from another player if for sale
-	private _ownerUid = business_fuel_data select 1;
-	private _forSale = business_fuel_data select 4;
+	private ["_ownerUid","_forSale"];
+	_ownerUid = business_fuel_data select 1;
+	_forSale = business_fuel_data select 4;
 	if (_ownerUid == "") exitWith { systemChat "This station is unowned (use Buy)."; };
 	if (_forSale <= 0) exitWith { systemChat "This station is not for sale."; };
 	if (_ownerUid == (call business_fuel_getMyUid)) exitWith { systemChat "You already own this station."; };
@@ -150,12 +158,13 @@ business_fuel_withdraw = {
 };
 
 business_fuel_setForSale = {
-	private _disp = findDisplay 7100;
+	private ["_disp","_priceText","_price"];
+	_disp = findDisplay 7200;
 	if (isNull _disp) exitWith {};
 
-	private _priceText = ctrlText 7105;
+	_priceText = ctrlText 7105;
 	if (!(_priceText call business_fuel_isIntegerString)) exitWith { systemChat "Enter a valid number (0 = not for sale)."; };
-	private _price = _priceText call string_toInt;
+	_price = _priceText call string_toInt;
 	if (_price < 0) exitWith { systemChat "Price must be 0 or more."; };
 
 	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_price],"S_business_setForSaleFuel",false,false] call network_MPExec;
@@ -164,15 +173,16 @@ business_fuel_setForSale = {
 
 business_fuel_deposit = {
 	// Deposits all GasBarrel items into station stock
-	private _ownerUid = business_fuel_data select 1;
-	private _myUid = call business_fuel_getMyUid;
+	private ["_ownerUid","_myUid","_count","_litersPer","_liters"];
+	_ownerUid = business_fuel_data select 1;
+	_myUid = call business_fuel_getMyUid;
 	if (_ownerUid != _myUid) exitWith { systemChat "You don't own this fuel station."; };
 
-	private _count = [player,"GasBarrel"] call storage_amount;
+	_count = [player,"GasBarrel"] call storage_amount;
 	if (_count <= 0) exitWith { systemChat "You have no Gasoline Barrels to deposit."; };
 
-	private _litersPer = if (isNil "dtk_fuelBarrelLiters") then {100} else {dtk_fuelBarrelLiters};
-	private _liters = _count * _litersPer;
+	_litersPer = if (isNil "dtk_fuelBarrelLiters") then {100} else {dtk_fuelBarrelLiters};
+	_liters = _count * _litersPer;
 
 	[player,"GasBarrel",-_count] call storage_add;
 	["SERVER",[player,business_fuel_shopObject,business_fuel_shopIndex,_liters],"S_business_addFuelStock",false,false] call network_MPExec;
@@ -181,16 +191,17 @@ business_fuel_deposit = {
 
 business_fuel_recordSale = {
 	// Params: [saleAmount]
-	private _saleAmount = _this select 0;
+	private ["_saleAmount","_fuelObjects","_shopIndex"];
+	_saleAmount = _this select 0;
 	if (isNil "_saleAmount" || {typeName _saleAmount != "SCALAR"} || {_saleAmount <= 0}) exitWith {};
 	if (isNull shop_object) exitWith {};
 
 	// Only report sales for fuel station shops
-	private _fuelObjects = missionNamespace getVariable ["dtk_fuelShopObjects", []];
+	_fuelObjects = missionNamespace getVariable ["dtk_fuelShopObjects", []];
 	if (typeName _fuelObjects != "ARRAY") exitWith {};
-	if !(shop_object in _fuelObjects) exitWith {};
+	if ((_fuelObjects find shop_object) < 0) exitWith {};
 
-	private _shopIndex = shop_object getVariable ["shop_data",-1];
+	_shopIndex = shop_object getVariable ["shop_data",-1];
 	if (_shopIndex < 0) exitWith {};
 
 	["SERVER",[player,shop_object,_shopIndex,_saleAmount],"S_business_recordSale",false,false] call network_MPExec;

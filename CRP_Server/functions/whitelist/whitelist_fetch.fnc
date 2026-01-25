@@ -3,7 +3,7 @@ _player = _this select 0;
 _unit = _this select 1;
 
 _name = name _unit;
-_uid = getPlayerUid _unit;
+_uid = getPlayerUID _unit;
 _return = [];
 
 {

@@ -44,28 +44,32 @@ dtk_fuelShopObjects = [];
 		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
 
 		// Fuel station business management action (fuel shops only)
-		if (_text in _fuelStationNames) then {
+		if ((_fuelStationNames find _text) > -1) then {
 			dtk_fuelShopObjects set [count dtk_fuelShopObjects, _shop];
 			// noscript.sqf executes the string with the original action _this, so use (_this select 0)
-			_shop addAction ["Manage Fuel Station","noscript.sqf","[(_this select 0)] call business_fuel_open;", 24, false, true, "", "player distance _target < 5"];
+			_shop addAction ["","noscript.sqf","[(_this select 0)] call business_fuel_open;", 24, false, true, "LeanRight", "player distance _target < 5 && {!([_target,'Manage Fuel Station (E)','data\\images\\tags\\Gas pump']call tag_show)}"];
 		};
 	};
 }forEach INV_ItemShops;
 
 // Store indices after all shops have been indexed
-dtk_fuelShopIndices = dtk_fuelShopObjects apply { _x getVariable ["shop_data",-1] };
+dtk_fuelShopIndices = [];
+{
+	dtk_fuelShopIndices set [count dtk_fuelShopIndices, (_x getVariable ["shop_data",-1])];
+} forEach dtk_fuelShopObjects;
 
 // Associate each fuel station shop with its nearest fuel pump feed object
 // so vehicle fueling can consume this station's stock.
 {
-	private _shopObj = _x;
-	private _idx = _shopObj getVariable ["shop_data",-1];
-	if (_idx < 0) then { continue; };
-
-	private _feeds = nearestObjects [getPos _shopObj, ["MAP_A_FuelStation_Feed","Land_A_Fuelstation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_benzina_schnell","Land_fuelstation_army"], 35];
-	if (count _feeds > 0) then {
-		private _feed = _feeds select 0;
-		_feed setVariable ["fuel_stationShopIndex", _idx, true];
-		_feed setVariable ["fuel_stationShopObj", _shopObj, true];
+	private ["_shopObj","_idx","_feeds","_feed"];
+	_shopObj = _x;
+	_idx = _shopObj getVariable ["shop_data",-1];
+	if (_idx >= 0) then {
+		_feeds = nearestObjects [getPos _shopObj, ["MAP_A_FuelStation_Feed","Land_A_Fuelstation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_benzina_schnell","Land_fuelstation_army"], 35];
+		if (count _feeds > 0) then {
+			_feed = _feeds select 0;
+			_feed setVariable ["fuel_stationShopIndex", _idx, true];
+			_feed setVariable ["fuel_stationShopObj", _shopObj, true];
+		};
 	};
 } forEach dtk_fuelShopObjects;

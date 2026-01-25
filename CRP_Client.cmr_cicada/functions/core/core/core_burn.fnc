@@ -76,7 +76,7 @@ while {(_int>3) && !(isNull _fire) && !(isNull _obj)} do
 		_int = _original *(1 -(damage _obj)*1);
 	};
 	
-	if (player distance _obj < 5 && {!(typeOf player in ["a2l_firefighter1","a2l_firefighter"])})then {
+	if (player distance _obj < 5 && {((["a2l_firefighter1","a2l_firefighter"] find (typeOf player)) < 0)})then {
 		_damage = damage player;
 		player setDamage _damage + 0.03;
 	};

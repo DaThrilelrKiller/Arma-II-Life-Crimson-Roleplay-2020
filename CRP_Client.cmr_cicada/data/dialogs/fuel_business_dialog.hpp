@@ -1,6 +1,6 @@
 class fuel_business_dialog
 {
-	idd = 7100;
+	idd = 7200;
 	movingEnable = 0;
 	enableSimulation = 1;
 	onUnload = "business_fuel_shopObject = objNull; business_fuel_shopIndex = -1;";

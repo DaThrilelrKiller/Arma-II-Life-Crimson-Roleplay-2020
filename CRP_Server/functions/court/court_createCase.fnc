@@ -1,9 +1,10 @@
 // Server-side: Create a new court case
-private _case = _this select 0;
+private ["_case","_caseID"];
+_case = _this select 0;
 
 // Assign case ID
 court_caseID = court_caseID + 1;
-private _caseID = court_caseID;
+_caseID = court_caseID;
 
 // Update case with ID
 _case set [0, _caseID];

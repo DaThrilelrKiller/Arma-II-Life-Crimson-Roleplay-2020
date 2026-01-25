@@ -1,6 +1,7 @@
 // Server-side: Update a court case
-private _caseID = _this select 0;
-private _caseData = _this select 1;
+private ["_caseID","_caseData"];
+_caseID = _this select 0;
+_caseData = _this select 1;
 
 // Find and update case
 {

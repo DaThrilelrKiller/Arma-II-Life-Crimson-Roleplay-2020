@@ -3,9 +3,10 @@ court_cases = ["server", "Court", "Cases", []] call S_stats_read;
 court_caseID = ["server", "Court", "CaseID", 0] call S_stats_read;
 
 // Validate and clean up cases (remove references to offline players)
-private _validCases = [];
+private ["_validCases","_case"];
+_validCases = [];
 {
-	private _case = _x;
+	_case = _x;
 	if (count _case >= 10) then {
 		// Keep the case structure but note that player objects won't persist
 		_validCases set [count _validCases, _case];

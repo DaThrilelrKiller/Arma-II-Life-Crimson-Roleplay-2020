@@ -15,11 +15,12 @@ if (isNil "_price" || {typeName _price != "SCALAR"}) exitWith {};
 if (_price < 0) then {_price = 0;};
 
 call S_Business_ensureFuelStations;
-if !(_shop in business_fuelStations) exitWith {};
+if ((business_fuelStations find _shop) < 0) exitWith {};
 
-private _section = format ["Fuel_%1", _shopIndex];
-private _ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
-private _myUid = getPlayerUID _player;
+private ["_section","_ownerUid","_myUid"];
+_section = format ["Fuel_%1", _shopIndex];
+_ownerUid = ["Businesses", _section, "OwnerUID", ""] call s_stats_read;
+_myUid = getPlayerUID _player;
 
 if (_ownerUid != _myUid) exitWith { [_player, ["You don't own this fuel station."], {systemChat _this}, false, false] call network_MPExec; };
 
