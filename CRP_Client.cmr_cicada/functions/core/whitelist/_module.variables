@@ -19,6 +19,9 @@ This would require 10 hours of PD time in the last 7 days to auto-whitelist
 ["Administrator","adminlevel3",{SwagDevs or adminlevel4}],
 ["Moderator","adminlevel2",{SwagDevs or adminlevel4}],
 
+// Community-picked role (manual whitelist)
+["Mayor (Governor)","mayor_id",{SwagDevs or adminlevel4}],
+
 ["Chief of Police","Chief_ID",{SwagDevs}],
 ["Police Captain","Cpt_id",{SwagDevs}],
 ["Police Lieutenant","Lt_id",{SwagDevs}],

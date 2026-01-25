@@ -1,4 +1,4 @@
-﻿_array = _this select 3;
+_array = _this select 3;
 _art   = _array select 0;
 _geld  = [player,"geld"] call storage_amount;
 _zusatzString = "";
@@ -11,39 +11,52 @@ if ((count _array)>1) then
 
 if (_art == "lawswag") then 
 {
-	if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
-	
-	lbAdd [1, _trennlinie];
-	lbAdd [1, "Emita County Mayor"];
+	if (!(createDialog "lawsdialog")) exitWith {hint "Dialog Error!";};
+
 	_mayor = call goverment_govonor;
 	_mayor = if (isNull _mayor)then {"Currently no Governor"}else{name _mayor};
-	lbAdd [1, _mayor];
+	ctrlSetText [901, format["Mayor (Governor): %1", _mayor]];
 
+	lbClear 910;
+	lbClear 920;
 
-	lbAdd [1, _trennlinie];
-	lbAdd [1, localize "STRS_statdialog_laws"];		
-	
-	_i = 0;
+	// Laws list (show empty slots as (empty) so the list stays consistent)
 	{
-		if (not(_x == "")) then 
-		{
-			_i = _i + 1;
-			lbAdd [1, (format ["%1: %2", _i, _x])];
-			true
-		};
-	}
-	count GesetzArray;
+		private ["_lawText","_label","_idx"];
+		_lawText = _x;
+		_label = if (_lawText == "") then {"(empty)"} else {_lawText};
+		_idx = lbAdd [910, format["Law %1: %2", (_forEachIndex + 1), _label]];
+		lbSetData [910, _idx, _lawText];
+		true
+	} count GesetzArray;
 
-	lbAdd [1, _trennlinie];	
-	lbAdd [1, localize "STRS_statdialog_taxes"];	
+	// Taxes list
 	{
-		if ((_x select 2) > 0) then 
+		private ["_name","_val"];
+		_name = _x select 1;
+		_val = _x select 2;
+		lbAdd [920, format["%1: %2", _name, _val]];
+		true
+	} count INV_ItemTypenArray;
+
+	lbSetCurSel [910, 0];
+
+	// Preview of selected law (wraps nicely)
+	private ["_lastSel"];
+	_lastSel = -1;
+	while {ctrlVisible 9099} do
+	{
+		private ["_sel","_raw"];
+		_sel = lbCurSel 910;
+		if (_sel != _lastSel && {_sel >= 0}) then
 		{
-			lbAdd [1, format["%1: %2", (_x select 1), (_x select 2)] ];	
-			true
+			_raw = lbData [910, _sel];
+			if (_raw == "") then {_raw = "(empty)";};
+			ctrlSetStructuredText [911, parseText format["<t size='1.0'>Selected: Law %1</t><br/><t size='0.9'>%2</t>", (_sel + 1), _raw]];
+			_lastSel = _sel;
 		};
-	}
-	count INV_ItemTypenArray;
+		sleep 0.1;
+	};
 };
 if (_art == "playerlist") then {
 if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
@@ -79,14 +92,18 @@ if (_art == "gesetz") then
 {
 	if (!(createDialog "gesetzdialog")) exitWith {hint "Dialog Error!";};
 	{
-		_index = lbAdd [1, _x];
-		lbSetData [1, _index, _x];
+		private ["_lawText","_label","_index"];
+		_lawText = _x;
+		_label = if (_lawText == "") then {"(empty)"} else {_lawText};
+		_index = lbAdd [1, format["Law %1: %2", (_forEachIndex + 1), _label]];
+		lbSetData [1, _index, _lawText];
 	}count GesetzArray;
 	
 	while {ctrlVisible 1020} do 
 	{
 		_selected = lbCurSel 1;
-		ctrlSetText [2, lbText [1, _selected]];
+		ctrlSetText [2, lbData [1, _selected]];
+		ctrlSetText [4, format["%1 / 60", (ctrlText 2) call string_length]];
 		waitUntil {((not(_selected == lbCurSel 1)) or (not(ctrlVisible 1020)))};
 	};
 };

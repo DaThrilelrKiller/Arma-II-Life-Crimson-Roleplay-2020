@@ -16,6 +16,7 @@ dtk_server_modules =
 "Hunting",
 "Zone",
 "Whitelist",
+	"Goverment",
 "Accidents",
 "EMS",
 "House",
