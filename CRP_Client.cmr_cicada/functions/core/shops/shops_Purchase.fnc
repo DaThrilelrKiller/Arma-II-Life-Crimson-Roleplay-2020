@@ -1,4 +1,4 @@
-private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge"];
+﻿private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge"];
 
 if(dtk_shopactive)exitWith {
 	systemchat "Shop script is already running";
@@ -132,9 +132,6 @@ switch(_itemtype)do
 if (_return) then
 {
 	[_cost,true,_info,_amount] call shops_ProcessMoney;
-	if (!isNil "business_fuel_recordSale") then {
-		[_cost] call business_fuel_recordSale;
-	};
 	call shops_refresh;
 };
 dtk_shopactive = false;

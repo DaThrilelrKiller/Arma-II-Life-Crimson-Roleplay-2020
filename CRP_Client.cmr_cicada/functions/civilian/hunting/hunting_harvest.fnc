@@ -7,18 +7,18 @@ _animalType = typeOf _animal;
 _tagItem = call {
 	if (_animalType == "WildBoar")exitWith {"huntingtag_boar"};
 	if (_animalType == "Rabbit")exitWith {"huntingtag_rabbit"};
-	if ((["Cow","Cow01","Cow02","Cow03","Cow04","Cow01_EP1"] find _animalType) > -1)exitWith {"huntingtag_cow"};
-	if ((["Goat","Goat01_EP1","Goat02_EP1"] find _animalType) > -1)exitWith {"huntingtag_goat"};
-	if ((["Sheep","Sheep01_EP1","Sheep02_EP1"] find _animalType) > -1)exitWith {"huntingtag_sheep"};
+	if (_animalType in ["Cow","Cow01","Cow02","Cow03","Cow04","Cow01_EP1"])exitWith {"huntingtag_cow"};
+	if (_animalType in ["Goat","Goat01_EP1","Goat02_EP1"])exitWith {"huntingtag_goat"};
+	if (_animalType in ["Sheep","Sheep01_EP1","Sheep02_EP1"])exitWith {"huntingtag_sheep"};
 	"huntingtag_cow"
 };
 
 _meatItem = call {
 	if (_animalType == "WildBoar")exitWith {"rawboar"};
 	if (_animalType == "Rabbit")exitWith {"rawrabbit"};
-	if ((["Cow","Cow01","Cow02","Cow03","Cow04","Cow01_EP1"] find _animalType) > -1)exitWith {"rawcow"};
-	if ((["Goat","Goat01_EP1","Goat02_EP1"] find _animalType) > -1)exitWith {"rawgoat"};
-	if ((["Sheep","Sheep01_EP1","Sheep02_EP1"] find _animalType) > -1)exitWith {"rawsheep"};
+	if (_animalType in ["Cow","Cow01","Cow02","Cow03","Cow04","Cow01_EP1"])exitWith {"rawcow"};
+	if (_animalType in ["Goat","Goat01_EP1","Goat02_EP1"])exitWith {"rawgoat"};
+	if (_animalType in ["Sheep","Sheep01_EP1","Sheep02_EP1"])exitWith {"rawsheep"};
 	"rawcow"
 };
 

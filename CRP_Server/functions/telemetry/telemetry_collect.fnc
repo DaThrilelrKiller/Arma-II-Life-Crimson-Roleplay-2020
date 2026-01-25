@@ -25,7 +25,7 @@ if (typeName _this == "ARRAY")then {
 	}else{
 		_data = [
 			name player,
-			getPlayerUID player,
+			getPlayerUid player,
 			player,
 			typeOf player,
 			dtk_LagTime,

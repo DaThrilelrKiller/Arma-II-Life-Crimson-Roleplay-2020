@@ -1,4 +1,4 @@
-private ["_display","_chat","_text","_stringElements","_command"];
+﻿private ["_display","_chat","_text","_stringElements","_command"];
 
 [player,format['typed "%1" in chat',_this],[1,1,1,1]]call admin_logs_add;
 
@@ -59,7 +59,7 @@ switch (_command) do
 	{
 		private ["_detail","_message"];
 		_detail = parseNumber (_stringElements select 1);
-		if (([50, 25, 12.5, 6.25, 3.125] find _detail) < 0)exitWith 
+		if !(_detail in [50, 25, 12.5, 6.25,3.125])exitWith 
 		{
 		_message = format ["50 - smoothest, less lag\n 25 - default in multiplayer \n 12.5 - default in singleplayer \n 6.25 \n 3.125 - bumpiest, higher lag"];
 		[true,"Invalid Detail",_message]call Main_Notification;

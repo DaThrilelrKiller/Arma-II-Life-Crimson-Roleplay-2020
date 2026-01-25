@@ -15,11 +15,11 @@ if (_weapon == "FirefighterWeap2") then
 	if (count _object == 0)exitWith {};
 	_object = _object select 0;
 	
-	if (inflamed _object && {(["Misc_TyreHeap","Land_Campfire","Land_Campfire_burning"] find (typeOf _object)) > -1})exitWith {
+	if (inflamed _object && {typeOf _object in ["Misc_TyreHeap","Land_Campfire","Land_Campfire_burning"]})exitWith {
 		_object inFlame false;
 	};
 	
-	if ((["#particlesource"] find (typeOf _object)) > -1)exitWith {
+	if (typeOf _object in ["#particlesource"])exitWith {
 		_object setDamage (damage _object + random 0.015);
 		_damage = 100 - (round ((damage _object)*100));
 		[format['%1%2 of the fire contained',_damage,"%"],'data\images\tags\fire',true]call tag_notify;

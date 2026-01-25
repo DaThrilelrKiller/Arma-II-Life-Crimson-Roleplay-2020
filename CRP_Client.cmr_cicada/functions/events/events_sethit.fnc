@@ -1,4 +1,4 @@
-
+﻿
 if(!alive player)exitwith{};
 
 private ["_vehicle","_selection","_damage","_shooter","_ammo"];
@@ -9,7 +9,7 @@ _shooter	= _this select 3;
 _ammo		= _this select 4;
 
 
-if(player == _vehicle && {(["DDOPP_B_Taser","B_12Gauge_74Slug","F_40mm_White","B_9x19_SD","15Rnd_9x19_M9SD"] find _ammo) > -1}) exitwith {
+if(player == _vehicle && {_ammo in ["DDOPP_B_Taser","B_12Gauge_74Slug","F_40mm_White","B_9x19_SD","15Rnd_9x19_M9SD"]}) exitwith {
 	[_shooter,_vehicle, _selection] execVM "scripts\stun.sqf";
 	false
 };

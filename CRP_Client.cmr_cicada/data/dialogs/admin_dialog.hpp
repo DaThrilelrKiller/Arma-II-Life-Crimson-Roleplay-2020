@@ -1,4 +1,4 @@
-class admin_clothes
+﻿class admin_clothes
 {
 	idd = 555;
 	
@@ -172,7 +172,7 @@ class admin_teleport
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			colorSelectBackground[] = {0.5,0,0,0.5};
 			idc = 1500;
@@ -235,7 +235,7 @@ class admin_console
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -256,7 +256,7 @@ class admin_console
 			htmlControl = true;
 			autocomplete = "scripting";
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			onLBSelChanged = "_this call admin_console_handler;";
@@ -348,7 +348,7 @@ class admin_logs
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -356,7 +356,7 @@ class admin_logs
 			w = 0.143976 * safezoneW;
 			h = 0.476022 * safezoneH;
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idcLeft = 1501; 
 			x = 0.372021 * safezoneW + safezoneX;
@@ -429,7 +429,7 @@ class admin_licenses
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -439,7 +439,7 @@ class admin_licenses
 			colorSelectBackground[] = {0.5,0,0,0.5};
 			onLBSelChanged = "_this call admin_exec1;";
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			x = 0.372021 * safezoneW + safezoneX;
@@ -448,7 +448,7 @@ class admin_licenses
 			h = 0.527024 * safezoneH;
 			colorSelectBackground[] = {0.5,0,0,0.5};
 		};
-		class RscListbox_1502: RscListBox
+		class RscListbox_1502: RscListbox
 		{
 			idc = 1502;
 			x = 0.611982 * safezoneW + safezoneX;
@@ -535,7 +535,7 @@ class admin_inventory
 			h = 0.0340016 * safezoneH;
 			onLBSelChanged = "_this call admin_inventory_handler;";
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -545,7 +545,7 @@ class admin_inventory
 			colorSelectBackground[] = {0.5,0,0,0.5};
 			onLBSelChanged = "_this call admin_exec1;";
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			x = 0.372021 * safezoneW + safezoneX;
@@ -554,7 +554,7 @@ class admin_inventory
 			h = 0.527024 * safezoneH;
 			colorSelectBackground[] = {0.5,0,0,0.5};
 		};
-		class RscListbox_1502: RscListBox
+		class RscListbox_1502: RscListbox
 		{
 			idc = 1502;
 			x = 0.611982 * safezoneW + safezoneX;
@@ -646,7 +646,7 @@ class admin_vehicles
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -656,7 +656,7 @@ class admin_vehicles
 			colorSelectBackground[] = {0.5,0,0,0.5};
 			onLBSelChanged = "_this call admin_exec1;";
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			x = 0.372021 * safezoneW + safezoneX;
@@ -665,7 +665,7 @@ class admin_vehicles
 			h = 0.527024 * safezoneH;
 			colorSelectBackground[] = {0.5,0,0,0.5};
 		};
-		class RscListbox_1502: RscListBox
+		class RscListbox_1502: RscListbox
 		{
 			idc = 1502;
 			x = 0.611982 * safezoneW + safezoneX;
@@ -755,7 +755,7 @@ class admin_update
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			x = 0.188052 * safezoneW + safezoneX;
@@ -776,7 +776,7 @@ class admin_update
 			htmlControl = true;
 			autocomplete = "scripting";
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			onLBSelChanged = "_this call admin_update_handler;";

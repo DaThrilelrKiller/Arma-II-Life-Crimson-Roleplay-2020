@@ -56,7 +56,6 @@ dtk_active_modules =
 ["Core","Tag"],
 ["Core","Hud"],
 ["Core","Log"],
-["Core","Credit"],
 
 "Police",
 ["Police","ID"],
@@ -64,6 +63,7 @@ dtk_active_modules =
 ["Police","Plates"],
 ["Police","Cuffs"],
 ["Police","Dog"],
+["Police","Ticket"],
 ["Police","Jail"],
 ["Police","Speedcam"],
 ["Police","Flashbang"],
@@ -97,7 +97,6 @@ dtk_active_modules =
 "Groups",
 "Paint",
 "Goverment",
-"Court",
 "Dealer",
 "Impound",
 "Markers",

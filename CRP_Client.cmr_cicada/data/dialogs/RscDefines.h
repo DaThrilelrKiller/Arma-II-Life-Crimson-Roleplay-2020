@@ -1,4 +1,4 @@
-#define armat_jailsoundloc []
+﻿#define armat_jailsoundloc []
 #define FontM 			"Zeppelin32"
 #define FontHTML 		"Zeppelin32"
 #define CT_STATIC 		0
@@ -68,40 +68,7 @@
 #define LB_TEXTURES 0x10 
 #define LB_MULTI 0x20 
 #define true 1
-#define false 0
-
-// ------------------------------------------------------------
-// Crimson Roleplay UI Theme (dark, modern, readable)
-// ------------------------------------------------------------
-#define CRP_UI_BG_R 0.10
-#define CRP_UI_BG_G 0.10
-#define CRP_UI_BG_B 0.15
-#define CRP_UI_BG_A 0.95
-
-#define CRP_UI_PANEL_R 0.12
-#define CRP_UI_PANEL_G 0.12
-#define CRP_UI_PANEL_B 0.18
-#define CRP_UI_PANEL_A 0.90
-
-#define CRP_UI_HEADER_R 0.20
-#define CRP_UI_HEADER_G 0.20
-#define CRP_UI_HEADER_B 0.40
-#define CRP_UI_HEADER_A 1.00
-
-#define CRP_UI_EDIT_R 0.20
-#define CRP_UI_EDIT_G 0.20
-#define CRP_UI_EDIT_B 0.25
-#define CRP_UI_EDIT_A 1.00
-
-#define CRP_UI_BTN_R 0.16
-#define CRP_UI_BTN_G 0.17
-#define CRP_UI_BTN_B 0.22
-#define CRP_UI_BTN_A 1.00
-
-#define CRP_UI_BTN_HOVER_R 0.20
-#define CRP_UI_BTN_HOVER_G 0.22
-#define CRP_UI_BTN_HOVER_B 0.30
-#define CRP_UI_BTN_HOVER_A 1.00
+#define false 1
 
 
 class RLRPG_MainHUD_RscText {
@@ -260,14 +227,14 @@ class RscStructuredText
 	lineSpacing = 1;
 
 	colorBackground[] = {0,0,0,0};
-	colorText[] = {1, 1, 1, 1};
+	colorText[] = {0.6, 0.8392, 0.4706, 0};
 
 	text = "";
 
 	class Attributes
 	{
 		font  = "Zeppelin32";
-		color = "#FFFFFF";
+		color = "#FF6600";
 		align = "left";
 		shadow = false;
 	};
@@ -317,7 +284,7 @@ class RscBackground
 
 {
 
-colorBackground[] = { CRP_UI_BG_R, CRP_UI_BG_G, CRP_UI_BG_B, CRP_UI_BG_A };
+colorBackground[] = { 0, 0, 0, 0.8 };
 text              = "";
 type              = CT_STATIC;
 idc               = -1;
@@ -371,19 +338,19 @@ class RscButton
 	soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.09, 1};
 	default                   = false;
 	text                      = "";
-	colorActive[]             = {1, 1, 1, 1};
+	colorActive[]             = {0, 0, 0, 0};
 	colorDisabled[]           = {1,1,1,0.5};
-	colorBackground[]         = {CRP_UI_BTN_R, CRP_UI_BTN_G, CRP_UI_BTN_B, CRP_UI_BTN_A};
-	colorBackgroundActive[]   = {CRP_UI_BTN_HOVER_R, CRP_UI_BTN_HOVER_G, CRP_UI_BTN_HOVER_B, CRP_UI_BTN_HOVER_A};
-	colorBackgroundDisabled[] = {CRP_UI_BTN_R, CRP_UI_BTN_G, CRP_UI_BTN_B, 0.35};
-	colorFocused[]            = {CRP_UI_BTN_HOVER_R, CRP_UI_BTN_HOVER_G, CRP_UI_BTN_HOVER_B, CRP_UI_BTN_HOVER_A};
+	colorBackground[]         = {0,0,0,1};
+	colorBackgroundActive[]   = {0,0,0,1};
+	colorBackgroundDisabled[] = {0,0,0,0.5};
+	colorFocused[]            = {0,0,0,1};
 	colorShadow[]             = {0, 0, 0, 0.1};
-	colorBorder[]             = {1, 1, 1, 0.08};
+	colorBorder[]             = {1, 1, 1, 0};
 	offsetX                   = 0;
 	offsetY                   = 0;
 	offsetPressedX            = 0;
 	offsetPressedY            = 0;
-	borderSize                = 0.002;
+	borderSize                = 0;
 	soundEnter[]              = {"", 0.15, 1};
 	action = "closeDialog 0;";
 };
@@ -440,8 +407,6 @@ font = FontHTML;
 sizeEx = 0.02;
 colorText[] = {1, 1, 1, 1};
 colorSelection[] = {0.5, 0.5, 0.5, 1};
-colorBackground[] = {CRP_UI_EDIT_R, CRP_UI_EDIT_G, CRP_UI_EDIT_B, CRP_UI_EDIT_A};
-colorDisabled[] = {0.3, 0.3, 0.3, 1};
 autocomplete = false;text = "";
 
 };
@@ -451,9 +416,9 @@ class RscLB_C
 	style                   = ST_LEFT;
 	idc                     = -1;
 	colorSelect[]           = {1, 1, 1, 1};
-	colorSelectBackground[] = {CRP_UI_HEADER_R, CRP_UI_HEADER_G, CRP_UI_HEADER_B, 0.55};
-	colorText[]             = {0.95, 0.95, 0.98, 1};
-	colorBackground[]       = {CRP_UI_PANEL_R, CRP_UI_PANEL_G, CRP_UI_PANEL_B, 0.90};
+	colorSelectBackground[] = {0, 0, 0, 0.5};
+	colorText[]             = {1, 1, 1, 1};
+	colorBackground[]       = {0, 0, 0, 0.5};
 	colorScrollbar[] 	= {Dlg_Color_White,1};
 	font                    = FontHTML;
 	sizeEx                  = 0.025;
@@ -511,17 +476,17 @@ colorActive[] = {1, 1, 1, 1};
 class Rsc_lable 
 {
 	type = 0;
-	style = ST_CENTER;
+	style = 0;
 	idc = -1;
 	x = 0;
 	y =0;
 	w = 0;
 	h = 0;
 	text = "";
-	colorBackground[] = {CRP_UI_HEADER_R, CRP_UI_HEADER_G, CRP_UI_HEADER_B, CRP_UI_HEADER_A};
+	colorBackground[] = {0,0,0,1};
 	colorText[] = {1,1,1,1};
 	font = "Zeppelin32";
-	sizeEx = 0.045;
+	sizeEx = 0.04;
 };
 
 class RscListNBox

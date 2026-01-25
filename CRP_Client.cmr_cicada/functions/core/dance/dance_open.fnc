@@ -1,5 +1,5 @@
-if (dialog)exitWith {closeDialog 0};
-if ((["actspercmstpsnonwrfldnon_interrogate02_forgoten","civilsitting03","civilsitting02","civilsitting01","civilsitting"] find (animationstate player)) > -1)exitWith {};
+﻿if (dialog)exitWith {closeDialog 0};
+if (animationstate player in ["actspercmstpsnonwrfldnon_interrogate02_forgoten","civilsitting03","civilsitting02","civilsitting01","civilsitting"])exitWith {};
 if (lifeState player == "UNCONSCIOUS")exitWith{};
 
 createDialog "animationsdialog";

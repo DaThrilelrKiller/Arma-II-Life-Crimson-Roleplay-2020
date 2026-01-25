@@ -1,4 +1,4 @@
-private ["_item","_return"];
+﻿private ["_item","_return"];
 
 _item = toLower (_this select 0);
 
@@ -26,8 +26,6 @@ _return = _item call {
 	if (_this == "emptyvodka")exitwith {"wine"};
 	if (_this == "emptywiskey")exitwith {"wine"};
 	if (_this == "oilbarrel")exitwith {"barrels"};
-	if (_this == "gasbarrel")exitwith {"barrels"};
-	if (_this == "rawgas")exitwith {"barrels"};
 	if (_this == "spikestrip")exitwith {"spikes"};
 	if (_this == "debit_card")exitwith {"debitcard"};
 	if (_this == "coal")exitwith {"coal"};
@@ -59,8 +57,8 @@ _return = _item call {
 	if (_this == "apple")exitwith {"apple"};
 	if (_this == "bread")exitwith {"burger"};
 	if (_this == "Banana")exitwith {"Banana"};
-	if ((["boar","rawcow","rabbit"] find _this) > -1)exitwith {"raw-meat"};
-	if ((["codeb","safehack"] find _this) > -1)exitwith {"codebreaker"};
+	if (_this in ["boar","rawcow","rabbit"])exitwith {"raw-meat"};
+	if (_this in ["codeb","safehack"])exitwith {"codebreaker"};
 	if (_this == "bjerk")exitwith {"jerky"};
 	if (_this == "icecream")exitwith {"bread"};
 	if (_this == "tcgmp")exitwith {"pie"};
