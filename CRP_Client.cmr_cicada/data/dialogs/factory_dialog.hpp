@@ -8,7 +8,7 @@ class factory_manifacture
 	class ControlsBackground
 	{
 
-		class DLG_BACK1: Rscbackground
+		class DLG_BACK1: RscBackground
 		{												
 			x = 0.30; 
 			y = 0.10;

@@ -58,7 +58,6 @@ class MissionSQM
 #include "data\dialogs\radio_tower.hpp"
 #include "data\dialogs\clothing_dialog.hpp"
 #include "data\dialogs\house_diaglog.hpp"
-#include "data\dialogs\ticket_dialog.hpp"
 #include "data\dialogs\jail_diaglog.hpp"
 #include "data\dialogs\settings_diaglog.hpp"
 #include "data\dialogs\dealer_dialog.hpp"
@@ -71,6 +70,7 @@ class MissionSQM
 #include "data\dialogs\credit_dialog.hpp"
 #include "data\dialogs\credit_employee_dialog.hpp"
 #include "data\dialogs\court_dialog.hpp"
+#include "data\dialogs\fuel_business_dialog.hpp"
 
 class RscTitles
 {

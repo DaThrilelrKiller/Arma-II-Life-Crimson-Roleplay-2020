@@ -1,0 +1,12 @@
+[
+["ensureFuelStations",false],
+["syncFuelPump",false],
+["getFuel",false],
+["buyFuel",false],
+["withdrawFuel",false],
+["setForSaleFuel",false],
+["addFuelStock",false],
+["consumeFuelStock",false],
+["recordSale",false]
+];
+

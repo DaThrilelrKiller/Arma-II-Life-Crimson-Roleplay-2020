@@ -1,2 +1,2 @@
-﻿module_goverment = true;
-V_voted = false;
+// No module-scoped variables required.
+

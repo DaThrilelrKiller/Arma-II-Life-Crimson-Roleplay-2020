@@ -64,7 +64,6 @@ dtk_active_modules =
 ["Police","Plates"],
 ["Police","Cuffs"],
 ["Police","Dog"],
-["Police","Ticket"],
 ["Police","Jail"],
 ["Police","Speedcam"],
 ["Police","Flashbang"],

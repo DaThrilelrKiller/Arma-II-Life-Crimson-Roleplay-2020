@@ -1,8 +1,17 @@
-﻿if (dtk_server)exitWith {};
+if (dtk_server)exitWith {};
 
-private ["_data","_img","_text","_color","_shop","_shopPos","_shopType","_leanRightKey"];
+private ["_data","_img","_text","_color","_shop","_shopPos","_shopType","_leanRightKey","_fuelStationNames"];
 
 _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
+
+// Fuel station businesses (lazy init)
+if (isNil "business_fuel_inited") then {
+	call compile preprocessFile "scripts\business\fuel_init.sqf";
+};
+
+// Deterministic detection of fuel shops by configured display name (CfgShops.sqf)
+_fuelStationNames = ["Mikes Hard Gas","Gas n Porn","Gas Hause","Gas n Pit","Gas n Chips"];
+dtk_fuelShopObjects = [];
 
 {
 	_shop = _x select 0;	
@@ -33,5 +42,30 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 		
 		
 		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
+
+		// Fuel station business management action (fuel shops only)
+		if (_text in _fuelStationNames) then {
+			dtk_fuelShopObjects set [count dtk_fuelShopObjects, _shop];
+			// noscript.sqf executes the string with the original action _this, so use (_this select 0)
+			_shop addAction ["Manage Fuel Station","noscript.sqf","[(_this select 0)] call business_fuel_open;", 24, false, true, "", "player distance _target < 5"];
+		};
 	};
 }forEach INV_ItemShops;
+
+// Store indices after all shops have been indexed
+dtk_fuelShopIndices = dtk_fuelShopObjects apply { _x getVariable ["shop_data",-1] };
+
+// Associate each fuel station shop with its nearest fuel pump feed object
+// so vehicle fueling can consume this station's stock.
+{
+	private _shopObj = _x;
+	private _idx = _shopObj getVariable ["shop_data",-1];
+	if (_idx < 0) then { continue; };
+
+	private _feeds = nearestObjects [getPos _shopObj, ["MAP_A_FuelStation_Feed","Land_A_Fuelstation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_benzina_schnell","Land_fuelstation_army"], 35];
+	if (count _feeds > 0) then {
+		private _feed = _feeds select 0;
+		_feed setVariable ["fuel_stationShopIndex", _idx, true];
+		_feed setVariable ["fuel_stationShopObj", _shopObj, true];
+	};
+} forEach dtk_fuelShopObjects;

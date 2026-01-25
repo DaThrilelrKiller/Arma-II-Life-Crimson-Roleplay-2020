@@ -13,22 +13,30 @@ if (_art == "lawswag") then
 {
 	if (!(createDialog "lawsdialog")) exitWith {hint "Dialog Error!";};
 
+	private ["_disp","_ctrlGov","_ctrlPreview"];
+	_disp = findDisplay 7700;
+	_ctrlGov = _disp displayCtrl 901;
+	_ctrlPreview = _disp displayCtrl 911;
+
 	_mayor = call goverment_govonor;
 	_mayor = if (isNull _mayor)then {"Currently no Governor"}else{name _mayor};
-	ctrlSetText [901, format["Mayor (Governor): %1", _mayor]];
+	_ctrlGov ctrlSetText format["Mayor (Governor): %1", _mayor];
 
 	lbClear 910;
 	lbClear 920;
 
 	// Laws list (show empty slots as (empty) so the list stays consistent)
+	private ["_i"];
+	_i = 0;
 	{
 		private ["_lawText","_label","_idx"];
+		_i = _i + 1;
 		_lawText = _x;
 		_label = if (_lawText == "") then {"(empty)"} else {_lawText};
-		_idx = lbAdd [910, format["Law %1: %2", (_forEachIndex + 1), _label]];
-		lbSetData [910, _idx, _lawText];
-		true
-	} count GesetzArray;
+		_idx = lbAdd [910, format["Law %1: %2", _i, _label]];
+		// Store the real law index (0-based) as data.
+		lbSetData [910, _idx, str (_i - 1)];
+	} forEach GesetzArray;
 
 	// Taxes list
 	{
@@ -36,23 +44,23 @@ if (_art == "lawswag") then
 		_name = _x select 1;
 		_val = _x select 2;
 		lbAdd [920, format["%1: %2", _name, _val]];
-		true
-	} count INV_ItemTypenArray;
+	} forEach INV_ItemTypenArray;
 
 	lbSetCurSel [910, 0];
 
 	// Preview of selected law (wraps nicely)
 	private ["_lastSel"];
 	_lastSel = -1;
-	while {ctrlVisible 9099} do
+	while {!isNull (findDisplay 7700)} do
 	{
-		private ["_sel","_raw"];
+		private ["_sel","_lawIdx","_raw"];
 		_sel = lbCurSel 910;
 		if (_sel != _lastSel && {_sel >= 0}) then
 		{
-			_raw = lbData [910, _sel];
+			_lawIdx = call compile (lbData [910, _sel]);
+			_raw = GesetzArray select _lawIdx;
 			if (_raw == "") then {_raw = "(empty)";};
-			ctrlSetStructuredText [911, parseText format["<t size='1.0'>Selected: Law %1</t><br/><t size='0.9'>%2</t>", (_sel + 1), _raw]];
+			_ctrlPreview ctrlSetStructuredText parseText format["<t size='1.0'>Selected: Law %1</t><br/><t size='0.9'>%2</t>", (_lawIdx + 1), _raw];
 			_lastSel = _sel;
 		};
 		sleep 0.1;
@@ -91,13 +99,16 @@ if (!(createDialog "liste_1_button")) exitWith {hint "Dialog Error!";};
 if (_art == "gesetz") then 
 {
 	if (!(createDialog "gesetzdialog")) exitWith {hint "Dialog Error!";};
+	private ["_i"];
+	_i = 0;
 	{
 		private ["_lawText","_label","_index"];
+		_i = _i + 1;
 		_lawText = _x;
 		_label = if (_lawText == "") then {"(empty)"} else {_lawText};
-		_index = lbAdd [1, format["Law %1: %2", (_forEachIndex + 1), _label]];
+		_index = lbAdd [1, format["Law %1: %2", _i, _label]];
 		lbSetData [1, _index, _lawText];
-	}count GesetzArray;
+	} forEach GesetzArray;
 	
 	while {ctrlVisible 1020} do 
 	{

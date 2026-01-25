@@ -4,5 +4,8 @@
 ["createCase", false],
 ["updateCase", false],
 ["syncCases", false],
+["getTickets", false],
+["saveTickets", false],
+["addTicket", false],
 ["loop", false]
 ];

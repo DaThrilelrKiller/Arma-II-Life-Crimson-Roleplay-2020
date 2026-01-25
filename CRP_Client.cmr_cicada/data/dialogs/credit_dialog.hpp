@@ -117,7 +117,7 @@ class credit_menu
 			w = 0.18 * safezoneW;
 			h = 0.03 * safezoneH;
 		};
-		class RscEdit_1400: RSCEdit
+		class RscEdit_1400: RscEdit
 		{
 			idc = 1400;
 			text = "0";
@@ -146,7 +146,7 @@ class credit_menu
 			w = 0.18 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
-		class RscEdit_1401: RSCEdit
+		class RscEdit_1401: RscEdit
 		{
 			idc = 1401;
 			text = "0";
@@ -185,7 +185,7 @@ class credit_menu
 			w = 0.18 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
-		class RscEdit_1402: RSCEdit
+		class RscEdit_1402: RscEdit
 		{
 			idc = 1402;
 			text = "0";

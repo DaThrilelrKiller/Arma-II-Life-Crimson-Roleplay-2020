@@ -1935,6 +1935,7 @@ dtk_items = [
 ["kanister", ["Item", "service"],["Fuel_can", "Gas Can"], [25, 12], [2, "", ""],[true,true,true, false, "refuelveh"] ],
 ["Fuelline", ["Item", "service"],["cl_syphon", "Syphon Fuel-kit"], [30, 15], [1, "", ""],[true,true,true, false, "syphon"] ],
 ["OilBarrel", ["Item", "service"],["cl_petroleum", "Petroleum"], [80, 40], [10, "", ""],[true,true,true, false, "refuelveh"] ],
+["GasBarrel", ["Item", "service"],["cl_petroleum", "Gasoline Barrel"], [80, 40], [10, "", ""],[true,true,true, false, "nouse"] ],
 ["schluesselbund",["Item", "carobjects"],["cl_car_keys", "Key chain"],[0, 0], [0, "",""], [false,false, false,false,"keys_list"] ],
 ["idcard",["Item", "misc"],["idcard", "ID"],[0, 0], [0, "",""], [false,false, false,false,"id_show"] ],
 ["Itembag",["Item", "misc"],["Itembag", "Evidence Bag"],[5, 2], [0.5, "", ""], [true, true, true,false,"item_bag"]],
@@ -2017,6 +2018,7 @@ dtk_items = [
 ["Diamondbroach",["Item", "item"], ["Diamondbroach", "Diamond Broach"], [20000, 10000],[1, "",""],[true,true,true, false, "useresource"]],
 ["Gold",["Item", "ressource"],["cl_gold_bar", "Gold"],[2000, 1000], [1, "",""], [true, true, true,false,"useresource"]],
 ["Oil",["Item", "ressource"],["Barrel4", "Crude Oil"],[80, 40], [10, "",""], [true, true, true,false,"useresource"]],
+["RawGas",["Item", "ressource"],["Barrel4", "Raw Natural Gas"],[60, 30], [10, "",""], [true, true, true,false,"useresource"]],
 ["pharm",["Item", "drug"],["pharm", "Pharmaceutical Items"],[150, 75], [5, "",""], [true, true, true,true,"nouse"]],
 ["meth", ["Item", "drug"], ["meth", "Meth"],[500, 300], [5, "",""],[true,true,true, true, "drugs"]],
 ["Unprocessed_Cocaine",["Item", "drug"],["cl_c_seeds", "Unprocessed Cocaine"],[80, 50], [2, "",""], [true, true, true,true,"useresource"]],
@@ -2199,3 +2201,13 @@ dtk_master = dtk_weapons + dtk_magazines + dtk_vehicles + dtk_items;
 {
 	missionNamespace setVariable [_x select 0, _x];
 } count dtk_master;
+
+/*
+	Fuel station businesses (v1)
+	- dtk_fuelStationBuyPrice: upfront purchase price (from bank)
+	- dtk_fuelProfitRate: percent of shop sales credited to business balance (0..1)
+*/
+if (isNil "dtk_fuelStationBuyPrice") then { dtk_fuelStationBuyPrice = 250000; };
+if (isNil "dtk_fuelProfitRate") then { dtk_fuelProfitRate = 0.10; };
+if (isNil "dtk_fuelStockMax") then { dtk_fuelStockMax = 400; }; // litres
+if (isNil "dtk_fuelBarrelLiters") then { dtk_fuelBarrelLiters = 100; }; // litres per GasBarrel deposited

@@ -23,7 +23,7 @@ class cdb_search_new
 			y = safeZoneY + safeZoneH * 0.1;
 			w = safeZoneW * 0.8;
 			h = safeZoneH * 0.06;
-			text = "ECPD COMPUTER DATABASE SYSTEM";
+			text = "CICADA CRIME INFORMATION CENTER";
 			colorBackground[] = {0.2, 0.2, 0.4, 1};
 			colorText[] = {1, 1, 1, 1};
 			sizeEx = 0.05;
@@ -64,12 +64,23 @@ class cdb_search_new
 			text = "File Police Report";
 			action = "[] call cdb_openReport;";
 		};
+
+		class btn_IssueTicket : RscButton
+		{
+			idc = 2015;
+			x = safeZoneX + safeZoneW * 0.13;
+			y = safeZoneY + safeZoneH * 0.34;
+			w = safeZoneW * 0.16;
+			h = safeZoneH * 0.05;
+			text = "Issue Ticket";
+			action = "[] call cdb_openTicket;";
+		};
 		
 		class btn_ViewReports : RscButton
 		{
 			idc = 2003;
 			x = safeZoneX + safeZoneW * 0.13;
-			y = safeZoneY + safeZoneH * 0.34;
+			y = safeZoneY + safeZoneH * 0.41;
 			w = safeZoneW * 0.16;
 			h = safeZoneH * 0.05;
 			text = "View Reports";
@@ -80,7 +91,7 @@ class cdb_search_new
 		{
 			idc = 2004;
 			x = safeZoneX + safeZoneW * 0.13;
-			y = safeZoneY + safeZoneH * 0.41;
+			y = safeZoneY + safeZoneH * 0.48;
 			w = safeZoneW * 0.16;
 			h = safeZoneH * 0.05;
 			text = "Issue Warrant";
@@ -91,7 +102,7 @@ class cdb_search_new
 		{
 			idc = 2005;
 			x = safeZoneX + safeZoneW * 0.13;
-			y = safeZoneY + safeZoneH * 0.48;
+			y = safeZoneY + safeZoneH * 0.55;
 			w = safeZoneW * 0.16;
 			h = safeZoneH * 0.05;
 			text = "Add Note";
@@ -102,7 +113,7 @@ class cdb_search_new
 		{
 			idc = 2006;
 			x = safeZoneX + safeZoneW * 0.13;
-			y = safeZoneY + safeZoneH * 0.55;
+			y = safeZoneY + safeZoneH * 0.62;
 			w = safeZoneW * 0.16;
 			h = safeZoneH * 0.05;
 			text = "Clear Warrants";
@@ -203,7 +214,7 @@ class cdb_warrant{
 	idd=-1;
 	controlsBackground[] = {};
 	objects[] = {};
-	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscShortcutButton_1700};
+	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscButton_1700};
 	
  		class RscFrame_1800: RscBackground
 		{
@@ -217,10 +228,13 @@ class cdb_warrant{
 		{
 			idc = 1000;
 			text = "Submit Warrant";
-			x = 0.461458 * safezoneW + safezoneX;
-			y = 0.458333 * safezoneH + safezoneY;
-			w = 0.0823958 * safezoneW;
-			h = 0.0411112 * safezoneH;
+			x = 0.331771 * safezoneW + safezoneX;
+			y = 0.447222 * safezoneH + safezoneY;
+			w = 0.340209 * safezoneW;
+			h = 0.035 * safezoneH;
+			style = ST_CENTER;
+			sizeEx = 0.04;
+			colorBackground[] = {0.2, 0.2, 0.4, 1};
 		};
 		class RscEdit_1400: RscEdit
 		{
@@ -230,7 +244,7 @@ class cdb_warrant{
 			w = 0.219895 * safezoneW;
 			h = 0.0253702 * safezoneH;
 		};
-		class RscShortcutButton_1700: RscShortcutButton
+		class RscButton_1700: RscButton
 		{
 			idc = 1700;
 			text = "Submit Query";
@@ -246,7 +260,7 @@ class cdb_note{
 	idd=-1;
 	controlsBackground[] = {};
 	objects[] = {};
-	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscShortcutButton_1700};
+	controls[] = {RscFrame_1800,RscText_1000,RscEdit_1400,RscButton_1700};
 	
  		class RscFrame_1800: RscBackground
 		{
@@ -260,10 +274,13 @@ class cdb_note{
 		{
 			idc = 1000;
 			text = "Submit Note";
-			x = 0.461458 * safezoneW + safezoneX;
-			y = 0.458333 * safezoneH + safezoneY;
-			w = 0.0823958 * safezoneW;
-			h = 0.0411112 * safezoneH;
+			x = 0.331771 * safezoneW + safezoneX;
+			y = 0.447222 * safezoneH + safezoneY;
+			w = 0.340209 * safezoneW;
+			h = 0.035 * safezoneH;
+			style = ST_CENTER;
+			sizeEx = 0.04;
+			colorBackground[] = {0.2, 0.2, 0.4, 1};
 		};
 		class RscEdit_1400: RscEdit
 		{
@@ -273,7 +290,7 @@ class cdb_note{
 			w = 0.219895 * safezoneW;
 			h = 0.0253702 * safezoneH;
 		};
-		class RscShortcutButton_1700: RscShortcutButton
+		class RscButton_1700: RscButton
 		{
 			idc = 1700;
 			text = "Submit Query";
@@ -283,6 +300,146 @@ class cdb_note{
 			h = 0.0605556 * safezoneH;
 			action = "[cdb_object,CtrlText 1400]call cdb_addNote; closeDialog 0;";
 		};
+};
+
+// Ticket issuance dialog (new ticket system; persists to court)
+class cdb_ticketIssue
+{
+	idd = 7200;
+	moveEnable = true;
+	enableSimulation = true;
+
+	class ControlsBackground
+	{
+		class Background : RscBackground
+		{
+			x = safeZoneX + safeZoneW * 0.3;
+			y = safeZoneY + safeZoneH * 0.25;
+			w = safeZoneW * 0.4;
+			h = safeZoneH * 0.45;
+			colorBackground[] = {0.1, 0.1, 0.15, 0.95};
+		};
+		class Header : RscText
+		{
+			x = safeZoneX + safeZoneW * 0.3;
+			y = safeZoneY + safeZoneH * 0.25;
+			w = safeZoneW * 0.4;
+			h = safeZoneH * 0.05;
+			text = "ISSUE TICKET";
+			colorBackground[] = {0.2, 0.2, 0.4, 1};
+			colorText[] = {1, 1, 1, 1};
+			style = ST_CENTER;
+		};
+	};
+
+	class Controls
+	{
+		class lbl_Suspect : RscText
+		{
+			idc = 7201;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.32;
+			w = safeZoneW * 0.12;
+			h = safeZoneH * 0.03;
+			text = "Suspect (Name/UID):";
+			colorText[] = {1,1,1,1};
+		};
+		class edit_Suspect : RscEdit
+		{
+			idc = 7202;
+			x = safeZoneX + safeZoneW * 0.45;
+			y = safeZoneY + safeZoneH * 0.32;
+			w = safeZoneW * 0.23;
+			h = safeZoneH * 0.03;
+			colorBackground[] = {0.2,0.2,0.25,1};
+			colorText[] = {1,1,1,1};
+		};
+		class lbl_Online : RscText
+		{
+			idc = 7209;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.355;
+			w = safeZoneW * 0.12;
+			h = safeZoneH * 0.03;
+			text = "Online Player:";
+			colorText[] = {1,1,1,1};
+		};
+		class combo_Online : RscCombo
+		{
+			idc = 7210;
+			x = safeZoneX + safeZoneW * 0.45;
+			y = safeZoneY + safeZoneH * 0.355;
+			w = safeZoneW * 0.23;
+			h = safeZoneH * 0.03;
+			colorBackground[] = {0.2,0.2,0.25,1};
+			onLBSelChanged = "ctrlSetText [7202, (_this select 0) lbText (_this select 1)];";
+		};
+
+		class lbl_Amount : RscText
+		{
+			idc = 7203;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.40;
+			w = safeZoneW * 0.12;
+			h = safeZoneH * 0.03;
+			text = "Amount ($):";
+			colorText[] = {1,1,1,1};
+		};
+		class edit_Amount : RscEdit
+		{
+			idc = 7204;
+			x = safeZoneX + safeZoneW * 0.45;
+			y = safeZoneY + safeZoneH * 0.40;
+			w = safeZoneW * 0.23;
+			h = safeZoneH * 0.03;
+			colorBackground[] = {0.2,0.2,0.25,1};
+			colorText[] = {1,1,1,1};
+			text = "0";
+		};
+
+		class lbl_Reason : RscText
+		{
+			idc = 7205;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.45;
+			w = safeZoneW * 0.12;
+			h = safeZoneH * 0.03;
+			text = "Reason:";
+			colorText[] = {1,1,1,1};
+		};
+		class edit_Reason : RscEdit
+		{
+			idc = 7206;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.49;
+			w = safeZoneW * 0.36;
+			h = safeZoneH * 0.12;
+			style = ST_MULTI;
+			colorBackground[] = {0.2,0.2,0.25,1};
+			colorText[] = {1,1,1,1};
+		};
+
+		class btn_Submit : RscButton
+		{
+			idc = 7207;
+			x = safeZoneX + safeZoneW * 0.32;
+			y = safeZoneY + safeZoneH * 0.64;
+			w = safeZoneW * 0.16;
+			h = safeZoneH * 0.04;
+			text = "Issue Ticket";
+			action = "[] call cdb_submitTicket;";
+		};
+		class btn_Close : RscButton
+		{
+			idc = 7208;
+			x = safeZoneX + safeZoneW * 0.64;
+			y = safeZoneY + safeZoneH * 0.25;
+			w = safeZoneW * 0.06;
+			h = safeZoneH * 0.05;
+			text = "X";
+			action = "closeDialog 0;";
+		};
+	};
 };
 
 // Police Report Submission Dialog
@@ -307,7 +464,7 @@ class cdb_policeReport
 			y = safeZoneY + safeZoneH * 0.15;
 			w = safeZoneW * 0.5;
 			h = safeZoneH * 0.06;
-			text = "POLICE REPORT SUBMISSION";
+			text = "CICADA CRIME INFORMATION CENTER";
 			colorBackground[] = {0.2, 0.2, 0.4, 1};
 			colorText[] = {1, 1, 1, 1};
 			sizeEx = 0.05;
@@ -338,12 +495,33 @@ class cdb_policeReport
 			colorBackground[] = {0.2, 0.2, 0.25, 1};
 			colorText[] = {1, 1, 1, 1};
 		};
+
+		class lbl_OnlineSuspect : RscText
+		{
+			idc = 5013;
+			x = safeZoneX + safeZoneW * 0.27;
+			y = safeZoneY + safeZoneH * 0.285;
+			w = safeZoneW * 0.15;
+			h = safeZoneH * 0.03;
+			text = "Online Player:";
+			colorText[] = {1, 1, 1, 1};
+		};
+		class combo_OnlineSuspect : RscCombo
+		{
+			idc = 5014;
+			x = safeZoneX + safeZoneW * 0.42;
+			y = safeZoneY + safeZoneH * 0.285;
+			w = safeZoneW * 0.3;
+			h = safeZoneH * 0.03;
+			colorBackground[] = {0.2, 0.2, 0.25, 1};
+			onLBSelChanged = "ctrlSetText [5001, (_this select 0) lbText (_this select 1)];";
+		};
 		
 		class lbl_Type : RscText
 		{
 			idc = 5002;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.3;
+			y = safeZoneY + safeZoneH * 0.33;
 			w = safeZoneW * 0.15;
 			h = safeZoneH * 0.04;
 			text = "Report Type:";
@@ -354,7 +532,7 @@ class cdb_policeReport
 		{
 			idc = 5003;
 			x = safeZoneX + safeZoneW * 0.42;
-			y = safeZoneY + safeZoneH * 0.3;
+			y = safeZoneY + safeZoneH * 0.33;
 			w = safeZoneW * 0.3;
 			h = safeZoneH * 0.04;
 			colorBackground[] = {0.2, 0.2, 0.25, 1};
@@ -364,7 +542,7 @@ class cdb_policeReport
 		{
 			idc = 5004;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.36;
+			y = safeZoneY + safeZoneH * 0.39;
 			w = safeZoneW * 0.15;
 			h = safeZoneH * 0.04;
 			text = "Incident Details:";
@@ -375,7 +553,7 @@ class cdb_policeReport
 		{
 			idc = 5005;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.41;
+			y = safeZoneY + safeZoneH * 0.44;
 			w = safeZoneW * 0.45;
 			h = safeZoneH * 0.15;
 			style = ST_MULTI;
@@ -387,7 +565,7 @@ class cdb_policeReport
 		{
 			idc = 5011;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.58;
+			y = safeZoneY + safeZoneH * 0.61;
 			w = safeZoneW * 0.2;
 			h = safeZoneH * 0.04;
 			text = "Request Warrant: NO";
@@ -398,7 +576,7 @@ class cdb_policeReport
 		{
 			idc = 5007;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.63;
+			y = safeZoneY + safeZoneH * 0.66;
 			w = safeZoneW * 0.15;
 			h = safeZoneH * 0.04;
 			text = "Warrant Reason:";
@@ -409,7 +587,7 @@ class cdb_policeReport
 		{
 			idc = 5012;
 			x = safeZoneX + safeZoneW * 0.42;
-			y = safeZoneY + safeZoneH * 0.63;
+			y = safeZoneY + safeZoneH * 0.66;
 			w = safeZoneW * 0.3;
 			h = safeZoneH * 0.04;
 			colorBackground[] = {0.2, 0.2, 0.25, 1};
@@ -420,7 +598,7 @@ class cdb_policeReport
 		{
 			idc = 5008;
 			x = safeZoneX + safeZoneW * 0.27;
-			y = safeZoneY + safeZoneH * 0.69;
+			y = safeZoneY + safeZoneH * 0.72;
 			w = safeZoneW * 0.15;
 			h = safeZoneH * 0.04;
 			text = "Warrant Amount:";
@@ -431,7 +609,7 @@ class cdb_policeReport
 		{
 			idc = 5006;
 			x = safeZoneX + safeZoneW * 0.42;
-			y = safeZoneY + safeZoneH * 0.69;
+			y = safeZoneY + safeZoneH * 0.72;
 			w = safeZoneW * 0.3;
 			h = safeZoneH * 0.04;
 			colorBackground[] = {0.2, 0.2, 0.25, 1};
@@ -443,7 +621,7 @@ class cdb_policeReport
 		{
 			idc = 5009;
 			x = safeZoneX + safeZoneW * 0.35;
-			y = safeZoneY + safeZoneH * 0.78;
+			y = safeZoneY + safeZoneH * 0.81;
 			w = safeZoneW * 0.1;
 			h = safeZoneH * 0.05;
 			text = "Submit Report";
@@ -454,7 +632,7 @@ class cdb_policeReport
 		{
 			idc = 5010;
 			x = safeZoneX + safeZoneW * 0.55;
-			y = safeZoneY + safeZoneH * 0.78;
+			y = safeZoneY + safeZoneH * 0.81;
 			w = safeZoneW * 0.1;
 			h = safeZoneH * 0.05;
 			text = "Cancel";
@@ -487,7 +665,7 @@ class cdb_reportsList
 			y = safeZoneY + safeZoneH * 0.1;
 			w = safeZoneW * 0.7;
 			h = safeZoneH * 0.06;
-			text = "POLICE REPORTS DATABASE";
+			text = "CICADA CRIME INFORMATION CENTER";
 			colorBackground[] = {0.2, 0.2, 0.4, 1};
 			colorText[] = {1, 1, 1, 1};
 			sizeEx = 0.05;

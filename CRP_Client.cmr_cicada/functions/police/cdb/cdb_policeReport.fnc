@@ -1,5 +1,5 @@
 // Create a police report with warrant request option
-private ["_suspectName","_reportType","_incidentDetails","_warrantRequested","_warrantReason","_warrantAmount","_types","_type","_suspect","_report","_canIssueWarrant"];
+private ["_suspectName","_reportType","_incidentDetails","_warrantRequested","_warrantReason","_warrantAmount","_types","_type","_suspect","_report","_canIssueWarrant","_sel","_uidFromCombo","_suspectUID"];
 _suspectName = ctrlText 5001;
 _reportType = lbCurSel 5003;
 _incidentDetails = ctrlText 5005;
@@ -11,7 +11,11 @@ _warrantAmount = if (_warrantRequested) then {parseNumber (ctrlText 5006)} else 
 _types = ["Traffic Violation", "Assault", "Theft", "Drug Offense", "Weapons Violation", "Other"];
 _type = if (_reportType >= 0 && _reportType < count _types) then {_types select _reportType} else {"Other"};
 
-if (_suspectName == "") exitWith {
+_sel = lbCurSel 5014;
+_uidFromCombo = "";
+if (_sel >= 0) then { _uidFromCombo = lbData [5014, _sel]; };
+
+if (_suspectName == "" && {_uidFromCombo == ""}) exitWith {
 	systemChat "Please enter a suspect name.";
 };
 
@@ -26,8 +30,10 @@ _suspect = objNull;
 } forEach playableUnits;
 
 // If not found online, allow entering UID directly (offline suspects)
-private ["_suspectUID"];
-_suspectUID = if (isNull _suspect) then {_suspectName} else {getPlayerUID _suspect};
+_suspectUID = _uidFromCombo;
+if (_suspectUID == "") then {
+	_suspectUID = if (isNull _suspect) then {_suspectName} else {getPlayerUID _suspect};
+};
 
 // If this is an AI unit (no UID), keep the name and send legacy format so it displays correctly
 if (!isNull _suspect && {_suspectUID == ""}) then {

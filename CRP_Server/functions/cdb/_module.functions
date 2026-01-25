@@ -3,6 +3,7 @@
 ["saveReports", false],
 ["createReport", false],
 ["addWarrantUID", false],
+["clearWarrantsUID", false],
 ["getNameByUID", false],
 ["updateReport", false],
 ["syncReports", false],

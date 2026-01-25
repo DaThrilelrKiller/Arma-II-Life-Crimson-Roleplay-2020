@@ -80,8 +80,8 @@ class menu_pd
 			y = safeZoneY+safeZoneH*0.47444445;
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
-			text = "Ticket";	
-			action = "closedialog 0;[]call ticket_open;";			
+			text = "Court Services";	
+			action = "closedialog 0;[]call court_openCivMenu;";			
 		};
 		class button_cuff : RscButton 
 		{
@@ -516,8 +516,8 @@ class vehicle_menu_pd
 			y = safeZoneY + safeZoneH * 0.42555556;
 			w = safeZoneW * 0.143125;
 			h = safeZoneH * 0.03666667;
-			text = "Ticket";
-			action="closedialog 0;[]call ticket_open;";
+			text = "Court Services";
+			action="closedialog 0;[]call court_openCivMenu;";
 		};
 		class button_ticket : RscButton 
 		{

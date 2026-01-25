@@ -323,6 +323,124 @@ class court_hearing
 	onLoad = "[] call court_loadHearingInfo;";
 };
 
+// ------------------------------------------------------------
+// Civilian court services menu (tickets / warrants / court dates)
+// ------------------------------------------------------------
+class court_civMenu
+{
+	idd = 7100;
+	moveEnable = true;
+	enableSimulation = true;
+	onLoad = "[] call court_loadCivMenu;";
+
+	class ControlsBackground
+	{
+		class Background : RscBackground
+		{
+			x = safeZoneX + safeZoneW * 0.15;
+			y = safeZoneY + safeZoneH * 0.12;
+			w = safeZoneW * 0.7;
+			h = safeZoneH * 0.76;
+		};
+		class Header : Rsc_lable
+		{
+			x = safeZoneX + safeZoneW * 0.15;
+			y = safeZoneY + safeZoneH * 0.12;
+			w = safeZoneW * 0.7;
+			h = safeZoneH * 0.05;
+			text = "Cicada Municipal Court - Services";
+		};
+	};
+
+	class Controls
+	{
+		class lbl_Tickets : RscText
+		{
+			idc = 7109;
+			x = safeZoneX + safeZoneW * 0.17;
+			y = safeZoneY + safeZoneH * 0.19;
+			w = safeZoneW * 0.2;
+			h = safeZoneH * 0.03;
+			text = "Your Tickets";
+		};
+		class list_Tickets : RscListBox
+		{
+			idc = 7101;
+			x = safeZoneX + safeZoneW * 0.17;
+			y = safeZoneY + safeZoneH * 0.23;
+			w = safeZoneW * 0.32;
+			h = safeZoneH * 0.45;
+		};
+
+		class lbl_Cases : RscText
+		{
+			idc = 7110;
+			x = safeZoneX + safeZoneW * 0.51;
+			y = safeZoneY + safeZoneH * 0.19;
+			w = safeZoneW * 0.3;
+			h = safeZoneH * 0.03;
+			text = "Your Court Dates / Cases";
+		};
+		class list_Cases : RscListBox
+		{
+			idc = 7102;
+			x = safeZoneX + safeZoneW * 0.51;
+			y = safeZoneY + safeZoneH * 0.23;
+			w = safeZoneW * 0.32;
+			h = safeZoneH * 0.25;
+		};
+
+		class lbl_Warrants : RscText
+		{
+			idc = 7111;
+			x = safeZoneX + safeZoneW * 0.51;
+			y = safeZoneY + safeZoneH * 0.50;
+			w = safeZoneW * 0.3;
+			h = safeZoneH * 0.03;
+			text = "Your Warrants";
+		};
+		class list_Warrants : RscListBox
+		{
+			idc = 7103;
+			x = safeZoneX + safeZoneW * 0.51;
+			y = safeZoneY + safeZoneH * 0.54;
+			w = safeZoneW * 0.32;
+			h = safeZoneH * 0.14;
+		};
+
+		class btn_PayTicket : RscButton
+		{
+			idc = 7104;
+			x = safeZoneX + safeZoneW * 0.17;
+			y = safeZoneY + safeZoneH * 0.70;
+			w = safeZoneW * 0.14;
+			h = safeZoneH * 0.04;
+			text = "Pay Selected Ticket";
+			action = "[] call court_payTicket;";
+		};
+		class btn_Refresh : RscButton
+		{
+			idc = 7105;
+			x = safeZoneX + safeZoneW * 0.33;
+			y = safeZoneY + safeZoneH * 0.70;
+			w = safeZoneW * 0.08;
+			h = safeZoneH * 0.04;
+			text = "Refresh";
+			action = "[] call court_loadCivMenu;";
+		};
+		class btn_Close : RscButton
+		{
+			idc = 7106;
+			x = safeZoneX + safeZoneW * 0.81;
+			y = safeZoneY + safeZoneH * 0.12;
+			w = safeZoneW * 0.04;
+			h = safeZoneH * 0.05;
+			text = "X";
+			action = "closeDialog 0;";
+		};
+	};
+};
+
 class court_hearing_defendant
 {
 	idd = -1;

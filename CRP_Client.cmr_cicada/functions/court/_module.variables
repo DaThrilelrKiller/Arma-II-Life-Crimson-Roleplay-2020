@@ -7,6 +7,9 @@ court_cases = [];
 court_currentCase = [];
 court_caseID = 0;
 
+// Civilian ticket storage (synced from server, persisted)
+court_myTickets = [];
+
 // Court building location (Cicada Municipal Court)
 court_location = [6500, 5700, 0]; // Near the hospital/bank area
 

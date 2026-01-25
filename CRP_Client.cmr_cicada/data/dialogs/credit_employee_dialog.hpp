@@ -54,7 +54,7 @@ class credit_employee_menu
 			w = 0.28 * safezoneW;
 			h = 0.03 * safezoneH;
 		};
-		class RscListbox_1500: RscListbox
+		class RscListbox_1500: RscListBox
 		{
 			idc = 1500;
 			x = 0.22 * safezoneW + safezoneX;
@@ -92,7 +92,7 @@ class credit_employee_menu
 			w = 0.28 * safezoneW;
 			h = 0.03 * safezoneH;
 		};
-		class RscListbox_1501: RscListbox
+		class RscListbox_1501: RscListBox
 		{
 			idc = 1501;
 			x = 0.52 * safezoneW + safezoneX;

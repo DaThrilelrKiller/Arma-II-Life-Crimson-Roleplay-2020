@@ -31,6 +31,9 @@ if (isNull _courtBuilding) then {
 if (!isNull _courtBuilding) then {
 	// Players can file cases
 	_courtBuilding addAction ["File Court Case", "noscript.sqf", "[] call court_fileCase", 1, false, true, "", "player distance _target < 10 && !court_sessionActive"];
+
+	// Civilians: court services menu (tickets / warrants / court dates)
+	_courtBuilding addAction ["Court Services", "noscript.sqf", "[] call court_openCivMenu", 1, false, true, "", "player distance _target < 10 && !court_sessionActive"];
 	
 	// Judges can view cases
 	_courtBuilding addAction ["View Court Cases", "noscript.sqf", "[] call court_viewCases", 1, false, true, "", "player distance _target < 10 && (call court_isJudge) && !court_sessionActive"];
@@ -43,6 +46,7 @@ if (!isNull _courtBuilding) then {
 } else {
 	// Fallback: add actions to player if no building found
 	[player, ["File Court Case", "noscript.sqf", "[] call court_fileCase", 1, false, true, "", "player distance court_location < 10 && !court_sessionActive"]] call action_add;
+	[player, ["Court Services", "noscript.sqf", "[] call court_openCivMenu", 1, false, true, "", "player distance court_location < 10 && !court_sessionActive"]] call action_add;
 	[player, ["View Court Cases", "noscript.sqf", "[] call court_viewCases", 1, false, true, "", "player distance court_location < 10 && (call court_isJudge) && !court_sessionActive"]] call action_add;
 	[player, ["Start Court Hearing", "noscript.sqf", "[] call court_startHearing", 1, false, true, "", "player distance court_location < 10 && (call court_isJudge) && !court_sessionActive && count court_currentCase > 0"]] call action_add;
 	[player, ["Attend Court Hearing", "noscript.sqf", "[] call court_attendHearing", 1, false, true, "", "player distance court_location < 10 && (call court_hasActiveCase) && court_sessionActive"]] call action_add;

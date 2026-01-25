@@ -118,7 +118,7 @@ class liste_1_button
 
 class lawsdialog
 {
-	idd = -1;
+	idd = 7700;
 	movingEnable = true;
 	controlsBackground[] = {DLG_BACK1, background};
 	objects[] = { };
@@ -189,6 +189,7 @@ class lawsdialog
 		y = 0.725;
 		w = 0.66;
 		h = 0.08;
+		colorText[] = {1,1,1,1};
 		text = "";
 	};
 
@@ -334,7 +335,7 @@ class wahldialog
 	objects[] = { };
 	controls[] = {spielerliste, submit, cancel, dummybutton};	
 	
-	class DLG_BACK1: Rscbackground		
+	class DLG_BACK1: RscBackground		
 	{	
 		x = 0.36;
 		y = 0.06;
@@ -399,7 +400,7 @@ class steuerdialog
 	objects[] = { };	
 	controls[] = {text_itemsteuer, slider_itemsteuer, fahrzeugsteuer_text, fahrzeugsteuer_slider, magazinsteuer_text, magazinsteuer_slider, waffesteuer_text, waffesteuer_slider, banksteuer_text, banksteuer_slider, button_submit, button_cancel, dummybutton};	
 	
-	class DLG_BACK1: Rscbackground		
+	class DLG_BACK1: RscBackground		
 	{						
 		x = 0.34;
 		y = 0.08;	

@@ -1,4 +1,4 @@
-﻿private ["_item","_return"];
+private ["_item","_return"];
 
 _item = toLower (_this select 0);
 
@@ -26,6 +26,8 @@ _return = _item call {
 	if (_this == "emptyvodka")exitwith {"wine"};
 	if (_this == "emptywiskey")exitwith {"wine"};
 	if (_this == "oilbarrel")exitwith {"barrels"};
+	if (_this == "gasbarrel")exitwith {"barrels"};
+	if (_this == "rawgas")exitwith {"barrels"};
 	if (_this == "spikestrip")exitwith {"spikes"};
 	if (_this == "debit_card")exitwith {"debitcard"};
 	if (_this == "coal")exitwith {"coal"};

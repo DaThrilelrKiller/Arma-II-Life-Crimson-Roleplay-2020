@@ -15,7 +15,7 @@ INV_apps = [
 ["app_civilian","data\images\ipad\players.PAA","[0,0,0,[""playerlist""]] execVM 'scripts\maindialogs.sqf';"],
 ["app_oil","data\images\ipad\OIL.PAA","[0,0,0,[""oilswag""]] execVM 'scripts\maindialogs.sqf'"],
 ["app_dmv","data\images\ipad\licences.PAA","[player]call licenses_check"],
-["app_laws","data\images\ipad\LAWS.PAA","[0,0,0,[""lawswag""]] execVM 'scripts\maindialogs.sqf';"],
+["app_laws","data\images\ipad\LAWS.PAA","closeDialog 0; [0,0,0,[""lawswag""]] execVM ""scripts\maindialogs.sqf"";"],
 ["app_gangs","data\images\ipad\gangs.PAA","closeDialog 0;call gang_open"],
 ["app_stockmarket","data\images\ipad\stockmarket.PAA","[0,0,0,[""fundsswag""]] execVM ""scripts\maindialogs.sqf"";"],
 ["app_store","data\images\ipad\store.PAA","[(BuildingCollapesLogic call shops_index)]call shops_open; "],
