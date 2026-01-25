@@ -19,4 +19,4 @@ if (_face == "") then { _face = face player; };
 // Arma 2 OA: set face directly; avoids brittle setVehicleInit/format parsing issues.
 player setFace _face;
 
-[]call spawn_openMenu;
+[] call spawn_openMenu;

@@ -40,10 +40,9 @@ if (_curOwnerUid == "") then {
 	// Best-effort price check (refund client if mismatch)
 	private ["_expected"];
 	_expected = if (isNil "dtk_fuelStationBuyPrice") then {250000} else {dtk_fuelStationBuyPrice};
-	if (_paidPrice > 0 && {_paidPrice != _expected}) then {
+	if (_paidPrice > 0 && {_paidPrice != _expected}) exitWith {
 		[_buyer, [_paidPrice], "business_fuel_refund", false, false] call network_MPExec;
 		[_buyer, ["Fuel Station purchase failed (price changed). Refunded."], {systemChat _this}, false, false] call network_MPExec;
-		exitWith {};
 	};
 
 	["Businesses", _section, "OwnerUID", _buyerUid] call s_stats_write;
