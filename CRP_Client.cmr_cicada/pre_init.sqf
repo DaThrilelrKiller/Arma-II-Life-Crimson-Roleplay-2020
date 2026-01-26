@@ -143,6 +143,17 @@ if (dtk_client) then {
 
 if (dtk_server)then {
 	call compile preprocessFile "\MPMissions\functions\pre_init.sqf";
+
+	// Arma 2 OA does NOT auto-run `InitServer.sqf` (that's an Arma 3 feature).
+	// Clients wait on `server_auth` in `init.sqf`, so publish it from here once the server is alive.
+	[] spawn {
+		waitUntil { time > 0 };
+		if (isNil "server_auth") then {
+			server_auth = true;
+			publicVariable "server_auth";
+			diag_log text "[LOG]Server authentication published (server_auth=true)";
+		};
+	};
 };
 
 
