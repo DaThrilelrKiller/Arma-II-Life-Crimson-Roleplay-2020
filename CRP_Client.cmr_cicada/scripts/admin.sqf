@@ -310,14 +310,14 @@ DEV_AddWeapon = {
 	_weapon = _this select 0;
 	_weaponCfg = (configFile >> "cfgWeapons" >> _weapon);
 	_type = getNumber(_weaponCfg >> "type");
-	if (([1,2,4,5] find _type) > -1) then {
+	if (_type in [1,2,4,5]) then {
 		{_cWepType = [getNumber(configFile >> "cfgWeapons" >> _x >> "type")];
-		if (([1,5] find (_cWepType select 0)) > -1) then {_cWepType = [1,5];};
-		if ((_cWepType find _type) > -1) then {
+		if (_cWepType select 0 in [1,5]) then {_cWepType = [1,5];};
+		if (_type in _cWepType) then {
 			player removeWeapon _x;
 			_current_magazines = magazines player;
 			_compatible_magazines = getArray(configFile >> "cfgWeapons" >> _x >> "magazines");
-			{if ((_compatible_magazines find _x) > -1) then {
+			{if (_x in _compatible_magazines) then {
 				player removeMagazine _x;
 			};} forEach _current_magazines;
 		};} forEach (weapons player);
@@ -336,7 +336,7 @@ DEV_AddWeapon = {
 	{
 		_compatible_magazines = _compatible_magazines + getArray(configFile >> "cfgWeapons" >> _x >> "magazines");
 	} forEach (weapons player);
-	{if ((_compatible_magazines find _x) < 0) then {
+	{if !(_x in _compatible_magazines) then {
 		player removeMagazine _x;
 	};} forEach (magazines player);
 	closeDialog 0;

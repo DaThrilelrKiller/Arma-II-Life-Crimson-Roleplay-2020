@@ -1,4 +1,4 @@
-private ["_weps","_mags","_holder","_i","_item","_amount","_object","_array","_items","_amounts"];
+﻿private ["_weps","_mags","_holder","_i","_item","_amount","_object","_array","_items","_amounts"];
 
 _unit = _this select 0;
 _corps = _this select 1;
@@ -9,7 +9,7 @@ if (dtk_civ)then {
 
 	_holder = createVehicle ["weaponholder", getPosATL _corps, [], 0, "CAN_COLLIDE" ];
 	{
-		if ((["ItemMap","ItemCompass","ItemRadio","ItemWatch","ItemGPS"] find _x) < 0 && {!(_x call TFAR_fnc_isRadio)})then {
+		if (!(_x in ["ItemMap","ItemCompass","ItemRadio","ItemWatch","ItemGPS"]) && {!(_x call TFAR_fnc_isRadio)})then {
 			_holder addWeaponCargoGlobal [_x,1];
 		};
 	} count _weps;
@@ -20,7 +20,7 @@ if (dtk_civ)then {
 	removeAllWeapons _corps;
 }else{
 	{
-		if ((["ItemMap","ItemCompass","ItemRadio","ItemWatch","ItemGPS"] find _x) < 0 && {!(_x call TFAR_fnc_isRadio)})then {
+		if (!(_x in ["ItemMap","ItemCompass","ItemRadio","ItemWatch","ItemGPS"]) && {!(_x call TFAR_fnc_isRadio)})then {
 			_unit addWeapon _x
 		};
 	}foreach (weapons _corps);

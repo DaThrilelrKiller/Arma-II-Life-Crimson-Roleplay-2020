@@ -1,17 +1,16 @@
-/*
+﻿/*
 Script: choptree.sqf
 Description: Determines what form of wood you get and how much you get.
 Exec: When Axe is used.
 Written by: ZKB1325
 */
 
-private ["_art","_gettreereturn","_choppedtree","_amountchopped","_amount","_treecuttinlvlinc","_k","_object","_i","_foundtree"];
+private ["_art","_gettreereturn","_choppedtree","_amountchopped","_amount","_treecuttinlvlinc","_k","_object","_i"];
 
 _art = _this select 0;
 
 
-if (isNil "working") then { working = false; };
-if (working) exitwith {systemChat "Your already performing an action please wait";};
+if(working) exitwith {systemChat "Your already performing an action please wait";};
 if (vehicle player != player) exitWith {systemChat "you can only chop down trees on foot";};
 if ((player distance getmarkerpos "forest" < 175) or (player distance getmarkerpos "forest2" < 175)) then 
 {
@@ -23,9 +22,7 @@ if ((player distance getmarkerpos "forest" < 175) or (player distance getmarkerp
 	_foundtree = false;
 		{   
 		
-		// typeOf _x == "" will never be true; this used to prevent finding any trees at all.
-		// Use Tree kind check for Arma 2 OA.
-		if ((_x isKindOf "Tree") and (damage _x < 1)) exitWith     
+		if ((typeOf _x == "") and (damage _x < 1)) exitWith     
 			{ 
 			_choppedtree = ["wood","wood"] call BIS_selectRandom;/*just in case we want to add other types of trees (ash, hicery, maple)*/
 			_amountchopped = [1,2,3,4,5] call BIS_selectRandom;
@@ -41,7 +38,7 @@ if ((player distance getmarkerpos "forest" < 175) or (player distance getmarkerp
 	   
 			_x setdamage 1;  
 
-			for "_i" from 1 to _amountchopped step 1 do 
+			for "_i" from 0 to _amountchopped step 1 do 
 			{
 				_object = "Suitcase" createVehicle getPos player;
 				_object call core_setVarName;

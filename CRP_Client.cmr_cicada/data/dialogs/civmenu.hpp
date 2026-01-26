@@ -1,4 +1,4 @@
-class menu_pd
+﻿class menu_pd
 {
 	idd = -1;
 	
@@ -80,8 +80,8 @@ class menu_pd
 			y = safeZoneY+safeZoneH*0.47444445;
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
-			text = "Court Services";	
-			action = "closedialog 0;[]call court_openCivMenu;";			
+			text = "Ticket";	
+			action = "closedialog 0;[]call ticket_open;";			
 		};
 		class button_cuff : RscButton 
 		{
@@ -108,7 +108,7 @@ class menu_pd
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
 			text = "Put in Vehicle";		
-			action = "[dtk_unit]spawn other_putplayerincar;";
+			action = "[dtk_unit]spawn other_putplayerincar;"
 		};
 		class button_extra3 : RscButton 
 		{
@@ -117,7 +117,7 @@ class menu_pd
 			w = safeZoneW * 0.143125;
 			h = safeZoneH * 0.03666667;
 			text = "Move";
-			action = "[dtk_unit]spawn cuffs_escort;";
+			action = "[dtk_unit]spawn cuffs_escort;"
 		
 		};
 		class lable_top : Rsc_lable 
@@ -212,7 +212,7 @@ class menu_civ
 			w = safeZoneW*0.143125;
 			h = safeZoneH*0.03666667;
 			text = "Put in Vehicle";		
-			action = "[dtk_unit]spawn other_putplayerincar;";
+			action = "[dtk_unit]spawn other_putplayerincar;"
 		};
 		class button_arrest : RscButton 
 		{
@@ -516,8 +516,8 @@ class vehicle_menu_pd
 			y = safeZoneY + safeZoneH * 0.42555556;
 			w = safeZoneW * 0.143125;
 			h = safeZoneH * 0.03666667;
-			text = "Court Services";
-			action="closedialog 0;[]call court_openCivMenu;";
+			text = "Ticket";
+			action="closedialog 0;[]call ticket_open;";
 		};
 		class button_ticket : RscButton 
 		{

@@ -1,10 +1,3 @@
-// Ensure core variables/functions are compiled before we run init logic.
-// Some missions relied on an object init calling pre_init.sqf; this makes startup deterministic.
-if (isNil "DTK_PreInitDone") then {
-	DTK_PreInitDone = true;
-	call compile preprocessFile "pre_init.sqf";
-};
-
 diag_log text "[LOG]Post Initialization Started";
 enableSaving [false, false];
 waitUntil {(!isNull player && {!isNull(findDisplay 46)}) or dtk_server}; 
@@ -60,15 +53,4 @@ if (dtk_client) then {
 };
 
 endLoadingScreen;
-diag_log format [
-	"Server: %1 Client: %2 Local: %3 World: %4 Name: %5 Type: %6 Time: %7 Alive: %8 Null: %9",
-	dtk_server,
-	dtk_client,
-	local player,
-	WorldName,
-	name player,
-	typeOf player,
-	time,
-	alive player,
-	isNull player
-];
+diag_log formatText ["Server: %1 Client: %2 Local: %3 World: %4 Name: %5 Type: %6 Time: %7 Alive: %8 Null: %9 Stats: %10 ",dtk_server,dtk_client,local player,WorldName,name player,typeOf player,Time,alive player,isNull player];

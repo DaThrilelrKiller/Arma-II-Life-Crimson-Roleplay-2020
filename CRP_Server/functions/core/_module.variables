@@ -1,2 +1,1 @@
-// Arma 2 OA: server date snapshot ( [year, month, day, hour, minute] ).
-DTK_Mission_Date = date;
+DTK_Mission_Date = Insert-Date-Here;

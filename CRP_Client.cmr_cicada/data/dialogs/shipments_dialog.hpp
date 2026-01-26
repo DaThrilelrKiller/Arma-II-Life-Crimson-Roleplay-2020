@@ -1,4 +1,4 @@
-class shipment_open
+﻿class shipment_open
 {
 	idd = 162;
 	movingEnable = true;
@@ -58,7 +58,7 @@ class shipment_open
 			w = 0.143976 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1500: RscListBox
+		class RscListbox_1500: RscListbox
 		{
 			idc = 1500;
 			colorSelectBackground[] = {0.5,0,0,0.5};
@@ -80,7 +80,7 @@ class shipment_open
 			w = 0.207966 * safezoneW;
 			h = 0.0340016 * safezoneH;
 		};
-		class RscListbox_1501: RscListBox
+		class RscListbox_1501: RscListbox
 		{
 			idc = 1501;
 			colorSelectBackground[] = {0.5,0,0,0.5};

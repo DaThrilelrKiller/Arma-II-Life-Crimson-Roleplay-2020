@@ -1,4 +1,4 @@
-/*
+﻿/*
 File: fn_LoadAcount.sqf
 Desc: Loads statics for a player it modular for all fractions
 Author: DaThrillerKiller -PureGaming Founder
@@ -49,17 +49,6 @@ if (count(_stats select 24) != 0)then {
 
 
 INVAppsInstalled = (_stats select 13);
-
-// Automatically add judge app if player is a judge (check after whitelist loads)
-[] spawn {
-	waitUntil {!isNil "AR_Whitelistloaded"};
-	if (call court_isJudge) then {
-		if (!("app_judge" in INVAppsInstalled)) then {
-			INVAppsInstalled set [count INVAppsInstalled, "app_judge"];
-		};
-	};
-};
-
 if ((_stats select 14) == "UNCONSCIOUS")then {
 ["ALL",["dtk_client",format ["[RELOG DETECTION] caught %2%1 loging in after being dead, this could be a mistake", name player, player],3],"network_chat",false,false]call network_MPExec;
 };

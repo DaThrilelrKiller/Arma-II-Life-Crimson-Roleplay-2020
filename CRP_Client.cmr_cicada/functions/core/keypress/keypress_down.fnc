@@ -1,10 +1,10 @@
-private ["_key","_shift","_ctrl","_alt","_return","_data","_functions"];
+﻿private ["_key","_shift","_ctrl","_alt","_return","_data","_functions"];
 
 _key     = _this select 1;
 _shift = _this select 2;
 _ctrl = _this select 3;
 _alt = _this select 4;
-_return = if (([2,3,4,5,6,7,8,9,10,11] find _key) > -1)then {true}else{false};
+_return = if (_key in [2,3,4,5,6,7,8,9,10,11])then {true}else{false};
 
 
 if (_shift or _ctrl or _alt)then {
@@ -26,7 +26,7 @@ if (isNil "_functions")exitWith {_return};
 	_return = [false,_return]select !isNil "_return";
 }ForEach _functions;
 
-if (([2,3,4,5,6,7,8,9,10,11] find _key) > -1)then {
+if (_key in [2,3,4,5,6,7,8,9,10,11])then {
 	_return = true;
 };
 

@@ -1,9 +1,9 @@
-if (!alive player)exitwith{}; 
+﻿if (!alive player)exitwith{}; 
 
 
 systemChat  "You Have Been Ziptied!"; 
 
-waituntil {((["civilsitting","civilsitting03","civilsitting02","civilsitting01"] find (animationstate player)) < 0)};
+waituntil {!(animationstate player in ["civilsitting","civilsitting03","civilsitting02","civilsitting01"])};
 	
 if(animationstate player == "civilsitting" or animationstate player == "civilsitting03" or animationstate player == "civilsitting02" or animationstate player == "civilsitting01")then
 {

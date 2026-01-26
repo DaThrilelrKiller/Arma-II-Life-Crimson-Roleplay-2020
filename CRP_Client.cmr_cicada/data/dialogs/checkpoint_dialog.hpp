@@ -1,4 +1,4 @@
-class AM_CheckpointBuilder {
+﻿class AM_CheckpointBuilder {
 	idd=-1;
 	CONTROLS[]={RscFrame_1800,RscListbox_1500,RscShortcutButton_1700,RscShortcutButton_1701,RscText_1000};
 	class RscFrame_1800: RscBackground
@@ -9,7 +9,7 @@ class AM_CheckpointBuilder {
 		w = 0.40948 * safezoneW;
 		h = 0.38 * safezoneH;
 	};
-	class RscListbox_1500: RscListBox
+	class RscListbox_1500: RscListbox
 	{
 		idc = 1500;
 		x = 0.308333 * safezoneW + safezoneX;

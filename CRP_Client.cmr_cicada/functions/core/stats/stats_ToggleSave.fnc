@@ -1,10 +1,10 @@
-private ["_kind","_vehicle","_VehicleKind"];
+﻿private ["_kind","_vehicle","_VehicleKind"];
 _vehicle = vehicle player;
 _VehicleKind = _vehicle call vehicle_kind;
 _kind = [player,10] call stats_nearSave;
 
 if (_kind == "")exitWith {};
-if ((["Plane","Heli"] find _kind) > -1 && {((getPos _vehicle) select 2) > 1})exitWith {};
+if (_kind in ["Plane","Heli"] && {((getPos _vehicle) select 2) > 1})exitWith {};
 if (call tag_active)exitWith {};
 
 if (driver _vehicle == player)then {

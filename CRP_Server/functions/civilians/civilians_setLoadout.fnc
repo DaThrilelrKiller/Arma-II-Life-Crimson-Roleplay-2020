@@ -15,8 +15,7 @@ _weightedLoadouts = [];
 }forEach DTK_CIV_Loadouts;
 
 /* Select random loadout from weighted array */
-if (count _weightedLoadouts == 0) exitWith {};
-_selectedLoadout = _weightedLoadouts select floor (random (count _weightedLoadouts));
+_selectedLoadout = _weightedLoadouts call BIS_selectRandom;
 _loadout = call _selectedLoadout;
 
 _items =  _loadout select 0;

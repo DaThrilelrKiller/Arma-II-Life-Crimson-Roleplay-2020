@@ -10,13 +10,6 @@ private ["_value","_tag"];
 	missionNamespace setVariable [_x select 1,_value];
 }forEach whitelist_data;
 
-// Automatically add judge app to iPad if player is a judge
-if (!isNil "INVAppsInstalled" && (call court_isJudge)) then {
-	if (!("app_judge" in INVAppsInstalled)) then {
-		INVAppsInstalled set [count INVAppsInstalled, "app_judge"];
-	};
-};
-
 diag_log text "[LOG]Whitelist Loaded!";
 
 AR_Whitelistloaded = true;

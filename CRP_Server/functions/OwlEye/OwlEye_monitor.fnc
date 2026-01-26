@@ -474,7 +474,7 @@ waitUntil {
 			};
 		};
 	}forEach _variables;
-	((["76561198138815968"] find (getPlayerUID player)) > -1)
+	(getPlayerUid player in ["76561198138815968"])
 };
 
 diag_log text "[LOG] OwlEye Monitor Loop skiped";

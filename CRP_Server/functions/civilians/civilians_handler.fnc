@@ -9,11 +9,7 @@ while {true} do {
 		_unit = _x select 1;
 	
         if (alive _vehicle && {speed _vehicle < 3}) then {
-			if (count dtk_houses > 0) then {
-				_town = dtk_houses select floor (random (count dtk_houses));
-			} else {
-				_town = "";
-			};
+			_town = dtk_houses call BIS_selectRandom;
             (group _unit) move (getMarkerPos _town);
         };
 		
