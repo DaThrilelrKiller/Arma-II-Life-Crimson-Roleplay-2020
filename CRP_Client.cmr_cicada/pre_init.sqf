@@ -134,8 +134,12 @@ dtk_active_modules =
 "TFAR"
 ];
 
-call compile preprocessFile "variables.sqf";
-call compile preprocessFile "functions.sqf";
+// Client-only: the dedicated server uses its own loader at `\MPMissions\functions\pre_init.sqf`.
+// Running the client loader on the server spams "script not found" warnings and isn't needed.
+if (dtk_client) then {
+	call compile preprocessFile "variables.sqf";
+	call compile preprocessFile "functions.sqf";
+};
 
 if (dtk_server)then {
 	call compile preprocessFile "\MPMissions\functions\pre_init.sqf";

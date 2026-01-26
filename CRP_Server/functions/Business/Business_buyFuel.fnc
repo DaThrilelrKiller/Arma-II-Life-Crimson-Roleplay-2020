@@ -54,8 +54,10 @@ if (_curOwnerUid == "") then {
 	[_shop, _shopIndex, dtk_fuelStockMax] call S_Business_syncFuelPump;
 
 	[_buyer, ["You bought this fuel station."], {systemChat _this}, false, false] call network_MPExec;
-	exitWith {};
 };
+
+// If it was unowned, we're done.
+if (_curOwnerUid == "") exitWith {};
 
 // Owned purchase (must be for sale)
 if (_forSale <= 0) exitWith {
