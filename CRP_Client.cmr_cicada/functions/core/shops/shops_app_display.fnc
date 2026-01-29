@@ -1,4 +1,3 @@
-// Display shops stock data in the app
 disableSerialization;
 private ["_display","_stockData","_item","_shopVarName","_stock","_demandLevel","_baseBuyPrice","_baseSellPrice","_itemName","_displayText","_sortMode","_sortedData","_itemInfo","_index"];
 
@@ -8,10 +7,8 @@ if (isNull _display) exitWith {
 	false
 };
 
-// Use control ID directly
 lbClear 3000;
 
-// Get stock data
 _stockData = if (!isNil "shops_app_stockData" && {count shops_app_stockData > 0}) then {
 	shops_app_stockData
 } else {
@@ -36,19 +33,14 @@ if (count _stockData == 0) then {
 	lbAdd [3000, "- Wood & lumber"];
 	lbAdd [3000, "- Oil products"];
 } else {
-	// Get sort mode
 	_sortMode = if (isNil "shops_app_sortMode") then {"demand"} else {shops_app_sortMode};
 	
-	// Sort data using existing sort function
 	_sortedData = [_stockData, _sortMode] call shops_app_sort;
 	
-	// Add header
 	lbAdd [3000, "Item Name | Shop | Stock | Demand Level"];
 	lbAdd [3000, "────────────────────────────────────────"];
 	
-	// Display each item
 	{
-		// Validate entry is an array
 		if (typeName _x != "ARRAY" || {count _x < 4}) then {
 			diag_log formatText ["[SHOPS APP DISPLAY] Invalid entry: %1 (type: %2)", _x, typeName _x];
 		} else {
@@ -57,17 +49,13 @@ if (count _stockData == 0) then {
 			_stock = _x select 2;
 			_demandLevel = _x select 3;
 		
-		// Get item info
 		_itemInfo = _item call config_array;
 		if (count _itemInfo > 0) then {
-			// Get base prices for display
 			_baseBuyPrice = _itemInfo call config_buycost;
 			_baseSellPrice = _itemInfo call config_sellcost;
 			
-			// Get item display name
 			_itemName = _itemInfo call config_displayname;
 			
-			// Format display text (simplified - show base prices, adjusted prices would require async calls)
 			_displayText = format["%1 | %2 | %3 | %4",
 				_itemName,
 				_shopVarName,
@@ -78,7 +66,6 @@ if (count _stockData == 0) then {
 			_index = lbAdd [3000, _displayText];
 			lbSetData [3000, _index, str _x];
 		} else {
-			// Fallback if item not found in config
 			_displayText = format["%1 | %2 | %3 | %4",
 				_item,
 				_shopVarName,

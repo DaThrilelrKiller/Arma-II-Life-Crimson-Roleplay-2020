@@ -1,4 +1,3 @@
-// Network handler for getting adjusted price
 private ["_params","_shopVarName","_item","_basePrice","_adjustedPrice"];
 
 _params = _this;

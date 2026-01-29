@@ -1,4 +1,3 @@
-// Save all shop stock to shops.ini (called periodically or on events)
 private ["_shop","_shopVarName","_inv","_item","_stock","_savedCount","_shopCount"];
 
 if (isNil "INV_ItemShops") exitWith {
@@ -11,14 +10,11 @@ _shopCount = 0;
 
 diag_log text "[SHOPS] Starting save process...";
 
-// Iterate through all shops
 {
 	_shop = _x select 0;
 	if (!isNull _shop) then {
-		// Check if shop needs saving
 		if (_shop getVariable ["shop_needsSave", false]) then {
 			_shopVarName = vehicleVarName _shop;
-			// Fallback if vehicleVarName returns empty
 			if (_shopVarName == "") then {
 				_shopVarName = format["Shop_%1", _forEachIndex];
 			};
@@ -26,12 +22,10 @@ diag_log text "[SHOPS] Starting save process...";
 			
 			diag_log formatText ["[SHOPS] Saving shop %1 with %2 inventory items", _shopVarName, count _inv];
 			
-			// Save each item's stock
 			{
 				_item = _x select 0;
 				_stock = _x select 1;
 				
-				// Only save if item is in player-obtainable list
 				if (_item in shops_playerItems) then {
 					_result = ["shops", _shopVarName, _item, _stock] call s_stats_write;
 					if (_result) then {
@@ -43,7 +37,6 @@ diag_log text "[SHOPS] Starting save process...";
 				};
 			}forEach _inv;
 			
-			// Clear needsSave flag
 			_shop setVariable ["shop_needsSave", false, true];
 			_shopCount = _shopCount + 1;
 		};

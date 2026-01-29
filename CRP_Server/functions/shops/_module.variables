@@ -1,15 +1,8 @@
 module_shops = true;
 
-// Maximum stock per item per shop
 shops_maxStock = 1000;
 
-// Note: Shop stock is now stored in shop object variables (shop_inventory)
-// Format: shop_inventory = [[item, count], [item, count], ...]
-// Each shop object has a "shop_inventory" variable set on it
-
-// Player-obtainable items that should track stock
 shops_playerItems = [
-	// Fishing Items (Raw)
 	"fishing_turtle",
 	"fish_catfish",
 	"fishing_whale",
@@ -18,8 +11,6 @@ shops_playerItems = [
 	"fishing_walleye",
 	"fishing_mackerel",
 	"fishing_herring",
-	
-	// Fishing Items (Cooked)
 	"fishing_turtle_cooked",
 	"fish_catfish_cooked",
 	"fishing_trout_cooked",
@@ -27,19 +18,13 @@ shops_playerItems = [
 	"fishing_walleye_cooked",
 	"fishing_mackerel_cooked",
 	"fishing_herring_cooked",
-	
-	// Mining Items (Raw)
 	"iron",
 	"Gold",
 	"copper",
 	"Diamond rock",
 	"coal",
-	
-	// Mining Items (Processed)
 	"Diamond",
 	"steel",
-	
-	// Farming/Gathering Items (Raw)
 	"getreide",
 	"apple",
 	"sand",
@@ -48,24 +33,16 @@ shops_playerItems = [
 	"Unprocessed_Cocaine",
 	"Unprocessed_Heroin",
 	"Unprocessed_Marijuana",
-	
-	// Farming Items (Processed)
 	"Bread",
 	"Frozens",
-	
-	// Drug Seeds (from harvesting)
 	"MarijuanaSeed",
 	"HeroinSeed",
 	"CocaineSeed",
-	
-	// Processed Drugs (from Drug Lab)
 	"lsd",
 	"cocaine",
 	"heroin",
 	"marijuana",
 	"meth",
-	
-	// Hunting Items (Raw Meat)
 	"rawboar",
 	"rawboar_tagged",
 	"rawcow",
@@ -76,8 +53,6 @@ shops_playerItems = [
 	"rawgoat_tagged",
 	"rawsheep",
 	"rawsheep_tagged",
-	
-	// Processed Meat Items
 	"beef_steak",
 	"beef_burger",
 	"beef_jerky",
@@ -89,12 +64,8 @@ shops_playerItems = [
 	"lamb_roast",
 	"boar_sausage",
 	"boar_ribs",
-	
-	// Wood/Lumber
 	"wood",
 	"lumber",
-	
-	// Oil
 	"Oil",
 	"OilBarrel"
 ];

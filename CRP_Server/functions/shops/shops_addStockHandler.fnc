@@ -1,4 +1,3 @@
-// Network handler for client calls to add stock
 private ["_params","_shopVarName","_item","_amount"];
 
 _params = _this;

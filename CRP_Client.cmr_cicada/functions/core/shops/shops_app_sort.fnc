@@ -1,17 +1,14 @@
-// Sort shops stock data
 private ["_data","_mode","_sorted","_tempData","_validData"];
 
 _data = _this select 0;
 _mode = _this select 1;
 
-// Validate data - ensure all entries are arrays
 _validData = [];
 {
 	if (typeName _x == "ARRAY" && {count _x >= 4}) then {
 		_validData set [count _validData, _x];
 	} else {
 		if (typeName _x == "STRING") then {
-			// Try to parse string as array
 			private ["_parsed"];
 			_parsed = call compile _x;
 			if (typeName _parsed == "ARRAY" && {count _parsed >= 4}) then {
@@ -30,7 +27,6 @@ _sorted = _data;
 
 switch (_mode) do {
 	case "demand": {
-		// Sort by demand level (High > Medium > Low)
 		_tempData = [];
 		{
 			private ["_demand","_demandValue"];
@@ -45,7 +41,6 @@ switch (_mode) do {
 		}forEach _tempData;
 	};
 	case "profit": {
-		// Sort by profit margin (calculate on the fly, highest first)
 		_tempData = [];
 		{
 			private ["_item","_shopVarName","_baseBuyPrice","_baseSellPrice","_adjustedBuyPrice","_adjustedSellPrice","_profitMargin","_itemInfo"];
@@ -70,7 +65,6 @@ switch (_mode) do {
 		}forEach _tempData;
 	};
 	case "stock": {
-		// Sort by stock level (lowest first - low stock = high demand)
 		_tempData = [];
 		{
 			_tempData set [count _tempData, [_x select 2, _x]];

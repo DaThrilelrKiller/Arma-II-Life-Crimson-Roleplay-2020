@@ -1,9 +1,7 @@
-// Check if item is a player-obtainable item (client-side check)
 private ["_item","_playerItems"];
 
 _item = _this;
 
-// List of player-obtainable items (matches server-side list)
 _playerItems = [
 	"fishing_turtle","fish_catfish","fishing_whale","fishing_trout","fishing_bass","fishing_walleye","fishing_mackerel","fishing_herring",
 	"fishing_turtle_cooked","fish_catfish_cooked","fishing_trout_cooked","fishing_bass_cooked","fishing_walleye_cooked","fishing_mackerel_cooked","fishing_herring_cooked",
