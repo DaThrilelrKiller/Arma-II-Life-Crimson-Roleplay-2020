@@ -1,9 +1,31 @@
 // Sort shops stock data
-private ["_data","_mode","_sorted","_tempData"];
+private ["_data","_mode","_sorted","_tempData","_validData"];
 
 _data = _this select 0;
 _mode = _this select 1;
 
+// Validate data - ensure all entries are arrays
+_validData = [];
+{
+	if (typeName _x == "ARRAY" && {count _x >= 4}) then {
+		_validData set [count _validData, _x];
+	} else {
+		if (typeName _x == "STRING") then {
+			// Try to parse string as array
+			private ["_parsed"];
+			_parsed = call compile _x;
+			if (typeName _parsed == "ARRAY" && {count _parsed >= 4}) then {
+				_validData set [count _validData, _parsed];
+			} else {
+				diag_log formatText ["[SHOPS APP SORT] Invalid entry (string parse failed): %1", _x];
+			};
+		} else {
+			diag_log formatText ["[SHOPS APP SORT] Invalid entry type: %1 (expected ARRAY)", typeName _x];
+		};
+	};
+}forEach _data;
+
+_data = _validData;
 _sorted = _data;
 
 switch (_mode) do {

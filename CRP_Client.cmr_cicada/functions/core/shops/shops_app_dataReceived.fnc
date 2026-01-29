@@ -1,15 +1,37 @@
 // Callback when stock data is received from server
-private ["_stockData"];
+disableSerialization;
+private ["_stockData","_rawData"];
 
 // Network callbacks wrap data in an array
-_stockData = if (typeName _this == "ARRAY" && {count _this > 0}) then {
+_rawData = if (typeName _this == "ARRAY" && {count _this > 0}) then {
 	_this select 0
 } else {
 	_this
 };
 
-if (isNil "_stockData") then {
+// Parse data if it's a string (serialized array)
+if (typeName _rawData == "STRING") then {
+	_stockData = call compile _rawData;
+} else {
+	_stockData = _rawData;
+};
+
+// Ensure it's an array
+if (isNil "_stockData" || {typeName _stockData != "ARRAY"}) then {
 	_stockData = [];
+	diag_log text "[SHOPS APP] ERROR: Received invalid stock data format";
+} else {
+	// Validate each entry is an array
+	private ["_validData","_entry"];
+	_validData = [];
+	{
+		if (typeName _x == "ARRAY" && {count _x >= 4}) then {
+			_validData set [count _validData, _x];
+		} else {
+			diag_log formatText ["[SHOPS APP] WARNING: Invalid entry in stock data: %1 (type: %2)", _x, typeName _x];
+		};
+	}forEach _stockData;
+	_stockData = _validData;
 };
 
 shops_app_stockData = _stockData;

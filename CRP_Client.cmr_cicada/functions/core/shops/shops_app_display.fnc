@@ -1,4 +1,5 @@
 // Display shops stock data in the app
+disableSerialization;
 private ["_display","_stockData","_item","_shopVarName","_stock","_demandLevel","_baseBuyPrice","_baseSellPrice","_itemName","_displayText","_sortMode","_sortedData","_itemInfo","_index"];
 
 _display = findDisplay 114;
@@ -47,10 +48,14 @@ if (count _stockData == 0) then {
 	
 	// Display each item
 	{
-		_shopVarName = _x select 0;
-		_item = _x select 1;
-		_stock = _x select 2;
-		_demandLevel = _x select 3;
+		// Validate entry is an array
+		if (typeName _x != "ARRAY" || {count _x < 4}) then {
+			diag_log formatText ["[SHOPS APP DISPLAY] Invalid entry: %1 (type: %2)", _x, typeName _x];
+		} else {
+			_shopVarName = _x select 0;
+			_item = _x select 1;
+			_stock = _x select 2;
+			_demandLevel = _x select 3;
 		
 		// Get item info
 		_itemInfo = _item call config_array;
@@ -82,6 +87,7 @@ if (count _stockData == 0) then {
 			];
 			_index = lbAdd [3000, _displayText];
 			lbSetData [3000, _index, str _x];
+		};
 		};
 	}forEach _sortedData;
 };
