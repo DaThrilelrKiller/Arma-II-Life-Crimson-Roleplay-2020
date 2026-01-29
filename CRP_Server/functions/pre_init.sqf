@@ -27,8 +27,7 @@ dtk_server_modules =
 "Civilians",
 "Experience",
 "OwlEye",
-"Credit",
-"Shops"
+"Credit"
 ];
 
 /*loads module functions*/ 

@@ -54,16 +54,7 @@ switch(_itemtype)do
 		[player,_item,-_amount] call storage_add;
 		if(primaryweapon player == "" and secondaryweapon player == "")then{player playmove "AmovPercMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon"}else{player playmove "AinvPknlMstpSlayWrflDnon"};																																														
 		systemChat  format [localize "STRS_inv_shop_sold", (_amount call string_intToString), (_info call config_displayname), (_cost call string_intToString)];			
-	
-		// Add stock to shop if item is player-obtainable
-		if (!isNull shop_object && [_item] call shops_isPlayerItem) then {
-			private ["_shopVarName","_categoryIndex"];
-			_shopVarName = [shop_object] call shops_getShopVarName;
-			_categoryIndex = if (isNil "shop_categoryIndex") then {-1} else {shop_categoryIndex};
-			diag_log formatText ["[SHOPS CLIENT] Selling %1 x %2 to shop %3 category %4", _amount, _item, _shopVarName, _categoryIndex];
-			["SERVER", [_shopVarName, _categoryIndex, _item, _amount], "shops_addStock", false, false] call network_MPExec;
-		};
-	
+
 		if (_info call config_illegal) then{
 			_array = shop_object getvariable["druglist",[]];
 			_array set [count _array,[player, _amount, (_cost/_amount),_item]];
