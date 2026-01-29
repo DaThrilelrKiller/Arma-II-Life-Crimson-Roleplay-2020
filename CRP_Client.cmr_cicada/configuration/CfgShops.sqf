@@ -2242,10 +2242,10 @@ INV_ItemShops = [
 ]],
 [DTK_Shop_SellResource,["oil","Sell Resources"], [
     [["oil","Sell Resourcese"], _rs, _rs, {dtk_civ},nil, false],
-    [["oil","Oil Dealer"], _emptyshop, _os, {dtk_civ},nil, false]
+    [["oil","Oil Dealer"], _os, _os, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_WhaleD,["Whale","Whale Dealer"], [
-    [["Whale","Whale Dealer"], _emptyshop, _ws, {dtk_civ},nil, false]
+    [["Whale","Whale Dealer"], _ws, _ws, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_Terror,["picture","Terror Equipment"], [
     [["picture","Terror Equipment"], _terrorshop, _terrorshop, {dtk_civ},'DTK_Shop_TerrorVehSpawn', true],
@@ -2271,7 +2271,7 @@ INV_ItemShops = [
     [["picture","Diamond Pawn Shop"], _js, _js, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_Pharmacy,["picture","Pharmacy"], [
-    [["picture","Pharmacy"], _psc, _emptyshop, {true},pharmspawn, false]
+    [["picture","Pharmacy"], _psc, _psc, {true},pharmspawn, false]
 ]],
 [DTK_Shop_Cocaine,["Cocaine","Cocaine Dealer"], [
     [["Cocaine","Cocaine Dealer"], _dsc, _dsc, {dtk_civ},nil, false]
@@ -2280,7 +2280,7 @@ INV_ItemShops = [
     [["Marijuana","Marijuana Dealer"], _dsm, _dsm, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_LSD,["Marijuana","LSD Dealer"], [
-    [["Marijuana","LSD Dealer"], _emptyshop, _dsl, {dtk_civ},nil, false]
+    [["Marijuana","LSD Dealer"], _dsl, _dsl, {dtk_civ},nil, false]
 ]],
 [DTK_Shop_Heroin,["meth","Heroin Dealer"], [
     [["meth","Heroin Dealer"], _dsh, _dsh, {dtk_civ},nil, false]
