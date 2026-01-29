@@ -1,6 +1,4 @@
-﻿other_towing = {
-
-private ["_action","_tower","_towertype","_ObjectsInRange","_Object","_message","_Otype","_OLength","_ObjectName","_TowerName"];
+﻿private ["_action","_tower","_towertype","_ObjectsInRange","_Object","_message","_Otype","_OLength","_ObjectName","_TowerName"];
 
 _action = _this select 0;
 _tower = _this select 1;
@@ -171,5 +169,4 @@ switch (_action) do
 			};
 		}count _ObjectsInRange;
 	};	
-};
 };
