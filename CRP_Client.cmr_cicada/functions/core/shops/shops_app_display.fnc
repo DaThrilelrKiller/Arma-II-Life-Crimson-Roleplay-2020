@@ -18,22 +18,22 @@ _stockData = if (!isNil "shops_app_stockData" && {count shops_app_stockData > 0}
 };
 
 if (count _stockData == 0) then {
-	lbAdd [_listbox, "No stock data available"];
-	lbAdd [_listbox, ""];
-	lbAdd [_listbox, "Items will appear here when players sell to shops"];
-	lbAdd [_listbox, ""];
-	lbAdd [_listbox, "Tip: Sell player-obtainable items to shops"];
-	lbAdd [_listbox, "to build shop inventory and see demand levels"];
-	lbAdd [_listbox, ""];
-	lbAdd [_listbox, "Tracked items include:"];
-	lbAdd [_listbox, "- Fishing items (raw & cooked)"];
-	lbAdd [_listbox, "- Mining resources"];
-	lbAdd [_listbox, "- Farm products"];
-	lbAdd [_listbox, "- Processed foods"];
-	lbAdd [_listbox, "- Drugs & seeds"];
-	lbAdd [_listbox, "- Meat products"];
-	lbAdd [_listbox, "- Wood & lumber"];
-	lbAdd [_listbox, "- Oil products"];
+	lbAdd [3000, "No stock data available"];
+	lbAdd [3000, ""];
+	lbAdd [3000, "Items will appear here when players sell to shops"];
+	lbAdd [3000, ""];
+	lbAdd [3000, "Tip: Sell player-obtainable items to shops"];
+	lbAdd [3000, "to build shop inventory and see demand levels"];
+	lbAdd [3000, ""];
+	lbAdd [3000, "Tracked items include:"];
+	lbAdd [3000, "- Fishing items (raw & cooked)"];
+	lbAdd [3000, "- Mining resources"];
+	lbAdd [3000, "- Farm products"];
+	lbAdd [3000, "- Processed foods"];
+	lbAdd [3000, "- Drugs & seeds"];
+	lbAdd [3000, "- Meat products"];
+	lbAdd [3000, "- Wood & lumber"];
+	lbAdd [3000, "- Oil products"];
 } else {
 	// Get sort mode
 	_sortMode = if (isNil "shops_app_sortMode") then {"demand"} else {shops_app_sortMode};
@@ -56,8 +56,8 @@ if (count _stockData == 0) then {
 	};
 	
 	// Add header
-	lbAdd [_listbox, "Item Name | Shop | Stock | Demand Level"];
-	lbAdd [_listbox, "────────────────────────────────────────"];
+	lbAdd [3000, "Item Name | Shop | Stock | Demand Level"];
+	lbAdd [3000, "────────────────────────────────────────"];
 	
 	// Display each item
 	{
@@ -84,8 +84,8 @@ if (count _stockData == 0) then {
 				_demandLevel
 			];
 			
-			_index = lbAdd [_listbox, _displayText];
-			lbSetData [_listbox, _index, str _x];
+			_index = lbAdd [3000, _displayText];
+			lbSetData [3000, _index, str _x];
 		} else {
 			// Fallback if item not found in config
 			_displayText = format["%1 | %2 | %3 | %4",
@@ -94,8 +94,8 @@ if (count _stockData == 0) then {
 				_stock,
 				_demandLevel
 			];
-			_index = lbAdd [_listbox, _displayText];
-			lbSetData [_listbox, _index, str _x];
+			_index = lbAdd [3000, _displayText];
+			lbSetData [3000, _index, str _x];
 		};
 	}forEach _sortedData;
 };
