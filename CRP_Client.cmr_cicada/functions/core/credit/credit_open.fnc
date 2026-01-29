@@ -1,6 +1,5 @@
 private ["_geld","_bank","_score","_loanBal","_cardBal","_loanMax","_cardLimit"];
 
-if (dialog)exitWith {closedialog 0};
 
 if (credit_credit_running)exitWith {systemChat "Credit system is processing, please wait...";};
 credit_credit_running = true;
@@ -11,14 +10,14 @@ _bank  = [dtk_bank] call Main_FormatMoney;
 _score = credit_score;
 _loanBal = [credit_loanAmount] call Main_FormatMoney;
 _cardBal = [credit_cardBalance] call Main_FormatMoney;
-// Calculate max loan based on current credit score
+
 credit_loanMax = [_score] call credit_getMaxLoan;
 _loanMax = [credit_loanMax] call Main_FormatMoney;
 _cardLimit = [credit_cardLimit] call Main_FormatMoney;
 
 createDialog "credit_menu";
 
-// Display current data
+
 CtrlSetText [1000, format ["Bank: %1", _bank]];
 CtrlSetText [1001, format ["Wallet: %1", _geld]];
 CtrlSetText [1002, format ["Credit Score: %1", _score]];
