@@ -1885,6 +1885,7 @@ dtk_items = [
 ["app_computer",["App", "misc"],["app_computer", "Police Computer"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_store",["App", "misc"],["app_store", "App Store"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_credit",["App", "misc"],["app_credit", "Cicada Credit Company"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
+["app_shops",["App", "misc"],["app_shops", "Shop Demand & Inventory"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_settings",["App", "misc"],["app_settings", "Settings"],[5, 2], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_background",["App", "misc"],["app_background", "Change Background"],[0, 0], [5, "", ""], [true, true, true,false,"nouse"]],
 ["app_vote",["App", "misc"],["app_vote", "Voteing App"],[0, 0], [5, "", ""], [true, true, true,false,"nouse"]],
