@@ -381,6 +381,8 @@ DEV_CreateVehicle = {
 	["ALL",[DTK_Vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",DTK_Vehicle],-1,false,true,'LeanRight','vehicle player == _target']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[DTK_Vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",DTK_Vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) == dtk_side or dtk_side == "CIV"} && {vehicle player == player} && {!(locked _target)} && {!([_target,"Get In (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[DTK_Vehicle,['','noscript.sqf',format["[%1]call vehicle_menu;",DTK_Vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) != dtk_side} && {vehicle player == player} && {dtk_side == "PD"} && {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[DTK_Vehicle,["Roll Vehicle Over","noscript.sqf",'[]spawn vehicle_unflip;',1,false,true,"",'player distance _target < 5 && {[_target,["Air", "Ship", "LandVehicle"]]call core_isKindOf}']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[DTK_Vehicle,["Pull Player Out","noscript.sqf",'(_this select 0) spawn Other_pullout;',1,true,true,"",'[_target,["Air", "Ship", "LandVehicle"]]call core_isKindOf && {player distance _target < 5} && {count (crew _target) > 0} && {(call INV_isArmed)}']],"network_addAction",false,true]call network_MPExec;
 
 	[DTK_Vehicle] call plates_setplate;
 	

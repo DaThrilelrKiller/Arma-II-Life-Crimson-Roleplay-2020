@@ -1,4 +1,4 @@
-﻿private ["_name","_location","_classname","_data","_vehicle","_pos","_dir"];
+private ["_name","_location","_classname","_data","_vehicle","_pos","_dir"];
 _name = _this select 0;
 _location = _this select 1;
 if (isNil "_location")then {
@@ -64,6 +64,8 @@ _classname =  _name call config_class;
 	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",_vehicle],-1,false,true,'LeanRight','vehicle player == _target']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_getIn;",_vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {(_target call vehicle_side) == dtk_side or dtk_side == "CIV"} && {vehicle player == player} && {!(locked _target)} && {!([_target,"Get In (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_vehicle,['','noscript.sqf',format["[%1]call vehicle_menu;",_vehicle],-1,false,true,'LeanRight','player distance _target < 5 && {vehicle player == player} && {dtk_side == "PD"}  && {(locked _target)} &&  {!([_target,"Vehicle Menu (E)",""]call tag_show)}']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[_vehicle,["Roll Vehicle Over","noscript.sqf",'[]spawn vehicle_unflip;',1,false,true,"",'player distance _target < 5']],"network_addAction",false,true]call network_MPExec;
+	["ALL",[_vehicle,["Pull Player Out","noscript.sqf",'(_this select 0) spawn Other_pullout;',1,true,true,"",'player distance _target < 5 && {count (crew _target) > 0} && {(call INV_isArmed)}']],"network_addAction",false,true]call network_MPExec;
 	["ALL",[_vehicle,"ems_SwitchGear",_vehicle],"network_syncJip",false,true]call network_MPExec;
 
 	

@@ -104,6 +104,12 @@ switch (_type) do {
 		_actionArray = [_actionText,"noscript.sqf",_script,1,true,true,"",'player distance _target < 4'];
 		["ALL",[_object,_actionArray],"network_addAction",false,true]call network_MPExec;
 	};
+	case "TargetEpopup": {
+		_actionText = "Reset Targets";
+		_script = '{_x animate["terc",0]} count (nearestobjects [getpos player, ["TargetEpopup"],  500])';
+		_actionArray = [_actionText,"noscript.sqf",_script,1,true,true,"",'player distance _target < 10'];
+		["ALL",[_object,_actionArray],"network_addAction",false,true]call network_MPExec;
+	};
 };
 
 true
