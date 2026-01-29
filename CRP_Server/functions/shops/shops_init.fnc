@@ -1,1 +1,0 @@
-[]call s_shops_load;
