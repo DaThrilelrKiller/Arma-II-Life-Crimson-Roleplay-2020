@@ -4,6 +4,7 @@
 ["addStock",false],
 ["addStockHandler",false],
 ["getStock",false],
+["getShopItems",false],
 ["saveStock",false],
 ["saveAll",false],
 ["calculatePrice",false],

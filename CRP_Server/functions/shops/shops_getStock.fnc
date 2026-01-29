@@ -4,14 +4,19 @@ private ["_shopVarName","_item","_shop","_inv","_stock"];
 _shopVarName = _this select 0;
 _item = _this select 1;
 
-// Find shop object by variable name
+// Find shop object by variable name using vehicleVarName
 _shop = objNull;
 if (!isNil "INV_ItemShops") then {
 	{
 		private ["_s","_varName"];
 		_s = _x select 0;
 		if (!isNull _s) then {
-			_varName = format["Shop_%1", _forEachIndex];
+			_varName = vehicleVarName _s;
+			// If vehicleVarName is empty, use index-based fallback
+			if (_varName == "") then {
+				_varName = format["Shop_%1", _forEachIndex];
+			};
+			// Check if this shop matches the requested varName
 			if (_varName == _shopVarName) exitWith {
 				_shop = _s;
 			};

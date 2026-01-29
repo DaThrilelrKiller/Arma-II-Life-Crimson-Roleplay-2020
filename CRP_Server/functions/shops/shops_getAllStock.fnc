@@ -9,7 +9,11 @@ if (!isNil "INV_ItemShops") then {
 	{
 		_shop = _x select 0;
 		if (!isNull _shop) then {
-			_shopVarName = format["Shop_%1", _forEachIndex];
+			_shopVarName = vehicleVarName _shop;
+			// Fallback if vehicleVarName returns empty
+			if (_shopVarName == "") then {
+				_shopVarName = format["Shop_%1", _forEachIndex];
+			};
 			_inv = _shop getVariable ["shop_inventory", []];
 			
 			// Add each item's stock data
