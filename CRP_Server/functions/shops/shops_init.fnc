@@ -41,7 +41,11 @@ shops_getAllStock = {
 	true
 };
 
-// Load all shop stock data from database
-[] call S_shops_load;
-
-diag_log formatText ["[SHOPS] Loaded %1 stock entries", count shops_stockData];
+// Load all shop stock data from database and set variables on shop objects
+// Note: This must be called after INV_ItemShops is loaded (which happens in pre_init)
+[] spawn {
+	// Wait a moment to ensure INV_ItemShops is loaded
+	sleep 1;
+	[] call S_shops_load;
+	diag_log text "[SHOPS] Shop stock system fully initialized with shop object variables";
+};

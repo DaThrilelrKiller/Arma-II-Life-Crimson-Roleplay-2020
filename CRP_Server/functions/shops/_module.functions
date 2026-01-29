@@ -4,6 +4,7 @@
 ["addStock",false],
 ["getStock",false],
 ["saveStock",false],
+["saveAll",false],
 ["calculatePrice",false],
 ["getAllStock",false],
 ["getAdjustedPrice",false]

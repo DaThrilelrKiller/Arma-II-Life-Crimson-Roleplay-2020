@@ -1,10 +1,11 @@
 module_shops = true;
 
-// Shop stock tracking: [[shopVarName, item, count], ...]
-shops_stockData = [];
-
 // Maximum stock per item per shop
 shops_maxStock = 1000;
+
+// Note: Shop stock is now stored in shop object variables (shop_inventory)
+// Format: shop_inventory = [[item, count], [item, count], ...]
+// Each shop object has a "shop_inventory" variable set on it
 
 // Player-obtainable items that should track stock
 shops_playerItems = [
