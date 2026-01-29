@@ -77,7 +77,6 @@ _itemIndex = 0;
 			};
 		};
 		_itemIndex = _itemIndex + 1;
-		};
 	};
 	true
 }count _this;
