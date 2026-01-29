@@ -70,7 +70,6 @@ class MissionSQM
 #include "data\dialogs\loading_dialog.hpp"
 #include "data\dialogs\credit_dialog.hpp"
 #include "data\dialogs\credit_employee_dialog.hpp"
-#include "data\dialogs\shops_app.hpp"
 
 class RscTitles
 {
