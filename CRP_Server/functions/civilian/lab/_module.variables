@@ -1,9 +1,0 @@
-DTK_Lab_Process = [
-["pharm", "meth", 2],
-["Unprocessed_LSD", "lsd", 5],
-["Unprocessed_Cocaine", "cocaine", 5],
-["Unprocessed_Heroin", "heroin", 5],
-["Unprocessed_Marijuana", "marijuana", 5]
-];
-
-DTK_LacingUp = false;

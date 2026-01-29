@@ -1,1 +1,0 @@
-markerText (_this select 0)

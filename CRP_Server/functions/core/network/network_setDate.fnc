@@ -1,1 +1,0 @@
-﻿setDate _this;

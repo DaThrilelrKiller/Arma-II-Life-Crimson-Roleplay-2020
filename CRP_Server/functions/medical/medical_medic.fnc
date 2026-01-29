@@ -1,1 +1,0 @@
-﻿(getNumber (configFile >> "CfgVehicles" >> (typeOf (_this select 0)) >> "attendant") == 1) or (DTK_Side == "UN")

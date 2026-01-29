@@ -1,4 +1,0 @@
-module_cdb = true;
-
-// Server-side police reports storage
-cdb_policeReports = [];

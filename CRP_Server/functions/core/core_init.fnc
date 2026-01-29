@@ -1,1 +1,0 @@
-[]spawn s_core_cleaner;

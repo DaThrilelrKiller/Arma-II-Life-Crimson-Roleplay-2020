@@ -1,4 +1,0 @@
-﻿dtk_payed = false;
-dtk_reason = "";
-dtk_amount = 0;
-dtk_unit = objNull;

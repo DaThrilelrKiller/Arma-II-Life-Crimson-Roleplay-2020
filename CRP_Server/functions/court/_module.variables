@@ -1,5 +1,0 @@
-module_court = true;
-
-// Server-side court case storage
-court_cases = [];
-court_caseID = 0;

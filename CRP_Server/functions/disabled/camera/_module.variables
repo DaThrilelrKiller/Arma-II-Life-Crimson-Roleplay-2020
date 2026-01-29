@@ -1,5 +1,0 @@
-﻿module_camera = true;
-v_cam_computers = [];
-v_active_cam = objNull;
-v_camera_bool = false;
-v_cam_array = [];

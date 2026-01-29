@@ -1,4 +1,0 @@
-﻿module_fuel = true;
-v_fuel_max             = 400;
-v_fuel_use = 3;
-v_fuel_pumps = (nearestobjects [dtk_center, ["Land_A_Fuelstation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_benzina_schnell","Land_fuelstation_army"], (dtk_center select 0)]);

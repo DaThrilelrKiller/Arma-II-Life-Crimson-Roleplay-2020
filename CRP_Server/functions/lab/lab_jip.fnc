@@ -1,1 +1,0 @@
-[( _this select 0),DTK_Lab_Drugs,"lab_sync",false,false]call network_MPExec;

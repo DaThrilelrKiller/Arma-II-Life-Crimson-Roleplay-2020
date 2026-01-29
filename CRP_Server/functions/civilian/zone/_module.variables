@@ -1,3 +1,0 @@
-﻿zones = ["DTK_GangArea_Zone_1_Flag", "DTK_GangArea_Zone_2_Flag", "DTK_GangArea_Zone_3_Flag", "DTK_GangArea_Zone_4_Flag"];
-capturing = false;
-peacecomps = true;

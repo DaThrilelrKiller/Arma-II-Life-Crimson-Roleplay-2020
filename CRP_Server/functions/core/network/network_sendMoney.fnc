@@ -1,1 +1,0 @@
-﻿dtk_bank = dtk_bank + _this;

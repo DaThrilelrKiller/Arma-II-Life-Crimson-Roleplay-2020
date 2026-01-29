@@ -1,1 +1,0 @@
-createDialog "ticket_menu";

@@ -1,1 +1,0 @@
-﻿(_this select 0) lock (_this select 1);

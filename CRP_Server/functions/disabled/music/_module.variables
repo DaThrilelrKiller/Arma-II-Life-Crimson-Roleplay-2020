@@ -1,3 +1,0 @@
-﻿module_music = true;
-play_music = true; /*play intro music?*/
-music_array = [];
