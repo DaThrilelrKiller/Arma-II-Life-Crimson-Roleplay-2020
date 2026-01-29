@@ -12,14 +12,23 @@ _shop = objNull;
 _shopIndex = -1;
 if (!isNil "INV_ItemShops") then {
 	{
-		private ["_s","_varName"];
+		private ["_s","_varName","_shopDataIndex"];
 		_s = _x select 0;
 		if (!isNull _s) then {
 			_varName = vehicleVarName _s;
-			if (_varName == "") then {
-				_varName = format["Shop_%1", _forEachIndex];
+			_shopDataIndex = _s getVariable ["shop_data", -1];
+			
+			if (_varName != "" && {_varName == _shopVarName}) exitWith {
+				_shop = _s;
+				_shopIndex = _forEachIndex;
 			};
-			if (_varName == _shopVarName) exitWith {
+			
+			if (_varName == "" && {_shopVarName == format["Shop_%1", _forEachIndex]}) exitWith {
+				_shop = _s;
+				_shopIndex = _forEachIndex;
+			};
+			
+			if (_shopDataIndex >= 0 && {_shopVarName == format["Shop_%1", _shopDataIndex]}) exitWith {
 				_shop = _s;
 				_shopIndex = _forEachIndex;
 			};
@@ -28,12 +37,27 @@ if (!isNil "INV_ItemShops") then {
 };
 
 if (isNull _shop || {_shopIndex < 0}) then {
-	diag_log formatText ["[SHOPS] ERROR: Shop not found for varName: %1", _shopVarName];
+	diag_log formatText ["[SHOPS] ERROR: Shop not found for varName: %1. Available shops:", _shopVarName];
+	if (!isNil "INV_ItemShops") then {
+		{
+			private ["_s","_varName","_shopData"];
+			_s = _x select 0;
+			if (!isNull _s) then {
+				_varName = vehicleVarName _s;
+				_shopData = _s getVariable ["shop_data", -1];
+				if (_varName == "") then {
+					_varName = format["Shop_%1", _forEachIndex];
+				};
+				diag_log formatText ["[SHOPS]   Shop %1: varName='%2', shop_data=%3", _forEachIndex, _varName, _shopData];
+			};
+		}forEach INV_ItemShops;
+	};
 	false
 } else {
 	_shopItems = [_shopIndex] call S_shops_getShopItems;
+	
 	if (!(_item in _shopItems)) exitWith {
-		diag_log formatText ["[SHOPS] Shop %1 does not sell item %2, skipping stock update", _shopVarName, _item];
+		diag_log formatText ["[SHOPS] Shop %1 (index %2) does not sell item %3. Shop sells %4 items total. Skipping stock update.", _shopVarName, _shopIndex, _item, count _shopItems];
 		false
 	};
 	

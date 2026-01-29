@@ -1,4 +1,4 @@
-private ["_shop","_shopVarName","_inv","_item","_stock","_savedCount","_shopCount"];
+private ["_shop","_shopVarName","_shopDataIndex","_inv","_item","_stock","_savedCount","_shopCount"];
 
 if (isNil "INV_ItemShops") exitWith {
 	diag_log text "[SHOPS] Cannot save - INV_ItemShops not found";

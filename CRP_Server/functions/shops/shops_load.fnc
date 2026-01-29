@@ -1,4 +1,4 @@
-private ["_shop","_shopVarName","_shopIndex","_shopItems","_item","_stock","_randomStock","_loadedCount","_totalItems","_inv","_itemIndex","_found"];
+private ["_shop","_shopVarName","_shopIndex","_shopDataIndex","_shopItems","_item","_stock","_randomStock","_loadedCount","_totalItems","_inv","_itemIndex","_found"];
 
 if (!isNil "INV_ItemShops") then {
 	_loadedCount = 0;
@@ -10,9 +10,14 @@ if (!isNil "INV_ItemShops") then {
 		
 		if (!isNull _shop) then {
 			_shopVarName = vehicleVarName _shop;
+			_shopDataIndex = _shop getVariable ["shop_data", -1];
 			
 			if (_shopVarName == "") then {
-				_shopVarName = format["Shop_%1", _shopIndex];
+				if (_shopDataIndex >= 0) then {
+					_shopVarName = format["Shop_%1", _shopDataIndex];
+				} else {
+					_shopVarName = format["Shop_%1", _shopIndex];
+				};
 			};
 			
 			_inv = _shop getVariable "shop_inventory";
