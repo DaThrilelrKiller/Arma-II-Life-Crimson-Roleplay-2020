@@ -1,0 +1,99 @@
+module_shops = true;
+
+// Shop stock tracking: [[shopVarName, item, count], ...]
+shops_stockData = [];
+
+// Maximum stock per item per shop
+shops_maxStock = 1000;
+
+// Player-obtainable items that should track stock
+shops_playerItems = [
+	// Fishing Items (Raw)
+	"fishing_turtle",
+	"fish_catfish",
+	"fishing_whale",
+	"fishing_trout",
+	"fishing_bass",
+	"fishing_walleye",
+	"fishing_mackerel",
+	"fishing_herring",
+	
+	// Fishing Items (Cooked)
+	"fishing_turtle_cooked",
+	"fish_catfish_cooked",
+	"fishing_trout_cooked",
+	"fishing_bass_cooked",
+	"fishing_walleye_cooked",
+	"fishing_mackerel_cooked",
+	"fishing_herring_cooked",
+	
+	// Mining Items (Raw)
+	"iron",
+	"Gold",
+	"copper",
+	"Diamond rock",
+	"coal",
+	
+	// Mining Items (Processed)
+	"Diamond",
+	"steel",
+	
+	// Farming/Gathering Items (Raw)
+	"getreide",
+	"apple",
+	"sand",
+	"straw",
+	"Unprocessed_LSD",
+	"Unprocessed_Cocaine",
+	"Unprocessed_Heroin",
+	"Unprocessed_Marijuana",
+	
+	// Farming Items (Processed)
+	"Bread",
+	"Frozens",
+	
+	// Drug Seeds (from harvesting)
+	"MarijuanaSeed",
+	"HeroinSeed",
+	"CocaineSeed",
+	
+	// Processed Drugs (from Drug Lab)
+	"lsd",
+	"cocaine",
+	"heroin",
+	"marijuana",
+	"meth",
+	
+	// Hunting Items (Raw Meat)
+	"rawboar",
+	"rawboar_tagged",
+	"rawcow",
+	"rawcow_tagged",
+	"rawrabbit",
+	"rawrabbit_tagged",
+	"rawgoat",
+	"rawgoat_tagged",
+	"rawsheep",
+	"rawsheep_tagged",
+	
+	// Processed Meat Items
+	"beef_steak",
+	"beef_burger",
+	"beef_jerky",
+	"goat_curry",
+	"goat_stew",
+	"rabbit_stew",
+	"rabbit_pie",
+	"lamb_chops",
+	"lamb_roast",
+	"boar_sausage",
+	"boar_ribs",
+	
+	// Wood/Lumber
+	"wood",
+	"lumber",
+	
+	// Oil
+	"Oil",
+	"OilBarrel"
+];

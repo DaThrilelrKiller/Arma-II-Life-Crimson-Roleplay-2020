@@ -1,6 +1,6 @@
-﻿if (dtk_server)exitWith {};
+if (dtk_server)exitWith {};
 
-private ["_data","_img","_text","_color","_shop","_shopPos","_shopType","_leanRightKey"];
+private ["_data","_img","_text","_color","_shop","_shopPos","_shopType","_leanRightKey","_shopVarName"];
 
 _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 
@@ -8,6 +8,11 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 	_shop = _x select 0;	
 	if (!isNil "_shop")then {	
 		_shop setVariable ['shop_data',_forEachIndex,false];
+		
+		// Store shop variable name for stock tracking
+		// Use shop index as identifier (format: "Shop_<index>")
+		_shopVarName = format["Shop_%1", _forEachIndex];
+		_shop setVariable ['shop_varName', _shopVarName, true];
 		
 		_shopPos = getPos _shop;
 		_shopType = typeOf _shop;

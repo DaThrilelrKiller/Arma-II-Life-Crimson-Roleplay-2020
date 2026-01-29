@@ -1,0 +1,10 @@
+[
+["init",false],
+["load",false],
+["addStock",false],
+["getStock",false],
+["saveStock",false],
+["calculatePrice",false],
+["getAllStock",false],
+["getAdjustedPrice",false]
+];
