@@ -1,0 +1,1 @@
+[]call compile preprocessFile "\MPMissions\initServer.sqf";

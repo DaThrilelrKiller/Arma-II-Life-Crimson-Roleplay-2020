@@ -1,0 +1,3 @@
+module_accidents = true;
+dtk_roads = dtk_center nearroads 5125;
+dtk_mission = "";

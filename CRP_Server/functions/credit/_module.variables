@@ -1,0 +1,4 @@
+module_credit = true;
+
+// Server-side credit tracking
+credit_playerData = []; // Array of [UID, [score, loanAmount, loanInterest, cardBalance, cardLimit, cardInterest, hasLoan, hasCard, lastPayment, paymentDue]]

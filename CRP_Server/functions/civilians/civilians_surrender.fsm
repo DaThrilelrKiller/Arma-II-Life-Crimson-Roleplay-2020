@@ -1,0 +1,84 @@
+class StateMachine {
+	class Initial {
+		name = "Initial";
+		init = /*%FSM<STATEINIT""">*/"/*%FSM</STATEINIT""">*/;
+		class Links {
+			class InitialToChecking {
+				priority = 1.0;
+				to = "Checking";
+				condition = /*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"/*%FSM</ACTION""">*/;
+			};
+		};
+	};
+	class Checking {
+		name = "Checking";
+		init = /*%FSM<STATEINIT""">*/"/*%FSM</STATEINIT""">*/;
+		class Links {
+			class CheckingToSurrendering {
+				priority = 1.0;
+				to = "Surrendering";
+				condition = /*%FSM<CONDITION""">*/"[_this select 0] call s_civilians_checkSurrender"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"/*%FSM</ACTION""">*/;
+			};
+			class CheckingToChecking {
+				priority = 0.5;
+				to = "Checking";
+				condition = /*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"sleep 2"/*%FSM</ACTION""">*/;
+			};
+		};
+	};
+	class Surrendering {
+		name = "Surrendering";
+		init = /*%FSM<STATEINIT""">*/"private _unit = _this select 0; if (vehicle _unit != _unit) then { unassignVehicle _unit; _unit action ['Eject', vehicle _unit]; }; sleep 0.5; _unit setVariable ['dtk_surrendered', true, true]; _unit playAction 'Surrender'; _unit disableAI 'MOVE'; _unit disableAI 'AUTOTARGET'; _unit disableAI 'TARGET'; (group _unit) setBehaviour 'CARELESS'; (group _unit) setCombatMode 'BLUE';"/*%FSM</STATEINIT""">*/;
+		class Links {
+			class SurrenderingToSurrendered {
+				priority = 1.0;
+				to = "Surrendered";
+				condition = /*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"sleep 1"/*%FSM</ACTION""">*/;
+			};
+		};
+	};
+	class Surrendered {
+		name = "Surrendered";
+		init = /*%FSM<STATEINIT""">*/"/*%FSM</STATEINIT""">*/;
+		class Links {
+			class SurrenderedToResuming {
+				priority = 1.0;
+				to = "Resuming";
+				condition = /*%FSM<CONDITION""">*/"!([_this select 0] call s_civilians_checkSurrender) && (_this select 0) getVariable ['dtk_threatGoneTime', 0] > 0 && (time - ((_this select 0) getVariable ['dtk_threatGoneTime', 0])) > DTK_CIV_SURRENDER_DURATION"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"/*%FSM</ACTION""">*/;
+			};
+			class SurrenderedToSurrendered {
+				priority = 0.5;
+				to = "Surrendered";
+				condition = /*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"private _unit = _this select 0; if !([_unit] call s_civilians_checkSurrender) then { if (_unit getVariable ['dtk_threatGoneTime', 0] == 0) then { _unit setVariable ['dtk_threatGoneTime', time, true]; }; } else { _unit setVariable ['dtk_threatGoneTime', 0, true]; }; sleep 2"/*%FSM</ACTION""">*/;
+			};
+		};
+	};
+	class Resuming {
+		name = "Resuming";
+		init = /*%FSM<STATEINIT""">*/"private _unit = _this select 0; _unit setVariable ['dtk_surrendered', false, true]; _unit setVariable ['dtk_threatGoneTime', 0, true]; _unit enableAI 'MOVE'; _unit enableAI 'AUTOTARGET'; _unit enableAI 'TARGET'; _unit playAction 'PlayerStand'; (group _unit) setBehaviour 'CARELESS'; (group _unit) setCombatMode 'BLUE';"/*%FSM</STATEINIT""">*/;
+		class Links {
+			class ResumingToChecking {
+				priority = 1.0;
+				to = "Checking";
+				condition = /*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+				action = /*%FSM<ACTION""">*/"sleep 1"/*%FSM</ACTION""">*/;
+			};
+		};
+	};
+};
+
+
+
+
+
+
+
+
+
+

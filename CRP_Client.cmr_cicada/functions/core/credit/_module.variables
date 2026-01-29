@@ -1,0 +1,15 @@
+module_credit = true;
+
+// Credit system variables
+credit_score = 650; // Starting credit score (decent score)
+credit_loanAmount = 0; // Current loan balance
+credit_loanInterest = 0; // Interest rate for loan
+credit_cardBalance = 0; // Current credit card balance
+credit_cardLimit = 5000; // Credit card limit
+credit_cardInterest = 0; // Interest rate for credit card
+credit_loanMax = 0; // Maximum loan amount (calculated based on credit score)
+credit_hasLoan = false; // Has active loan
+credit_hasCard = false; // Has credit card
+credit_lastPayment = 0; // Time of last payment
+credit_paymentDue = 0; // Next payment due date
+credit_credit_running = false; // Prevent spam

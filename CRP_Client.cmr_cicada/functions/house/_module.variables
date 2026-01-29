@@ -1,0 +1,13 @@
+﻿dtk_house_actions = [
+["Storage",{[DTK_House_Logic]call storage_trunk;}],
+["Gear",{[DTK_House_Logic]call gear_open}],
+["Lock/Unlock",{dtk_home_mrk call house_lock}],
+["Garage",{"Land" call vehicle_saveMenu}],
+["Save Nearby Vehicle",{call stats_SaveVehicle; closeDialog 0}],
+["",{}],
+["Sell House",{[dtk_home_mrk]call house_sell}]
+];
+
+dtk_houseLimit = 2;
+DTK_LastLocked = 0;
+DTK_Locked = [];

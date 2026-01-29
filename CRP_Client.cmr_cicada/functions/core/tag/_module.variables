@@ -1,0 +1,16 @@
+﻿module_tag = true;
+
+dtk_motd = 
+[
+	["Teamspeak: ts.tlx-gaming.com","data\images\tags\ts3"],
+	["Invite a buddy, make some money","data\images\tags\people"],
+	["Consider Donating, to help keep our server up","data\images\tags\donate"],
+	["Need help? Just ask","data\images\tags\help"],
+	["To fill up with fuel, get out and use the pump","data\images\tags\Gas pump"],
+	["Run for office by selecting your name in the voting app","data\images\tags\gov"],
+	["Process your drugs at gang areas, then sell them at the dealer","data\images\tags\Marijuana"],
+	["Grab a beer and relaz","data\images\tags\pub"],
+	["Save your vehicle by driving into a Vehicle Save Point","data\images\tags\Car"],
+	["Upgrade your car by driving into a Perfomance Shop","data\images\items\exhaust"],
+	["Try our chat emojis by using '<3','=p',';)' ...","data\images\emoji\love"]
+];

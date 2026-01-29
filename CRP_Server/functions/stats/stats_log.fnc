@@ -1,0 +1,1 @@
+diag_log formatText["%1", _this select 0];

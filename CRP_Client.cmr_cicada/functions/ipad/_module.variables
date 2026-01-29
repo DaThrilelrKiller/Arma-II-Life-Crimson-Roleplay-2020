@@ -1,0 +1,19 @@
+﻿module_ipad = true;
+PG_CustomIPadBG = false;
+background_id = 8;
+
+ipad_backgrounds = [
+'ca\ui\data\loadscreen_generic_co.paa',
+'ca\ui\data\loadscreen_test_g_co.paa',
+'ca\ui\data\loadscreen_test_i_co.paa',
+'ca\ui\data\loadscreen_test_b_co.paa',
+'ca\ui\data\loadscreen_test_d_co.paa',
+'ca\ui\data\loadscreen_test_h_co.paa',
+'ca\ui\data\loadscreen_test_j_co.paa',
+'ca\ui\data\ui_background_armory_co.paa',
+'ca\ui\data\loadscreen_test_e_co.paa',
+'ca\ui\data\loadscreen_test_a_co.paa',
+'ca\ui\data\loadscreen_test_f_co.paa',
+'ca\ui\data\loadscreen_test_c_co.paa',
+'data\images\loading.jpg'
+];

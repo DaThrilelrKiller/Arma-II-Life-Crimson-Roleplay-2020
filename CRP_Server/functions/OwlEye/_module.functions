@@ -1,0 +1,14 @@
+[
+["init",false],
+["ban",true],
+["kick",true],
+["magizine",false],
+["patches",false],
+["Recoil",false],
+["variables",false],
+["vehicle",false],
+["weapon",false],
+["jip",false],
+["banned",false],
+["monitor",false]
+];

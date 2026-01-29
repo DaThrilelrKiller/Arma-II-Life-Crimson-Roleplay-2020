@@ -1,0 +1,11 @@
+-CDB First Name search
+-Pressing H to reshow id
+-CDB Bolo menu
+- fix evidence bags
+-add abilty for k9 to search houses
+-add retive impound at pd & ems base (just needs configured i belive acess point is there)
+-add abilty to burn drugs
+-fix money transfer
+-pd computer notes
+-gang chat
+-clear 10m radius for admins

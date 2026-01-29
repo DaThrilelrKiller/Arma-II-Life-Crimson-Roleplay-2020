@@ -1,0 +1,13 @@
+zone_markers = [
+[[2658.48,2716.85,0],[250,250],"DTK_GangArea_Zone_1","Empty","ColorYellow","ELLIPSE"],
+[[2658.48,2966.85,0],[1,1],"DTK_GangArea_Zone_1_Flag","mil_dot","",""],
+
+[[5229.52,3756.55,0],[250,250],"DTK_GangArea_Zone_2","Empty","ColorYellow","ELLIPSE"],
+[[5229.52,4006.55,0],[1,1],"DTK_GangArea_Zone_2_Flag","mil_dot","",""],
+
+[[8083.72,1888.23,0],[250,250],"DTK_GangArea_Zone_3","Empty","ColorYellow","ELLIPSE"],
+[[8083.72,2138.23,0],[1,1],"DTK_GangArea_Zone_3_Flag","mil_dot","",""],
+
+[[2402.98,6128.82,0],[250,250],"DTK_GangArea_Zone_4","Empty","ColorYellow","ELLIPSE"],
+[[2402.98,6378.82,0],[1,1],"DTK_GangArea_Zone_4_Flag","mil_dot","",""]
+];

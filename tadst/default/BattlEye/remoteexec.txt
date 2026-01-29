@@ -1,0 +1,11 @@
+7 toString
+7 setVariable
+7 isDedicated
+7 isServer
+7 hasInterface
+7 setVehicleInit
+7 createVehicle
+7 network_MPExec
+7 Developer Tester isAdminDev isSnAdmin isAdmin isMod supporters1 supporters2 supporters3 supporters4 supportersVIP Colonel Major Captain Lieutenant Sergeant_Major Staff_Sergeant Sergeant Corporal Private1 Recruit
+7 forceEnd
+7 setUnitRecoilCoefficient

@@ -1,0 +1,11 @@
+[
+["spawn",false],
+["init",false],
+["killed",false],
+["loop",false],
+["despawn",false],
+["setLoadout",false],
+["pullOver",true],
+["checkSurrender",false],
+["surrenderHandler",false]
+];

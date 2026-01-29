@@ -1,0 +1,14 @@
+[
+["init",false],
+["load",false],
+["save",false],
+["applyLoan",false],
+["applyCard",false],
+["payLoan",false],
+["payCard",false],
+["updateCard",false],
+["updateScore",false],
+["getMaxLoan",false],
+["loop",false],
+["jip",false]
+];

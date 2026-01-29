@@ -1,0 +1,3 @@
+﻿module_dog = true;
+dog_cost = 1000;
+ar_doggy = false;
