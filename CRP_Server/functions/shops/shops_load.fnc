@@ -10,14 +10,10 @@ if (!isNil "INV_ItemShops") then {
 		
 		if (!isNull _shop) then {
 			_shopVarName = vehicleVarName _shop;
-			_shopDataIndex = _shop getVariable ["shop_data", -1];
+			_shopData = _shop getVariable ["shop_data", []];
 			
 			if (_shopVarName == "") then {
-				if (_shopDataIndex >= 0) then {
-					_shopVarName = format["Shop_%1", _shopDataIndex];
-				} else {
-					_shopVarName = format["Shop_%1", _shopIndex];
-				};
+				_shopVarName = format["Shop_%1", _shopIndex];
 			};
 			
 			_inv = _shop getVariable "shop_inventory";
@@ -26,7 +22,7 @@ if (!isNil "INV_ItemShops") then {
 				_inv = [];
 			};
 			
-			_shopItems = [_shopIndex] call S_shops_getShopItems;
+			_shopItems = [_shop] call S_shops_getShopItems;
 			
 			diag_log formatText ["[SHOPS] Shop %1 (%2) sells %3 items", _shopIndex, _shopVarName, count _shopItems];
 			

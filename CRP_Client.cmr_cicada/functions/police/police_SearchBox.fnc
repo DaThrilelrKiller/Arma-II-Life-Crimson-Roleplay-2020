@@ -1,7 +1,6 @@
-private ["_id","_shop","_data","_unit","_amount","_cost","_item"];
+private ["_shop","_data","_unit","_amount","_cost","_item"];
 
-_id = _this select 0;
-_shop = (INV_ItemShops select _id) select 0;
+_shop = _this select 0;
 
 _data = _shop getVariable ["druglist",[]];
 

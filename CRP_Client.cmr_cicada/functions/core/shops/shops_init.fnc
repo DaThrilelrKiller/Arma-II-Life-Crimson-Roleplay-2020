@@ -6,8 +6,9 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 
 {
 	_shop = _x select 0;	
-	if (!isNil "_shop")then {	
-		_shop setVariable ['shop_data',_forEachIndex,false];
+	if (!isNil "_shop")then {
+
+		_shop setVariable ['shop_data',_x,false];
 		
 		_shopPos = getPos _shop;
 		_shopType = typeOf _shop;
@@ -17,7 +18,7 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 		[("shop_" + str _ForEachIndex),_shopPos,nil,nil,_color,"mil_dot",[1,1],(_x select 1 select 1)]call core_createMarkerLocal;
 		
 		if (_color == "ColorRed" && {dtk_cop})then {
-			_shop addaction ["Search Shop","noscript.sqf",format["[%1]call police_SearchBox;",_ForEachIndex], 25, false, true, "LeanRight","player distance _target < 5 && {K9_id}"];
+			_shop addaction ["Search Shop","noscript.sqf",format["[%1]call police_SearchBox;",_shop], 25, false, true, "LeanRight","player distance _target < 5 && {K9_id}"];
 		};
 
 		_data = _x select 1;
@@ -32,6 +33,6 @@ _leanRightKey = ((actionKeysNamesArray "LEANRIGHT")select 0);
 		_shop addaction ["Open Gear","noscript.sqf", format ["[%1]call gear_open",_shop], 1, false, true,"Gear"];
 		
 		
-		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_ForEachIndex], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
+		_shop addaction ["","noscript.sqf",format["[%1]call shops_open;",_shop], 25, false, true, "LeanRight",format ["player distance _target < 5 && {!([_target,'%2 (%3)','%1']call tag_show)}",_img,_text,_leanRightKey]];
 	};
 }forEach INV_ItemShops;

@@ -6,21 +6,16 @@ _item = _this select 1;
 _shop = objNull;
 if (!isNil "INV_ItemShops") then {
 	{
-		private ["_s","_varName","_shopDataIndex"];
+		private ["_s","_varName"];
 		_s = _x select 0;
 		if (!isNull _s) then {
 			_varName = vehicleVarName _s;
-			_shopDataIndex = _s getVariable ["shop_data", -1];
 			
 			if (_varName != "" && {_varName == _shopVarName}) exitWith {
 				_shop = _s;
 			};
 			
 			if (_varName == "" && {_shopVarName == format["Shop_%1", _forEachIndex]}) exitWith {
-				_shop = _s;
-			};
-			
-			if (_shopDataIndex >= 0 && {_shopVarName == format["Shop_%1", _shopDataIndex]}) exitWith {
 				_shop = _s;
 			};
 		};

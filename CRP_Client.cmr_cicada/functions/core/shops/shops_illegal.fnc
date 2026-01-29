@@ -1,10 +1,10 @@
-private ["_shop","_index","_data","_buy","_sell","_return","_bool"];
+private ["_shop","_shopData","_data","_buy","_sell","_return","_bool"];
 _shop = _this select 0;
-_index = _shop getVariable ["shop_data",""];
+_shopData = _shop getVariable ["shop_data", []];
 
-if (typeName _index == "STRING")exitWith {};
+if (count _shopData == 0) exitWith {false};
 
-_data = (INV_ItemShops select _index)select 2;
+_data = _shopData select 2;
 
 _return = false;
 {

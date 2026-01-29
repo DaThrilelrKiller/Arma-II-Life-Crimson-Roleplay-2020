@@ -10,8 +10,7 @@ if (!(_item in shops_playerItems)) exitWith {
 	false
 };
 
-_shopIndex = _shop getVariable ["shop_data", -1];
-_shopItems = [_shopIndex] call S_shops_getShopItems;
+_shopItems = [_shop] call S_shops_getShopItems;
 
 if (!(_item in _shopItems)) exitWith {
 	diag_log formatText ["[SHOPS] Shop %1 (index %2) does not sell item %3. Shop sells %4 items total. Skipping stock update.", _shopVarName, _shopIndex, _item, count _shopItems];

@@ -1,6 +1,8 @@
-_id = _this select 0; 
-_data = (INV_ItemShops select _id) select 2;
-shop_object = (INV_ItemShops select _id) select 0;
+_shop = _this select 0;
+_shopData = _shop getVariable ["shop_data", []];
+if (count _shopData == 0) exitWith {};
+_data = _shopData select 2;
+shop_object = _shop;
 
 if (count _data > 1)then {
 	createDialog "store";

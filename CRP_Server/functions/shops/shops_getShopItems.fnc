@@ -1,16 +1,16 @@
-private ["_shopIndex","_shopData","_categories","_shopItems","_category","_buyItems"];
+private ["_shop","_shopData","_categories","_shopItems","_category","_buyItems"];
 
-_shopIndex = if (typeName _this == "ARRAY" && {count _this > 0}) then {
+_shop = if (typeName _this == "ARRAY" && {count _this > 0}) then {
 	_this select 0
 } else {
 	_this
 };
 
-if (isNil "INV_ItemShops" || {_shopIndex < 0} || {_shopIndex >= count INV_ItemShops}) exitWith {
+_shopData = _shop getVariable ["shop_data", []];
+if (count _shopData == 0) exitWith {
 	[]
 };
 
-_shopData = INV_ItemShops select _shopIndex;
 _categories = _shopData select 2;
 _shopItems = [];
 
