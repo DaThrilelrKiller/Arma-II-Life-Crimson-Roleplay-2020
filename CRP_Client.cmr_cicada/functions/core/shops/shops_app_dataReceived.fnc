@@ -17,7 +17,7 @@ shops_app_stockData = _stockData;
 diag_log formatText ["[SHOPS APP] Received %1 stock entries from server", count _stockData];
 
 // Refresh display if dialog is open
-if (!isNull (findDisplay 113)) then {
+if (!isNull (findDisplay 114)) then {
 	call shops_app_display;
 } else {
 	diag_log text "[SHOPS APP] Dialog not open, data cached for next open";

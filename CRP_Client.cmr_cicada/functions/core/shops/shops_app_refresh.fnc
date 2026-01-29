@@ -1,7 +1,7 @@
 // Refresh shops app data from server
 private ["_display"];
 
-_display = findDisplay 113;
+_display = findDisplay 114;
 if (isNull _display) exitWith {
 	systemChat "Shop app dialog not found";
 	diag_log text "[SHOPS APP] Cannot refresh - dialog not open";

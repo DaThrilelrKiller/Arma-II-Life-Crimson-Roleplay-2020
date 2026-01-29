@@ -1,7 +1,7 @@
 // Display shops stock data in the app
 private ["_display","_stockData","_item","_shopVarName","_stock","_demandLevel","_baseBuyPrice","_baseSellPrice","_itemName","_displayText","_sortMode","_sortedData","_itemInfo","_index"];
 
-_display = findDisplay 113;
+_display = findDisplay 114;
 if (isNull _display) exitWith {
 	diag_log text "[SHOPS APP] Cannot display - dialog not open";
 	false

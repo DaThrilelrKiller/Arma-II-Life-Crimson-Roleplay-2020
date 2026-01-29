@@ -1,6 +1,6 @@
 class shops_app_menu
 {
-	idd = 113;
+	idd = 114;
 	movingEnable = true;
 	objects[] = {};
 	class controls
