@@ -1,4 +1,4 @@
-﻿private ["_art","_item","_class","_exitvar","_pos","_obj","_time","_counter"];
+private ["_art","_item","_class","_exitvar","_pos","_obj","_time","_counter"];
 _art = _this select 0;
 
 if (_art == "use") then 
@@ -20,7 +20,8 @@ _obj = _class createvehicle [0, 0, 0];
 _obj setdir getdir player;
 _obj setpos _pos;
 _time = round time;
-_obj call core_setVarName;	
+_obj call core_setVarName;
+[_obj] call checkpoint_addActions;
 _counter = 0;
 
 };
