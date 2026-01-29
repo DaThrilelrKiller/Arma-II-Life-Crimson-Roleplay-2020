@@ -9,6 +9,7 @@ if (dtk_civ) then {
     _this addaction["Impound Vehicle","noscript.sqf",format['[%1]call impound_add;',_this],1,true,true,"",'[_target,["Air", "Ship", "LandVehicle"]]call core_isKindOf and player distance _target < 10 and player distance newimpoundlot < 15 '];
     _this addaction["Tow Vehicle","noscript.sqf",format['["TOW",%1] call Other_Towing;',_this],1,true,true,"",'player distance _target < 10 and _target getVariable "towing" == "" and [player,_target]call keys_has'];
     _this addaction["Release Vehicle","noscript.sqf",format['["RELEASE",%1] call Other_Towing;',_this],1,true,true,"",'player distance _target < 10 and _target getVariable "towing" != "" and [player,_target]call keys_has'];
+};
 
 if (dtk_cop) then {
     _this addaction[localize "STRS_addaction_trunk_see","noscript.sqf",format['[%1]call storage_seach;',_this],1,true,true,"",'[_target,["Air", "Ship", "LandVehicle"]]call core_isKindOf && {player distance _target < 10}'];
