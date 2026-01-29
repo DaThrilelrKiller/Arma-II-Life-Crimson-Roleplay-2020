@@ -12,7 +12,7 @@ _config = call compile preprocessFile "\MPMissions\mission.template";
 	_object = createVehicle [(_x select 1), [0,0,0], [], 0, "CAN_COLLIDE"];
 	_object setDir (_x select 3);
 	_object setPos (_x select 2);
-    _simulation = !((_x select 1)isKindOf 'Infostand_2_EP1');
+    _simulation = !((_x select 1) in ['Infostand_2_EP1',"Notebook"]);
 	
 	if (_simulation)then {
 		_simulation = !((_x select 1)isKindOf "Man");
