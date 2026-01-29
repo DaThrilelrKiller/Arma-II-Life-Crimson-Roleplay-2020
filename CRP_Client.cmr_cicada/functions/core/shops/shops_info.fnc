@@ -1,15 +1,33 @@
-﻿private ["_data","_type"];
+private ["_data","_type","_itemIndex","_stock","_selectedIndex","_item"];
 
 lbClear 303;
 
 
 _data = call compile(lbData [301, (lbCurSel 301)]);
 if (isNil "_data")exitWith {};
+_item = _data select 0;
 _data = _data select 1;
 _type = _data call config_type;
 
+_selectedIndex = lbCurSel 301;
+_itemIndex = -1;
+if (!isNil "shop_buylist" && {typeName shop_buylist == "ARRAY"}) then {
+	{
+		if (_x == _item) exitWith {
+			_itemIndex = _forEachIndex;
+		};
+	} forEach shop_buylist;
+};
+
+_stock = if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object}) then {
+	[shop_object, _itemIndex] call shops_getStock
+} else {
+	0
+};
+
 lbadd [303,format ["Buy cost: %1$",_data call config_buycost]];
 lbadd [303,format ["Sell cost: %1$",_data call config_sellcost]];
+lbadd [303,format ["Stock: %1",_stock]];
 lbadd [303,format ["Illegal: %1",(_data call config_illegal)call core_convertBoolean]];
 lbadd [303,format ["Kind: %1",_data call config_kind]];
 lbadd [303,format ["Type: %1",_data call config_type]];

@@ -4,9 +4,13 @@
 {
     _object = _x select 0;
     _shops = _x select 2;
+    _varName = vehicleVarName _object;
+    if (_varName == "") then {
+        _varName = format["Shop_Unknown_%1", _object];
+    };
 
     {
-        _shop = format["%1_%2_Stock",vehicleVarName _object,_forEachIndex];
+        _shop = format["%1_%2_Stock",_varName,_forEachIndex];
         _items = _x select 1;
         _quantity = [];
         {
