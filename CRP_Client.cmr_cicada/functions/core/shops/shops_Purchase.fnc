@@ -134,11 +134,12 @@ if (_return) then
 	[_cost,true,_info,_amount] call shops_ProcessMoney;
 	
 	// Decrease stock when player buys items (if item is player-obtainable)
-	if (_itemtype == "Item" && !isNull shop_object && [_item] call shops_isPlayerItem) then {
-		private ["_shopVarName"];
+	if (_itemtype == "Item" && !isNull shop_object) then {
+		private ["_shopVarName","_categoryIndex"];
 		_shopVarName = [shop_object] call shops_getShopVarName;
-		diag_log formatText ["[SHOPS CLIENT] Buying %1 x %2 from shop %3", _amount, _item, _shopVarName];
-		["SERVER", [_shopVarName, _item, -_amount], "shops_addStock", false, false] call network_MPExec;
+		_categoryIndex = if (isNil "shop_categoryIndex") then {-1} else {shop_categoryIndex};
+		diag_log formatText ["[SHOPS CLIENT] Buying %1 x %2 from shop %3 category %4", _amount, _item, _shopVarName, _categoryIndex];
+		["SERVER", [_shopVarName, _categoryIndex, _item, -_amount], "shops_addStock", false, false] call network_MPExec;
 	};
 	
 	call shops_refresh;

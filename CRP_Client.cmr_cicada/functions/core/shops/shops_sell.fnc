@@ -57,8 +57,11 @@ switch(_itemtype)do
 	
 		// Add stock to shop if item is player-obtainable
 		if (!isNull shop_object && [_item] call shops_isPlayerItem) then {
-			private ["_shopVarName"];
-			["SERVER", [shop_object, _item, _amount], "shops_addStock", false, false] call network_MPExec;
+			private ["_shopVarName","_categoryIndex"];
+			_shopVarName = [shop_object] call shops_getShopVarName;
+			_categoryIndex = if (isNil "shop_categoryIndex") then {-1} else {shop_categoryIndex};
+			diag_log formatText ["[SHOPS CLIENT] Selling %1 x %2 to shop %3 category %4", _amount, _item, _shopVarName, _categoryIndex];
+			["SERVER", [_shopVarName, _categoryIndex, _item, _amount], "shops_addStock", false, false] call network_MPExec;
 		};
 	
 		if (_info call config_illegal) then{

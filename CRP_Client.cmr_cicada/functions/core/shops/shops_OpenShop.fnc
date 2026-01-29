@@ -1,9 +1,23 @@
-﻿private ["_shoparray","_con"];
+private ["_shoparray","_con","_shopData","_categories","_selectedIndex"];
 
 if (count _this < 1)then {
-	_shoparray = call compile(lbData [897, (lbCurSel 897)]);
+	_selectedIndex = lbCurSel 897;
+	_shoparray = call compile(lbData [897, _selectedIndex]);
+	
+	// Find category index
+	if (!isNil "shop_object") then {
+		_shopData = shop_object getVariable ["shop_data", []];
+		if (count _shopData >= 3) then {
+			_categories = _shopData select 2;
+			if (_selectedIndex >= 0 && {_selectedIndex < count _categories}) then {
+				shop_categoryIndex = _selectedIndex;
+			};
+		};
+	};
 }else{
 	_shoparray = _this select 0;
+	// If directly called, assume category 0
+	shop_categoryIndex = 0;
 };
 
 if (isNil "_shoparray")exitWith {

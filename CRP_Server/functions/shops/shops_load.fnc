@@ -1,4 +1,4 @@
-private ["_shop","_shopVarName","_shopIndex","_shopDataIndex","_shopItems","_item","_stock","_randomStock","_loadedCount","_totalItems","_inv","_itemIndex","_found"];
+private ["_shop","_shopVarName","_shopIndex","_shopData","_categories","_category","_categoryIndex","_buyItems","_item","_stock","_randomStock","_loadedCount","_totalItems","_categoryInv","_savedInventories","_itemIndex","_found"];
 
 if (!isNil "INV_ItemShops") then {
 	_loadedCount = 0;
@@ -16,54 +16,97 @@ if (!isNil "INV_ItemShops") then {
 				_shopVarName = format["Shop_%1", _shopIndex];
 			};
 			
-			_inv = _shop getVariable "shop_inventory";
-			if (isNil "_inv") then {
-				_shop setVariable ["shop_inventory", [], true];
-				_inv = [];
-			};
-			
-			_shopItems = [_shop] call S_shops_getShopItems;
-			
-			diag_log formatText ["[SHOPS] Shop %1 (%2) sells %3 items", _shopIndex, _shopVarName, count _shopItems];
-			
-			{
-				_item = _x;
+			if (count _shopData == 0) then {
+				diag_log formatText ["[SHOPS] Shop %1 (%2) has no shop_data, skipping", _shopIndex, _shopVarName];
+			} else {
+				_categories = _shopData select 2;
+				_savedInventories = ["shops", _shopVarName, "shop_inventory", []] call s_stats_read;
 				
-				if (_item in shops_playerItems && {_item in _shopItems}) then {
-					_stock = ["shops", _shopVarName, _item, -1] call s_stats_read;
-					
-					if (typeName _stock == "STRING") then {
-						_stock = parseNumber _stock;
-					};
-					
-					if (isNil "_stock" || {typeName _stock != "SCALAR"} || {_stock < 0}) then {
-						_randomStock = round (10 + random 40);
-						_stock = _randomStock;
-						diag_log formatText ["[SHOPS] No stock found for %1/%2, setting random: %3", _shopVarName, _item, _stock];
-					} else {
-						_loadedCount = _loadedCount + 1;
-					};
-					
-					_itemIndex = -1;
-					_found = false;
-					
-					{
-						if ((_x select 0) == _item) exitWith {
-							_itemIndex = _forEachIndex;
-							_found = true;
-						};
-					}forEach _inv;
-					
-					if (_found) then {
-						_inv set [_itemIndex, [_item, _stock]];
-					} else {
-						_inv set [count _inv, [_item, _stock]];
-					};
-					
-					_shop setVariable ["shop_inventory", _inv, true];
-					_totalItems = _totalItems + 1;
+				// Ensure savedInventories is an array
+				if (typeName _savedInventories == "STRING") then {
+					_savedInventories = call compile _savedInventories;
 				};
-			}forEach shops_playerItems;
+				if (isNil "_savedInventories" || {typeName _savedInventories != "ARRAY"}) then {
+					_savedInventories = [];
+				};
+				
+				// Initialize shop_inventory as array of category inventories
+				_shop setVariable ["shop_inventory", [], true];
+				
+				_categoryIndex = 0;
+				{
+					_category = _x;
+					_categoryInv = [];
+					
+					if (count _category >= 2) then {
+						_buyItems = _category select 1;
+						
+						if (typeName _buyItems == "ARRAY") then {
+							// Get saved inventory for this category (if exists)
+							_savedCategoryInv = [];
+							if (_categoryIndex < count _savedInventories) then {
+								_savedCategoryInv = _savedInventories select _categoryIndex;
+								if (typeName _savedCategoryInv == "STRING") then {
+									_savedCategoryInv = call compile _savedCategoryInv;
+								};
+								if (isNil "_savedCategoryInv" || {typeName _savedCategoryInv != "ARRAY"}) then {
+									_savedCategoryInv = [];
+								};
+							};
+							
+							{
+								_item = _x;
+								
+								if (typeName _item == "STRING") then {
+									_stock = 0;
+									_found = false;
+									
+									// Check if this is a player item and we have saved stock
+									if (_item in shops_playerItems) then {
+										// Look for saved stock in savedCategoryInv
+										{
+											if (typeName _x == "ARRAY" && {count _x >= 2} && {(_x select 0) == _item}) exitWith {
+												_stock = _x select 1;
+												if (typeName _stock == "STRING") then {
+													_stock = parseNumber _stock;
+												};
+												if (isNil "_stock" || {typeName _stock != "SCALAR"} || {_stock < 0}) then {
+													_stock = round (10 + random 40);
+												} else {
+													_loadedCount = _loadedCount + 1;
+													_found = true;
+												};
+											};
+										}forEach _savedCategoryInv;
+										
+										if (!_found) then {
+											// No saved stock, generate random
+											_stock = round (10 + random 40);
+											diag_log formatText ["[SHOPS] No saved stock for %1/%2 (cat %3), setting random: %4", _shopVarName, _item, _categoryIndex, _stock];
+										}
+									} else {
+										// Non-player item, always generate random stock
+										_stock = round (10 + random 40);
+									};
+									
+									// Add to category inventory
+									_categoryInv set [count _categoryInv, [_item, _stock]];
+									_totalItems = _totalItems + 1;
+								};
+							}forEach _buyItems;
+						};
+					};
+					
+					// Add category inventory to shop inventory
+					_inv = _shop getVariable ["shop_inventory", []];
+					_inv set [count _inv, _categoryInv];
+					_shop setVariable ["shop_inventory", _inv, true];
+					
+					_categoryIndex = _categoryIndex + 1;
+				}forEach _categories;
+				
+				diag_log formatText ["[SHOPS] Shop %1 (%2) initialized with %3 categories, %4 total items", _shopIndex, _shopVarName, count _categories, _totalItems];
+			};
 		};
 	}forEach INV_ItemShops;
 	

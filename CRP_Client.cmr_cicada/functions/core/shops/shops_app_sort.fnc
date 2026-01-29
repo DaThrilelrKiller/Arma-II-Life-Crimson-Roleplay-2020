@@ -50,8 +50,8 @@ switch (_mode) do {
 			if (count _itemInfo > 0) then {
 				_baseBuyPrice = _itemInfo call config_buycost;
 				_baseSellPrice = _itemInfo call config_sellcost;
-				_adjustedBuyPrice = ["SERVER", [_shopVarName, _item, _baseBuyPrice], "shops_getAdjustedPrice", false, false] call network_MPExec;
-				_adjustedSellPrice = ["SERVER", [_shopVarName, _item, _baseSellPrice], "shops_getAdjustedPrice", false, false] call network_MPExec;
+				_adjustedBuyPrice = ["SERVER", [_shopVarName, -1, _item, _baseBuyPrice], "shops_getAdjustedPrice", false, false] call network_MPExec;
+				_adjustedSellPrice = ["SERVER", [_shopVarName, -1, _item, _baseSellPrice], "shops_getAdjustedPrice", false, false] call network_MPExec;
 				if (isNil "_adjustedBuyPrice") then {_adjustedBuyPrice = _baseBuyPrice;};
 				if (isNil "_adjustedSellPrice") then {_adjustedSellPrice = _baseSellPrice;};
 				_profitMargin = _adjustedSellPrice - _adjustedBuyPrice;

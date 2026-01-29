@@ -17,5 +17,6 @@ if (count _data > 1)then {
 	} forEach _data;
 
 }else{
+	shop_categoryIndex = 0;
 	[(_data select 0)]call shops_openshop;
 };
