@@ -17,17 +17,17 @@ if (_DebitCardCount == 0) then
 	systemChat  "The Bank Teller asks you to have a seat and start filling out paperwork for your debit card.";
 	sleep 10;
 	
-	if (player distance mainbank >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
+	if (player distance DTK_ATM_BANK >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
 
 	systemChat  "After you return the papers to the Bank Teller with your information and I.D. the Bank Teller starts processing your paperwork.";
 	sleep 10;
 
-	if (player distance mainbank >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
+	if (player distance DTK_ATM_BANK >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
 	
 	systemChat  "The Bank Teller has completed processing your paperwork but has some questions about your account.";
 	sleep 10;
 
-	if (player distance mainbank >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
+	if (player distance DTK_ATM_BANK >= 15) exitWith {[] call fn_DebitCardSignupNotification;};
 
 	systemChat  "After answering the Bank Teller's questions the Bank Teller hands you your brand new debit card.";
 	systemChat  "If you lose your debit card, come back to the bank and get a new one.";

@@ -6,4 +6,4 @@
 }ForEach allMissionObjects "tcg_atm";
 
 
-mainbank addaction ["","noscript.sqf","call atm_open;", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'ATM (E)','data\images\misc\bank']call tag_show)}"];
+DTK_ATM_BANK addaction ["","noscript.sqf","call atm_open;", 25, false, true, "LeanRight","player distance _target < 5 && {!([_target,'ATM (E)','data\images\misc\bank']call tag_show)}"];
