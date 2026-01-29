@@ -40,7 +40,8 @@ if (dtk_client)then {
 call compile preprocessFile format ['configuration\sidevariables\%1variables.sqf',dtk_side];
 };
 
-call compile preprocessFile  "configuration\CfgVariables.sqf";	
+call compile preprocessFile  "configuration\CfgVariables.sqf";
+call compile preprocessFile "configuration\CfgShops.sqf";
 call compile preprocessFile "post_init.sqf";											
 
 

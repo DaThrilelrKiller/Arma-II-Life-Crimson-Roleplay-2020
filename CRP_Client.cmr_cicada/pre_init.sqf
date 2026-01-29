@@ -14,7 +14,6 @@ call compile preprocessFile "spawn_points.sqf";
 call compile preprocessFile "scripts\admin.sqf";
 call compile preprocessFile  "scripts\miscfunctions.sqf";
 call compile preprocessFile "configuration\CfgMaster.sqf";
-call compile preprocessFile "configuration\CfgShops.sqf";
 
 private ["_modules","_functions","_path"];
 dtk_fnc_total = 0;
