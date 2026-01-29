@@ -2,10 +2,13 @@
 ["init",false],
 ["load",false],
 ["addStock",false],
+["addStockHandler",false],
 ["getStock",false],
 ["saveStock",false],
 ["saveAll",false],
 ["calculatePrice",false],
 ["getAllStock",false],
-["getAdjustedPrice",false]
+["getAllStockHandler",false],
+["getAdjustedPrice",false],
+["getAdjustedPriceHandler",false]
 ];

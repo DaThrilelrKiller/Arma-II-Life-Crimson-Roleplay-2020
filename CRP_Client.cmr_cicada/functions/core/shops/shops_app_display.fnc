@@ -38,22 +38,8 @@ if (count _stockData == 0) then {
 	// Get sort mode
 	_sortMode = if (isNil "shops_app_sortMode") then {"demand"} else {shops_app_sortMode};
 	
-	// Sort data based on mode (simplified - no async calls)
-	_sortedData = _stockData;
-	
-	// Simple sort by stock (lowest first = high demand)
-	if (_sortMode == "stock") then {
-		_sortedData = [_stockData, [], {_x select 2}, "ASCEND"] call BIS_fnc_sortBy;
-	} else {
-		if (_sortMode == "demand") then {
-			// Sort by demand level
-			_sortedData = [_stockData, [], {
-				private ["_demand"];
-				_demand = _x select 3;
-				if (_demand == "High") then {1} else {if (_demand == "Medium") then {2} else {3}}
-			}, "ASCEND"] call BIS_fnc_sortBy;
-		};
-	};
+	// Sort data using existing sort function
+	_sortedData = [_stockData, _sortMode] call shops_app_sort;
 	
 	// Add header
 	lbAdd [3000, "Item Name | Shop | Stock | Demand Level"];

@@ -16,7 +16,7 @@ switch (_mode) do {
 			_demandValue = if (_demand == "High") then {3} else {if (_demand == "Medium") then {2} else {1}};
 			_tempData set [count _tempData, [_demandValue, _x]];
 		}forEach _data;
-		_tempData = [_tempData, 0] call core_sortArrayDescend;
+		_tempData = [_tempData, 0] call array_sortDescend;
 		_sorted = [];
 		{
 			_sorted set [count _sorted, _x select 1];
@@ -41,7 +41,7 @@ switch (_mode) do {
 				_tempData set [count _tempData, [_profitMargin, _x]];
 			};
 		}forEach _data;
-		_tempData = [_tempData, 0] call core_sortArrayDescend;
+		_tempData = [_tempData, 0] call array_sortDescend;
 		_sorted = [];
 		{
 			_sorted set [count _sorted, _x select 1];
@@ -53,7 +53,7 @@ switch (_mode) do {
 		{
 			_tempData set [count _tempData, [_x select 2, _x]];
 		}forEach _data;
-		_tempData = [_tempData, 0] call core_sortArrayAscend;
+		_tempData = [_tempData, 0] call array_sortAscend;
 		_sorted = [];
 		{
 			_sorted set [count _sorted, _x select 1];
