@@ -1,12 +1,13 @@
 // Load shop stock data from shops.ini
-private ["_allShops","_shopVarName","_item","_count","_stockKey","_stockValue"];
+private ["_shopVarName","_item","_count","_loadedCount"];
 
 shops_stockData = [];
+_loadedCount = 0;
 
-// Get all shop variable names from INV_ItemShops (this will be populated on server)
-// For now, we'll load stock data when shops are accessed
-// The actual loading happens per-shop when needed
+// Note: We can't enumerate all sections/keys in iniDBI easily
+// So we'll load stock data on-demand when shops_getStock is called
+// This function initializes the array
 
-diag_log text "[SHOPS] Shop stock load function ready";
+diag_log text "[SHOPS] Shop stock load function ready - stock will be loaded on-demand";
 
 true
