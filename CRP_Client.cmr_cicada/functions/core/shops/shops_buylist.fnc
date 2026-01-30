@@ -1,8 +1,9 @@
-private ["_item","_infos","_preisOhneTax","_preis","_name","_type","_index","_sort","_class","_itemIndex","_stock"];
+private ["_item","_infos","_preisOhneTax","_preis","_name","_type","_index","_sort","_class","_itemIndex","_stock","_dynamicPrice","_maxStock","_stockPercent","_color"];
 
 lbClear 301;
 _sort = lbText [2101, (lbCurSel 2101)];
 _itemIndex = 0;
+_maxStock = 1000;
 
 {
 	_item         = _x;
@@ -13,10 +14,19 @@ _itemIndex = 0;
 			if (isNil "_preisOhneTax" || {typeName _preisOhneTax != "SCALAR"}) then {
 				_preisOhneTax = 0;
 			};
-			_preis        = _infos call INV_getitemSteuer;
-			if (isNil "_preis" || {typeName _preis != "SCALAR"}) then {
-				_preis = _preisOhneTax;
+			
+			_stock = if (!isNil "shop_object" && {!isNull shop_object}) then {
+				[shop_object, _itemIndex] call shops_getStock
+			} else {
+				0
 			};
+			
+			_dynamicPrice = [_preisOhneTax, _stock, _maxStock, true] call shops_calculatePrice;
+			_preis = _dynamicPrice call INV_getitemSteuer;
+			if (isNil "_preis" || {typeName _preis != "SCALAR"}) then {
+				_preis = _dynamicPrice;
+			};
+			
 			_name         = (_infos call config_displayname);
 			if (isNil "_name" || {typeName _name != "STRING"}) then {
 				_name = _item;
@@ -26,10 +36,15 @@ _itemIndex = 0;
 				_type = "item";
 			};
 			
-			_stock = if (!isNil "shop_object" && {!isNull shop_object}) then {
-				[shop_object, _itemIndex] call shops_getStock
+			_stockPercent = (_stock / _maxStock) * 100;
+			_color = if (_stockPercent <= 20) then {
+				[1, 0.5, 0, 1]
 			} else {
-				0
+				if (_stockPercent <= 50) then {
+					[1, 0.8, 0, 1]
+				} else {
+					nil
+				}
 			};
 			
 			if (_sort == "All" || {_type == _sort})then {
@@ -38,8 +53,11 @@ _itemIndex = 0;
 			{
 				case "item":
 				{
-					_index = lbAdd [301, format ["%1 ($%2, %3kg, Stock: %4)", _name, (_preis), (_infos call config_weight), _stock] ]; 
-					lbSetPicture [301, _index,format ["data\images\items\%1.paa",[_item]call config_image]];				
+					_index = lbAdd [301, format ["%1 ($%2, %3kg, Stock: %4)", _name, (_preis call string_intToString), (_infos call config_weight), _stock] ]; 
+					lbSetPicture [301, _index,format ["data\images\items\%1.paa",[_item]call config_image]];
+					if (!isNil "_color") then {
+						lbSetColor [301, _index, _color];
+					};
 				};
 				case "label":
 				{
@@ -47,28 +65,40 @@ _itemIndex = 0;
 				};
 				case "vehicle":
 				{
-					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis), _stock] ];
+					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis call string_intToString), _stock] ];
 					_class = _x call config_class;
 					_image = getText (configFile >> "CfgVehicles" >> _class >> "Picture");
 					lbSetPicture [301, _index, _image];
+					if (!isNil "_color") then {
+						lbSetColor [301, _index, _color];
+					};
 				};
 				case "weapon":
 				{
-					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis), _stock] ];
+					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis call string_intToString), _stock] ];
 					_class = _x call config_class;
 					_image = getText (configFile >> "CfgWeapons" >> _class >> "Picture");
 					lbSetPicture [301, _index, _image];
+					if (!isNil "_color") then {
+						lbSetColor [301, _index, _color];
+					};
 				};
 				case "magazin":
 				{
-					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis), _stock] ];
+					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis call string_intToString), _stock] ];
 					_class = _x call config_class;
 					_image = getText (configFile >> "CfgMagazines" >> _class >> "Picture");
 					lbSetPicture [301, _index, _image];
+					if (!isNil "_color") then {
+						lbSetColor [301, _index, _color];
+					};
 				};
 				default 
 				{
-					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis), _stock] ];
+					_index = lbAdd [301, format ["%1 ($%2, Stock: %3)", _name, (_preis call string_intToString), _stock] ];
+					if (!isNil "_color") then {
+						lbSetColor [301, _index, _color];
+					};
 				};
 			};
 			

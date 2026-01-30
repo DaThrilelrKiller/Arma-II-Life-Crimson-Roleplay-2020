@@ -1,4 +1,4 @@
-private ["_data","_type","_itemIndex","_stock","_selectedIndex","_item"];
+private ["_data","_type","_itemIndex","_stock","_selectedIndex","_item","_baseBuyPrice","_baseSellPrice","_dynamicBuyPrice","_dynamicSellPrice","_maxStock"];
 
 lbClear 303;
 
@@ -25,8 +25,24 @@ _stock = if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object})
 	0
 };
 
-lbadd [303,format ["Buy cost: %1$",_data call config_buycost]];
-lbadd [303,format ["Sell cost: %1$",_data call config_sellcost]];
+_maxStock = 1000;
+_baseBuyPrice = _data call config_buycost;
+_baseSellPrice = (_data call config_sellcost) * 0.5;
+
+_dynamicBuyPrice = if (!isNil "_baseBuyPrice" && {typeName _baseBuyPrice == "SCALAR"}) then {
+	[_baseBuyPrice, _stock, _maxStock, true] call shops_calculatePrice
+} else {
+	0
+};
+
+_dynamicSellPrice = if (!isNil "_baseSellPrice" && {typeName _baseSellPrice == "SCALAR"}) then {
+	[_baseSellPrice, _stock, _maxStock, false] call shops_calculatePrice
+} else {
+	0
+};
+
+lbadd [303,format ["Buy cost: %1$ (Base: %2$)",(_dynamicBuyPrice call string_intToString),(_baseBuyPrice call string_intToString)]];
+lbadd [303,format ["Sell cost: %1$ (Base: %2$)",(_dynamicSellPrice call string_intToString),(_baseSellPrice call string_intToString)]];
 lbadd [303,format ["Stock: %1",_stock]];
 lbadd [303,format ["Illegal: %1",(_data call config_illegal)call core_convertBoolean]];
 lbadd [303,format ["Kind: %1",_data call config_kind]];
