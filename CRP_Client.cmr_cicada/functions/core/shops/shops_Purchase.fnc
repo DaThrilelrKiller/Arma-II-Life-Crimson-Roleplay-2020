@@ -1,4 +1,4 @@
-private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge","_itemIndex"];
+private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge","_itemIndex","_stock"];
 
 if(dtk_shopactive)exitWith {
 	systemchat "Shop script is already running";
@@ -33,7 +33,7 @@ if (_amount <= 0) exitWith {
 	dtk_shopactive = false;
 };
 _cost = _amount*_costwithTax; 
- 
+
 if !([_cost,false,_info,0] call shops_ProcessMoney)exitWith {
 	systemChat "you do not have enought money";
 	dtk_shopactive = false;
@@ -44,14 +44,40 @@ if (!(_license1 call licenses_has) and dtk_civ and _license) exitWith {
 	dtk_shopactive = false;
 };
 
+// Check stock availability before purchase
+_itemIndex = -1;
+if (!isNil "shop_buylist" && {typeName shop_buylist == "ARRAY"}) then {
+	{
+		if (_x == _item) exitWith {
+			_itemIndex = _forEachIndex;
+		};
+	} forEach shop_buylist;
+};
+
+if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object}) then {
+	_stock = [shop_object, _itemIndex] call shops_getStock;
+	if (_stock < _amount) exitWith {
+		if (_stock <= 0) then {
+			systemChat "This item is out of stock";
+		} else {
+			systemChat format["Only %1 available in stock (requested: %2)", _stock, _amount];
+		};
+		dtk_shopactive = false;
+	};
+};
+
 switch(_itemtype)do
 {
 	case "Item":
 	{
 		_invspace   = [player]call storage_kg;
 		_menge = (floor((dtk_player_storage - _invspace) / (_info call config_weight)));	
-		if (_menge <= 0) exitWith {
-			systemChat  localize "STRS_inv_buyitems_maxgewicht"; 
+		if (_menge < _amount) exitWith {
+			if (_menge <= 0) then {
+				systemChat  localize "STRS_inv_buyitems_maxgewicht";
+			} else {
+				systemChat format["Not enough inventory space. You can only fit %1 more (requested: %2)", _menge, _amount];
+			};
 			_return = false;
 		};	
 		[player,_item,_amount] call storage_add;
@@ -140,16 +166,7 @@ if (_return) then
 {
 	[_cost,true,_info,_amount] call shops_ProcessMoney;
 	
-	// Update stock when purchasing
-	_itemIndex = -1;
-	if (!isNil "shop_buylist" && {typeName shop_buylist == "ARRAY"}) then {
-		{
-			if (_x == _item) exitWith {
-				_itemIndex = _forEachIndex;
-			};
-		} forEach shop_buylist;
-	};
-	
+	// Update stock when purchasing (itemIndex already found above)
 	if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object}) then {
 		[shop_object, _itemIndex, -_amount] call shops_setStock;
 	};
