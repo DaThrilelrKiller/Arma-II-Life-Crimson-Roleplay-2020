@@ -13,8 +13,11 @@
         {
             _shop = format["%1_%2_Stock",_varName,_forEachIndex];
             _items = _x select 1;
+            if (typeName _items == "STRING") then {
+                _items = call compile _items;
+            };
             _quantity = [];
-            if (!isNil "_items") then {
+            if (!isNil "_items" && {typeName _items == "ARRAY"}) then {
                 {
                     _stock = ["Shops",_shop, _x,round (random 20) + 3]call s_stats_read;
                     _quantity set[_forEachIndex,_stock];
