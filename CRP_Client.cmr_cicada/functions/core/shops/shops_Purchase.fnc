@@ -1,4 +1,4 @@
-private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge"];
+private ["_weapons","_return","_data1","_item","_info","_itemcost","_costwithTax","_amount","_kind","_cost","_itemtype","_classname","_crate","_logic","_license","_license1","_license2","_invspace","_menge","_itemIndex"];
 
 if(dtk_shopactive)exitWith {
 	systemchat "Shop script is already running";
@@ -74,10 +74,17 @@ switch(_itemtype)do
 			systemchat "you can only by one vehicle silly";
 			_return = false
 		};
-		if (not(alive player)) exitWith {};		
+		if (not(alive player)) exitWith {
+			_return = false;
+		};		
 		
-		[_item,_logic,player,dtk_side]call shops_createVehicle;
-		_return = true;
+		_vehicle = [_item,_logic,player,dtk_side]call shops_createVehicle;
+		if (!isNil "_vehicle" && {!isNull _vehicle}) then {
+			_return = true;
+		} else {
+			_return = false;
+			systemChat "Failed to create vehicle";
+		};
 	};
 	case "App":
 	{
@@ -132,6 +139,21 @@ switch(_itemtype)do
 if (_return) then
 {
 	[_cost,true,_info,_amount] call shops_ProcessMoney;
+	
+	// Update stock when purchasing
+	_itemIndex = -1;
+	if (!isNil "shop_buylist" && {typeName shop_buylist == "ARRAY"}) then {
+		{
+			if (_x == _item) exitWith {
+				_itemIndex = _forEachIndex;
+			};
+		} forEach shop_buylist;
+	};
+	
+	if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object}) then {
+		[shop_object, _itemIndex, -_amount] call shops_setStock;
+	};
+	
 	call shops_refresh;
 };
 dtk_shopactive = false;

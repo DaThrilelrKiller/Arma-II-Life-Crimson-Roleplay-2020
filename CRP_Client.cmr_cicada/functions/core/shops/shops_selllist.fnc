@@ -29,7 +29,9 @@ if (count _infos != 0)then {
 	
 	_preisOhneTax = (_infos call config_sellcost)*0.5;
 	_dynamicPrice = [_preisOhneTax, _stock, _maxStock, false] call shops_calculatePrice;
-	_preis = (_dynamicPrice call INV_getitemSteuer)*0.5;
+	_type = _infos call config_type;
+	_taxPercent = _type call INV_GetObjectSteuer;
+	_preis = [_dynamicPrice, _taxPercent] call INV_AddProzent;
 	if (isNil "_preis" || {typeName _preis != "SCALAR"}) then {
 		_preis = _dynamicPrice;
 	};

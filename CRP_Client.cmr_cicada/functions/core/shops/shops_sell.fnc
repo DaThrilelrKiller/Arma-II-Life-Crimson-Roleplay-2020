@@ -1,4 +1,4 @@
-private ["_return","_data","_item","_info","_itemcost","_costwithTax","_amount","_cost","_itemtype","_classname","_array","_fahne","_crate","_logic","_license","_license1","_license2","_invspace","_menge"];
+private ["_return","_data","_item","_info","_itemcost","_costwithTax","_amount","_cost","_itemtype","_classname","_array","_fahne","_crate","_logic","_license","_license1","_license2","_invspace","_menge","_itemIndex"];
 
 if(dtk_shopactive)exitWith {
 	systemchat "Shop script is already running";
@@ -146,6 +146,21 @@ switch(_itemtype)do
 	default 
 	{
 	};
+};
+
+// Update stock when selling (only if item is in shop's buy list)
+// Stock is updated for all successful sales (when money was added)
+_itemIndex = -1;
+if (!isNil "shop_buylist" && {typeName shop_buylist == "ARRAY"}) then {
+	{
+		if (_x == _item) exitWith {
+			_itemIndex = _forEachIndex;
+		};
+	} forEach shop_buylist;
+};
+
+if (_itemIndex >= 0 && {!isNil "shop_object"} && {!isNull shop_object}) then {
+	[shop_object, _itemIndex, _amount] call shops_setStock;
 };
 
 call shops_refresh;
