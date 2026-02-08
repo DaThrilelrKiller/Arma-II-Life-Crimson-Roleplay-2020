@@ -566,7 +566,8 @@ dtk_weapons = [
   ["trashhook",["weapon","rifle"],["trashhook","Trash Hook"],[1000,1000],[1,"",""],[]],
   ["firerake",["weapon","rifle"],["firerake","Fire Rake"],[1200,1200],[1,"",""],[]],
   ["fireshovel",["weapon","rifle"],["fireshovel","Shovel"],[1200,1200],[1,"",""],[]],
-  ["firebroom",["weapon","rifle"],["firebroom","Broom"],[1200,1200],[1,"",""],[]]
+  ["firebroom",["weapon","rifle"],["firebroom","Broom"],[1200,1200],[1,"",""],[]],
+  ["FirefighterWeap2",["weapon","rifle"],["FirefighterWeap2","Attack Line"],[1200,1200],[1,"",""],[]]
 ];
 
 dtk_magazines = [
@@ -774,7 +775,8 @@ dtk_magazines = [
   ["SmokeShellRed",["magazin","equipment"],["SmokeShellRed","Red Smoke Grenade"],[250,250],[0,"",""],[]],
   ["SmokeShellGreen",["magazin","equipment"],["SmokeShellGreen","Tear-Gas"],[2000,2000],[0,"",""],[]],
   ["SmokeShell",["magazin","equipment"],["SmokeShell","Tear Gas Grenade"],[1500,750],[0,""],[]],
-  ["20Rnd_762x51_NATO",["magazin","rifle"],["20Rnd_762x51_NATO","M110 NV Mag"],[800,800],[1,""],[]]
+  ["20Rnd_762x51_NATO",["magazin","rifle"],["20Rnd_762x51_NATO","M110 NV Mag"],[800,800],[1,""],[]],
+  ["FirefighterMag2",["magazin","rifle"],["FirefighterMag2","Water"],[500,500],[1,""],[]]
 ];
 
 

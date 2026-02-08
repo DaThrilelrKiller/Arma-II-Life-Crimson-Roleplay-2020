@@ -1,4 +1,4 @@
-﻿_emptyshop = [];
+_emptyshop = [];
 
 _fs = [
 	"kanister",														
@@ -1833,7 +1833,9 @@ _td4 = [
 	"firerake",
 	"fireshovel",
 	"firebroom",
-	"hbar"
+	"hbar",
+	"FirefighterWeap2",
+	"FirefighterMag2"
 ];
 
 
@@ -1854,7 +1856,9 @@ _td5 = [
 	"firerake",
 	"fireshovel",
 	"firebroom",
-	"hbar"
+	"hbar",
+	"FirefighterWeap2",
+	"FirefighterMag2"
 ];
 
 
